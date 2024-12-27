@@ -156,5 +156,10 @@
 	"tiTips":" Delivery Instructions (50 words or less) ",
 	"input":" Fill in special instructions and requirements ",
 	"submit":" Submit"
+},
+"goods": {
+	"waiting": "Waiting",
+	"unit": "Units",
+	"price": "Price"
 }
 }

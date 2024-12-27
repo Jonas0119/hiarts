@@ -70,13 +70,17 @@ Page({
       }]
     },
     goodsList: [],
-    locale: 'zh-Hant'
+    locale: 'zh-Hant',
+    t: t
   },
 
   onLoad() {
     // 设置默认语言
     const locale = wx.getStorageSync('locale') || 'zh-Hant'
-    this.setData({ locale })
+    this.setData({ 
+      locale,
+      t: (key) => t(key, locale)
+    })
 
     console.log('Banner List:', this.data.bannerList)
 
@@ -204,11 +208,16 @@ Page({
   // 切换语言
   changeLocale() {
     wx.showActionSheet({
-      itemList: ['繁体', 'English'],
+      itemList: ['繁體', 'English'],
       success: (res) => {
         const locale = res.tapIndex === 1 ? 'en' : 'zh-Hant'
-        this.setData({ locale })
+        this.setData({ 
+          locale,
+          t: (key) => t(key, locale)
+        })
         wx.setStorageSync('locale', locale)
+        // 刷新页面数据
+        this.getGoodsList()
       }
     })
   },
@@ -238,6 +247,6 @@ Page({
 
   // 用于模板中使用 t 函数
   t(key) {
-    return t(key)
+    return t(key, this.data.locale)
   }
 })
