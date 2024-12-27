@@ -71,15 +71,45 @@ Page({
     },
     goodsList: [],
     locale: 'zh-Hant',
-    t: t
+    // 国际化文本
+    i18n: {
+      users: '',
+      views: '',
+      exchange: '',
+      hkd: '',
+      goods: '',
+      all: '',
+      gard1: '',
+      gard2: '',
+      gard3: '',
+      gard4: '',
+      gard5: '',
+      wait: '',
+      unit: '',
+      privce: ''
+    }
+  },
+
+  // 更新翻译文本
+  updateI18n() {
+    this.setData({
+      'i18n.users': t('index.memberCount', this.data.locale),
+      'i18n.views': t('index.viewCount', this.data.locale),
+      'i18n.exchange': t('index.exchange', this.data.locale),
+      'i18n.hkd': t('index.hkd', this.data.locale),
+      'i18n.goods': t('index.goods', this.data.locale),
+      'i18n.all': t('index.all', this.data.locale),
+      'i18n.wait': t('goodsList.wait', this.data.locale),
+      'i18n.unit': t('goodsList.unit', this.data.locale),
+      'i18n.privce': t('goodsList.privce', this.data.locale)
+    })
   },
 
   onLoad() {
     // 设置默认语言
     const locale = wx.getStorageSync('locale') || 'zh-Hant'
-    this.setData({ 
-      locale,
-      t: (key) => t(key, locale)
+    this.setData({ locale }, () => {
+      this.updateI18n()
     })
 
     console.log('Banner List:', this.data.bannerList)
@@ -124,6 +154,21 @@ Page({
     })
   },
 
+  // 处理商品图片
+  getImage(item) {
+    let targetImage = ''
+    if(this.data.locale === 'zh-Hant') {
+      targetImage = item.targetImage
+    } else {
+      targetImage = item.targetImageEnglish
+    }
+    if (!targetImage) return ''
+    
+    const array = targetImage.split(',')
+    if(array.length > 0) return array[0]
+    return targetImage
+  },
+
   // 获取商品列表
   getGoodsList() {
     wx.request({
@@ -136,8 +181,12 @@ Page({
       success: (res) => {
         console.log('商品列表:', res.data)
         if (res.data.code === 200) {
+          const goodsList = res.data.data.list.map(item => ({
+            ...item,
+            displayImage: this.getImage(item)
+          }))
           this.setData({
-            goodsList: res.data.data.list
+            goodsList
           })
         }
       },
@@ -211,13 +260,12 @@ Page({
       itemList: ['繁體', 'English'],
       success: (res) => {
         const locale = res.tapIndex === 1 ? 'en' : 'zh-Hant'
-        this.setData({ 
-          locale,
-          t: (key) => t(key, locale)
+        this.setData({ locale }, () => {
+          this.updateI18n()
+          // 刷新商品列表以更新图片
+          this.getGoodsList()
         })
         wx.setStorageSync('locale', locale)
-        // 刷新页面数据
-        this.getGoodsList()
       }
     })
   },

@@ -78,9 +78,11 @@ Component({
 
   methods: {
     init: function (callback) {
-      const { SDKVersion, pixelRatio } = wx.getAppBaseInfo()
+      const version = wx.getAppBaseInfo().SDKVersion
+      const systemInfo = wx.getSystemInfoSync()
+      const pixelRatio = systemInfo.pixelRatio
 
-      const canUseNewCanvas = compareVersion(SDKVersion, '2.9.0') >= 0;
+      const canUseNewCanvas = compareVersion(version, '2.9.0') >= 0;
       const forceUseOldCanvas = this.data.forceUseOldCanvas;
       const isUseNewCanvas = canUseNewCanvas && !forceUseOldCanvas;
       this.setData({ isUseNewCanvas });
@@ -90,11 +92,9 @@ Component({
       }
 
       if (isUseNewCanvas) {
-        // console.log('微信基础库版本大于2.9.0，开始使用<canvas type="2d"/>');
-        // 2.9.0 可以使用 <canvas type="2d"></canvas>
-        this.initByNewWay(callback);
+        this.initByNewWay(callback, pixelRatio);
       } else {
-        const isValid = compareVersion(SDKVersion, '1.9.91') >= 0
+        const isValid = compareVersion(version, '1.9.91') >= 0
         if (!isValid) {
           console.error('微信基础库版本过低，需大于等于 1.9.91。'
             + '参见：https://github.com/ecomfe/echarts-for-weixin'
@@ -140,7 +140,7 @@ Component({
       }).exec();
     },
 
-    initByNewWay(callback) {
+    initByNewWay(callback, pixelRatio) {
       // version >= 2.9.0：使用新的方式初始化
       const query = wx.createSelectorQuery().in(this)
       query

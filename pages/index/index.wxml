@@ -1,11 +1,8 @@
 <view class="container">
   <!-- 自定义顶部导航 -->
-  <view class="index-title">
+  <view class="indexTitle">
     <view class="nav">
-      <view class="logo-container">
-        <image src="/static/images/logo-title.png" class="logo"></image>
-        <text class="subtitle">{{t('index.subtitle')}}</text>
-      </view>
+      <image src="/static/images/logo-title.png" class="logo"></image>
       <text class="locale" bindtap="changeLocale">{{locale === 'zh-Hant' ? '繁體' : 'English'}}</text>
     </view>
   </view>
@@ -22,13 +19,17 @@
     <!-- 数据统计 -->
     <view class="nums">
       <view class="items">
-        <text class="label">{{t('index.memberCount')}}</text>
-        <text class="value">{{users}}</text>
+        <view class="stat-row">
+          <text class="label">{{i18n.users}}</text>
+          <text class="value orange">{{users}}</text>
+        </view>
       </view>
       <view class="block"></view>
       <view class="items">
-        <text class="label">{{t('index.viewCount')}}</text>
-        <text class="value">{{views}}</text>
+        <view class="stat-row">
+          <text class="label">{{i18n.views}}</text>
+          <text class="value orange">{{views}}</text>
+        </view>
       </view>
     </view>
 
@@ -40,20 +41,19 @@
           mode="aspectFit" 
           class="grid-img"
         ></image>
-        <text class="grid-text">{{t('index.dataChannel')}}</text>
       </view>
     </view>
 
     <!-- 汇率展示 -->
     <view class="title">
-      <view class="title-text">{{t('index.exchangeRate')}}</view>
+      <view class="title-text">{{i18n.exchange}}</view>
     </view>
 
     <view class="chart">
       <view class="chart-title">
         <view class="currency-info">
           <image src="/static/images/hk.png" mode="widthFix" class="flag-img"></image>
-          <text class="bold">{{t('index.hkdCny')}}</text>
+          <text class="bold">{{i18n.hkd}}</text>
         </view>
         <text class="num">1HKD={{hkd}}CNY</text>
       </view>
@@ -64,21 +64,21 @@
 
     <!-- 商品列表 -->
     <view class="title">
-      <text class="title-text">{{t('index.recommendedGoods')}}</text>
-      <text bindtap="goToList" class="link">{{t('index.viewAll')}} ></text>
+      <text class="title-text">{{i18n.goods}}</text>
+      <text bindtap="goToList" class="link">{{i18n.all}} ></text>
     </view>
 
     <view class="goods">
       <view class="item" wx:for="{{goodsList}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
-        <image class="image" mode="aspectFill" src="{{item.targetImage}}"></image>
+        <image class="image" mode="aspectFill" src="{{item.displayImage}}"></image>
         <view class="words">
           <text class="t1">{{locale === 'zh-Hant' ? item.targetName : item.targetNameEnglish}}</text>
           <view class="fdr">
-            <text class="t4">{{t('goods.waiting')}}：</text>
-            <text class="t2">{{item.stockNum - item.buyedNum}}{{t('goods.unit')}}</text>
+            <text class="t4">{{i18n.wait}}：</text>
+            <text class="t2">{{item.stockNum - item.buyedNum}}{{i18n.unit}}</text>
           </view>
           <view class="fdr">
-            <text class="t4">{{t('goods.price')}}：</text>
+            <text class="t4">{{i18n.privce}}：</text>
             <text class="t3">HK$ {{item.targetAmount}}</text>
           </view>
         </view>

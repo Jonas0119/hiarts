@@ -7,8 +7,9 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "港艺",
-    "navigationBarTextStyle": "black"
+    "navigationBarTitleText": "港艺平台",
+    "navigationBarTextStyle": "black",
+    "fitStatusBar": true
   },
   "tabBar": {
     "color": "#999999",

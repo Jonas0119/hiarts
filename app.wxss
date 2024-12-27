@@ -14,3 +14,11 @@ page {
   flex-direction: column;
   box-sizing: border-box;
 }
+
+/* app.wxss */
+.custom-navbar {
+  height: var(--status-bar-height); /* 状态栏高度 */
+  padding-top: calc(var(--safe-area-inset-top) * 0.5); /* 刘海区域高度 */
+  background-color: #fff; /* 导航栏背景颜色 */
+}
+
