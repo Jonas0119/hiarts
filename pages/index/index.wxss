@@ -1,0 +1,215 @@
+.container {
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  background: #F8F8F8;
+}
+
+.index-title {
+  background: #F8F9FA;
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  padding: 20rpx 0;
+}
+
+.index-title .nav {
+  width: 100%;
+  position: relative;
+}
+
+.index-title .nav .logo {
+  width: 320rpx;
+  height: 120rpx;
+  margin-left: calc(50% - 160rpx);
+}
+
+.index-title .nav .locale {
+  line-height: 60rpx;
+  position: absolute;
+  bottom: 0;
+  right: 30rpx;
+  font-size: 28rpx;
+  color: #666;
+}
+
+.page-scroll-view {
+  background: #F8F8F8;
+  padding-top: 160rpx;
+  width: 100%;
+}
+
+.banner {
+  width: 100%;
+  height: 390rpx;
+  margin-top: 0;
+}
+
+.banner-image {
+  width: 100%;
+  height: 100%;
+}
+
+.nums {
+  background: #fff;
+  display: flex;
+  margin: -40rpx 20rpx 40rpx;
+  justify-content: space-around;
+  height: 118rpx;
+  align-items: center;
+  padding: 0 40rpx;
+  border-radius: 10rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05);
+}
+
+.nums .label {
+  font-size: 24rpx;
+  color: #333333;
+  margin-right: 10rpx;
+}
+
+.nums .items {
+  font-weight: 500;
+  font-size: 40rpx;
+  color: #EF6E18;
+}
+
+.nums .block {
+  width: 2rpx;
+  height: 34rpx;
+  border-right: 2rpx solid #eee;
+}
+
+.grid {
+  display: flex;
+  justify-content: center;
+  margin: -20rpx 4% 4rpx;
+  flex-wrap: wrap;
+}
+
+.grid .grid-img {
+  margin: 20rpx 4%;
+  width: 110rpx;
+  height: 110rpx;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  flex-direction: row;
+  padding: 20rpx 6%;
+  align-items: center;
+}
+
+.title .bold {
+  font-weight: 600;
+  font-size: 32rpx;
+  color: #333;
+}
+
+.title .link {
+  color: #999;
+  font-size: 24rpx;
+}
+
+.chart {
+  padding: 44rpx 30rpx;
+  background: #fff;
+  margin: 20rpx 6%;
+  border-radius: 10rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05);
+}
+
+.chart .chart-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+
+.chart .chart-title .flag-img {
+  width: 42rpx;
+  margin-bottom: -6rpx;
+  margin-right: 14rpx;
+}
+
+.chart .chart-title .bold {
+  font-size: 26rpx;
+  color: #333;
+}
+
+.chart .chart-title .num {
+  color: #AD2828;
+  font-size: 28rpx;
+}
+
+.chart-container {
+  width: 100%;
+  height: 300rpx;
+}
+
+.goods {
+  margin: 0 6% 20rpx;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.goods .item {
+  width: 49%;
+  margin: 10rpx 0;
+  background-color: #fff;
+  border-radius: 10rpx;
+  overflow: hidden;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05);
+}
+
+.goods .item .words {
+  margin: 8rpx 24rpx 24rpx;
+}
+
+.goods .item .image {
+  width: 100%;
+  height: 440rpx;
+  border-radius: 10rpx 10rpx 0 0;
+  margin-bottom: 0;
+}
+
+.goods .item .t1 {
+  font-weight: 600;
+  font-size: 32rpx;
+  line-height: 40rpx;
+  color: #333;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.goods .item .t2 {
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #333;
+}
+
+.goods .item .t3 {
+  font-size: 30rpx;
+  line-height: 40rpx;
+  color: #AD2828;
+  font-weight: bold;
+}
+
+.goods .item .t4 {
+  font-size: 24rpx;
+  line-height: 40rpx;
+  color: #999;
+}
+
+.fdr {
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  margin-top: 10rpx;
+}

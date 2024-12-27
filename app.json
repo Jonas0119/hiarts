@@ -1,0 +1,41 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/goodList/list",
+    "pages/mine/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "港艺",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#AD2828",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "static/images/index0.png",
+        "selectedIconPath": "static/images/index.png"
+      },
+      {
+        "pagePath": "pages/goodList/list", 
+        "text": "商品",
+        "iconPath": "static/images/goods0.png",
+        "selectedIconPath": "static/images/goods.png"
+      },
+      {
+        "pagePath": "pages/mine/index",
+        "text": "我的",
+        "iconPath": "static/images/user0.png",
+        "selectedIconPath": "static/images/user.png"
+      }
+    ]
+  },
+  "usingComponents": {
+    "ec-canvas": "/components/ec-canvas/ec-canvas"
+  }
+}

@@ -1,0 +1,58 @@
+# 微信小程序的配置文件
+project.config.json
+
+# 本地调试的配置文件
+sitemap.json
+
+# 编译生成的目录
+/dist
+/miniprogram_npm
+
+# 原始项目文件
+/old
+
+# node_modules 目录
+node_modules/
+
+# npm 缓存目录
+.npm
+
+# 打包文件
+*.zip
+
+# macOS 系统生成的垃圾文件
+.DS_Store
+
+# 临时文件和文件夹
+tmp/
+temp/
+*.tmp
+*.temp
+
+# 日志文件
+*.log
+npm-debug.log*
+
+# Editor directories and files
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln.docstates
+
+# Output of 'npm pack'
+*.tgz
+
+
+# dotenv environment variable files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+
+
+
+
+

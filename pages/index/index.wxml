@@ -1,0 +1,86 @@
+<view class="container">
+  <!-- 顶部标题 -->
+  <view class="index-title">
+    <view class="nav">
+      <image src="/static/images/logo-title.png" class="logo"></image>
+      <text class="locale" bindtap="changeLocale">{{locale === 'zh-Hant' ? '繁体/English' : 'Chinese/English'}}</text>
+    </view>
+  </view>
+
+  <!-- 页面内容区 -->
+  <scroll-view class="page-scroll-view">
+    <!-- Banner -->
+    <swiper class="banner" indicator-dots="true" autoplay="true" circular="true">
+      <swiper-item wx:for="{{bannerList}}" wx:key="index">
+        <image src="{{item.image}}" mode="aspectFill" class="banner-image" style="width: 100%; height: 100%;"></image>
+      </swiper-item>
+    </swiper>
+
+    <!-- 数据统计 -->
+    <view class="nums">
+      <view class="items">
+        <text class="label">{{t('index.users')}}</text>
+        <text>{{users}}</text>
+      </view>
+      <view class="block"></view>
+      <view class="items">
+        <text class="label">{{t('index.views')}}</text>
+        <text>{{views}}</text>
+      </view>
+    </view>
+
+    <!-- 功能分类 -->
+    <view class="grid">
+      <image 
+        wx:for="{{5}}" 
+        wx:key="index"
+        src="{{locale === 'zh-Hant' ? '/static/images/gird-icon-' + (index + 1) + '.png' : '/static/images/gird-icon-' + (index + 1) + '-e.png'}}"
+        mode="widthFix" 
+        class="grid-img"
+        data-type="{{index}}"
+        bindtap="goToTypeList"
+      ></image>
+    </view>
+
+    <!-- 汇率展示 -->
+    <view class="title">
+      <view>{{t('index.exchange')}}</view>
+    </view>
+
+    <view class="chart">
+      <view class="chart-title">
+        <view>
+          <image src="/static/images/hk.png" mode="widthFix" class="flag-img"></image>
+          <text class="bold">{{t('index.hkd')}}</text>
+        </view>
+        <text class="num">1HKD={{hkd}}CNY</text>
+      </view>
+      <view class="chart-container">
+        <ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
+      </view>
+    </view>
+
+    <!-- 商品列表 -->
+    <view class="title">
+      <text class="bold">{{t('index.goods')}}</text>
+      <text bindtap="goToList" class="link">{{t('index.all')}} ></text>
+    </view>
+
+    <view class="goods">
+      <view class="item" wx:for="{{goodsList}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
+        <image class="image" mode="aspectFill" src="{{locale === 'zh-Hant' ? item.targetImage.split(',')[0] : item.targetImageEnglish.split(',')[0]}}"></image>
+        <view class="words">
+          <text class="t1">{{locale === 'zh-Hant' ? item.targetName : item.targetNameEnglish}}</text>
+          <view class="fdr">
+            <text class="t4">{{t('goodsList.wait')}}：</text>
+            <text class="t2">{{item.stockNum - item.buyedNum}}{{t('goodsList.unit')}}</text>
+          </view>
+          <view class="fdr">
+            <text class="t4">{{t('goodsList.price')}}：</text>
+            <text class="t3">HK$ {{item.targetAmount}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
