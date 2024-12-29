@@ -1,61 +1,69 @@
-<view class="page">
-  <swiper class="swiper-box" indicator-dots="{{goodsImages.length > 1}}" autoplay="{{false}}" circular="{{true}}">
+<view class="container">
+  <!-- 商品图片轮播 -->
+  <swiper class="goods-swiper" indicator-dots="true" autoplay="true" circular="true">
     <swiper-item wx:for="{{goodsImages}}" wx:key="index">
-      <image class="banner-image" mode="aspectFit" src="{{item}}"></image>
+      <image src="{{item}}" mode="aspectFill" class="goods-image"></image>
     </swiper-item>
   </swiper>
 
-  <view class="container">
-    <text class="t1">{{goodsDetail.targetName}}</text>
-    <view class="fdr">
-      <text class="t4">销售时间：</text>
-      <text class="t2">{{goodsDetail.endTime}}</text>
+  <!-- 商品信息 -->
+  <view class="goods-info">
+    <view class="section">
+      <view class="title">{{t('goodsDetail.saleTime')}}</view>
+      <view class="content">{{goodsDetail.endTime}}</view>
     </view>
-    <view class="fdr">
-      <text class="t4">销售进度：</text>
-      <text class="t2">{{goodsDetail.buyedNum}}/{{goodsDetail.stockNum}}</text>
+
+    <view class="section">
+      <view class="title">{{t('goodsDetail.saleProgress')}}</view>
+      <view class="content">
+        <text>{{goodsDetail.buyedNum}}/{{goodsDetail.stockNum}}</text>
+      </view>
     </view>
-    
-    <view class="price-info">
-      <view class="fdr">
-        <text class="t5">商品价格：</text>
-        <text class="t6">HK$ {{goodsDetail.targetAmount}}</text>
-      </view>
-      <view class="fdr">
-        <text class="t5">数量：</text>
-        <text class="t6">{{goodsDetail.stockNum}}件</text>
-      </view>
+
+    <view class="section">
+      <view class="title">{{t('goodsDetail.goodPrice')}}</view>
+      <view class="content price">¥{{goodsDetail.targetAmount}}</view>
+    </view>
+
+    <view class="section">
+      <view class="title">{{t('goodsDetail.num')}}</view>
+      <view class="content">{{goodsDetail.stockNum}}</view>
     </view>
   </view>
 
+  <!-- 店铺信息 -->
   <view class="shop-info">
-    <image class="shop-image" src="{{goodsDetail.shopImage}}" mode="aspectFill"></image>
-    <view class="shop-name">
-      <text>{{goodsDetail.merchantName}}</text>
-      <text class="shop-descrip">商家信息</text>
+    <view class="title">{{t('goodsDetail.shopinfor')}}</view>
+    <view class="shop-content">
+      <image src="{{goodsDetail.shopImage}}" mode="aspectFit" class="shop-logo"></image>
+      <text class="shop-name">{{goodsDetail.shopName}}</text>
     </view>
   </view>
 
-  <view class="container content-section">
-    <text class="title">商品简介</text>
-    <rich-text nodes="{{goodsDetail.targetDescBrief}}"></rich-text>
-
-    <view class="tips">
-      <view class="t8">----- 购买须知 -----</view>
-      <text class="t5">{{tips}}</text>
-    </view>
+  <!-- 商品简介 -->
+  <view class="goods-desc">
+    <view class="title">{{t('goodsDetail.shotContent')}}</view>
+    <view class="content">{{goodsDetail.targetContent}}</view>
   </view>
 
-  <view class="container content-section">
-    <text class="title">商品详情</text>
+  <!-- 购买须知 -->
+  <view class="buy-notice">
+    <view class="title">{{t('goodsDetail.tips')}}</view>
+    <view class="content">{{tips}}</view>
+  </view>
+
+  <!-- 商品详情 -->
+  <view class="goods-detail">
+    <view class="title">{{t('goodsDetail.description')}}</view>
     <rich-text nodes="{{goodsDetail.targetDesc}}"></rich-text>
   </view>
 
-  <view class="fixed-bottom">
-    <view class="fdr num-input" wx:if="{{remainNum > 0}}">
-      <text class="title">购买数量</text>
-      <input class="input" type="number" value="{{buyNum}}" bindinput="onNumChange" placeholder="请输入数量" />
+  <!-- 底部购买栏 -->
+  <view class="buy-bar">
+    <view class="buy-num">
+      <text class="label">{{t('goodsDetail.buyNum')}}</text>
+      <input type="number" value="{{buyNum}}" bindinput="onNumChange" />
     </view>
-    <button class="buy-btn" bindtap="onBuyTap" wx:if="{{goodsDetail.state === 'ready' || goodsDetail.state === 'buying'}}">立即购买</button>
+    <button class="buy-btn" bindtap="onBuyTap">{{t('goodsDetail.buy')}}</button>
   </view>
 </view> 

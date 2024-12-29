@@ -16,12 +16,28 @@ Page({
   },
 
   onLoad: function(options) {
+    // 检查登录状态
+    if (!app.checkLogin()) {
+      return
+    }
+    
     if (options.id && options.number) {
       this.setData({
         id: options.id,
         buyNum: parseInt(options.number)
       })
       this.loadGoodsDetail()
+      this.loadAddressList()
+    }
+  },
+
+  onShow: function() {
+    // 检查登录状态
+    if (!app.checkLogin()) {
+      return
+    }
+    // 如果已经加载过商品详情，则重新加载地址列表
+    if (this.data.id) {
       this.loadAddressList()
     }
   },
@@ -37,22 +53,29 @@ Page({
       data: {
         id: this.data.id
       },
-      header:{'content-type' : "application/x-www-form-urlencoded"},
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'Authorization': `Bearer ${wx.getStorageSync('token')}`
+      },
       success: (res) => {
-        if (res.data.code === 200) {
-          const detail = res.data.data
-          const images = detail.targetImage.split(',')
-          
-          this.setData({
-            goodsDetail: detail,
-            goodsImages: images[0],
-            totalAmount: (detail.targetAmount * this.data.buyNum).toFixed(2)
-          })
-        } else {
-          wx.showToast({
-            title: res.data.msg,
-            icon: 'none'
-          })
+        if (app.handleApiResponse(res, (response) => {
+          if (response.data.code === 200) {
+            const detail = response.data.data
+            const images = detail.targetImage.split(',')
+            
+            this.setData({
+              goodsDetail: detail,
+              goodsImages: images[0],
+              totalAmount: (detail.targetAmount * this.data.buyNum).toFixed(2)
+            })
+          } else {
+            wx.showToast({
+              title: response.data.msg,
+              icon: 'none'
+            })
+          }
+        })) {
+          // API响应处理成功
         }
       },
       complete: () => {
@@ -69,10 +92,14 @@ Page({
         'Authorization': `Bearer ${wx.getStorageSync('token')}`
       },
       success: (res) => {
-        if (res.data.code === 200) {
-          this.setData({
-            addressList: res.data.rows
-          })
+        if (app.handleApiResponse(res, (response) => {
+          if (response.data.code === 200) {
+            this.setData({
+              addressList: response.data.rows
+            })
+          }
+        })) {
+          // API响应处理成功
         }
       }
     })
@@ -131,16 +158,20 @@ Page({
         'Authorization': `Bearer ${wx.getStorageSync('token')}`
       },
       success: (res) => {
-        if (res.data.code === 200 && res.data.data.length > 0) {
-          // 跳转到支付页面
-          wx.navigateTo({
-            url: `/pages/goods/payIndex?payUrl=${res.data.data}`
-          })
-        } else {
-          wx.showToast({
-            title: res.data.msg,
-            icon: 'none'
-          })
+        if (app.handleApiResponse(res, (response) => {
+          if (response.data.code === 200 && response.data.data.length > 0) {
+            // 跳转到支付页面
+            wx.navigateTo({
+              url: `/pages/goods/payIndex?payUrl=${response.data.data}`
+            })
+          } else {
+            wx.showToast({
+              title: response.data.msg,
+              icon: 'none'
+            })
+          }
+        })) {
+          // API响应处理成功
         }
       },
       complete: () => {

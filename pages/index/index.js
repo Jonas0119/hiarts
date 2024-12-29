@@ -6,24 +6,31 @@ const app = getApp()
 Page({
   data: {
     bannerList: [
-      { image: '/static/images/banner.png' },
-      { image: '/static/images/banner.png' },
-      { image: '/static/images/banner.png' }
+      {
+        image: '/static/images/banner.png'
+      },
+      {
+        image: '/static/images/banner.png'
+      },
+      {
+        image: '/static/images/banner.png'
+      }
     ],
-    users: '--',
-    views: '--',
-    exchangeRate: '',
-    hkd: 0.9105,
-    showChart: false,
+    users: 0,
+    views: 0,
+    hkd: 0,
+    locale: 'zh-Hant',
+    goodsList: [],
     ec: {
       lazyLoad: true
     },
     chartOption: {
       grid: {
-        left: '50px',
-        right: '10px',
-        bottom: '40px',
-        top: '20px',
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        top: '3%',
+        containLabel: true
       },
       xAxis: {
         type: 'category',
@@ -33,90 +40,77 @@ Page({
         axisTick: { show: false },
         axisLabel: {
           interval: 0,
-          rotate: 40
+          rotate: 40,
+          color: '#666',
+          fontSize: 10
         }
       },
       yAxis: {
         type: 'value',
-        splitLine: { show: false },
-        min: 0.900,
-      },
-      series: [{
-        data: [],
-        type: 'line',
-        lineStyle: {
-          color: '#a80000'
+        splitLine:{ show:false },
+        min:0.900,  
+        axisLine: {
+          lineStyle: {
+            color: '#999'
+          }
         },
-        itemStyle: {
-          color: "#a80000"
+        axisLabel: {
+          color: '#666',
+          fontSize: 10
         },
-        areaStyle: {
-          color: {
-            type: 'linear',
-            x: 0,
-            y: 0,
-            x2: 0,
-            y2: 1,
-            colorStops: [{
-              offset: 0,
-              color: 'rgba(173,40,40, 0.5)'
-            }, {
-              offset: 1,
-              color: 'rgba(211,171,171, 0)'
-            }],
-            global: false
+        splitLine: {
+          lineStyle: {
+            color: '#eee'
           }
         }
+      },
+      series: [{
+        type: 'line',
+        smooth: true,
+        data: [],
+        symbol: 'none',
+        itemStyle: {
+          color: '#FF6B00'
+        },
+        lineStyle: {
+          color: '#FF6B00',
+          width: 2
+        },
+        areaStyle: {
+          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+            offset: 0,
+            color: 'rgba(255, 107, 0, 0.3)'
+          }, {
+            offset: 1,
+            color: 'rgba(255, 107, 0, 0)'
+          }])
+        }
       }]
-    },
-    goodsList: [],
-    locale: 'zh-Hant',
-    // 国际化文本
-    i18n: {
-      users: '',
-      views: '',
-      exchange: '',
-      hkd: '',
-      goods: '',
-      all: '',
-      gard1: '',
-      gard2: '',
-      gard3: '',
-      gard4: '',
-      gard5: '',
-      wait: '',
-      unit: '',
-      privce: ''
     }
-  },
-
-  // 更新翻译文本
-  updateI18n() {
-    this.setData({
-      'i18n.users': t('index.memberCount', this.data.locale),
-      'i18n.views': t('index.viewCount', this.data.locale),
-      'i18n.exchange': t('index.exchange', this.data.locale),
-      'i18n.hkd': t('index.hkd', this.data.locale),
-      'i18n.goods': t('index.goods', this.data.locale),
-      'i18n.all': t('index.all', this.data.locale),
-      'i18n.wait': t('goodsList.wait', this.data.locale),
-      'i18n.unit': t('goodsList.unit', this.data.locale),
-      'i18n.privce': t('goodsList.privce', this.data.locale)
-    })
   },
 
   onLoad() {
     // 设置默认语言
     const locale = wx.getStorageSync('locale') || 'zh-Hant'
-    this.setData({ locale }, () => {
-      this.updateI18n()
-    })
-
-    console.log('Banner List:', this.data.bannerList)
+    this.setData({ locale })
 
     this.getExchangeRate()
     this.getGoodsList()
     this.getStats()
+  },
+
+  // 切换语言
+  changeLocale() {
+    wx.showActionSheet({
+      itemList: ['繁體', 'English'],
+      success: (res) => {
+        const locale = res.tapIndex === 1 ? 'en' : 'zh-Hant'
+        this.setData({ locale })
+        wx.setStorageSync('locale', locale)
+        // 刷新商品列表以更新图片
+        this.getGoodsList()
+      }
+    })
   },
 
   // 获取汇率
@@ -125,31 +119,92 @@ Page({
       url: 'https://gw.antan-tech.com/api/data-platform/bigBaseMale/getForeignExchange',
       method: 'GET',
       success: (res) => {
-        console.log('汇率数据:', res.data)
         if (res.data.code === 200) {
           const hkdData = res.data.data.filter(item => item.code === 'hkd')
           if (hkdData.length > 0) {
             this.setData({
               hkd: hkdData[hkdData.length - 1].rtPreClose
             })
+            
+            // 更新图表数据
             const xAxisData = []
             const seriesData = []
             hkdData.forEach(item => {
               xAxisData.push(item.tradeDate.substring(5, 10))
               seriesData.push(item.rtPreClose)
             })
+            
+            const newOption = {
+              ...this.data.chartOption,
+              xAxis: {
+                ...this.data.chartOption.xAxis,
+                data: xAxisData
+              },
+              series: [{
+                ...this.data.chartOption.series[0],
+                data: seriesData
+              }]
+            }
+            
             this.setData({
-              'chartOption.xAxis.data': xAxisData,
-              'chartOption.series[0].data': seriesData,
-              showChart: true
+              chartOption: newOption
             }, () => {
               this.initChart()
             })
           }
         }
+      }
+    })
+  },
+
+  // 获取商品列表
+  getGoodsList() {
+    wx.request({
+      url: 'https://gw.antan-tech.com/api/tjfae-space/GoodsApi/goodsList',
+      method: 'POST',
+      data: {
+        pageNum: 1,
+        pageSize: 4
       },
-      fail: (err) => {
-        console.error('获取汇率失败:', err)
+      success: (res) => {
+        if (res.data.code === 200) {
+          const goodsList = res.data.data.list.slice(0,4).map(item => ({
+            ...item,
+            displayImage: this.getImage(item)
+          }))
+          this.setData({
+            goodsList
+          })
+        }
+      }
+    })
+  },
+
+  // 获取统计数据
+  getStats() {
+    // 访问量
+    wx.request({
+      url: 'https://gw.antan-tech.com/api/data-platform/dataCount/subjectCount?subjectCode=hjs',
+      method: 'GET',
+      success: (res) => {
+        if (res.data.code === 200 && res.data.data.list.length > 0) {
+          this.setData({
+            views: res.data.data.list[0].count
+          })
+        }
+      }
+    })
+
+    // 用户数
+    wx.request({
+      url: 'https://gw.antan-tech.com/api/data-platform/dataCount/userSubjectCount?subjectCode=hjs',
+      method: 'GET',
+      success: (res) => {
+        if (res.data.code === 200 && res.data.data.list.length > 0) {
+          this.setData({
+            users: res.data.data.list[0].count
+          })
+        }
       }
     })
   },
@@ -169,111 +224,9 @@ Page({
     return targetImage
   },
 
-  // 获取商品列表
-  getGoodsList() {
-    wx.request({
-      url: 'https://gw.antan-tech.com/api/tjfae-space/GoodsApi/goodsList',
-      method: 'POST',
-      data: {
-        pageNum: 1,
-        pageSize: 4
-      },
-      success: (res) => {
-        console.log('商品列表:', res.data)
-        if (res.data.code === 200) {
-          const goodsList = res.data.data.list.map(item => ({
-            ...item,
-            displayImage: this.getImage(item)
-          }))
-          this.setData({
-            goodsList
-          })
-        }
-      },
-      fail: (err) => {
-        console.error('获取商品列表失败:', err)
-      }
-    })
-  },
-
-  // 获取统计数据
-  getStats() {
-    // 访问量
-    wx.request({
-      url: 'https://gw.antan-tech.com/api/data-platform/dataCount/subjectCount?subjectCode=hjs',
-      method: 'GET',
-      success: (res) => {
-        console.log('访问量:', res.data)
-        if (res.data.code === 200 && res.data.data.list.length > 0) {
-          this.setData({
-            views: res.data.data.list[0].count
-          })
-        }
-      },
-      fail: (err) => {
-        console.error('获取访问量失败:', err)
-      }
-    })
-
-    // 用户数
-    wx.request({
-      url: 'https://gw.antan-tech.com/api/data-platform/dataCount/userSubjectCount?subjectCode=hjs',
-      method: 'GET',
-      success: (res) => {
-        console.log('用户数:', res.data)
-        if (res.data.code === 200 && res.data.data.list.length > 0) {
-          this.setData({
-            users: res.data.data.list[0].count
-          })
-        }
-      },
-      fail: (err) => {
-        console.error('获取用户数失败:', err)
-      }
-    })
-  },
-
-  // 初始化图表
-  initChart() {
-    if (!this.ecComponent) {
-      this.ecComponent = this.selectComponent('#mychart-dom-line')
-    }
-    
-    if (this.ecComponent) {
-      this.ecComponent.init((canvas, width, height, dpr) => {
-        const chart = echarts.init(canvas, null, {
-          width: width,
-          height: height,
-          devicePixelRatio: dpr
-        })
-        chart.setOption(this.data.chartOption)
-        return chart
-      })
-    } else {
-      console.error('找不到图表组件')
-    }
-  },
-
-  // 切换语言
-  changeLocale() {
-    wx.showActionSheet({
-      itemList: ['繁體', 'English'],
-      success: (res) => {
-        const locale = res.tapIndex === 1 ? 'en' : 'zh-Hant'
-        this.setData({ locale }, () => {
-          this.updateI18n()
-          // 刷新商品列表以更新图片
-          this.getGoodsList()
-        })
-        wx.setStorageSync('locale', locale)
-      }
-    })
-  },
-
   // 跳转到商品详情
   goToDetail(e) {
     const id = e.currentTarget.dataset.id
-    console.log('from home，商品ID:', id)
     wx.navigateTo({
       url: `/pages/goods/detail?id=${id}`
     })
@@ -289,14 +242,27 @@ Page({
   // 跳转到分类商品列表
   goToTypeList(e) {
     const type = e.currentTarget.dataset.type
-    console.log('分类商品列表:', type)
     wx.navigateTo({
       url: `/pages/goods/typeList?targetType=${type}`
     })
   },
-
-  // 用于模板中使用 t 函数
-  t(key) {
-    return t(key, this.data.locale)
+  // 初始化图表
+  initChart() {
+    if (!this.ecComponent) {
+      this.ecComponent = this.selectComponent('#mychart-dom-line')
+    }
+    
+    if (this.ecComponent) {
+      this.ecComponent.init((canvas, width, height, dpr) => {
+        const chart = echarts.init(canvas, null, {
+          width: width,
+          height: height,
+          devicePixelRatio: dpr
+        })
+        chart.setOption(this.data.chartOption)
+        this.chart = chart
+        return chart
+      })
+    }
   }
 })

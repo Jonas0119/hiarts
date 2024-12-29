@@ -1,3 +1,5 @@
+<wxs module="i18n" src="../../utils/i18n.wxs"></wxs>
+
 <view class="container">
   <!-- 自定义顶部导航 -->
   <view class="indexTitle">
@@ -20,14 +22,14 @@
     <view class="nums">
       <view class="items">
         <view class="stat-row">
-          <text class="label">{{i18n.users}}</text>
+          <text class="label">{{i18n.t('index.users', locale)}}</text>
           <text class="value orange">{{users}}</text>
         </view>
       </view>
       <view class="block"></view>
       <view class="items">
         <view class="stat-row">
-          <text class="label">{{i18n.views}}</text>
+          <text class="label">{{i18n.t('index.views', locale)}}</text>
           <text class="value orange">{{views}}</text>
         </view>
       </view>
@@ -46,26 +48,26 @@
 
     <!-- 汇率展示 -->
     <view class="title">
-      <view class="title-text">{{i18n.exchange}}</view>
+      <view class="title-text">{{i18n.t('index.exchange', locale)}}</view>
     </view>
 
     <view class="chart">
       <view class="chart-title">
         <view class="currency-info">
           <image src="/static/images/hk.png" mode="widthFix" class="flag-img"></image>
-          <text class="bold">{{i18n.hkd}}</text>
+          <text class="bold">{{i18n.t('index.hkd', locale)}}</text>
         </view>
         <text class="num">1HKD={{hkd}}CNY</text>
       </view>
+    </view>
       <view class="chart-container">
         <ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
       </view>
-    </view>
 
     <!-- 商品列表 -->
     <view class="title">
-      <text class="title-text">{{i18n.goods}}</text>
-      <text bindtap="goToList" class="link">{{i18n.all}} ></text>
+      <text class="title-text">{{i18n.t('index.goods', locale)}}</text>
+      <text bindtap="goToList" class="link">{{i18n.t('index.all', locale)}} ></text>
     </view>
 
     <view class="goods">
@@ -74,11 +76,11 @@
         <view class="words">
           <text class="t1">{{locale === 'zh-Hant' ? item.targetName : item.targetNameEnglish}}</text>
           <view class="fdr">
-            <text class="t4">{{i18n.wait}}：</text>
-            <text class="t2">{{item.stockNum - item.buyedNum}}{{i18n.unit}}</text>
+            <text class="t4">{{i18n.t('goodsList.wait', locale)}}：</text>
+            <text class="t2">{{item.stockNum - item.buyedNum}}{{i18n.t('goodsList.unit', locale)}}</text>
           </view>
           <view class="fdr">
-            <text class="t4">{{i18n.privce}}：</text>
+            <text class="t4">{{i18n.t('goodsList.privce', locale)}}：</text>
             <text class="t3">HK$ {{item.targetAmount}}</text>
           </view>
         </view>

@@ -1,4 +1,5 @@
 const app = getApp()
+import { t } from '../../utils/i18n'
 
 Page({
   data: {
@@ -7,7 +8,8 @@ Page({
     goodsImages: [],
     remainNum: 1,
     buyNum: 1,
-    tips: '欢迎您参与购买本产品，为了让您充分了解产品内容，特提供本《购买须知》。若您选择参与本产品购买，则视为您已仔细阅读本《购买须知》并自愿承担购买本数据资产所带来的风险。在您购买本中心产品时需提前知悉，本平台所发售的数据资产产品是以区块链技术将相关产品、权益等资产上链标记，以确认您对该产品的权益。'
+    tips: t('goodsDetail.tipsWord'),
+    t: t
   },
 
   onLoad: function(options) {
@@ -22,7 +24,7 @@ Page({
 
   loadGoodsDetail: function() {
     wx.showLoading({
-      title: '加载中...'
+      title: t('common.loading')
     })
 
     wx.request({
@@ -31,7 +33,10 @@ Page({
       data: {
         id: this.data.id
       },
-      header:{'content-type' : "application/x-www-form-urlencoded"},
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'Authorization': `Bearer ${wx.getStorageSync('token')}`
+      },
       timeout: 6000,
       sslVerify: false,
       withCredentials: false,
@@ -39,33 +44,37 @@ Page({
       success: (res) => {
         console.log('商品id:', this.data.id)
         console.log('商品详情:', res.data)
-        if (res.data.code === 200) {
-          const detail = res.data.data
-          // 处理商品图片
-          const images = detail.targetImage.split(',')
-          
-          // 处理店铺图片
-          let shopImage = ''
-          try {
-            const shopImages = JSON.parse(detail.shopImage)[0]
-            shopImage = shopImages.url
-          } catch(e) {
-            shopImage = detail.shopImage
-          }
+        if (app.handleApiResponse(res, (response) => {
+          if (response.data.code === 200) {
+            const detail = response.data.data
+            // 处理商品图片
+            const images = detail.targetImage.split(',')
+            
+            // 处理店铺图片
+            let shopImage = ''
+            try {
+              const shopImages = JSON.parse(detail.shopImage)[0]
+              shopImage = shopImages.url
+            } catch(e) {
+              shopImage = detail.shopImage
+            }
 
-          this.setData({
-            goodsDetail: {
-              ...detail,
-              shopImage
-            },
-            goodsImages: images,
-            remainNum: detail.stockNum - detail.buyedNum
-          })
-        } else {
-          wx.showToast({
-            title: res.data.msg,
-            icon: 'none'
-          })
+            this.setData({
+              goodsDetail: {
+                ...detail,
+                shopImage
+              },
+              goodsImages: images,
+              remainNum: detail.stockNum - detail.buyedNum
+            })
+          } else {
+            wx.showToast({
+              title: response.data.msg,
+              icon: 'none'
+            })
+          }
+        })) {
+          // API响应处理成功
         }
       },
       complete: () => {
@@ -83,10 +92,16 @@ Page({
 
   onBuyTap: function() {
     const { buyNum, remainNum } = this.data
+    
+    // 检查登录状态
+    const app = getApp()
+    if (!app.checkLogin()) {
+      return
+    }
 
     if (buyNum <= 0) {
       wx.showToast({
-        title: '请输入购买数量',
+        title: t('common.tipNum'),
         icon: 'none'
       })
       return
@@ -94,7 +109,7 @@ Page({
 
     if (buyNum > remainNum) {
       wx.showToast({
-        title: '购买数量不能大于剩余数量',
+        title: t('common.tipTopNum'),
         icon: 'none'
       })
       return

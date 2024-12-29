@@ -13,13 +13,21 @@ Page({
     countdown: 120,
     inviterPhone: '',
     subjectCode: '78f107a3ea754d78a6721352771aeabc', // 正式环境
-    t: t
+    t: t,
+    redirect: '' // 添加重定向地址
   },
 
   onLoad: function(options) {
+    console.log("options is:"+options)
+    console.log("t.login is:"+t('login.login'))
     if (options.invatePhone) {
       this.setData({
         inviterPhone: options.invatePhone
+      })
+    }
+    if (options.redirect) {
+      this.setData({
+        redirect: decodeURIComponent(options.redirect)
       })
     }
   },
@@ -182,9 +190,16 @@ Page({
           wx.setStorageSync('headImg', content.headImg)
           wx.setStorageSync('name', content.name)
 
-          wx.reLaunch({
-            url: '/pages/index/index'
-          })
+          console.log("重定向地址为："+this.data.redirect)
+          if (this.data.redirect) {
+            wx.redirectTo({
+              url: '/' + this.data.redirect
+            })
+          } else {
+            wx.reLaunch({
+              url: '/pages/index/index'
+            })
+          }
         } else {
           wx.showToast({
             title: res.data.message,

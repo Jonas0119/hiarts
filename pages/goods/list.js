@@ -75,10 +75,13 @@ Page({
       },
       success: (res) => {
         if (res.data.code === 200) {
-          const list = res.data.data.list
+          const goodsList = res.data.data.list.map(item => ({
+            ...item,
+            targetImage: this.getImage(item)
+          }))
           this.setData({
-            goodsList: [...this.data.goodsList, ...list],
-            hasMore: list.length === this.data.pageSize
+            goodsList,
+            hasMore: goodsList.length === this.data.pageSize
           })
         } else {
           wx.showToast({
@@ -106,5 +109,22 @@ Page({
     wx.navigateTo({
       url: `/pages/goods/detail?id=${id}`
     })
+  },
+  // 处理商品图片
+  getImage(item) {
+    let targetImage = ''
+    if(this.data.locale === 'zh-Hant') {
+      targetImage = item.targetImage
+    } else {
+      targetImage = item.targetImageEnglish
+    }
+    if (!targetImage) return ''
+    
+    const array = targetImage.split(',')
+    if(array.length > 0) {
+      targetImage = array[0]
+    }
+    console.log("targetImage  is:" + targetImage)
+    return targetImage
   }
 }) 

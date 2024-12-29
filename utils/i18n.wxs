@@ -1,0 +1,49 @@
+var translations = {
+  'en': {
+    "index": {
+      "users": "users",
+      "views": "views",
+      "exchange": "Exchange Rate",
+      "hkd": "HKD/CNY",
+      "goods": "Goods",
+      "all": "All"
+    },
+    "goodsList": {
+      "privce": "Unit price",
+      "unit": "unit",
+      "wait": "for sale"
+    }
+  },
+  'zh-Hant': {
+    "index": {
+      "users": "會員數(人)",
+      "views": "瀏覽量(次)",
+      "exchange": "實時匯率",
+      "hkd": "港幣/人民幣",
+      "goods": "推薦商品",
+      "all": "全部"
+    },
+    "goodsList": {
+      "privce": "單價",
+      "unit": "份",
+      "wait": "待售"
+    }
+  }
+}
+
+function t(key, locale) {
+  var currentLocale = locale || 'zh-Hant'
+  var keys = key.split('.')
+  var value = translations[currentLocale]
+  
+  for (var i = 0; i < keys.length; i++) {
+    if (!value) break
+    value = value[keys[i]]
+  }
+  
+  return value || key
+}
+
+module.exports = {
+  t: t
+} 
