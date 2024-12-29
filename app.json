@@ -1,15 +1,24 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/goodList/list",
-    "pages/mine/index"
+    "pages/goods/list",
+    "pages/goods/detail",
+    "pages/goods/typeList",
+    "pages/goods/pay",
+    "pages/goods/payIndex",
+    "pages/mine/index",
+    "pages/mine/orderList",
+    "pages/mine/orderDetail",
+    "pages/mine/addressList",
+    "pages/mine/mineInvite",
+    "pages/mine/settings",
+    "pages/login/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "港艺平台",
-    "navigationBarTextStyle": "black",
-    "fitStatusBar": true
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "color": "#999999",
@@ -23,7 +32,7 @@
         "selectedIconPath": "static/images/index.png"
       },
       {
-        "pagePath": "pages/goodList/list", 
+        "pagePath": "pages/goods/list", 
         "text": "商品",
         "iconPath": "static/images/goods0.png",
         "selectedIconPath": "static/images/goods.png"

@@ -1,0 +1,21 @@
+<view class="address-form">
+  <view class="form-item">
+    <text class="label">{{t('mine.receiveName')}}</text>
+    <input class="input" type="text" value="{{form.receiveName}}" bindinput="onInput" data-field="receiveName" placeholder="{{t('mine.inputName')}}" />
+  </view>
+
+  <view class="form-item">
+    <text class="label">{{t('mine.receivePhone')}}</text>
+    <input class="input" type="number" value="{{form.receiveMobile}}" bindinput="onInput" data-field="receiveMobile" placeholder="{{t('mine.inputPhone')}}" />
+  </view>
+
+  <view class="form-item">
+    <text class="label">{{t('mine.receiveAddress')}}</text>
+    <textarea class="textarea" value="{{form.address}}" bindinput="onInput" data-field="address" placeholder="{{t('mine.inputAddress')}}" />
+  </view>
+
+  <view class="btn-group">
+    <button class="save-btn" bindtap="saveAddress">{{t('mine.save')}}</button>
+    <button class="delete-btn" bindtap="deleteAddress" wx:if="{{form.id}}">{{t('mine.delete')}}</button>
+  </view>
+</view> 

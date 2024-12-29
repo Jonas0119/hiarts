@@ -1,0 +1,39 @@
+<view class="login">
+  <image class="logo" mode="widthFix" src="/static/images/logo-title.png"></image>
+  
+  <view class="input-group">
+    <view class="input-item">
+      <input 
+        type="number" 
+        maxlength="11" 
+        placeholder="{{t('login.phone')}}" 
+        value="{{phone}}" 
+        bindinput="onPhoneInput"
+      />
+    </view>
+    
+    <view class="input-item code">
+      <input 
+        type="number" 
+        maxlength="6" 
+        placeholder="{{t('login.code')}}" 
+        value="{{code}}" 
+        bindinput="onCodeInput"
+      />
+      <text class="send-code {{counting ? 'disabled' : ''}}" bindtap="sendCode">{{sendCodeText}}</text>
+    </view>
+  </view>
+
+  <button class="login-btn" loading="{{loading}}" bindtap="login">{{t('login.login')}}</button>
+
+  <view class="agreement">
+    <checkbox-group bindchange="onCheckboxChange">
+      <checkbox value="agree" checked="{{agreed}}" color="#AD2828">
+        <text class="agree-text">{{t('login.agree')}}</text>
+        <text class="link" bindtap="goToUserAgreement">《{{t('login.user')}}》</text>
+        <text class="agree-text">{{t('login.and')}}</text>
+        <text class="link" bindtap="goToPrivacy">《{{t('login.privace')}}》</text>
+      </checkbox>
+    </checkbox-group>
+  </view>
+</view> 

@@ -1,0 +1,62 @@
+.address-form {
+  min-height: 100vh;
+  background: #f5f5f5;
+  padding: 20rpx;
+}
+
+.form-item {
+  background: #fff;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  border-radius: 10rpx;
+}
+
+.label {
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 20rpx;
+  display: block;
+}
+
+.input {
+  width: 100%;
+  height: 80rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.textarea {
+  width: 100%;
+  height: 160rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.btn-group {
+  margin-top: 60rpx;
+  padding: 0 30rpx;
+}
+
+.save-btn {
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  background: #AD2828;
+  color: #fff;
+  font-size: 32rpx;
+  border-radius: 40rpx;
+  margin-bottom: 30rpx;
+}
+
+.delete-btn {
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  background: #fff;
+  color: #AD2828;
+  font-size: 32rpx;
+  border-radius: 40rpx;
+  border: 1rpx solid #AD2828;
+} 

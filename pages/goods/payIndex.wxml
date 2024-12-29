@@ -1,0 +1,3 @@
+<view class="content">
+  <web-view src="{{payUrl}}" bindload="onWebViewLoad" bindmessage="handleMessage"></web-view>
+</view> 

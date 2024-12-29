@@ -1,0 +1,34 @@
+<view class="about">
+  <view class="logo">
+    <image src="/static/images/logo.png"></image>
+    <text class="name">{{t('app.name')}}</text>
+    <text class="version">v{{version}}</text>
+  </view>
+
+  <view class="content">
+    <view class="section">
+      <view class="title">{{t('about.intro')}}</view>
+      <text class="text">{{t('about.introContent')}}</text>
+    </view>
+
+    <view class="section">
+      <view class="title">{{t('about.contact')}}</view>
+      <view class="info-item">
+        <text class="label">{{t('about.phone')}}</text>
+        <text class="value" bindtap="makeCall">{{contact.phone}}</text>
+      </view>
+      <view class="info-item">
+        <text class="label">{{t('about.email')}}</text>
+        <text class="value" bindtap="copyEmail">{{contact.email}}</text>
+      </view>
+      <view class="info-item">
+        <text class="label">{{t('about.address')}}</text>
+        <text class="value">{{contact.address}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="copyright">
+    <text>{{t('about.copyright')}}</text>
+  </view>
+</view> 

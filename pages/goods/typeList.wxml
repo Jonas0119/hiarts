@@ -1,0 +1,18 @@
+<view class="page">
+  <view class="goods-list">
+    <view class="content-item" wx:for="{{goodsList}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
+      <image class="image" mode="aspectFill" src="{{item.targetImage}}"></image>
+      <view class="words">
+        <text class="t1">{{item.targetName}}</text>
+        <view class="fdr">
+          <text class="t4">{{t('goodsList.wait')}}：</text>
+          <text class="t2">{{item.stockNum}}{{t('goodsList.unit')}}</text>
+        </view>
+        <view class="fdr">
+          <text class="t4">{{t('goodsList.privce')}}：</text>
+          <text class="t3">HK$ {{item.targetAmount}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view> 

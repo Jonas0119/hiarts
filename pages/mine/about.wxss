@@ -1,0 +1,78 @@
+.about {
+  min-height: 100vh;
+  background: #fff;
+  padding: 60rpx 30rpx;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 60rpx;
+}
+
+.logo image {
+  width: 160rpx;
+  height: 160rpx;
+  margin-bottom: 20rpx;
+}
+
+.name {
+  font-size: 36rpx;
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 10rpx;
+}
+
+.version {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.content {
+  margin-bottom: 60rpx;
+}
+
+.section {
+  margin-bottom: 40rpx;
+}
+
+.title {
+  font-size: 32rpx;
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 20rpx;
+}
+
+.text {
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1.6;
+}
+
+.info-item {
+  display: flex;
+  margin-bottom: 20rpx;
+}
+
+.label {
+  width: 140rpx;
+  font-size: 28rpx;
+  color: #666;
+}
+
+.value {
+  flex: 1;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.value[bindtap] {
+  color: #AD2828;
+}
+
+.copyright {
+  text-align: center;
+  font-size: 24rpx;
+  color: #999;
+} 

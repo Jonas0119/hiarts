@@ -1,0 +1,54 @@
+<view class="order">
+  <view class="goods-info">
+    <image class="image" mode="heightFix" src="{{goodsImages}}"></image>
+    <view class="words">
+      <view class="fdr">
+        <text class="t1">{{goodsDetail.targetName}}</text>
+        <text class="t2">HK$ {{goodsDetail.targetAmount}}</text>
+      </view>
+      <view class="fdr">
+        <text class="t1"></text>
+        <text class="t3">{{t('goodsDetail.buyNum')}}：{{buyNum}}{{t('goodsList.unit')}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="price-info">
+    <view class="fdr">
+      <text class="t4">{{t('order.pay')}}：</text>
+      <text class="t5">HK$ {{totalAmount}}</text>
+    </view>
+  </view>
+
+  <view class="address-section">
+    <view class="section-title">{{t('order.getAddress')}}</view>
+    <view class="address-picker" bindtap="showAddressPicker">
+      <view class="t6">{{t('order.choseAdd')}}</view>
+      <view class="address-info" wx:if="{{selectedAddress}}">
+        <view class="t1">{{selectedAddress.address}}</view>
+        <view class="t3">{{selectedAddress.receiveName}} {{selectedAddress.receiveMobile}}</view>
+      </view>
+      <image class="arrow-right" src="/static/images/arrow-right.png" mode="aspectFit"></image>
+    </view>
+  </view>
+
+  <button class="submit-btn" bindtap="submitOrder">{{t('order.submit')}}</button>
+
+  <!-- 地址选择弹窗 -->
+  <view class="address-popup" wx:if="{{showAddressPopup}}">
+    <view class="popup-mask" bindtap="hideAddressPicker"></view>
+    <view class="popup-content">
+      <view class="address-list">
+        <view class="address-item {{index === selectedAddressIndex ? 'selected' : ''}}" 
+              wx:for="{{addressList}}" 
+              wx:key="id"
+              bindtap="selectAddress"
+              data-index="{{index}}">
+          <view class="t1">{{item.address}}</view>
+          <view class="t3">{{item.receiveName}} {{item.receiveMobile}}</view>
+        </view>
+      </view>
+      <button class="add-address-btn" bindtap="addNewAddress">{{t('mine.addAddress')}}</button>
+    </view>
+  </view>
+</view> 

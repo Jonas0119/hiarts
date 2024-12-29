@@ -1,0 +1,30 @@
+.payed {
+  text-align: center;
+  padding-top: 200rpx;
+}
+
+.payed image {
+  width: 140rpx;
+  height: 140rpx;
+}
+
+.payed .p1 {
+  font-size: 32rpx;
+  color: #333;
+  line-height: 100rpx;
+}
+
+.payed .p2 {
+  font-size: 66rpx;
+  color: #AD2828;
+  line-height: 100rpx;
+}
+
+.back-btn {
+  width: 600rpx;
+  margin: 200rpx auto;
+  background: #AD2828;
+  color: #fff;
+  font-size: 32rpx;
+  border-radius: 40rpx;
+} 

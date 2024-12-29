@@ -1,0 +1,61 @@
+<view class="page">
+  <swiper class="swiper-box" indicator-dots="{{goodsImages.length > 1}}" autoplay="{{false}}" circular="{{true}}">
+    <swiper-item wx:for="{{goodsImages}}" wx:key="index">
+      <image class="banner-image" mode="aspectFit" src="{{item}}"></image>
+    </swiper-item>
+  </swiper>
+
+  <view class="container">
+    <text class="t1">{{goodsDetail.targetName}}</text>
+    <view class="fdr">
+      <text class="t4">销售时间：</text>
+      <text class="t2">{{goodsDetail.endTime}}</text>
+    </view>
+    <view class="fdr">
+      <text class="t4">销售进度：</text>
+      <text class="t2">{{goodsDetail.buyedNum}}/{{goodsDetail.stockNum}}</text>
+    </view>
+    
+    <view class="price-info">
+      <view class="fdr">
+        <text class="t5">商品价格：</text>
+        <text class="t6">HK$ {{goodsDetail.targetAmount}}</text>
+      </view>
+      <view class="fdr">
+        <text class="t5">数量：</text>
+        <text class="t6">{{goodsDetail.stockNum}}件</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="shop-info">
+    <image class="shop-image" src="{{goodsDetail.shopImage}}" mode="aspectFill"></image>
+    <view class="shop-name">
+      <text>{{goodsDetail.merchantName}}</text>
+      <text class="shop-descrip">商家信息</text>
+    </view>
+  </view>
+
+  <view class="container content-section">
+    <text class="title">商品简介</text>
+    <rich-text nodes="{{goodsDetail.targetDescBrief}}"></rich-text>
+
+    <view class="tips">
+      <view class="t8">----- 购买须知 -----</view>
+      <text class="t5">{{tips}}</text>
+    </view>
+  </view>
+
+  <view class="container content-section">
+    <text class="title">商品详情</text>
+    <rich-text nodes="{{goodsDetail.targetDesc}}"></rich-text>
+  </view>
+
+  <view class="fixed-bottom">
+    <view class="fdr num-input" wx:if="{{remainNum > 0}}">
+      <text class="title">购买数量</text>
+      <input class="input" type="number" value="{{buyNum}}" bindinput="onNumChange" placeholder="请输入数量" />
+    </view>
+    <button class="buy-btn" bindtap="onBuyTap" wx:if="{{goodsDetail.state === 'ready' || goodsDetail.state === 'buying'}}">立即购买</button>
+  </view>
+</view> 

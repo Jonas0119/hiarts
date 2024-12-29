@@ -1,0 +1,43 @@
+<view class="invite">
+  <view class="header">
+    <image class="bg" src="/static/images/myInvite.png"></image>
+    <view class="content">
+      <text class="title">{{t('mine.inviteTitle')}}</text>
+      <text class="desc">{{t('mine.inviteDesc')}}</text>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">{{t('mine.inviteCode')}}</view>
+    <view class="code-box">
+      <text class="code">{{inviteCode}}</text>
+      <button class="copy-btn" bindtap="copyCode">{{t('mine.copyCode')}}</button>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">{{t('mine.inviteLink')}}</view>
+    <view class="link-box">
+      <text class="link">{{inviteLink}}</text>
+      <button class="copy-btn" bindtap="copyLink">{{t('mine.copyLink')}}</button>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">{{t('mine.inviteQrcode')}}</view>
+    <view class="qrcode-box">
+      <image class="qrcode" src="{{qrcode}}" mode="aspectFit"></image>
+      <button class="save-btn" bindtap="saveQrcode">{{t('mine.saveQrcode')}}</button>
+    </view>
+  </view>
+
+  <view class="invited-list" wx:if="{{invitedList.length > 0}}">
+    <view class="section-title">{{t('mine.invitedList')}}</view>
+    <view class="list">
+      <view class="item" wx:for="{{invitedList}}" wx:key="id">
+        <text class="name">{{item.name}}</text>
+        <text class="time">{{item.inviteTime}}</text>
+      </view>
+    </view>
+  </view>
+</view> 

@@ -273,23 +273,25 @@ Page({
   // 跳转到商品详情
   goToDetail(e) {
     const id = e.currentTarget.dataset.id
+    console.log('from home，商品ID:', id)
     wx.navigateTo({
-      url: `/pages/goodDetail/detail?id=${id}`
+      url: `/pages/goods/detail?id=${id}`
     })
   },
 
   // 跳转到商品列表
   goToList() {
     wx.switchTab({
-      url: '/pages/goodList/list'
+      url: '/pages/goods/list'
     })
   },
 
   // 跳转到分类商品列表
   goToTypeList(e) {
     const type = e.currentTarget.dataset.type
+    console.log('分类商品列表:', type)
     wx.navigateTo({
-      url: `/pages/goodList/typeList?targetType=${type}`
+      url: `/pages/goods/typeList?targetType=${type}`
     })
   },
 

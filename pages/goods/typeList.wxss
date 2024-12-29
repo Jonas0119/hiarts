@@ -1,0 +1,60 @@
+.page {
+  flex: 1;
+  background-color: #f5f5f5;
+}
+
+.content-item {
+  padding: 20rpx 4%;
+  width: 92%;
+  border-bottom: 1px solid #e3e3e3;
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+}
+
+.content-item:last-child {
+  border: none;
+}
+
+.content-item .image {
+  width: 240rpx;
+  height: 240rpx;
+  border-radius: 10rpx;
+}
+
+.content-item .words {
+  margin: 24rpx;
+  flex: 1;
+}
+
+.content-item .t1 {
+  font-weight: 600;
+  font-size: 32rpx;
+  line-height: 40rpx;
+  color: #333;
+}
+
+.content-item .t2 {
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #333;
+}
+
+.content-item .t3 {
+  font-size: 30rpx;
+  line-height: 40rpx;
+  color: #AD2828;
+}
+
+.content-item .t4 {
+  font-size: 24rpx;
+  line-height: 40rpx;
+  color: #999;
+}
+
+.fdr {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 10rpx;
+} 

@@ -1,0 +1,159 @@
+.order {
+  background: #f5f5f5;
+  min-height: 100vh;
+}
+
+.goods-info {
+  background: #fff;
+  padding: 20rpx;
+  display: flex;
+  border-bottom: 1rpx solid #e3e3e3;
+}
+
+.goods-info .image {
+  height: 180rpx;
+  width: 180rpx;
+  border-radius: 10rpx;
+}
+
+.words {
+  flex: 1;
+  margin-left: 30rpx;
+}
+
+.fdr {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+
+.t1 {
+  font-weight: 600;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.t2 {
+  color: #AD2828;
+  font-size: 32rpx;
+}
+
+.t3 {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.price-info {
+  background: #fff;
+  padding: 30rpx 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.t4 {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.t5 {
+  font-size: 36rpx;
+  color: #AD2828;
+  font-weight: 500;
+}
+
+.address-section {
+  background: #fff;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.section-title {
+  color: #333;
+  font-size: 30rpx;
+  font-weight: 500;
+  margin-bottom: 20rpx;
+}
+
+.address-picker {
+  position: relative;
+  padding: 20rpx 0;
+}
+
+.t6 {
+  color: #333;
+  font-size: 26rpx;
+  margin-bottom: 10rpx;
+}
+
+.address-info {
+  padding: 10rpx 0;
+}
+
+.arrow-right {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32rpx;
+  height: 32rpx;
+}
+
+.submit-btn {
+  position: fixed;
+  bottom: 40rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  background: #AD2828;
+  color: #fff;
+  font-size: 32rpx;
+  border-radius: 40rpx;
+}
+
+.address-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+}
+
+.popup-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.popup-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  border-radius: 20rpx 20rpx 0 0;
+  padding: 30rpx;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.address-item {
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #eee;
+}
+
+.address-item.selected {
+  background: #f8f8f8;
+}
+
+.add-address-btn {
+  margin-top: 30rpx;
+  background: #AD2828;
+  color: #fff;
+  font-size: 28rpx;
+  width: 400rpx;
+} 

@@ -1,0 +1,25 @@
+<view class="page">
+  <view class="sort">
+    <view wx:for="{{sift_items}}" wx:key="index" class="sift-item {{index === currentTab ? 'chosed' : ''}}" bindtap="switchTab" data-index="{{index}}">
+      {{item}}
+      <image class="downIcon" src="/static/images/down.png"></image>
+    </view>
+  </view>
+
+  <view class="goods-list">
+    <view class="content-item" wx:for="{{goodsList}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
+      <image class="image" mode="aspectFill" src="{{item.targetImage}}"></image>
+      <view class="words">
+        <text class="t1">{{item.targetName}}</text>
+        <view class="fdr">
+          <text class="t4">等待：</text>
+          <text class="t2">{{item.stockNum - item.buyedNum}}件</text>
+        </view>
+        <view class="fdr">
+          <text class="t4">价格：</text>
+          <text class="t3">HK${{item.targetAmount}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view> 

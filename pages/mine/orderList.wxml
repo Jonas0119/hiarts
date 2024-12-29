@@ -1,0 +1,50 @@
+<view class="order-list">
+  <view class="tabs">
+    <view 
+      class="tab-item {{currentTab === index ? 'active' : ''}}" 
+      wx:for="{{tabs}}" 
+      wx:key="index"
+      bindtap="switchTab"
+      data-index="{{index}}"
+    >
+      {{item}}
+    </view>
+  </view>
+
+  <view class="order-items">
+    <view class="order-item" wx:for="{{orderList}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
+      <view class="order-header">
+        <text class="order-no">{{t('mine.orderInfo.orderNo')}}：{{item.orderNo}}</text>
+        <text class="order-status">{{getStatusText(item.state)}}</text>
+      </view>
+
+      <view class="goods-info">
+        <image class="goods-image" src="{{item.targetImage}}" mode="aspectFill"></image>
+        <view class="goods-detail">
+          <text class="goods-name">{{item.targetName}}</text>
+          <view class="goods-price">
+            <text class="price">HK$ {{item.targetAmount}}</text>
+            <text class="num">x{{item.buyNum}}</text>
+          </view>
+        </view>
+      </view>
+
+      <view class="order-footer">
+        <text class="total">{{t('mine.orderInfo.orderAmount')}}：HK$ {{item.totalAmount}}</text>
+        <view class="btn-group">
+          <button 
+            class="btn" 
+            wx:if="{{item.state === 'shipped'}}"
+            catchtap="confirmReceive"
+            data-id="{{item.id}}"
+          >{{t('mine.orderInfo.confirm')}}</button>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty" wx:if="{{orderList.length === 0}}">
+    <image src="/static/images/empty-order.png"></image>
+    <text>{{t('mine.noOrder')}}</text>
+  </view>
+</view> 

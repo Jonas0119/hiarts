@@ -5,6 +5,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    locale: 'zh-Hant'
+    locale: 'zh-Hant',
+    baseUrl: 'https://gw.antan-tech.com/api'
   }
 })
