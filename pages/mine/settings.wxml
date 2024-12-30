@@ -1,7 +1,9 @@
+<wxs module="i18n" src="../../utils/i18n.wxs"></wxs>
+
 <view class="settings">
   <view class="section">
     <view class="menu-item">
-      <text class="label">{{t('settings.language')}}</text>
+      <text class="label">{{i18n.t('settings.language')}}</text>
       <picker 
         bindchange="changeLanguage" 
         value="{{languageIndex}}" 
@@ -16,12 +18,12 @@
     </view>
 
     <view class="menu-item">
-      <text class="label">{{t('settings.notification')}}</text>
+      <text class="label">{{i18n.t('settings.notification')}}</text>
       <switch checked="{{notification}}" bindchange="toggleNotification" color="#AD2828"></switch>
     </view>
 
     <view class="menu-item">
-      <text class="label">{{t('settings.clearCache')}}</text>
+      <text class="label">{{i18n.t('settings.clearCache')}}</text>
       <view class="value" bindtap="clearCache">
         <text>{{cacheSize}}</text>
         <image class="arrow" src="/static/images/arrow-right.png"></image>
@@ -31,7 +33,7 @@
 
   <view class="section">
     <view class="menu-item" bindtap="checkUpdate">
-      <text class="label">{{t('settings.checkUpdate')}}</text>
+      <text class="label">{{i18n.t('settings.checkUpdate')}}</text>
       <view class="value">
         <text class="version">v{{version}}</text>
         <image class="arrow" src="/static/images/arrow-right.png"></image>
@@ -39,17 +41,17 @@
     </view>
 
     <view class="menu-item" bindtap="goToPrivacy">
-      <text class="label">{{t('settings.privacy')}}</text>
+      <text class="label">{{i18n.t('settings.privacy')}}</text>
       <image class="arrow" src="/static/images/arrow-right.png"></image>
     </view>
 
     <view class="menu-item" bindtap="goToTerms">
-      <text class="label">{{t('settings.terms')}}</text>
+      <text class="label">{{i18n.t('settings.terms')}}</text>
       <image class="arrow" src="/static/images/arrow-right.png"></image>
     </view>
   </view>
 
   <view class="logout" bindtap="logout">
-    <text>{{t('settings.logout')}}</text>
+    <text>{{i18n.t('settings.logout')}}</text>
   </view>
 </view> 

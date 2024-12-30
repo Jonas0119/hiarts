@@ -146,6 +146,7 @@ const translations = {
       "saleProgress": "商品申購進度",
       "goodPrice": "商品單價",
       "num": "發行數量",
+      "unit": "份",
       "shopinfor": "優質店鋪推薦",
       "shotContent": "商品簡介",
       "tips": "申購須知",
@@ -285,7 +286,7 @@ function t(key, locale) {
   
   for (const k of keys) {
     if (!value) break
-    value = value[k]
+      value = value[k]
   }
   
   return value || key

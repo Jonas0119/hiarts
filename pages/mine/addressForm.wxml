@@ -1,3 +1,5 @@
+<wxs module="i18n" src="../../utils/i18n.wxs"></wxs>
+
 <view class="address-form">
   <view class="form-item">
     <text class="label">{{t('mine.receiveName')}}</text>

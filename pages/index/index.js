@@ -21,17 +21,14 @@ Page({
     hkd: 0,
     locale: 'zh-Hant',
     goodsList: [],
-    ec: {
-      lazyLoad: true
-    },
     chartOption: {
       grid: {
-        left: '3%',
-        right: '4%',
-        bottom: '3%',
-        top: '3%',
-        containLabel: true
+        left: '50px',
+        right: '10px',
+        bottom: '40px',
+        top: '20px',
       },
+
       xAxis: {
         type: 'category',
         boundaryGap: false,
@@ -40,52 +37,42 @@ Page({
         axisTick: { show: false },
         axisLabel: {
           interval: 0,
-          rotate: 40,
-          color: '#666',
-          fontSize: 10
+          rotate: 40
         }
       },
       yAxis: {
         type: 'value',
-        splitLine:{ show:false },
-        min:0.900,  
-        axisLine: {
-          lineStyle: {
-            color: '#999'
-          }
-        },
-        axisLabel: {
-          color: '#666',
-          fontSize: 10
-        },
-        splitLine: {
-          lineStyle: {
-            color: '#eee'
-          }
-        }
+        splitLine: { show: false },
+        min: 0.900,
       },
-      series: [{
-        type: 'line',
-        smooth: true,
-        data: [],
-        symbol: 'none',
-        itemStyle: {
-          color: '#FF6B00'
-        },
-        lineStyle: {
-          color: '#FF6B00',
-          width: 2
-        },
-        areaStyle: {
-          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-            offset: 0,
-            color: 'rgba(255, 107, 0, 0.3)'
-          }, {
-            offset: 1,
-            color: 'rgba(255, 107, 0, 0)'
-          }])
+      series: [
+        {
+          data: [],
+          type: 'line',
+          lineStyle: {
+            color: '#a80000' //改变折线颜色
+          },
+          itemStyle: {
+            color: "#a80000"
+          },
+          areaStyle: {
+            color: {
+              type: 'linear',
+              x: 0,
+              y: 0,
+              x2: 0,
+              y2: 1,
+              colorStops: [{
+                offset: 0, color: 'rgba(173,40,40, 0.5)' // 0% 处的颜色
+              }, {
+                offset: 1, color: 'rgba(211,171,171, 0)' // 100% 处的颜色
+              }],
+              global: false // 缺省为 false
+            }
+          }
         }
-      }]
+      ],
+      showChart: false, hkd: 0.9105
     }
   },
 
@@ -125,29 +112,16 @@ Page({
             this.setData({
               hkd: hkdData[hkdData.length - 1].rtPreClose
             })
-            
-            // 更新图表数据
             const xAxisData = []
             const seriesData = []
             hkdData.forEach(item => {
               xAxisData.push(item.tradeDate.substring(5, 10))
               seriesData.push(item.rtPreClose)
             })
-            
-            const newOption = {
-              ...this.data.chartOption,
-              xAxis: {
-                ...this.data.chartOption.xAxis,
-                data: xAxisData
-              },
-              series: [{
-                ...this.data.chartOption.series[0],
-                data: seriesData
-              }]
-            }
-            
             this.setData({
-              chartOption: newOption
+              'chartOption.xAxis.data': xAxisData,
+              'chartOption.series[0].data': seriesData,
+              showChart: true
             }, () => {
               this.initChart()
             })
@@ -251,7 +225,7 @@ Page({
     if (!this.ecComponent) {
       this.ecComponent = this.selectComponent('#mychart-dom-line')
     }
-    
+
     if (this.ecComponent) {
       this.ecComponent.init((canvas, width, height, dpr) => {
         const chart = echarts.init(canvas, null, {
@@ -259,8 +233,8 @@ Page({
           height: height,
           devicePixelRatio: dpr
         })
+        //chart.setOption(this.data.chartOption)
         chart.setOption(this.data.chartOption)
-        this.chart = chart
         return chart
       })
     }

@@ -1,7 +1,11 @@
+import { t } from '../../utils/i18n'
+
 const app = getApp()
 
 Page({
   data: {
+    locale: 'zh-Hant',
+    t: t,
     sift_items: ['全部', '未开始', '进行中', '已结束'],
     currentTab: 0,
     goodsList: [],
@@ -12,6 +16,8 @@ Page({
   },
 
   onLoad: function() {
+    const locale = wx.getStorageSync('locale') || 'zh-Hant'
+    this.setData({ locale })
     this.loadGoodsList()
   },
 

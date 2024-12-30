@@ -1,3 +1,5 @@
+<wxs module="i18n" src="../../utils/i18n.wxs"></wxs>
+
 <view class="invite">
   <view class="header">
     <image class="bg" src="/static/images/myInvite.png"></image>

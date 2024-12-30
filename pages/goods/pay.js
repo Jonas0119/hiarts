@@ -3,46 +3,30 @@ import { t } from '../../utils/i18n'
 
 Page({
   data: {
-    id: '',
-    buyNum: 1,
     goodsDetail: {},
     goodsImages: '',
-    totalAmount: 0,
+    buyNum: 1,
+    locale: 'zh-Hant',
     addressList: [],
-    selectedAddress: null,
-    selectedAddressIndex: -1,
-    showAddressPopup: false,
-    t: t
+    addressIndex: 0,
+    showAddressPopup: false
   },
 
   onLoad: function(options) {
-    // 检查登录状态
-    if (!app.checkLogin()) {
-      return
-    }
-    
+    const locale = wx.getStorageSync('locale') || 'zh-Hant'
+    this.setData({ locale })
+
     if (options.id && options.number) {
+      this.loadGoodsDetail(options.id)
       this.setData({
-        id: options.id,
         buyNum: parseInt(options.number)
       })
-      this.loadGoodsDetail()
-      this.loadAddressList()
     }
+
+    this.loadAddressList()
   },
 
-  onShow: function() {
-    // 检查登录状态
-    if (!app.checkLogin()) {
-      return
-    }
-    // 如果已经加载过商品详情，则重新加载地址列表
-    if (this.data.id) {
-      this.loadAddressList()
-    }
-  },
-
-  loadGoodsDetail: function() {
+  loadGoodsDetail: function(id) {
     wx.showLoading({
       title: t('common.loading')
     })
@@ -51,32 +35,39 @@ Page({
       url: app.globalData.baseUrl + '/tjfae-space/GoodsApi/goodsDetail',
       method: 'POST',
       data: {
-        id: this.data.id
+        id: id
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded',
         'Authorization': `Bearer ${wx.getStorageSync('token')}`
       },
       success: (res) => {
-        if (app.handleApiResponse(res, (response) => {
-          if (response.data.code === 200) {
-            const detail = response.data.data
-            const images = detail.targetImage.split(',')
-            
-            this.setData({
-              goodsDetail: detail,
-              goodsImages: images[0],
-              totalAmount: (detail.targetAmount * this.data.buyNum).toFixed(2)
-            })
+        if (res.data.code === 200) {
+          const detail = res.data.data
+          let targetImage = ''
+          if(this.data.locale === 'zh-Hant') {
+            targetImage = detail.targetImage || ''
           } else {
-            wx.showToast({
-              title: response.data.msg,
-              icon: 'none'
-            })
+            targetImage = detail.targetImageEnglish || detail.targetImage || ''
           }
-        })) {
-          // API响应处理成功
+          const images = targetImage ? targetImage.split(',').filter(img => img) : []
+          
+          this.setData({
+            goodsDetail: detail,
+            goodsImages: images[0] || ''
+          })
+        } else {
+          wx.showToast({
+            title: res.data.msg || '加载失败',
+            icon: 'none'
+          })
         }
+      },
+      fail: (err) => {
+        wx.showToast({
+          title: '网络请求失败',
+          icon: 'none'
+        })
       },
       complete: () => {
         wx.hideLoading()
@@ -88,52 +79,75 @@ Page({
     wx.request({
       url: app.globalData.baseUrl + '/tjfae-space/goodsAddress/list',
       method: 'GET',
+      data: {
+        pageNum: 1,
+        pageSize: 100
+      },
       header: {
+        'content-type': 'application/x-www-form-urlencoded',
         'Authorization': `Bearer ${wx.getStorageSync('token')}`
       },
       success: (res) => {
-        if (app.handleApiResponse(res, (response) => {
-          if (response.data.code === 200) {
-            this.setData({
-              addressList: response.data.rows
-            })
-          }
-        })) {
-          // API响应处理成功
+        if (res.data.code === 200) {
+          this.setData({
+            addressList: res.data.rows || []
+          })
+        } else if (res.data.code === '999999') {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none'
+          })
+          setTimeout(() => {
+            wx.removeStorage({ key: 'accountId' })
+            wx.removeStorage({ key: 'token' })
+            wx.removeStorage({ key: 'phone' })
+            wx.removeStorage({ key: 'headImg' })
+            wx.removeStorage({ key: 'name' })
+            wx.reLaunch({ url: '/pages/login/index' })
+          }, 2000)
+        } else {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none'
+          })
         }
       }
     })
   },
 
-  showAddressPicker: function() {
+  // 显示地址选择弹窗
+  showAddress: function() {
     this.setData({
       showAddressPopup: true
     })
   },
 
-  hideAddressPicker: function() {
+  // 隐藏地址选择弹窗
+  hideAddress: function() {
     this.setData({
       showAddressPopup: false
     })
   },
 
+  // 选择地址
   selectAddress: function(e) {
     const index = e.currentTarget.dataset.index
     this.setData({
-      selectedAddress: this.data.addressList[index],
-      selectedAddressIndex: index,
+      addressIndex: index,
       showAddressPopup: false
     })
   },
 
-  addNewAddress: function() {
+  // 添加新地址
+  addAddress: function() {
     wx.navigateTo({
-      url: '/pages/address/form'
+      url: '/pages/mine/addressForm?type=add'
     })
   },
 
+  // 提交订单
   submitOrder: function() {
-    if (!this.data.selectedAddress) {
+    if (!this.data.addressList[this.data.addressIndex]) {
       wx.showToast({
         title: t('common.choseAdd'),
         icon: 'none'
@@ -141,41 +155,29 @@ Page({
       return
     }
 
-    wx.showLoading({
-      title: t('common.loading')
-    })
-
     wx.request({
       url: app.globalData.baseUrl + '/tjfae-space/GoodsApi/buy',
       method: 'POST',
       data: {
-        id: this.data.id,
+        id: this.data.goodsDetail.id,
         buyNum: this.data.buyNum,
-        addressId: this.data.selectedAddress.id
+        addressId: this.data.addressList[this.data.addressIndex].id
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded',
         'Authorization': `Bearer ${wx.getStorageSync('token')}`
       },
       success: (res) => {
-        if (app.handleApiResponse(res, (response) => {
-          if (response.data.code === 200 && response.data.data.length > 0) {
-            // 跳转到支付页面
-            wx.navigateTo({
-              url: `/pages/goods/payIndex?payUrl=${response.data.data}`
-            })
-          } else {
-            wx.showToast({
-              title: response.data.msg,
-              icon: 'none'
-            })
-          }
-        })) {
-          // API响应处理成功
+        if (res.data.code === 200 && res.data.data.length > 0) {
+          wx.navigateTo({
+            url: `/pages/goods/payIndex?payUrl=${res.data.data}`
+          })
+        } else {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none'
+          })
         }
-      },
-      complete: () => {
-        wx.hideLoading()
       }
     })
   }

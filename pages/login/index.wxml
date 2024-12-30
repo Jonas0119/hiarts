@@ -1,3 +1,5 @@
+<wxs module="i18n" src="../../utils/i18n.wxs"></wxs>
+
 <view class="login">
   <image class="logo" mode="widthFix" src="/static/images/logo-title.png"></image>
   
@@ -24,15 +26,15 @@
     </view>
   </view>
 
-  <button class="login-btn" loading="{{loading}}" bindtap="login">{{t('login.login')}}</button>
+  <button class="login-btn" loading="{{loading}}" bindtap="login">{{i18n.t('login.login')}}</button>
 
   <view class="agreement">
     <checkbox-group bindchange="onCheckboxChange">
       <checkbox value="agree" checked="{{agreed}}" color="#AD2828">
-        <text class="agree-text">{{t('login.agree')}}</text>
-        <text class="link" bindtap="goToUserAgreement">《{{t('login.user')}}》</text>
-        <text class="agree-text">{{t('login.and')}}</text>
-        <text class="link" bindtap="goToPrivacy">《{{t('login.privace')}}》</text>
+        <text class="agree-text">{{i18n.t('login.agree')}}</text>
+        <text class="link" bindtap="goToUserAgreement">《{{i18n.t('login.user')}}》</text>
+        <text class="agree-text">{{i18n.t('login.and')}}</text>
+        <text class="link" bindtap="goToPrivacy">《{{i18n.t('login.privace')}}》</text>
       </checkbox>
     </checkbox-group>
   </view>

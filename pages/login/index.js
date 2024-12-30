@@ -14,10 +14,14 @@ Page({
     inviterPhone: '',
     subjectCode: '78f107a3ea754d78a6721352771aeabc', // 正式环境
     t: t,
-    redirect: '' // 添加重定向地址
+    locale: 'zh-Hant',
+    redirect: ''
   },
 
   onLoad: function(options) {
+    const locale = wx.getStorageSync('locale') || 'zh-Hant'
+    this.setData({ locale })
+    
     console.log("options is:"+options)
     console.log("t.login is:"+t('login.login'))
     if (options.invatePhone) {

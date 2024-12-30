@@ -1,3 +1,5 @@
+<wxs module="i18n" src="../../utils/i18n.wxs"></wxs>
+
 <view class="about">
   <view class="logo">
     <image src="/static/images/logo.png"></image>

@@ -1,3 +1,4 @@
+<wxs module="i18n" src="../../utils/i18n.wxs"></wxs>
 <view class="payed">
   <image src="/static/images/pay-success.png"></image>
   <view class="p1">{{t('goodsDetail.success')}}</view>

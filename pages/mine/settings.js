@@ -11,10 +11,13 @@ Page({
     languageIndex: 0,
     notification: true,
     cacheSize: '0MB',
-    t: t
+    t: t,
+    locale: 'zh-Hant'
   },
 
   onLoad: function() {
+    const locale = wx.getStorageSync('locale') || 'zh-Hant'
+    this.setData({ locale })
     this.initLanguage()
     this.initNotification()
     this.calculateCacheSize()
@@ -47,7 +50,11 @@ Page({
     const lang = this.data.languages[index]
     
     wx.setStorageSync('language', lang.code)
-    this.setData({ languageIndex: index })
+    wx.setStorageSync('locale', lang.code)
+    this.setData({ 
+      languageIndex: index,
+      locale: lang.code
+    })
     
     wx.showModal({
       title: t('settings.languageChanged'),

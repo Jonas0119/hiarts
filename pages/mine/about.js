@@ -9,7 +9,13 @@ Page({
       email: 'support@example.com',
       address: '香港特别行政区'
     },
+    locale: 'zh-Hant',
     t: t
+  },
+
+  onLoad() {
+    const locale = wx.getStorageSync('locale') || 'zh-Hant'
+    this.setData({ locale })
   },
 
   makeCall: function() {

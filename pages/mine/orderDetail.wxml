@@ -1,11 +1,13 @@
+<wxs module="i18n" src="../../utils/i18n.wxs"></wxs>
+
 <view class="order-detail">
   <view class="status-section">
-    <text class="status">{{getStatusText(orderDetail.state)}}</text>
-    <text class="desc">{{getStatusDesc(orderDetail.state)}}</text>
+    <text class="status">{{i18n.t(getStatusText(orderDetail.state))}}</text>
+    <text class="desc">{{i18n.t(getStatusDesc(orderDetail.state))}}</text>
   </view>
 
   <view class="address-section">
-    <view class="title">{{t('mine.orderInfo.address')}}</view>
+    <view class="title">{{i18n.t('mine.orderInfo.address')}}</view>
     <view class="content">
       <view class="name-phone">
         <text class="name">{{orderDetail.receiveName}}</text>
@@ -19,7 +21,7 @@
     <view class="goods-info">
       <image class="goods-image" src="{{orderDetail.targetImage}}" mode="aspectFill"></image>
       <view class="goods-detail">
-        <text class="goods-name">{{orderDetail.targetName}}</text>
+        <text class="goods-name">{{locale === 'zh-Hant' ? orderDetail.targetName : orderDetail.targetNameEnglish}}</text>
         <view class="goods-price">
           <text class="price">HK$ {{orderDetail.targetAmount}}</text>
           <text class="num">x{{orderDetail.buyNum}}</text>
@@ -30,21 +32,21 @@
 
   <view class="order-info">
     <view class="info-item">
-      <text class="label">{{t('mine.orderInfo.orderNo')}}</text>
+      <text class="label">{{i18n.t('mine.orderInfo.orderNo')}}</text>
       <text class="value">{{orderDetail.orderNo}}</text>
     </view>
     <view class="info-item">
-      <text class="label">{{t('mine.orderInfo.orderTime')}}</text>
+      <text class="label">{{i18n.t('mine.orderInfo.orderTime')}}</text>
       <text class="value">{{orderDetail.createTime}}</text>
     </view>
     <view class="info-item">
-      <text class="label">{{t('mine.orderInfo.orderAmount')}}</text>
+      <text class="label">{{i18n.t('mine.orderInfo.orderAmount')}}</text>
       <text class="value price">HK$ {{orderDetail.totalAmount}}</text>
     </view>
   </view>
 
   <view class="logistics" wx:if="{{orderDetail.state === 'shipped'}}">
-    <view class="title">{{t('mine.orderInfo.logistics')}}</view>
+    <view class="title">{{i18n.t('mine.orderInfo.logistics')}}</view>
     <view class="content">
       <text class="company">{{orderDetail.logisticsCompany}}</text>
       <text class="number">{{orderDetail.logisticsNumber}}</text>
@@ -52,6 +54,6 @@
   </view>
 
   <view class="btn-group" wx:if="{{orderDetail.state === 'shipped'}}">
-    <button class="btn" bindtap="confirmReceive">{{t('mine.orderInfo.confirm')}}</button>
+    <button class="btn" bindtap="confirmReceive">{{i18n.t('mine.orderInfo.confirm')}}</button>
   </view>
 </view> 

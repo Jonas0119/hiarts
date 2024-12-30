@@ -1,59 +1,66 @@
-<view class="container">
+<wxs module="i18n" src="../../utils/i18n.wxs"></wxs>
+
+<view class="order">
   <!-- 商品信息 -->
-  <view class="goods-info">
-    <image src="{{goodsImages}}" mode="aspectFill" class="goods-image"></image>
-    <view class="goods-detail">
-      <text class="goods-name">{{goodsDetail.targetName}}</text>
-      <view class="goods-price">
-        <text class="price">¥{{goodsDetail.targetAmount}}</text>
-        <text class="num">x{{buyNum}}</text>
+  <view class="uni-navigate-item">
+    <image src="{{goodsImages}}" mode="heightFix" class="image"></image>
+    <view class="words">
+      <view class="fdr">
+        <text class="t1">{{locale === 'zh-Hant' ? goodsDetail.targetName : goodsDetail.targetNameEnglish}}</text>
+        <text class="t2">HK$ {{goodsDetail.targetAmount}}</text>
       </view>
+      <view class="fdr">
+        <text class="t1"></text>
+        <text class="t3">{{i18n.t('goodsDetail.buyNum')}}：{{buyNum}}{{i18n.t('goodsList.unit')}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 支付金额 -->
+  <view class="fff">
+    <view class="fdr">
+      <text class="t4">{{i18n.t('order.pay')}}：</text>
+      <text class="t5">HK$ {{(goodsDetail.targetAmount * buyNum)}}</text>
     </view>
   </view>
 
   <!-- 收货地址 -->
-  <view class="address-section" bindtap="showAddressPicker">
-    <view class="address-content" wx:if="{{selectedAddress}}">
-      <view class="user-info">
-        <text class="name">{{selectedAddress.name}}</text>
-        <text class="phone">{{selectedAddress.phone}}</text>
+  <view class="takeForm fff">
+    <view class="takeTitle">{{i18n.t('order.getAddress')}}</view>
+    <view class="ffr" bindtap="showAddress">
+      <view class="t6">{{i18n.t('order.choseAdd')}}</view>
+      <view class="t7">
+        <view class="addressList" wx:if="{{addressList[addressIndex]}}">
+          <view>
+            <text class="t1">{{addressList[addressIndex].address}}</text>
+          </view>
+          <view class="t3">{{addressList[addressIndex].receiveName}} {{addressList[addressIndex].receiveMobile}}</view>
+        </view>
+        <image src="/static/images/arrow-right.png" class="uni-icon-size" mode="widthFix"></image>
       </view>
-      <view class="address">{{selectedAddress.address}}</view>
     </view>
-    <view class="no-address" wx:else>
-      <text>{{t('order.choseAdd')}}</text>
-    </view>
-    <image class="arrow-right" src="/static/images/arrow-right.png"></image>
-  </view>
-
-  <!-- 订单金额 -->
-  <view class="amount-section">
-    <text class="label">{{t('order.pay')}}</text>
-    <text class="amount">¥{{totalAmount}}</text>
   </view>
 
   <!-- 提交按钮 -->
-  <button class="submit-btn" bindtap="submitOrder">{{t('order.submit')}}</button>
+  <button bindtap="submitOrder" class="takebtn">{{i18n.t('order.submit')}}</button>
 
   <!-- 地址选择弹窗 -->
   <view class="address-popup" wx:if="{{showAddressPopup}}">
-    <view class="popup-mask" bindtap="hideAddressPicker"></view>
+    <view class="popup-mask" bindtap="hideAddress"></view>
     <view class="popup-content">
-      <view class="address-list">
-        <view class="address-item {{selectedAddressIndex === index ? 'selected' : ''}}" 
-              wx:for="{{addressList}}" 
-              wx:key="id"
-              bindtap="selectAddress"
-              data-index="{{index}}">
-          <view class="user-info">
-            <text class="name">{{item.name}}</text>
-            <text class="phone">{{item.phone}}</text>
-            <text class="default" wx:if="{{item.isDefault}}">{{t('mine.default')}}</text>
+      <view class="addressBox">
+        <view wx:for="{{addressList}}" wx:key="id" 
+              class="addressItem {{addressIndex === index ? 'chosed' : ''}}"
+              bindtap="selectAddress" data-index="{{index}}">
+          <view>
+            <text class="t1">{{item.address}}</text>
           </view>
-          <view class="address">{{item.address}}</view>
+          <view class="t3">{{item.receiveName}} {{item.receiveMobile}}</view>
+        </view>
+        <view>
+          <button bindtap="addAddress" class="addressbtn">{{i18n.t('mine.addAddress')}}</button>
         </view>
       </view>
-      <button class="add-address-btn" bindtap="addNewAddress">{{t('mine.addAddress')}}</button>
     </view>
   </view>
 </view> 

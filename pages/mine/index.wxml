@@ -1,3 +1,5 @@
+<wxs module="i18n" src="../../utils/i18n.wxs"></wxs>
+
 <view class="container">
   <!-- 用户信息 -->
   <view class="user-info">
