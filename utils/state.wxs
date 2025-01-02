@@ -1,0 +1,20 @@
+var i18n = require('i18n.wxs');
+
+var formateState = function(state, locale) {
+  if (state === 'paying') {
+    return i18n.t('order.unPay', locale);
+  } else if (state === 'finishPay') {
+    return i18n.t('order.unget', locale);
+  } else if (state === 'waitSend') {
+    return i18n.t('order.unsend', locale);
+  } else if (state === 'finishSend' || state === 'Shipped') {
+    return i18n.t('order.sended', locale);
+  } else if (state === 'finishOrder') {
+    return i18n.t('order.done', locale);
+  }
+  return state;
+};
+
+module.exports = {
+  formateState: formateState
+}; 

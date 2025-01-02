@@ -102,7 +102,7 @@ Page({
             ...item,
             targetImage: this.getImage(item.targetImage),
             targetImageEnglish: this.getImage(item.targetImageEnglish),
-            state: this.formateState(item.state)
+            //state: this.formateState(item.state)
           }))
           this.setData({
             list:orderList
