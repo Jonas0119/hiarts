@@ -26,7 +26,7 @@
       <view class="list-item" wx:for="{{invitedList}}" wx:key="id">
         <view class="item-info">
           <text class="name">{{item.name}}</text>
-				  <text class="invite-time">{{item.inviteTime}}</text>
+          <text class="invite-time">{{item.inviteTime}}</text>
         </view>
       </view>
     </view>

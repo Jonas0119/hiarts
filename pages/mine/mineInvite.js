@@ -11,7 +11,8 @@ Page({
     invitedList: [],
     shareUrl: 'http://218.244.138.12:8086/webHJL/#/pages/login/index?phone=',
     total: 0,
-    t: t
+    t: t,
+    locale: wx.getStorageSync('locale') || 'zh-Hant'
   },
 
   onLoad: function () {
@@ -22,6 +23,16 @@ Page({
       this.loadInviteInfo()
       this.generateQRCode()
     })
+  },
+
+  onShow: function() {
+    // 在页面显示时检查语言是否变化
+    const currentLocale = wx.getStorageSync('locale') || 'zh-Hant'
+    if (currentLocale !== this.data.locale) {
+      this.setData({
+        locale: currentLocale
+      })
+    }
   },
 
   generateQRCode: function() {
