@@ -107,7 +107,7 @@ Page({
           this.setData({
             list:orderList
           })
-          console.log('res.data.data.list is:', orderList)
+          //console.log('res.data.data.list is:', orderList)
         } else if (res.data.code === '999999') {
           wx.showToast({
             title: res.data.msg,
