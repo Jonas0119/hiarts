@@ -5,7 +5,6 @@ Page({
   data: {
     phone: '',
     code: '',
-    sendCodeText: t('common.getCode'),
     agreed: false,
     loading: false,
     counting: false,
@@ -15,15 +14,18 @@ Page({
     subjectCode: '78f107a3ea754d78a6721352771aeabc', // 正式环境
     t: t,
     locale: 'zh-Hant',
+    sendCodeText: '',
     redirect: ''
   },
 
   onLoad: function(options) {
     const locale = wx.getStorageSync('locale') || 'zh-Hant'
     this.setData({ locale })
+    const sendCodeText = t('common.getCode', locale)
+    this.setData({ sendCodeText })
     
     console.log("options is:"+options)
-    console.log("t.login is:"+t('login.login'))
+    console.log("t.login is:"+t('login.login', locale))
     if (options.invatePhone) {
       this.setData({
         inviterPhone: options.invatePhone
@@ -101,7 +103,7 @@ Page({
     this.setData({
       counting: true,
       countdown: 120,
-      sendCodeText: t('common.reGet') + '(120s)'
+      sendCodeText: t('common.reGet', this.data.locale) + '(120s)'
     })
 
     const timer = setInterval(() => {
@@ -111,12 +113,12 @@ Page({
         this.setData({
           counting: false,
           timer: null,
-          sendCodeText: t('common.getCode')
+          sendCodeText: t('common.getCode',this.data.locale)
         })
       } else {
         this.setData({
           countdown: countdown,
-          sendCodeText: t('common.reGet') + `(${countdown}s)`
+          sendCodeText: t('common.reGet', this.data.locale) + `(${countdown}s)`
         })
       }
     }, 1000)

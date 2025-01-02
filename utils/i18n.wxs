@@ -5,7 +5,7 @@ var translations = {
       "orderPay": "Order payment",
       "saleTime": "Sale stop time",
       "saleProgress": "Product application progress",
-      "goodPrice": "Unit price of goods",
+      "goodPrice": "Unit price",
       "num": "Quantity issued",
       "shopinfor": "Quality store recommendation",
       "shotContent": "Product Description",
@@ -42,12 +42,13 @@ var translations = {
       "times": "Time"
     },
     "login": {
-      "phone": "Please enter the phone number",
-      "code": "Please enter the verification code",
+      "phone": "Please enter phone number",
+      "code": "Please enter verification code",
       "login": "Login",
       "agree": "Have read and agree",
       "user": "User Agreement",
-      "privace": "Privacy Agreement"
+      "privace": "Privacy Agreement",
+      "and": "and"
     },
     "goodsList": {
       "privce": "Unit price",
@@ -57,12 +58,21 @@ var translations = {
       "buying": "in the process of buying",
       "stopbuy": "stop purchase review"
     },
+    "settings": {
+      "language": "Language",
+      "notification": "Setting for notification",
+      "clearCache": "Clear Cache",
+      "checkUpdate": "Check Update",
+      "privacy": "Privacy",
+      "terms": "Terms"
+      "logout": "Log Out"
+    },
     "mine": {
       "mine": "My",
       "myOrder": "My subscription product",
       "invite": "Invitation",
       "myInvite": "My invite",
-      "invitationIntro": "Scan and sign up for membership",
+      "invitationIntro": "My QR code",
       "address": "Address Management",
       "about": "About us",
       "default": "Default",
@@ -120,13 +130,13 @@ var translations = {
       "success": "Operation success",
       "delsuccess": "Delete successfully",
       "tipName": "Please enter your name",
-      "tipPhone": "Please enter the phone number",
+      "tipPhone": "Please enter phone number",
       "tipAdd": "Please enter full address",
       "soon": "Available later",
-      "getCode": "Get the verification code",
-      "inputCode": "Please enter the verification code",
+      "getCode": "Get code",
+      "inputCode": "Please enter verification code",
       "gou": "Please tick Yes",
-      "reGet": "Reget",
+      "reGet": "Reget code",
       "tipNum": "Please enter quantity",
       "tipTopNum": "Exceeds the quantity available for purchase",
       "tipLogin": "Please go to login",
@@ -134,7 +144,8 @@ var translations = {
       "copied": "Copied",
       "saving": "Saving...",
       "saved": "Saved",
-      "saveFailed": "Save failed"
+      "saveFailed": "Save failed",
+      "pleaseInput": "Please input"
     }
   },
   'zh-Hant': {
@@ -187,6 +198,7 @@ var translations = {
       "agree": "已閱讀并同意",
       "user": "用戶協議",
       "privace": "隱私協議"
+      "and": "和"
     },
     "goodsList": {
       "privce": "單價",
@@ -201,7 +213,7 @@ var translations = {
       "myOrder": "我的申購產品",
       "invite": "邀請好友",
       "myInvite": "我邀請的用戶",
-      "invitationIntro": "掃一掃，註冊成為會員",
+      "invitationIntro": "我的二維碼",
       "address": "地址管理",
       "about": "關於我們",
       "default": "默認",
@@ -273,7 +285,8 @@ var translations = {
       "copied": "已複製",
       "saving": "保存中...",
       "saved": "已保存",
-      "saveFailed": "保存失敗"
+      "saveFailed": "保存失敗",
+      "pleaseInput": "請輸入"
     }
   }
 }

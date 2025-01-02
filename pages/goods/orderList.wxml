@@ -2,15 +2,13 @@
 
 <view class="order">
   <view class="uni-navigate-item" wx:for="{{list}}" wx:key="id" bindtap="goDetailPage" data-id="{{item.id}}">
-    <view class="image-container">
-      <image src="{{locale == 'zh-Hant' ? item.targetImage : item.targetImageEnglish}}" mode="aspectFit" class="image"></image>
-    </view>
+    <image src="{{locale == 'zh-Hant' ? item.targetImage : item.targetImageEnglish}}" mode="heightFix" class="image"></image>
     <view class="words">
       <view class="t1">{{locale == 'zh-Hant' ? item.targetName : item.targetNameEnglish}}</view>
-      <view class="state">{{item.state}}</view>
+      <view class="state">{{getStatusText(item.state)}}</view>
       <view class="orderfdr">
         <text class="t4">{{i18n.t('goodsDetail.buyNum', locale)}}：</text>
-        <text class="t3">{{item.buyedNum}} {{i18n.t('goodsList.unit', locale)}}</text>
+        <text class="t3">{{item.buyedNum}}{{i18n.t('goodsList.unit', locale)}}</text>
       </view>
       <view class="orderfdr" style="margin-top: -10px;">
         <text class="t4">{{i18n.t('order.pay', locale)}}：</text>
@@ -18,10 +16,10 @@
       </view>
       
       <view class="orderfdr" style="text-align: right;">
-        <view class="orderbtn" wx:if="{{item.state == 'To be picked up'}}" catchtap="requestDelivery" data-id="{{item.id}}">
+        <view class="orderbtn" wx:if="{{item.state == 'finishPay'}}" catchtap="requestDelivery" data-id="{{item.id}}">
           {{i18n.t('order.askget', locale)}}
         </view>
-        <view class="orderbtn" wx:if="{{item.state == 'Shipped'}}" catchtap="pickup" data-id="{{item.id}}">
+        <view class="orderbtn" wx:if="{{item.state == 'finishSend'}}" catchtap="confirmReceive" data-id="{{item.id}}">
           {{i18n.t('order.confirm', locale)}}
         </view>
       </view>

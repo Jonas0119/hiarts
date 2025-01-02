@@ -1,25 +1,27 @@
 <wxs module="i18n" src="../../utils/i18n.wxs"></wxs>
 
-<view class="container">
-  <!-- 用户信息 -->
-  <view class="user-info">
-    <image class="avatar" src="{{userInfo.headImg || '/static/images/default-avatar.png'}}" mode="aspectFill"></image>
-    <view class="info">
-      <text class="name">{{userInfo.name || t('common.tipLogin')}}</text>
-      <text class="phone" wx:if="{{userInfo.phone}}">{{userInfo.phone}}</text>
+<view class="greyBox">
+  <view class="pic minefdr">
+    <view class="infor" bindtap="goSetting">
+      <image class="image" mode="widthFix" src="{{headImg}}"></image>
+      <view class="jcc">
+        <view class="t1">{{nickname}}</view>
+        <view class="t2">{{phone}}</view>
+      </view>
+    </view>
+    <view class="invite-qrcode" bindtap="goToInvite">
+      <canvas id="qrcode" canvas-id="qrcode" style="width: 100rpx; height: 100rpx;"></canvas>
+      <text>{{i18n.t('mine.invitationIntro', locale)}}</text>
     </view>
   </view>
 
-  <!-- 菜单列表 -->
-  <view class="menu-list">
-    <view class="menu-item" 
-          wx:for="{{menuList}}" 
-          wx:key="id"
-          bindtap="onMenuTap"
-          data-url="{{item.url}}">
-      <image class="icon" src="{{item.icon}}" mode="aspectFit"></image>
-      <text class="text">{{t(item.text)}}</text>
-      <image class="arrow" src="/static/images/arrow-right.png" mode="aspectFit"></image>
+  <view class="box">
+    <view class="uni-navigate-item" wx:for="{{menuList}}" wx:key="url" bindtap="goDetailPage" data-url="{{item.url}}" data-enable="{{item.enable}}">
+      <view class="uni-navigate-text {{item.enable === false ? 'text-disabled' : ''}}">
+        <image src="{{item.icon}}" class="icon" mode="widthFix"></image>
+        {{item.name}}
+      </view>
+      <image src="/static/images/arrow-right.png" class="uni-icon-size" mode="widthFix"></image>
     </view>
   </view>
 </view> 

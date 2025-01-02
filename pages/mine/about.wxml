@@ -1,36 +1,30 @@
 <wxs module="i18n" src="../../utils/i18n.wxs"></wxs>
 
 <view class="about">
-  <view class="logo">
-    <image src="/static/images/logo.png"></image>
-    <text class="name">{{t('app.name')}}</text>
-    <text class="version">v{{version}}</text>
-  </view>
-
-  <view class="content">
-    <view class="section">
-      <view class="title">{{t('about.intro')}}</view>
-      <text class="text">{{t('about.introContent')}}</text>
+  <view class="menu-list">
+    <view class="menu-item" bindtap="goToTradeRule">
+      <text>{{i18n.t('mine.tradeRule', locale)}}</text>
+      <image class="arrow" src="/static/images/arrow-right.png"></image>
     </view>
-
-    <view class="section">
-      <view class="title">{{t('about.contact')}}</view>
-      <view class="info-item">
-        <text class="label">{{t('about.phone')}}</text>
-        <text class="value" bindtap="makeCall">{{contact.phone}}</text>
-      </view>
-      <view class="info-item">
-        <text class="label">{{t('about.email')}}</text>
-        <text class="value" bindtap="copyEmail">{{contact.email}}</text>
-      </view>
-      <view class="info-item">
-        <text class="label">{{t('about.address')}}</text>
-        <text class="value">{{contact.address}}</text>
-      </view>
+    
+    <view class="menu-item" bindtap="goToChargeRule">
+      <text>{{i18n.t('mine.chargeRule', locale)}}</text>
+      <image class="arrow" src="/static/images/arrow-right.png"></image>
     </view>
-  </view>
-
-  <view class="copyright">
-    <text>{{t('about.copyright')}}</text>
+    
+    <view class="menu-item" bindtap="goToMemberRule">
+      <text>{{i18n.t('mine.memberRule', locale)}}</text>
+      <image class="arrow" src="/static/images/arrow-right.png"></image>
+    </view>
+    
+    <view class="menu-item" bindtap="goToPrivacyRule">
+      <text>{{i18n.t('mine.privaceRule', locale)}}</text>
+      <image class="arrow" src="/static/images/arrow-right.png"></image>
+    </view>
+    
+    <view class="menu-item" bindtap="goToUserAgreement">
+      <text>{{i18n.t('mine.userAgreement', locale)}}</text>
+      <image class="arrow" src="/static/images/arrow-right.png"></image>
+    </view>
   </view>
 </view> 

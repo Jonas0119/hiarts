@@ -2,22 +2,27 @@
 
 <view class="address-form">
   <view class="form-item">
-    <text class="label">{{t('mine.receiveName')}}</text>
-    <input class="input" type="text" value="{{form.receiveName}}" bindinput="onInput" data-field="receiveName" placeholder="{{t('mine.inputName')}}" />
+    <text class="label">{{i18n.t('mine.reciveName', locale)}}</text>
+    <input type="text" placeholder="{{i18n.t('mine.inputName', locale)}}" value="{{name}}" bindinput="onNameInput" />
   </view>
-
+  
   <view class="form-item">
-    <text class="label">{{t('mine.receivePhone')}}</text>
-    <input class="input" type="number" value="{{form.receiveMobile}}" bindinput="onInput" data-field="receiveMobile" placeholder="{{t('mine.inputPhone')}}" />
+    <text class="label">{{i18n.t('mine.recivePhone', locale)}}</text>
+    <input type="number" placeholder="{{i18n.t('mine.inputPhone', locale)}}" value="{{phone}}" bindinput="onPhoneInput" />
   </view>
-
+  
   <view class="form-item">
-    <text class="label">{{t('mine.receiveAddress')}}</text>
-    <textarea class="textarea" value="{{form.address}}" bindinput="onInput" data-field="address" placeholder="{{t('mine.inputAddress')}}" />
+    <text class="label">{{i18n.t('mine.reciveAddress', locale)}}</text>
+    <textarea placeholder="{{i18n.t('mine.inputAddress', locale)}}" value="{{address}}" bindinput="onAddressInput"></textarea>
   </view>
-
+  
+  <view class="form-item switch">
+    <text class="label">{{i18n.t('mine.defaultAddress', locale)}}</text>
+    <switch checked="{{isDefault}}" bindchange="onDefaultChange" color="#AD2828" />
+  </view>
+  
   <view class="btn-group">
-    <button class="save-btn" bindtap="saveAddress">{{t('mine.save')}}</button>
-    <button class="delete-btn" bindtap="deleteAddress" wx:if="{{form.id}}">{{t('mine.delete')}}</button>
+    <button class="btn delete" wx:if="{{id}}" bindtap="deleteAddress">{{i18n.t('mine.del', locale)}}</button>
+    <button class="btn save" bindtap="saveAddress">{{i18n.t('mine.save', locale)}}</button>
   </view>
 </view> 

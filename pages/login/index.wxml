@@ -8,7 +8,7 @@
       <input 
         type="number" 
         maxlength="11" 
-        placeholder="{{t('login.phone')}}" 
+        placeholder="{{i18n.t('login.phone', locale)}}" 
         value="{{phone}}" 
         bindinput="onPhoneInput"
       />
@@ -18,7 +18,7 @@
       <input 
         type="number" 
         maxlength="6" 
-        placeholder="{{t('login.code')}}" 
+        placeholder="{{i18n.t('login.code', locale)}}" 
         value="{{code}}" 
         bindinput="onCodeInput"
       />
@@ -26,15 +26,15 @@
     </view>
   </view>
 
-  <button class="login-btn" loading="{{loading}}" bindtap="login">{{i18n.t('login.login')}}</button>
+  <button class="login-btn" loading="{{loading}}" bindtap="login">{{i18n.t('login.login', locale)}}</button>
 
   <view class="agreement">
     <checkbox-group bindchange="onCheckboxChange">
       <checkbox value="agree" checked="{{agreed}}" color="#AD2828">
-        <text class="agree-text">{{i18n.t('login.agree')}}</text>
-        <text class="link" bindtap="goToUserAgreement">《{{i18n.t('login.user')}}》</text>
-        <text class="agree-text">{{i18n.t('login.and')}}</text>
-        <text class="link" bindtap="goToPrivacy">《{{i18n.t('login.privace')}}》</text>
+        <text class="agree-text">{{i18n.t('login.agree', locale)}}</text>
+        <text class="link" bindtap="goToUserAgreement">《{{i18n.t('login.user', locale)}}》</text>
+        <text class="agree-text">{{i18n.t('login.and', locale)}}</text>
+        <text class="link" bindtap="goToPrivacy">《{{i18n.t('login.privace', locale)}}》</text>
       </checkbox>
     </checkbox-group>
   </view>

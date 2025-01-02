@@ -1,27 +1,25 @@
+<wxs module="i18n" src="../../utils/i18n.wxs"></wxs>
+
 <view class="address-list">
-  <view class="address-item" wx:for="{{addressList}}" wx:key="id" bindtap="selectAddress" data-id="{{item.id}}">
-    <view class="info">
-      <view class="row">
-        <text class="name">{{item.receiveName}}</text>
-        <text class="phone">{{item.receiveMobile}}</text>
+  <view class="list">
+    <view class="address-item" wx:for="{{addressList}}" wx:key="id" bindtap="selectAddress" data-id="{{item.id}}">
+      <view class="info">
+        <view class="name-phone">
+          <text class="name">{{item.name}}</text>
+          <text class="phone">{{item.phone}}</text>
+          <text class="default" wx:if="{{item.isDefault}}">{{i18n.t('mine.default', locale)}}</text>
+        </view>
+        <view class="address">{{item.address}}</view>
       </view>
-      <view class="address">{{item.address}}</view>
-    </view>
-    <view class="actions">
       <view class="edit" catchtap="editAddress" data-id="{{item.id}}">
-        <image src="/static/images/icon-edit.png"></image>
-      </view>
-      <view class="delete" catchtap="deleteAddress" data-id="{{item.id}}">
-        <image src="/static/images/icon-delete.png"></image>
+        <image src="/static/images/edit.png" mode="widthFix"></image>
       </view>
     </view>
   </view>
 
-  <view class="empty" wx:if="{{addressList.length === 0}}">
-    <text>{{t('mine.noAddress')}}</text>
-  </view>
+  <view class="no-data" wx:if="{{addressList.length === 0}}">{{i18n.t('common.nodata', locale)}}</view>
 
   <view class="add-btn" bindtap="addAddress">
-    <text>{{t('mine.addAddress')}}</text>
+    <text>{{i18n.t('mine.addAddress', locale)}}</text>
   </view>
 </view> 

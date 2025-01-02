@@ -87,17 +87,10 @@ Page({
   },
 
   // 切换语言
-  changeLocale() {
-    wx.showActionSheet({
-      itemList: ['繁體', 'English'],
-      success: (res) => {
-        const locale = res.tapIndex === 1 ? 'en' : 'zh-Hant'
-        this.setData({ locale })
-        wx.setStorageSync('locale', locale)
-        // 刷新商品列表以更新图片
-        this.getGoodsList()
-      }
-    })
+  changeLocale: function() {
+    const newLocale = this.data.locale === 'zh-Hant' ? 'en' : 'zh-Hant'
+    app.setLocale(newLocale)
+    this.setData({ locale: newLocale })
   },
 
   // 获取汇率

@@ -26,6 +26,31 @@ Page({
         this.loadGoodsDetail()
       })
     }
+
+    this.localeChangeCallback = (newLocale) => {
+      this.setData({ locale: newLocale }, () => {
+        console.log("the locale is:" + newLocale)
+        this.loadGoodsDetail()
+      })
+    }
+    app.watchLocale(this.localeChangeCallback)
+  },
+
+  onShow: function() {
+    const locale = wx.getStorageSync('locale') || 'zh-Hant'
+    if (locale !== this.data.locale) {
+      this.setData({ locale }, () => {
+        if (this.data.id) {
+          this.loadGoodsDetail()
+        }
+      })
+    }
+  },
+
+  onUnload: function() {
+    if (this.localeChangeCallback) {
+      app.unwatchLocale(this.localeChangeCallback)
+    }
   },
 
   loadGoodsDetail: function() {

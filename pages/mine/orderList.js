@@ -3,88 +3,124 @@ import { t } from '../../utils/i18n'
 
 Page({
   data: {
-    tabs: [
-      t('mine.orderStatus.all'),
-      t('mine.orderStatus.unpaid'),
-      t('mine.orderStatus.unshipped'),
-      t('mine.orderStatus.shipped'),
-      t('mine.orderStatus.completed')
-    ],
-    currentTab: 0,
-    orderList: [],
-    pageNum: 1,
-    pageSize: 10,
-    hasMore: true,
-    t: t
+    list: [],
+    token: '',
+    locale: 'zh-Hant'
   },
 
-  onLoad: function(options) {
-    if (options.status) {
-      const statusMap = {
-        'unpaid': 1,
-        'unshipped': 2,
-        'shipped': 3,
-        'completed': 4
+  onLoad: function() {
+    this.setData({
+      locale: wx.getStorageSync('locale') || 'zh-Hant'
+    })
+
+    let _this = this
+    wx.getStorage({
+      key: 'token',
+      success: function(res) {
+        _this.setData({
+          token: res.data
+        })
+        _this.init()
       }
-      this.setData({
-        currentTab: statusMap[options.status] || 0
-      })
+    })
+
+    // 监听语言变化
+    this.localeChangeCallback = (newLocale) => {
+      this.setData({ locale: newLocale })
     }
-    this.loadOrderList()
+    app.watchLocale(this.localeChangeCallback)
+  },
+
+  onUnload: function() {
+    if (this.localeChangeCallback) {
+      app.unwatchLocale(this.localeChangeCallback)
+    }
   },
 
   onPullDownRefresh: function() {
-    this.setData({
-      pageNum: 1,
-      orderList: [],
-      hasMore: true
-    })
-    this.loadOrderList()
+    this.init()
   },
 
-  onReachBottom: function() {
-    if (this.data.hasMore) {
-      this.loadMoreOrders()
+  pickup: function(e) {
+    const id = e.currentTarget.dataset.id
+    wx.request({
+      url: app.globalData.baseUrl + '/tjfae-space/order/pickup/receive',
+      method: 'POST',
+      data: {
+        id: id
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'Authorization': 'Bearer ' + this.data.token
+      },
+      success: (res) => {
+        if (res.data.code === 200) {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none'
+          })
+          this.init()
+        } else {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none'
+          })
+        }
+      }
+    })
+  },
+
+  formateState: function(state) {
+    if (state === 'paying') {
+      return t('order.unPay')
+    } else if (state === 'finishPay') {
+      return t('order.unget')
+    } else if (state === 'waitSend') {
+      return t('order.unsend')
+    } else if (state === 'finishSend') {
+      return t('order.sended')
+    } else if (state === 'finishOrder') {
+      return t('order.done')
     }
   },
 
-  switchTab: function(e) {
-    const index = e.currentTarget.dataset.index
-    this.setData({
-      currentTab: index,
-      pageNum: 1,
-      orderList: [],
-      hasMore: true
-    })
-    this.loadOrderList()
-  },
-
-  loadOrderList: function() {
-    wx.showLoading({
-      title: t('common.loading')
-    })
-
-    const stateMap = ['', 'unpaid', 'unshipped', 'shipped', 'completed']
-    
+  init: function() {
     wx.request({
       url: app.globalData.baseUrl + '/tjfae-space/GoodsApi/myOrder',
       method: 'POST',
       data: {
-        pageNum: this.data.pageNum,
-        pageSize: this.data.pageSize,
-        state: stateMap[this.data.currentTab]
+        pageNum: 1,
+        pageSize: 100
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded',
-        'Authorization': `Bearer ${wx.getStorageSync('token')}`
+        'Authorization': 'Bearer ' + this.data.token
       },
       success: (res) => {
         if (res.data.code === 200) {
-          const list = res.data.data.list
+          const orderList = res.data.data.list.map(item => ({
+            ...item,
+            targetImage: this.getImage(item.targetImage),
+            targetImageEnglish: this.getImage(item.targetImageEnglish),
+            state: this.formateState(item.state)
+          }))
           this.setData({
-            orderList: [...this.data.orderList, ...list],
-            hasMore: list.length === this.data.pageSize
+            list:orderList
           })
+          console.log('res.data.data.list is:', orderList)
+        } else if (res.data.code === '999999') {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none'
+          })
+          setTimeout(() => {
+            wx.removeStorage({ key: 'accountId' })
+            wx.removeStorage({ key: 'token' })
+            wx.removeStorage({ key: 'phone' })
+            wx.removeStorage({ key: 'headImg' })
+            wx.removeStorage({ key: 'name' })
+            wx.reLaunch({ url: '/pages/login/index' })
+          }, 2000)
         } else {
           wx.showToast({
             title: res.data.msg,
@@ -93,72 +129,30 @@ Page({
         }
       },
       complete: () => {
-        wx.hideLoading()
         wx.stopPullDownRefresh()
       }
     })
   },
 
-  loadMoreOrders: function() {
-    this.setData({
-      pageNum: this.data.pageNum + 1
-    })
-    this.loadOrderList()
+  // 处理商品图片
+  getImage(sourceImages) {
+    if (!sourceImages) return ''
+
+    const array = sourceImages.split(',')
+    return array[0]
   },
 
-  goToDetail: function(e) {
+  goDetailPage: function(e) {
     const id = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: `/pages/mine/orderDetail?id=${id}`
+      url: '/pages/mine/orderDetail?id=' + id
     })
   },
 
-  confirmReceive: function(e) {
+  requestDelivery: function(e) {
     const id = e.currentTarget.dataset.id
-    wx.showModal({
-      title: t('common.tips'),
-      content: t('mine.confirmReceive'),
-      success: (res) => {
-        if (res.confirm) {
-          wx.request({
-            url: app.globalData.baseUrl + '/tjfae-space/order/confirm',
-            method: 'POST',
-            data: { id },
-            header: {
-              'content-type': 'application/x-www-form-urlencoded',
-              'Authorization': `Bearer ${wx.getStorageSync('token')}`
-            },
-            success: (res) => {
-              if (res.data.code === 200) {
-                wx.showToast({
-                  title: t('common.success')
-                })
-                this.setData({
-                  pageNum: 1,
-                  orderList: [],
-                  hasMore: true
-                })
-                this.loadOrderList()
-              } else {
-                wx.showToast({
-                  title: res.data.msg,
-                  icon: 'none'
-                })
-              }
-            }
-          })
-        }
-      }
+    wx.navigateTo({
+      url: '/pages/mine/orderDetail?id=' + id
     })
-  },
-
-  getStatusText: function(state) {
-    const statusMap = {
-      'unpaid': t('mine.orderStatus.unpaid'),
-      'unshipped': t('mine.orderStatus.unshipped'),
-      'shipped': t('mine.orderStatus.shipped'),
-      'completed': t('mine.orderStatus.completed')
-    }
-    return statusMap[state] || ''
   }
 }) 

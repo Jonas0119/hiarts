@@ -17,6 +17,8 @@ Page({
 
   onLoad: function() {
     const locale = wx.getStorageSync('locale') || 'zh-Hant'
+    console.log("the local is:" + locale)
+    console.log("the t is:" + t("goodsList.unbuy"))
     this.setData({ locale })
     this.loadGoodsList()
   },
@@ -119,6 +121,7 @@ Page({
   // 处理商品图片
   getImage(item) {
     let targetImage = ''
+    console.log("the locale is:" + this.data.locale)
     if(this.data.locale === 'zh-Hant') {
       targetImage = item.targetImage
     } else {
@@ -130,7 +133,7 @@ Page({
     if(array.length > 0) {
       targetImage = array[0]
     }
-    console.log("targetImage  is:" + targetImage)
+    //console.log("targetImage  is:" + targetImage)
     return targetImage
   }
 }) 

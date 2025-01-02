@@ -1,40 +1,55 @@
 App({
-  onLaunch() {
-    // 设置默认语言
-    wx.setStorageSync('locale', 'zh-Hant')
-  },
   globalData: {
+    baseUrl: 'http://gw.antan-tech.com/api',
     userInfo: null,
+    token: null,
     locale: 'zh-Hant',
-    baseUrl: 'https://gw.antan-tech.com/api'
-  },
-  
-  // 检查登录状态
-  checkLogin(redirectUrl) {
-    const token = wx.getStorageSync('token')
-    if (!token) {
-      wx.navigateTo({
-        url: `/pages/login/index?redirect=${encodeURIComponent(redirectUrl || getCurrentPages()[getCurrentPages().length - 1].route)}`
-      })
-      return false
-    }
-    return true
+    watchLocale: []
   },
 
-  // 处理API响应
-  handleApiResponse(res, callback) {
-    if (res.data.code === 999999) {
-      // token过期，清除本地存储并跳转到登录页
-      wx.clearStorageSync()
-      const currentPage = getCurrentPages()[getCurrentPages().length - 1]
-      wx.navigateTo({
-        url: `/pages/login/index?redirect=${encodeURIComponent(currentPage.route)}`
-      })
-      return false
+  onLaunch: function() {
+    // 获取存储的语言设置
+    const locale = wx.getStorageSync('locale') || 'zh-Hant'
+    this.globalData.locale = locale
+  },
+
+  // 监听语言变化
+  watchLocale: function(callback) {
+    this.globalData.watchLocale.push(callback)
+  },
+
+  // 取消监听语言变化
+  unwatchLocale: function(callback) {
+    const index = this.globalData.watchLocale.indexOf(callback)
+    if (index > -1) {
+      this.globalData.watchLocale.splice(index, 1)
     }
-    
-    if (callback) {
-      callback(res)
+  },
+
+  // 设置语言
+  setLocale: function(locale) {
+    this.globalData.locale = locale
+    wx.setStorageSync('locale', locale)
+    // 通知所有监听者
+    this.globalData.watchLocale.forEach(callback => {
+      callback(locale)
+    })
+  },
+
+  checkLogin: function() {
+    const token = wx.getStorageSync('token')
+    if (!token) {
+      console.log("check no token")
+      wx.showToast({
+        title: '请先登录',
+        icon: 'none'
+      })
+      setTimeout(() => {
+        wx.navigateTo({
+          url: '/pages/login/index'
+        })
+      }, 1500)
+      return false
     }
     return true
   }

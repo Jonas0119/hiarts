@@ -11,7 +11,7 @@
       </view>
       <view class="fdr">
         <text class="t1"></text>
-        <text class="t3">{{i18n.t('goodsDetail.buyNum')}}：{{buyNum}}{{i18n.t('goodsList.unit')}}</text>
+        <text class="t3">{{i18n.t('goodsDetail.buyNum', locale)}}：{{buyNum}} {{i18n.t('goodsList.unit', locale)}}</text>
       </view>
     </view>
   </view>
@@ -19,16 +19,16 @@
   <!-- 支付金额 -->
   <view class="fff">
     <view class="fdr">
-      <text class="t4">{{i18n.t('order.pay')}}：</text>
-      <text class="t5">HK$ {{(goodsDetail.targetAmount * buyNum)}}</text>
+      <text class="t4">{{i18n.t('order.pay', locale)}}：</text>
+      <text class="t5">HK$ {{totalAmount}}</text>
     </view>
   </view>
 
   <!-- 收货地址 -->
   <view class="takeForm fff">
-    <view class="takeTitle">{{i18n.t('order.getAddress')}}</view>
+    <view class="takeTitle">{{i18n.t('order.getAddress', locale)}}</view>
     <view class="ffr" bindtap="showAddress">
-      <view class="t6">{{i18n.t('order.choseAdd')}}</view>
+      <view class="t6">{{i18n.t('order.choseAdd', locale)}}</view>
       <view class="t7">
         <view class="addressList" wx:if="{{addressList[addressIndex]}}">
           <view>
@@ -42,7 +42,7 @@
   </view>
 
   <!-- 提交按钮 -->
-  <button bindtap="submitOrder" class="takebtn">{{i18n.t('order.submit')}}</button>
+  <button bindtap="submitOrder" class="takebtn">{{i18n.t('order.submit', locale)}}</button>
 
   <!-- 地址选择弹窗 -->
   <view class="address-popup" wx:if="{{showAddressPopup}}">
@@ -58,7 +58,7 @@
           <view class="t3">{{item.receiveName}} {{item.receiveMobile}}</view>
         </view>
         <view>
-          <button bindtap="addAddress" class="addressbtn">{{i18n.t('mine.addAddress')}}</button>
+          <button bindtap="addAddress" class="addressbtn">{{i18n.t('mine.addAddress', locale)}}</button>
         </view>
       </view>
     </view>

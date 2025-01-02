@@ -13,11 +13,11 @@
       <view class="words">
         <text class="t1">{{locale === 'zh-Hant' ? item.targetName : item.targetNameEnglish}}</text>
         <view class="fdr">
-          <text class="t4">{{i18n.t('goodsList.wait')}}：</text>
-          <text class="t2">{{item.stockNum - item.buyedNum}}{{i18n.t('goodsList.unit')}}</text>
+          <text class="t4">{{i18n.t('goodsList.wait', locale)}}：</text>
+          <text class="t2">{{item.stockNum - item.buyedNum}} {{i18n.t('goodsList.unit', locale)}}</text>
         </view>
         <view class="fdr">
-          <text class="t4">{{i18n.t('goodsList.privce')}}：</text>
+          <text class="t4">{{i18n.t('goodsList.privce', locale)}}：</text>
           <text class="t3">HK${{item.targetAmount}}</text>
         </view>
       </view>

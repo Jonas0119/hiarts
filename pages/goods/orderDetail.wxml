@@ -1,0 +1,101 @@
+<wxs module="i18n" src="../../utils/i18n.wxs"></wxs>
+
+<view class="order">
+  <view class="uni-navigate-item">
+    <image src="{{locale == 'zh-Hant' ? orderDetail.targetImage : orderDetail.targetImageEnglish}}" mode="heightFix" class="image"></image>
+    <view class="words">
+      <view class="t1">{{locale == 'zh-Hant' ? orderDetail.targetName : orderDetail.targetNameEnglish}}</view>
+      <view class="state">{{getStatusText(orderDetail.state)}}</view>
+      <view class="t2">HK$ {{orderDetail.targetAmount}}</view>
+      <view class="fdr" style="text-align: right;">
+        <text class="t4">{{i18n.t('goodsDetail.buyNum', locale)}}：</text>
+        <text class="t3">{{orderDetail.buyedNum}}{{i18n.t('goodsList.unit', locale)}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="fff">
+    <view class="fdr">
+      <text class="t4">{{i18n.t('order.pay', locale)}}：</text>
+      <text class="t5">HK$ {{orderDetail.totalAmount}}</text>
+    </view>
+    <view class="fdr">
+      <text class="t4">{{i18n.t('order.orderNo', locale)}}：</text>
+      <text class="t3">{{orderDetail.orderPayCode}}</text>
+    </view>
+    <view class="fdr">
+      <text class="t4">{{i18n.t('order.orderTime', locale)}}：</text>
+      <text class="t3">{{orderDetail.buyerTime}}</text>
+    </view>
+
+    <view>
+      <view class="fdr">
+        <text class="t4">{{i18n.t('order.getInfo', locale)}}：</text>
+        <text class="t3">{{orderDetail.receiveName}} {{orderDetail.receiveMobile}}</text>
+      </view>
+      <view class="fdr">
+        <text class="t4">{{i18n.t('order.getAddress', locale)}}：</text>
+        <text class="t3">{{orderDetail.address}}</text>
+      </view>
+      <view class="fdr" wx:if="{{orderDetail.state == 'finishSend' || orderDetail.state == 'finishOrder'}}">
+        <text class="t4">{{i18n.t('order.Logistics', locale)}}：</text>
+        <text class="t3">{{orderDetail.logisticsCompany}} {{orderDetail.waybillNumber}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="takeForm fff" wx:if="{{orderDetail.state == 'finishPay'}}">
+    <view class="takeTitle">{{i18n.t('order.tiInfo', locale)}}</view>
+    <view class="ffr" bindtap="showAddress">
+      <view class="t6">{{i18n.t('order.choseAdd', locale)}}</view>
+      <view class="t7">
+        <view class="addressList">
+          <view>
+            <text class="t1">{{addressList[chose].address}}</text>
+          </view>
+          <view class="t3">{{addressList[chose].receiveName}} {{addressList[chose].receiveMobile}}</view>
+        </view>
+        <image src="/static/images/arrow-right.png" class="uni-icon-size" mode="widthFix"></image>
+      </view>
+    </view>
+
+    <view class="ffr">
+      <view class="t6">{{i18n.t('order.tiTime', locale)}}</view>
+      <view class="t7">
+        <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+          <view class="uni-input">{{date}}</view>
+        </picker>
+        <image src="/static/images/arrow-right.png" class="uni-icon-size" mode="widthFix"></image>
+      </view>
+    </view>
+
+    <view class="">
+      <view class="t6">{{i18n.t('order.tiTips', locale)}}</view>
+      <view class="t7">
+        <view class="uni-textarea">
+          <textarea bindblur="bindTextAreaBlur" class="takeMore" placeholder-style="color:#e6e6e6" placeholder="{{i18n.t('order.input', locale)}}"/>
+        </view>
+      </view>
+    </view>
+
+    <button bindtap="take" class="takebtn">{{i18n.t('order.submit', locale)}}</button>
+  </view>
+
+  <view class="address-popup {{showAddress ? 'show' : ''}}">
+    <view class="popup-mask" bindtap="hideAddress"></view>
+    <view class="popup-content">
+      <view class="addressBox">
+        <view class="{{chose == index ? 'addressItem chosed' : 'addressItem'}}" bindtap="choseA" data-index="{{index}}"
+          wx:for="{{addressList}}" wx:key="index">
+          <view>
+            <text class="t1">{{item.address}}</text>
+          </view>
+          <view class="t3">{{item.receiveName}} {{item.receiveMobile}}</view>
+        </view>
+        <view>
+          <button bindtap="addAddress" class="addressbtn">{{i18n.t('mine.addAddress', locale)}}</button>
+        </view>
+      </view>
+    </view>
+  </view>
+</view> 

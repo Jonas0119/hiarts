@@ -6,6 +6,7 @@ Page({
     goodsDetail: {},
     goodsImages: '',
     buyNum: 1,
+    totalAmount:0,
     locale: 'zh-Hant',
     addressList: [],
     addressIndex: 0,
@@ -19,11 +20,17 @@ Page({
     if (options.id && options.number) {
       this.loadGoodsDetail(options.id)
       this.setData({
-        buyNum: parseInt(options.number)
+        buyNum: parseInt(options.number),
       })
     }
 
     this.loadAddressList()
+  },
+
+  formatAmount: function(targetAmount, buyedNum) {
+    console.log("targetAmount:" + targetAmount)
+    console.log("buyedNum:" + buyedNum)
+    return (Number(targetAmount) * Number(buyedNum)).toFixed(2);
   },
 
   loadGoodsDetail: function(id) {
@@ -54,7 +61,8 @@ Page({
           
           this.setData({
             goodsDetail: detail,
-            goodsImages: images[0] || ''
+            goodsImages: images[0] || '',
+            totalAmount: this.formatAmount(detail.targetAmount, this.data.buyNum)
           })
         } else {
           wx.showToast({
@@ -169,6 +177,7 @@ Page({
       },
       success: (res) => {
         if (res.data.code === 200 && res.data.data.length > 0) {
+          console.log("the res data is" + res.data.data)
           wx.navigateTo({
             url: `/pages/goods/payIndex?payUrl=${res.data.data}`
           })

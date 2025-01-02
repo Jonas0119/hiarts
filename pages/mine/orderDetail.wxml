@@ -1,59 +1,62 @@
 <wxs module="i18n" src="../../utils/i18n.wxs"></wxs>
 
 <view class="order-detail">
-  <view class="status-section">
-    <text class="status">{{i18n.t(getStatusText(orderDetail.state))}}</text>
-    <text class="desc">{{i18n.t(getStatusDesc(orderDetail.state))}}</text>
-  </view>
-
-  <view class="address-section">
-    <view class="title">{{i18n.t('mine.orderInfo.address')}}</view>
-    <view class="content">
-      <view class="name-phone">
-        <text class="name">{{orderDetail.receiveName}}</text>
-        <text class="phone">{{orderDetail.receiveMobile}}</text>
-      </view>
-      <view class="address">{{orderDetail.address}}</view>
-    </view>
-  </view>
-
-  <view class="goods-section">
-    <view class="goods-info">
-      <image class="goods-image" src="{{orderDetail.targetImage}}" mode="aspectFill"></image>
-      <view class="goods-detail">
-        <text class="goods-name">{{locale === 'zh-Hant' ? orderDetail.targetName : orderDetail.targetNameEnglish}}</text>
-        <view class="goods-price">
-          <text class="price">HK$ {{orderDetail.targetAmount}}</text>
-          <text class="num">x{{orderDetail.buyNum}}</text>
-        </view>
-      </view>
-    </view>
+  <view class="status-bar">
+    <text class="status">{{orderStatus}}</text>
   </view>
 
   <view class="order-info">
     <view class="info-item">
-      <text class="label">{{i18n.t('mine.orderInfo.orderNo')}}</text>
+      <text class="label">{{i18n.t('order.orderNo', locale)}}</text>
       <text class="value">{{orderDetail.orderNo}}</text>
     </view>
     <view class="info-item">
-      <text class="label">{{i18n.t('mine.orderInfo.orderTime')}}</text>
+      <text class="label">{{i18n.t('order.orderTime', locale)}}</text>
       <text class="value">{{orderDetail.createTime}}</text>
     </view>
+  </view>
+
+  <view class="goods-info">
+    <image class="goods-img" src="{{orderDetail.goodsImage}}" mode="aspectFill"></image>
+    <view class="goods-detail">
+      <text class="name">{{orderDetail.goodsName}}</text>
+      <view class="price-info">
+        <text class="price">¥{{orderDetail.price}}</text>
+        <text class="num">x{{orderDetail.num}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="delivery-info" wx:if="{{orderDetail.status >= 2}}">
+    <view class="section-title">{{i18n.t('order.getInfo', locale)}}</view>
     <view class="info-item">
-      <text class="label">{{i18n.t('mine.orderInfo.orderAmount')}}</text>
-      <text class="value price">HK$ {{orderDetail.totalAmount}}</text>
+      <text class="label">{{i18n.t('order.getAddress', locale)}}</text>
+      <text class="value">{{orderDetail.address}}</text>
+    </view>
+    <view class="info-item">
+      <text class="label">{{i18n.t('order.getTime', locale)}}</text>
+      <text class="value">{{orderDetail.deliveryTime}}</text>
     </view>
   </view>
 
-  <view class="logistics" wx:if="{{orderDetail.state === 'shipped'}}">
-    <view class="title">{{i18n.t('mine.orderInfo.logistics')}}</view>
-    <view class="content">
-      <text class="company">{{orderDetail.logisticsCompany}}</text>
-      <text class="number">{{orderDetail.logisticsNumber}}</text>
+  <view class="logistics-info" wx:if="{{orderDetail.status >= 3}}">
+    <view class="section-title">{{i18n.t('order.Logistics', locale)}}</view>
+    <view class="logistics-detail">{{orderDetail.logistics}}</view>
+  </view>
+
+  <view class="payment-info">
+    <view class="total">
+      <text class="label">{{i18n.t('order.pay', locale)}}</text>
+      <text class="amount">¥{{orderDetail.totalAmount}}</text>
     </view>
   </view>
 
-  <view class="btn-group" wx:if="{{orderDetail.state === 'shipped'}}">
-    <button class="btn" bindtap="confirmReceive">{{i18n.t('mine.orderInfo.confirm')}}</button>
+  <view class="action-bar">
+    <button class="action-btn" wx:if="{{orderDetail.status === 3}}" bindtap="confirmReceipt">
+      {{i18n.t('order.confirm', locale)}}
+    </button>
+    <button class="action-btn" wx:if="{{orderDetail.status === 2}}" bindtap="requestDelivery">
+      {{i18n.t('order.askget', locale)}}
+    </button>
   </view>
 </view> 

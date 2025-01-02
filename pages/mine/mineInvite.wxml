@@ -2,44 +2,31 @@
 
 <view class="invite">
   <view class="header">
-    <image class="bg" src="/static/images/myInvite.png"></image>
-    <view class="content">
-      <text class="title">{{t('mine.inviteTitle')}}</text>
-      <text class="desc">{{t('mine.inviteDesc')}}</text>
+    <view class="total">
+      <text class="num">{{total}}</text>
+      <text class="label">{{i18n.t('mine.invitedPeople', locale)}}</text>
+      <text class="detail" bindtap="goToDetail">{{i18n.t('mine.inviteDetail', locale)}}</text>
+    </view>
+    <view class="qrcode">
+      <canvas id="qrcode" canvas-id="qrcode" style="width: 200rpx; height: 200rpx;"></canvas>
     </view>
   </view>
 
-  <view class="section">
-    <view class="section-title">{{t('mine.inviteCode')}}</view>
-    <view class="code-box">
-      <text class="code">{{inviteCode}}</text>
-      <button class="copy-btn" bindtap="copyCode">{{t('mine.copyCode')}}</button>
+  <view class="list">
+    <view class="title">
+      <text>{{i18n.t('mine.CumulativeInvitations', locale)}}</text>
+      <text class="count">{{total}} {{i18n.t('mine.people', locale)}}</text>
     </view>
-  </view>
-
-  <view class="section">
-    <view class="section-title">{{t('mine.inviteLink')}}</view>
-    <view class="link-box">
-      <text class="link">{{inviteLink}}</text>
-      <button class="copy-btn" bindtap="copyLink">{{t('mine.copyLink')}}</button>
-    </view>
-  </view>
-
-  <view class="section">
-    <view class="section-title">{{t('mine.inviteQrcode')}}</view>
-    <view class="qrcode-box">
-      <image class="qrcode" src="{{qrcode}}" mode="aspectFit"></image>
-      <button class="save-btn" bindtap="saveQrcode">{{t('mine.saveQrcode')}}</button>
-    </view>
-  </view>
-
-  <view class="invited-list" wx:if="{{invitedList.length > 0}}">
-    <view class="section-title">{{t('mine.invitedList')}}</view>
-    <view class="list">
-      <view class="item" wx:for="{{invitedList}}" wx:key="id">
-        <text class="name">{{item.name}}</text>
-        <text class="time">{{item.inviteTime}}</text>
+    
+    <view class="invite-list">
+      <view class="item" wx:for="{{inviteList}}" wx:key="id">
+        <view class="info">
+          <text class="name">{{i18n.t('mine.invitee', locale)}}: {{item.name}}</text>
+          <text class="date">{{i18n.t('mine.RegistrationDate', locale)}}: {{item.registerTime}}</text>
+        </view>
       </view>
     </view>
+    
+    <view class="no-more" wx:if="{{noMore}}">{{i18n.t('mine.noMore', locale)}}</view>
   </view>
 </view> 

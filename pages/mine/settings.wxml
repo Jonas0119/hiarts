@@ -1,57 +1,46 @@
 <wxs module="i18n" src="../../utils/i18n.wxs"></wxs>
 
 <view class="settings">
-  <view class="section">
-    <view class="menu-item">
-      <text class="label">{{i18n.t('settings.language')}}</text>
-      <picker 
-        bindchange="changeLanguage" 
-        value="{{languageIndex}}" 
-        range="{{languages}}" 
-        range-key="name"
-      >
-        <view class="picker">
-          <text>{{languages[languageIndex].name}}</text>
-          <image class="arrow" src="/static/images/arrow-right.png"></image>
-        </view>
-      </picker>
-    </view>
-
-    <view class="menu-item">
-      <text class="label">{{i18n.t('settings.notification')}}</text>
-      <switch checked="{{notification}}" bindchange="toggleNotification" color="#AD2828"></switch>
-    </view>
-
-    <view class="menu-item">
-      <text class="label">{{i18n.t('settings.clearCache')}}</text>
-      <view class="value" bindtap="clearCache">
-        <text>{{cacheSize}}</text>
-        <image class="arrow" src="/static/images/arrow-right.png"></image>
-      </view>
+  <view class="setting-item" bindtap="showLanguagePopup">
+    <text>{{i18n.t('settings.language', locale)}}</text>
+    <view class="right">
+      <text>{{currentLanguage}}</text>
+      <image src="/static/images/arrow-right.png" mode="widthFix"></image>
     </view>
   </view>
 
-  <view class="section">
-    <view class="menu-item" bindtap="checkUpdate">
-      <text class="label">{{i18n.t('settings.checkUpdate')}}</text>
-      <view class="value">
-        <text class="version">v{{version}}</text>
-        <image class="arrow" src="/static/images/arrow-right.png"></image>
-      </view>
-    </view>
-
-    <view class="menu-item" bindtap="goToPrivacy">
-      <text class="label">{{i18n.t('settings.privacy')}}</text>
-      <image class="arrow" src="/static/images/arrow-right.png"></image>
-    </view>
-
-    <view class="menu-item" bindtap="goToTerms">
-      <text class="label">{{i18n.t('settings.terms')}}</text>
-      <image class="arrow" src="/static/images/arrow-right.png"></image>
-    </view>
+  <view class="setting-item" bindtap="goToNotification">
+    <text>{{i18n.t('settings.notification', locale)}}</text>
+    <image src="/static/images/arrow-right.png" mode="widthFix"></image>
   </view>
 
-  <view class="logout" bindtap="logout">
-    <text>{{i18n.t('settings.logout')}}</text>
+  <view class="setting-item" bindtap="clearCache">
+    <text>{{i18n.t('settings.clearCache', locale)}}</text>
+    <image src="/static/images/arrow-right.png" mode="widthFix"></image>
+  </view>
+
+  <view class="setting-item" bindtap="checkUpdate">
+    <text>{{i18n.t('settings.checkUpdate', locale)}}</text>
+    <image src="/static/images/arrow-right.png" mode="widthFix"></image>
+  </view>
+
+  <view class="setting-item" bindtap="goToPrivacy">
+    <text>{{i18n.t('settings.privacy', locale)}}</text>
+    <image src="/static/images/arrow-right.png" mode="widthFix"></image>
+  </view>
+
+  <view class="setting-item" bindtap="goToTerms">
+    <text>{{i18n.t('settings.terms', locale)}}</text>
+    <image src="/static/images/arrow-right.png" mode="widthFix"></image>
+  </view>
+
+  <button class="logout-btn" bindtap="logout">{{i18n.t('settings.logout', locale)}}</button>
+</view>
+
+<view class="language-popup {{showLanguage ? 'show' : ''}}">
+  <view class="mask" bindtap="hideLanguagePopup"></view>
+  <view class="content">
+    <view class="language-item {{locale === 'zh-Hant' ? 'active' : ''}}" bindtap="selectLanguage" data-lang="zh-Hant">繁體中文</view>
+    <view class="language-item {{locale === 'en' ? 'active' : ''}}" bindtap="selectLanguage" data-lang="en">English</view>
   </view>
 </view> 
