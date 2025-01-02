@@ -1,50 +1,81 @@
 const app = getApp()
 import { t } from '../../utils/i18n'
+import uQRCode from '../../utils/uqrcode.js'
 
 Page({
   data: {
     inviteCode: '',
     inviteLink: '',
     qrcode: '',
+    phone: '',
     invitedList: [],
+    shareUrl: 'http://218.244.138.12:8086/webHJL/#/pages/login/index?phone=',
     total: 0,
     t: t
   },
 
-  onLoad: function() {
-    //this.loadInviteInfo()
-    this.loadInvitedList()
+  onLoad: function () {
+    // 获取用户信息
+    this.setData({
+      phone: wx.getStorageSync('phone') || '',
+    }, () => {
+      this.loadInviteInfo()
+      this.generateQRCode()
+    })
   },
 
-    loadInviteInfo: function () {
-        wx.request({
-            url: 'http://gw.antan-tech.com/paasapi/usercenter/user/v2/getMyInviteList',
-            method: 'GET',
-            data: {
-                pageNum: 1,
-                pageSize: 10,
-                cellphone: this.phone,
-                subject: 'hjs'
-            },
-            header: {
-                'content-type': "application/x-www-form-urlencoded",
-                'Authorization': `Bearer ${wx.getStorageSync('token')}`
-            },
-            timeout: 6000,
-            sslVerify: false,
-            withCredentials: false,
-            firstIpv4: false,
-            success: (res) => {
-                if (res.data.code === 200) {
-                    this.setData({
-                        inviteCode: res.data.data.inviteCode,
-                        inviteLink: res.data.data.inviteLink,
-                        qrcode: res.data.data.qrcode
-                    })
-                }
-            }
-        })
-    },
+  generateQRCode: function() {
+    console.log('this.data.shareUrl:' + this.data.shareUrl)
+    console.log('this.data.phone:' + this.data.phone)
+    uQRCode.make({
+      canvasId: 'qrcode',
+      componentInstance: this,
+      text: this.data.shareUrl + this.data.phone,
+      size: 150,
+      margin: 0,
+      backgroundColor: '#ffffff',
+      foregroundColor: '#000000',
+      fileType: 'jpg',
+      errorCorrectLevel: uQRCode.errorCorrectLevel.H,
+      success: () => {}
+    })
+  },
+
+  loadInviteInfo: function () {
+    wx.request({
+      url: 'https://gw.antan-tech.com/paasapi/usercenter/user/v2/getMyInviteList',
+      method: 'POST',
+      data: {
+        pageNum: 1,
+        pageSize: 10,
+        cellphone: wx.getStorageSync('phone') || '',
+        subject: 'hjs'
+      },
+      header: {
+        'content-type': "application/x-www-form-urlencoded",
+        'Authorization': `Bearer ${wx.getStorageSync('token')}`
+      },
+      timeout: 6000,
+      sslVerify: false,
+      withCredentials: false,
+      firstIpv4: false,
+      success: (res) => {
+        console.log('res.data.total is:' + res.data.total)
+        console.log('res.data.list:' + res.data.rows)
+        console.log('res.data.code:' + res.data.code)
+        if (res.data.code === 200) {
+          const invList = res.data.rows.map(item => ({
+            ...item,
+            inviteTime: item.inviteTime.split(" ")[0]
+          }))
+          this.setData({
+            invitedList: invList,
+            total: res.data.total
+          })
+        }
+      }
+    })
+  },
 
     loadInvitedList: function () {
         wx.request({

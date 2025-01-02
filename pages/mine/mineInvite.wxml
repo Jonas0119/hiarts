@@ -1,32 +1,38 @@
 <wxs module="i18n" src="../../utils/i18n.wxs"></wxs>
 
-<view class="invite">
-  <view class="header">
-    <view class="total">
-      <text class="num">{{total}}</text>
-      <text class="label">{{i18n.t('mine.invitedPeople', locale)}}</text>
-      <text class="detail" bindtap="goToDetail">{{i18n.t('mine.inviteDetail', locale)}}</text>
-    </view>
-    <view class="qrcode">
-      <canvas id="qrcode" canvas-id="qrcode" style="width: 200rpx; height: 200rpx;"></canvas>
+<view class="wrapper">
+  <view class="swiper-item-content">
+    <view class="invite">
+      <view class="invite-top">
+        <view class="top-title">{{i18n.t('mine.invite', locale)}}</view>
+        <view class="top-desc">{{i18n.t('mine.invitationIntro', locale)}}</view>
+      </view>
+      <view class="invite-bottom">
+        <view class="invite-qrcode">
+          <canvas id="qrcode" canvas-id="qrcode" style="width: 360rpx; height: 360rpx;"></canvas>
+        </view>
+        <image class="invite-logo" src="/static/images/logo-title.png" mode="aspectFit"></image>
+      </view>
     </view>
   </view>
 
-  <view class="list">
-    <view class="title">
-      <text>{{i18n.t('mine.CumulativeInvitations', locale)}}</text>
+  <view class="invite-list-section">
+    <view class="list-header">
+      <text class="title">{{i18n.t('mine.invitedPeople', locale)}}</text>
       <text class="count">{{total}} {{i18n.t('mine.people', locale)}}</text>
     </view>
     
-    <view class="invite-list">
-      <view class="item" wx:for="{{inviteList}}" wx:key="id">
-        <view class="info">
-          <text class="name">{{i18n.t('mine.invitee', locale)}}: {{item.name}}</text>
-          <text class="date">{{i18n.t('mine.RegistrationDate', locale)}}: {{item.registerTime}}</text>
+    <view class="list-content">
+      <view class="list-item" wx:for="{{invitedList}}" wx:key="id">
+        <view class="item-info">
+          <text class="name">{{item.name}}</text>
+				  <text class="invite-time">{{item.inviteTime}}</text>
         </view>
       </view>
     </view>
     
-    <view class="no-more" wx:if="{{noMore}}">{{i18n.t('mine.noMore', locale)}}</view>
+    <view class="no-more" wx:if="{{noMore}}">
+      {{i18n.t('mine.noMore', locale)}}
+    </view>
   </view>
 </view> 
