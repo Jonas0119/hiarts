@@ -1,28 +1,30 @@
 <wxs module="i18n" src="../../utils/i18n.wxs"></wxs>
 
-<view class="address-form">
-  <view class="form-item">
-    <text class="label">{{i18n.t('mine.reciveName', locale)}}</text>
-    <input type="text" placeholder="{{i18n.t('mine.inputName', locale)}}" value="{{name}}" bindinput="onNameInput" />
+<view class="page">
+  <view class="form-box">
+    <view class="uni-form-item">
+      <view class="title">{{i18n.t('mine.reciveName', locale)}}：</view>
+      <input class="uni-input" name="receiveName" bindinput="onInput" data-field="receiveName" value="{{formData.receiveName}}" placeholder="{{i18n.t('mine.inputName', locale)}}" placeholder-class="placeholder" />
+    </view>
+
+    <view class="uni-form-item">
+      <view class="title">{{i18n.t('mine.recivePhone', locale)}}：</view>
+      <input class="uni-input" name="receiveMobile" bindinput="onInput" data-field="receiveMobile" value="{{formData.receiveMobile}}" placeholder="{{i18n.t('mine.inputPhone', locale)}}" placeholder-class="placeholder" type="number" />
+    </view>
+
+    <view class="uni-form-item">
+      <view class="title">{{i18n.t('mine.reciveAddress', locale)}}：</view>
+      <input class="uni-input" name="address" bindinput="onInput" data-field="address" value="{{formData.address}}" placeholder="{{i18n.t('mine.inputAddress', locale)}}" placeholder-class="placeholder" />
+    </view>
+
+    <view class="uni-form-item switch-item">
+      <view class="title">{{i18n.t('mine.defaultAddress', locale)}}：</view>
+      <switch name="switched" checked="{{switched}}" bindchange="onChange" color="#AD2828" class="switch"/>
+    </view>
   </view>
-  
-  <view class="form-item">
-    <text class="label">{{i18n.t('mine.recivePhone', locale)}}</text>
-    <input type="number" placeholder="{{i18n.t('mine.inputPhone', locale)}}" value="{{phone}}" bindinput="onPhoneInput" />
-  </view>
-  
-  <view class="form-item">
-    <text class="label">{{i18n.t('mine.reciveAddress', locale)}}</text>
-    <textarea placeholder="{{i18n.t('mine.inputAddress', locale)}}" value="{{address}}" bindinput="onAddressInput"></textarea>
-  </view>
-  
-  <view class="form-item switch">
-    <text class="label">{{i18n.t('mine.defaultAddress', locale)}}</text>
-    <switch checked="{{isDefault}}" bindchange="onDefaultChange" color="#AD2828" />
-  </view>
-  
+
   <view class="btn-group">
-    <button class="btn delete" wx:if="{{id}}" bindtap="deleteAddress">{{i18n.t('mine.del', locale)}}</button>
-    <button class="btn save" bindtap="saveAddress">{{i18n.t('mine.save', locale)}}</button>
+    <button class="{{type == 'add' ? 'save-btn' : 'save-btn half'}}" bindtap="saveAddress">{{i18n.t('mine.save', locale)}}</button>
+    <button class="delete-btn" bindtap="onDel" wx:if="{{type == 'edit'}}">{{i18n.t('mine.del', locale)}}</button>
   </view>
 </view> 

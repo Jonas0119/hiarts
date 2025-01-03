@@ -1,25 +1,18 @@
 <wxs module="i18n" src="../../utils/i18n.wxs"></wxs>
 
-<view class="address-list">
-  <view class="list">
-    <view class="address-item" wx:for="{{addressList}}" wx:key="id" bindtap="selectAddress" data-id="{{item.id}}">
-      <view class="info">
-        <view class="name-phone">
-          <text class="name">{{item.name}}</text>
-          <text class="phone">{{item.phone}}</text>
-          <text class="default" wx:if="{{item.isDefault}}">{{i18n.t('mine.default', locale)}}</text>
-        </view>
-        <view class="address">{{item.address}}</view>
+<scroll-view class="page-scroll-view">
+  <view class="uni-navigate-item" wx:for="{{list}}" wx:key="id">
+    <view class="list">
+      <view class="t3">
+        {{item.receiveName}} {{item.receiveMobile}}
+        <text class="t0" wx:if="{{item.defaultAddressFlag == 'Y'}}">{{i18n.t('mine.default', locale)}}</text>
       </view>
-      <view class="edit" catchtap="editAddress" data-id="{{item.id}}">
-        <image src="/static/images/edit.png" mode="widthFix"></image>
+      <view>
+        <text class="t1">{{item.address}}</text>
       </view>
     </view>
+    <image src="/static/images/edit.png" class="listImg" mode="widthFix" bindtap="goDetailPage" data-id="{{item.id}}"></image>
   </view>
 
-  <view class="no-data" wx:if="{{addressList.length === 0}}">{{i18n.t('common.nodata', locale)}}</view>
-
-  <view class="add-btn" bindtap="addAddress">
-    <text>{{i18n.t('mine.addAddress', locale)}}</text>
-  </view>
-</view> 
+  <button bindtap="goNew" class="add">{{i18n.t('mine.addAddress', locale)}}</button>
+</scroll-view> 

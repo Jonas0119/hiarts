@@ -10,6 +10,7 @@
     "pages/mine/orderList",
     "pages/mine/orderDetail",
     "pages/mine/addressList",
+    "pages/mine/addressForm",
     "pages/mine/mineInvite",
     "pages/mine/settings",
     "pages/login/index"
