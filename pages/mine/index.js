@@ -40,20 +40,12 @@ Page({
     this.setData({ locale })
 
     // 检查登录状态
-    const token = wx.getStorageSync('token')
-    if (!token) {
-      wx.reLaunch({ url: '/pages/login/index' })
+    if (!this.checkLogin()) {
       return
     }
 
     // 获取用户信息
-    this.setData({
-      headImg: wx.getStorageSync('headImg') || '',
-      phone: wx.getStorageSync('phone') || '',
-      nickname: wx.getStorageSync('name') || ''
-    }, () => {
-      this.generateQRCode()
-    })
+    this.setUserInfo()
 
     // 监听语言变化
     this.localeChangeCallback = (newLocale) => {
@@ -61,22 +53,22 @@ Page({
         locale: newLocale,
         menuList: [
           {
-            name: t('mine.myOrder'),
+            name: t('mine.myOrder', newLocale),
             url: '/pages/mine/orderList',
             icon: '/static/images/order.png'
           },
           {
-            name: t('mine.myInvite'),
+            name: t('mine.myInvite', newLocale),
             url: '/pages/mine/mineInvite',
             icon: '/static/images/myInvite.png'
           },
           {
-            name: t('mine.addressMGMT'),
+            name: t('mine.addressMGMT', newLocale),
             url: '/pages/mine/addressList',
             icon: '/static/images/address.png'
           },
           {
-            name: t('mine.about'),
+            name: t('mine.about', newLocale),
             url: '/pages/mine/about',
             icon: '/static/images/about.png'
           }
@@ -87,40 +79,76 @@ Page({
   },
 
   onShow: function() {
+    // 检查登录状态
+    if (!this.checkLogin()) {
+      return
+    }
+
+    // 检查语言变化
     const locale = wx.getStorageSync('locale') || 'zh-Hant'
     if (locale !== this.data.locale) {
       this.setData({
         locale,
         menuList: [
           {
-            name: t('mine.myOrder'),
+            name: t('mine.myOrder', locale),
             url: '/pages/mine/orderList',
             icon: '/static/images/order.png'
           },
           {
-            name: t('mine.myInvite'),
+            name: t('mine.myInvite', locale),
             url: '/pages/mine/mineInvite',
             icon: '/static/images/myInvite.png'
           },
           {
-            name: t('mine.addressMGMT'),
+            name: t('mine.addressMGMT', locale),
             url: '/pages/mine/addressList',
             icon: '/static/images/address.png'
           },
           {
-            name: t('mine.about'),
+            name: t('mine.about', locale),
             url: '/pages/mine/about',
             icon: '/static/images/about.png'
           }
         ]
       })
     }
+
+    // 更新用户信息
+    this.setUserInfo()
   },
 
   onUnload: function() {
     if (this.localeChangeCallback) {
       app.unwatchLocale(this.localeChangeCallback)
     }
+  },
+
+  checkLogin: function() {
+    const token = wx.getStorageSync('token')
+    if (!token) {
+      wx.showToast({
+        title: t('common.tipLogin', this.data.locale),
+        icon: 'none'
+      })
+      setTimeout(() => {
+        wx.navigateTo({
+          url: '/pages/login/index?redirect=' + encodeURIComponent('pages/mine/index')
+        })
+      }, 1500)
+      return false
+    }
+    return true
+  },
+
+  setUserInfo: function() {
+    this.setData({
+      headImg: wx.getStorageSync('headImg') || '',
+      phone: wx.getStorageSync('phone') || '',
+      nickname: wx.getStorageSync('name') || ''
+    }, () => {
+      this.generateQRCode()
+    })
   },
 
   generateQRCode: function() {
@@ -148,11 +176,9 @@ Page({
 
   goDetailPage: function(e) {
     const { url, enable } = e.currentTarget.dataset
-    console.log('enable is:', enable)
-    console.log('url is:', url)
     if (enable === false) {
       wx.showToast({
-        title: t('common.soon'),
+        title: t('common.soon', this.data.locale),
         icon: 'none'
       })
       return

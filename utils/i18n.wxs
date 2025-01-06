@@ -39,7 +39,8 @@ var translations = {
       "users": "users",
       "news": "News",
       "newsDetail": "Detail",
-      "times": "Time"
+      "times": "Time",
+      "navBtn": "Language"
     },
     "login": {
       "phone": "Please enter phone number",
@@ -189,7 +190,8 @@ var translations = {
       "users": "會員數(人)",
       "news": "動態",
       "newsDetail": "動態詳情",
-      "times": "發佈日期"
+      "times": "發佈日期",
+      "navBtn": "繁/英轉換"
     },
     "login": {
       "phone": "請輸入手機號",

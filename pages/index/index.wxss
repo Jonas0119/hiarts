@@ -11,14 +11,11 @@
 		z-index: 1000;
 		width: 100%;
 		padding: 20rpx 0rpx ;
-		top: 0;
 	}
 	
 .indexTitle .nav {
 	width: 100%;
-	display: flex;
-  justify-content: space-between;
-  align-items: center
+	position: relative;
 }
 .indexTitle .nav .logo {
 	width: 320rpx;

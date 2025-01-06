@@ -66,13 +66,27 @@ App({
     const token = wx.getStorageSync('token')
     if (!token) {
       console.log("check no token")
+      // 获取当前页面路径
+      const pages = getCurrentPages()
+      const currentPage = pages[pages.length - 1]
+      const url = currentPage.route
+      
+      // 清除本地缓存
+      //wx.clearStorage()
+      wx.removeStorage({ key: 'accountId' })
+      wx.removeStorage({ key: 'token' })
+      wx.removeStorage({ key: 'phone' })
+      wx.removeStorage({ key: 'headImg' })
+      wx.removeStorage({ key: 'name' })
+
       wx.showToast({
-        title: '请先登录',
+        title: t('common.login', this.globalData.locale),
         icon: 'none'
       })
+      
       setTimeout(() => {
-        wx.navigateTo({
-          url: '/pages/login/index'
+        wx.redirectTo({
+          url: '/pages/login/index?redirect=' + encodeURIComponent(url)
         })
       }, 1500)
       return false

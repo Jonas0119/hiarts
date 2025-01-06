@@ -72,7 +72,7 @@ Page({
     console.log('点击页面, url:', url, 'enable:', enable)
     
     if (!enable) {
-      wx.showToast({
+      wx.showshowToast({
         title: t('common.soon'),
         icon: 'none'
       })
@@ -86,12 +86,18 @@ Page({
         success: function() {
           console.log('跳转成功')
         },
-        fail: function(err) {
-          console.error('跳转失败:', err)
-          wx.showToast({
-            title: '页面跳转失败',
-            icon: 'none'
-          })
+        fail: function (err) {
+          console.error('跳转失败:', err);
+          // 这里打印更详细的错误信息
+          console.error('跳转失败，目标页面:', url, '错误详情:', err);
+
+          // 你可以选择仅在确定是页面跳转相关错误时显示提示
+          if (err && err.errMsg && err.errMsg.indexOf('navigateTo:fail') !== -1) {
+            //wx.showToast({
+            //  title: '页面跳转失败',
+            //  icon: 'none'
+            //});
+          }
         }
       })
     }

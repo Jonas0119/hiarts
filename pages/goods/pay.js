@@ -16,6 +16,11 @@ Page({
   },
 
   onLoad: function(options) {
+    // 检查登录状态
+    if (!app.checkLogin()) {
+      return
+    }
+
     const locale = wx.getStorageSync('locale') || 'zh-Hant'
     this.setData({ locale })
 
@@ -27,6 +32,13 @@ Page({
     }
 
     this.loadAddressList()
+  },
+
+  onShow: function() {
+    // 检查登录状态
+    if (!app.checkLogin()) {
+      return
+    }
   },
 
   formatAmount: function(targetAmount, buyedNum) {

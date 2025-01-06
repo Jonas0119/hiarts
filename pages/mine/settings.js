@@ -9,6 +9,7 @@ Page({
 
   onLoad: function() {
     const locale = wx.getStorageSync('locale') || 'zh-Hant'
+
     this.setData({ locale })
   },
 

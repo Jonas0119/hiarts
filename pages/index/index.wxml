@@ -5,7 +5,7 @@
   <view class="indexTitle">
     <view class="nav">
       <image src="/static/images/logo-title.png" class="logo"></image>
-      <text class="locale" bindtap="changeLocale">{{locale === 'zh-Hant' ? '繁體' : 'English'}}</text>
+      <text class="locale" bindtap="openLocale">{{i18n.t('index.navBtn', locale)}}</text>
     </view>
   </view>
 

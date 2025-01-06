@@ -23,11 +23,12 @@ Page({
 
   onLoad: function(options) {
     const locale = wx.getStorageSync('locale') || 'zh-Hant'
+    console.log("locale is:"+locale)
     this.setData({ locale })
     const sendCodeText = t('common.getCode', locale)
     this.setData({ sendCodeText })
     
-    console.log("options is:"+options)
+    //console.log("options is:"+options)
     console.log("t.login is:"+t('login.login', locale))
     if (options.invatePhone) {
       this.setData({
@@ -190,7 +191,6 @@ Page({
         'content-type': this.data.inviterPhone ? 'application/json' : 'application/x-www-form-urlencoded'
       },
       success: (res) => {
-        console.log("登录结果为:"+res.data.code)
         if (res.data.code === '00000000') {
           const content = res.data.content
           wx.setStorageSync('accountId', content.account)
@@ -209,6 +209,7 @@ Page({
               url: '/pages/index/index'
             })
           }
+          console.log("重定向为："+this.data.redirect)
         } else {
           wx.showToast({
             title: res.data.message,

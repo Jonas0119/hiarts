@@ -135,7 +135,8 @@ const translations = {
       "copied": "Copied",
       "saving": "Saving...",
       "saved": "Saved",
-      "saveFailed": "Save failed"
+      "saveFailed": "Save failed",
+      "login": "Please login first"
     },
     "navigationBar": {
       "index": "HiArts Platform"
@@ -145,7 +146,7 @@ const translations = {
       "pages.goods.list": "Product List",
       "pages.goods.detail": "Product Detail",
       "pages.goods.typeList": "Product List",
-      "pages.goods.pay": "Payment",
+      "pages.goods.pay": "Place Order",
       "pages.goods.payIndex": "Payment Center",
       "pages.mine.index": "My Profile",
       "pages.mine.orderList": "My Orders",
@@ -301,14 +302,15 @@ const translations = {
       "copied": "已複製",
       "saving": "保存中...",
       "saved": "已保存",
-      "saveFailed": "保存失敗"
+      "saveFailed": "保存失敗",
+      "login": "請先登錄"
     },
     "navigationBarTitles": {
       "pages.index.index": "港艺平台",
       "pages.goods.list": "商品列表",
       "pages.goods.detail": "商品详情",
       "pages.goods.typeList": "商品列表",
-      "pages.goods.pay": "订单支付",
+      "pages.goods.pay": "商品下單",
       "pages.goods.payIndex": "支付中心",
       "pages.mine.index": "个人中心",
       "pages.mine.orderList": "我的订单",
@@ -350,7 +352,7 @@ const getPageTitleKey = (pagePath) => {
 
   // 将路径转换为标题key
   pathSegments = pathSegments.replace(/\//g, '.');
-  console.log("pathSegments is:", pathSegments)
+  //console.log("pathSegments is:", pathSegments)
   return pathSegments;
 };
 
@@ -365,11 +367,11 @@ const updateNavigationBarTitle = () => {
   if (pages.length > 0) {
     const currentPage = pages[pages.length - 1];
     const route = currentPage.route;
-    console.log("route is:", route)
+    //console.log("route is:", route)
     const titleKey = getPageTitleKey(route);
-    console.log("titleKey is:", titleKey)
+    //console.log("titleKey is:", titleKey)
     const currentLang = getCurrentLanguage();
-    console.log("currentLang is:", currentLang)
+    //console.log("currentLang is:", currentLang)
     const title = translations[currentLang]?.navigationBarTitles?.[titleKey];
     if (title) {
       wx.setNavigationBarTitle({

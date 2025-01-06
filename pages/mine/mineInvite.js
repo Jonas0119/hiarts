@@ -1,6 +1,6 @@
 import { t } from '../../utils/i18n'
 const pageBehavior = require('../../utils/pageBehavior')
-
+import uQRCode from '../../utils/uqrcode.js'
 
 Page({
   behaviors: [pageBehavior],

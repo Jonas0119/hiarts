@@ -233,5 +233,26 @@ Page({
         return chart
       })
     }
+  },
+
+  openLocale: function() {
+    let _this = this
+    wx.showActionSheet({
+      itemList: ['繁体', 'English'],
+      success: function(res) {
+        if (res.tapIndex == 1) {
+          app.setLocale('en')
+        } else {
+          app.setLocale('zh-Hant')
+        }
+        
+        _this.setData({
+          locale: wx.getStorageSync('locale')
+        })
+      },
+      fail: function(res) {
+        console.log(res.errMsg)
+      }
+    })
   }
 })
