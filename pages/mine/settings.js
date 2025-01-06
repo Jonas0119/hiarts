@@ -1,7 +1,8 @@
-const app = getApp()
 import { t } from '../../utils/i18n'
+const pageBehavior = require('../../utils/pageBehavior')
 
 Page({
+  behaviors: [pageBehavior],
   data: {
     version: '1.0.0',
     languages: [

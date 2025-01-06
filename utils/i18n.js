@@ -136,6 +136,28 @@ const translations = {
       "saving": "Saving...",
       "saved": "Saved",
       "saveFailed": "Save failed"
+    },
+    "navigationBar": {
+      "index": "HiArts Platform"
+    },
+    "navigationBarTitles": {
+      "pages.index.index": "HiArts Platform",
+      "pages.goods.list": "Product List",
+      "pages.goods.detail": "Product Detail",
+      "pages.goods.typeList": "Product List",
+      "pages.goods.pay": "Payment",
+      "pages.goods.payIndex": "Payment Center",
+      "pages.mine.index": "My Profile",
+      "pages.mine.orderList": "My Orders",
+      "pages.mine.orderDetail": "Order Detail",
+      "pages.mine.addressList": "Address Management",
+      "pages.mine.addressForm": "Edit Address",
+      "pages.mine.mineInvite": "My Invitations",
+      "pages.mine.settings": "Settings",
+      "pages.mine.about": "About Us",
+      "pages.mine.privacy": "Privacy Policy",
+      "pages.mine.user": "User Agreement",
+      "pages.login.index": "Login"
     }
   },
   'zh-Hant': {
@@ -199,9 +221,9 @@ const translations = {
     },
     "mine": {
       "mine": "我的",
-      "myOrder": "我的申購產品",
+      "myOrder": "我的申購",
       "invite": "邀請好友",
-      "myInvite": "我邀請的用戶",
+      "myInvite": "我的邀請",
       "invitationIntro": "掃一掃，註冊成為會員",
       "address": "地址管理",
       "about": "關於我們",
@@ -275,6 +297,25 @@ const translations = {
       "saving": "保存中...",
       "saved": "已保存",
       "saveFailed": "保存失敗"
+    },
+    "navigationBarTitles": {
+      "pages.index.index": "港艺平台",
+      "pages.goods.list": "商品列表",
+      "pages.goods.detail": "商品详情",
+      "pages.goods.typeList": "商品列表",
+      "pages.goods.pay": "订单支付",
+      "pages.goods.payIndex": "支付中心",
+      "pages.mine.index": "个人中心",
+      "pages.mine.orderList": "我的订单",
+      "pages.mine.orderDetail": "订单详情",
+      "pages.mine.addressList": "地址管理",
+      "pages.mine.addressForm": "编辑地址",
+      "pages.mine.mineInvite": "我的邀请",
+      "pages.mine.settings": "设置",
+      "pages.mine.about": "关于我们",
+      "pages.mine.privacy": "隐私政策",
+      "pages.mine.user": "用户协议",
+      "pages.login.index": "登录"
     }
   }
 }
@@ -283,15 +324,54 @@ function t(key, locale) {
   const currentLocale = locale || wx.getStorageSync('locale') || 'zh-Hant'
   const keys = key.split('.')
   let value = translations[currentLocale]
-  
+
   for (const k of keys) {
     if (!value) break
-      value = value[k]
+    value = value[k]
   }
-  
+
   return value || key
 }
 
+// 获取当前页面路径对应的标题key
+const getPageTitleKey = (pagePath) => {
+  // 移除开头的 '/'
+  var pathSegments = pagePath.replace(/^\//, '.');
+
+  // 将路径转换为标题key
+  pathSegments = pathSegments.replace(/\//g, '.');
+  console.log("pathSegments is:", pathSegments)
+  return pathSegments;
+};
+
+// 获取当前语言
+const getCurrentLanguage = () => {
+  return wx.getStorageSync('locale') || 'zh-Hant';
+};
+
+// 更新导航栏标题
+const updateNavigationBarTitle = () => {
+  const pages = getCurrentPages();
+  if (pages.length > 0) {
+    const currentPage = pages[pages.length - 1];
+    const route = currentPage.route;
+    console.log("route is:", route)
+    const titleKey = getPageTitleKey(route);
+    console.log("titleKey is:", titleKey)
+    const currentLang = getCurrentLanguage();
+    console.log("currentLang is:", currentLang)
+    const title = translations[currentLang]?.navigationBarTitles?.[titleKey];
+    if (title) {
+      wx.setNavigationBarTitle({
+        title: title
+      });
+    }
+  }
+};
+
 module.exports = {
-  t: t
+  t: t,
+  updateNavigationBarTitle,
+  getPageTitleKey,
+  getCurrentLanguage
 }

@@ -1,8 +1,8 @@
-const app = getApp()
 import { t } from '../../utils/i18n'
-import uQRCode from '../../utils/uqrcode.js'
+const pageBehavior = require('../../utils/pageBehavior')
 
 Page({
+  behaviors: [pageBehavior],
   data: {
     inviteCode: '',
     inviteLink: '',

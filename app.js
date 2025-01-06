@@ -1,3 +1,5 @@
+const { updateNavigationBarTitle } = require('./utils/i18n');
+
 App({
   globalData: {
     baseUrl: 'http://gw.antan-tech.com/api',
@@ -11,6 +13,8 @@ App({
     // 获取存储的语言设置
     const locale = wx.getStorageSync('locale') || 'zh-Hant'
     this.globalData.locale = locale
+    // 初始更新标题
+    updateNavigationBarTitle()
   },
 
   // 监听语言变化
@@ -30,6 +34,8 @@ App({
   setLocale: function(locale) {
     this.globalData.locale = locale
     wx.setStorageSync('locale', locale)
+    // 更新导航栏标题
+    updateNavigationBarTitle()
     // 通知所有监听者
     this.globalData.watchLocale.forEach(callback => {
       callback(locale)

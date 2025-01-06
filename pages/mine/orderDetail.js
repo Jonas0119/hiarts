@@ -1,6 +1,10 @@
+import { t } from '../../utils/i18n'
+const pageBehavior = require('../../utils/pageBehavior')
+
 const app = getApp()
 
 Page({
+  behaviors: [pageBehavior],
   data: {
     id: '',
     obj: {},

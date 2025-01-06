@@ -1,9 +1,11 @@
 import { t } from '../../utils/i18n'
 const echarts = require('../../components/ec-canvas/echarts')
+const pageBehavior = require('../../utils/pageBehavior')
 
 const app = getApp()
 
 Page({
+  behaviors: [pageBehavior],
   data: {
     bannerList: [
       {

@@ -1,6 +1,8 @@
 import { t } from '../../utils/i18n'
+const pageBehavior = require('../../utils/pageBehavior')
 
 Page({
+  behaviors: [pageBehavior],
   data: {
     locale: 'zh-Hant',
     t: t,
