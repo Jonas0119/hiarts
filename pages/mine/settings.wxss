@@ -1,62 +1,11 @@
 .settings {
-  min-height: 100vh;
-  background: #f5f5f5;
-  padding: 20rpx 0;
+  padding: 20rpx;
 }
 
-.section {
-  background: #fff;
-  margin-bottom: 20rpx;
-}
-
-.menu-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 30rpx;
-  border-bottom: 1rpx solid #eee;
-}
-
-.menu-item:last-child {
-  border-bottom: none;
-}
-
-.label {
-  font-size: 30rpx;
-  color: #333;
-}
-
-.value {
-  display: flex;
-  align-items: center;
-  font-size: 28rpx;
-  color: #999;
-}
-
-.picker {
-  display: flex;
-  align-items: center;
-  font-size: 28rpx;
-  color: #999;
-}
-
-.version {
-  margin-right: 10rpx;
-}
-
-.arrow {
-  width: 32rpx;
-  height: 32rpx;
-  margin-left: 10rpx;
-}
-
-.logout {
-  margin: 60rpx 30rpx;
-  height: 88rpx;
-  line-height: 88rpx;
-  text-align: center;
-  background: #AD2828;
+.logout-btn {
+  background-color: #AD2828;
+  font-size: 36rpx;
   color: #fff;
-  font-size: 32rpx;
-  border-radius: 44rpx;
+  width: 600rpx;
+  margin: 200rpx auto;
 } 

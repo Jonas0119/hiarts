@@ -27,6 +27,28 @@
   flex: 1;
 }
 
+.sort {
+  display: flex;
+  flex-direction: row;
+  background: #fff;
+  border-bottom: 1px solid #e3e3e3;
+}
+
+.sift-item {
+  color: #999;
+  font-size: 26rpx;
+  padding: 24rpx 30rpx;
+}
+
+.sift-item.chosed {
+  color: #AD2828;
+}
+
+.downIcon {
+  width: 22rpx;
+  height: 22rpx;
+}
+
 .content-item .t1 {
   font-weight: 600;
   font-size: 32rpx;

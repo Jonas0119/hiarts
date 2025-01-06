@@ -54,9 +54,9 @@ var translations = {
       "privce": "Unit price",
       "unit": "unit",
       "wait": "for sale",
-      "unbuy": "Pending purchase",
-      "buying": "in the process of buying",
-      "stopbuy": "stop purchase review"
+      "unbuy": "Pending Sale",
+      "buying": "On Sale",
+      "stopbuy": "Sold Out"
     },
     "settings": {
       "language": "Language",

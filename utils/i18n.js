@@ -54,9 +54,9 @@ const translations = {
       "privce": "Unit price",
       "unit": "unit",
       "wait": "for sale",
-      "unbuy": "Pending purchase",
-      "buying": "in the process of buying",
-      "stopbuy": "stop purchase review"
+      "unbuy": "Pending Sale",
+      "buying": "On Sale",
+      "stopbuy": "Sold Out"
     },
     "mine": {
       "mine": "My",
@@ -158,6 +158,11 @@ const translations = {
       "pages.mine.privacy": "Privacy Policy",
       "pages.mine.user": "User Agreement",
       "pages.login.index": "Login"
+    },
+    "tabBar": {
+      "home": "Home",
+      "goods": "Products",
+      "mine": "Mine"
     }
   },
   'zh-Hant': {
@@ -316,6 +321,11 @@ const translations = {
       "pages.mine.privacy": "隐私政策",
       "pages.mine.user": "用户协议",
       "pages.login.index": "登录"
+    },
+    "tabBar": {
+      "home": "首頁",
+      "goods": "商品",
+      "mine": "我的"
     }
   }
 }

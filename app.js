@@ -1,4 +1,4 @@
-const { updateNavigationBarTitle } = require('./utils/i18n');
+const { updateNavigationBarTitle, t } = require('./utils/i18n');
 
 App({
   globalData: {
@@ -15,6 +15,8 @@ App({
     this.globalData.locale = locale
     // 初始更新标题
     updateNavigationBarTitle()
+    // 初始更新tabBar
+    this.updateTabBarText(locale)
   },
 
   // 监听语言变化
@@ -36,9 +38,27 @@ App({
     wx.setStorageSync('locale', locale)
     // 更新导航栏标题
     updateNavigationBarTitle()
+    // 更新tabBar文本
+    this.updateTabBarText(locale)
     // 通知所有监听者
     this.globalData.watchLocale.forEach(callback => {
       callback(locale)
+    })
+  },
+
+  // 更新tabBar文本
+  updateTabBarText: function(locale) {
+    wx.setTabBarItem({
+      index: 0,
+      text: t('tabBar.home', locale)
+    })
+    wx.setTabBarItem({
+      index: 1,
+      text: t('tabBar.goods', locale)
+    })
+    wx.setTabBarItem({
+      index: 2,
+      text: t('tabBar.mine', locale)
     })
   },
 

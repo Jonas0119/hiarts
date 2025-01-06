@@ -1,46 +1,5 @@
 <wxs module="i18n" src="../../utils/i18n.wxs"></wxs>
 
 <view class="settings">
-  <view class="setting-item" bindtap="showLanguagePopup">
-    <text>{{i18n.t('settings.language', locale)}}</text>
-    <view class="right">
-      <text>{{currentLanguage}}</text>
-      <image src="/static/images/arrow-right.png" mode="widthFix"></image>
-    </view>
-  </view>
-
-  <view class="setting-item" bindtap="goToNotification">
-    <text>{{i18n.t('settings.notification', locale)}}</text>
-    <image src="/static/images/arrow-right.png" mode="widthFix"></image>
-  </view>
-
-  <view class="setting-item" bindtap="clearCache">
-    <text>{{i18n.t('settings.clearCache', locale)}}</text>
-    <image src="/static/images/arrow-right.png" mode="widthFix"></image>
-  </view>
-
-  <view class="setting-item" bindtap="checkUpdate">
-    <text>{{i18n.t('settings.checkUpdate', locale)}}</text>
-    <image src="/static/images/arrow-right.png" mode="widthFix"></image>
-  </view>
-
-  <view class="setting-item" bindtap="goToPrivacy">
-    <text>{{i18n.t('settings.privacy', locale)}}</text>
-    <image src="/static/images/arrow-right.png" mode="widthFix"></image>
-  </view>
-
-  <view class="setting-item" bindtap="goToTerms">
-    <text>{{i18n.t('settings.terms', locale)}}</text>
-    <image src="/static/images/arrow-right.png" mode="widthFix"></image>
-  </view>
-
-  <button class="logout-btn" bindtap="logout">{{i18n.t('settings.logout', locale)}}</button>
-</view>
-
-<view class="language-popup {{showLanguage ? 'show' : ''}}">
-  <view class="mask" bindtap="hideLanguagePopup"></view>
-  <view class="content">
-    <view class="language-item {{locale === 'zh-Hant' ? 'active' : ''}}" bindtap="selectLanguage" data-lang="zh-Hant">繁體中文</view>
-    <view class="language-item {{locale === 'en' ? 'active' : ''}}" bindtap="selectLanguage" data-lang="en">English</view>
-  </view>
+  <button class="logout-btn" bindtap="logout">{{i18n.t('common.out', locale)}}</button>
 </view> 

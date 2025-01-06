@@ -8,7 +8,7 @@ Page({
   data: {
     locale: 'zh-Hant',
     t: t,
-    sift_items: ['全部', '未开始', '进行中', '已结束'],
+    sift_items: [],
     currentTab: 0,
     goodsList: [],
     pageNum: 1,
@@ -19,10 +19,36 @@ Page({
 
   onLoad: function() {
     const locale = wx.getStorageSync('locale') || 'zh-Hant'
-    console.log("the local is:" + locale)
-    console.log("the t is:" + t("goodsList.unbuy"))
-    this.setData({ locale })
+    this.setData({ 
+      locale,
+      sift_items: [
+        t('index.all', locale),
+        t('goodsList.unbuy', locale),
+        t('goodsList.buying', locale),
+        t('goodsList.stopbuy', locale)
+      ]
+    })
     this.loadGoodsList()
+
+    // 监听语言变化
+    this.localeChangeCallback = (newLocale) => {
+      this.setData({
+        locale: newLocale,
+        sift_items: [
+          t('index.all', newLocale),
+          t('goodsList.unbuy', newLocale),
+          t('goodsList.buying', newLocale),
+          t('goodsList.stopbuy', newLocale)
+        ]
+      })
+    }
+    app.watchLocale(this.localeChangeCallback)
+  },
+
+  onUnload: function() {
+    if (this.localeChangeCallback) {
+      app.unwatchLocale(this.localeChangeCallback)
+    }
   },
 
   onPullDownRefresh: function() {
@@ -83,7 +109,13 @@ Page({
         pageSize: this.data.pageSize,
         state: this.data.state
       },
+      header: { 'content-type': "application/x-www-form-urlencoded" },
+      timeout: 6000,
+      sslVerify: false,
+      withCredentials: false,
+      firstIpv4: false,
       success: (res) => {
+        console.log("the state is:" + this.data.state)
         if (res.data.code === 200) {
           const goodsList = res.data.data.list.map(item => ({
             ...item,
