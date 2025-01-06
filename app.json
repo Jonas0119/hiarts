@@ -13,6 +13,9 @@
     "pages/mine/addressForm",
     "pages/mine/mineInvite",
     "pages/mine/settings",
+    "pages/mine/about",
+    "pages/mine/privacy",
+    "pages/mine/user",
     "pages/login/index"
   ],
   "window": {

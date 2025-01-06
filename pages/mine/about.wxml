@@ -1,30 +1,8 @@
 <wxs module="i18n" src="../../utils/i18n.wxs"></wxs>
 
-<view class="about">
-  <view class="menu-list">
-    <view class="menu-item" bindtap="goToTradeRule">
-      <text>{{i18n.t('mine.tradeRule', locale)}}</text>
-      <image class="arrow" src="/static/images/arrow-right.png"></image>
-    </view>
-    
-    <view class="menu-item" bindtap="goToChargeRule">
-      <text>{{i18n.t('mine.chargeRule', locale)}}</text>
-      <image class="arrow" src="/static/images/arrow-right.png"></image>
-    </view>
-    
-    <view class="menu-item" bindtap="goToMemberRule">
-      <text>{{i18n.t('mine.memberRule', locale)}}</text>
-      <image class="arrow" src="/static/images/arrow-right.png"></image>
-    </view>
-    
-    <view class="menu-item" bindtap="goToPrivacyRule">
-      <text>{{i18n.t('mine.privaceRule', locale)}}</text>
-      <image class="arrow" src="/static/images/arrow-right.png"></image>
-    </view>
-    
-    <view class="menu-item" bindtap="goToUserAgreement">
-      <text>{{i18n.t('mine.userAgreement', locale)}}</text>
-      <image class="arrow" src="/static/images/arrow-right.png"></image>
-    </view>
+<view>
+  <view class="uni-navigate-item" wx:for="{{pages}}" wx:key="name" bindtap="goDetailPage" data-url="{{item.url}}" data-enable="{{item.enable}}">
+    <text>{{item.name}}</text>
+    <image src="/static/images/arrow-right.png" class="uni-icon-size" mode="widthFix"></image>
   </view>
 </view> 

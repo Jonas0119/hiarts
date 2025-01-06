@@ -1,0 +1,17 @@
+<wxs module="i18n" src="../../utils/i18n.wxs"></wxs>
+
+<scroll-view class="page-scroll-view">
+  <view class="agreement" wx:if="{{locale == 'zh-Hant'}}">
+    <p>「合交鏈香港」是由香港國際藝術品有限公司獨立開發的APP。</p>
+    <p>鑒於：</p>
+    <p>（1）為了保障產品的正常運行，實現個性化推薦、發布信息、互動交流等核心功能以及其他功能，我們會收集你的部分必要信息；</p>
+    <!-- 其他中文内容... -->
+  </view>
+  <view class="agreement" wx:else>
+    <p>Hkex Hong Kong Privacy Policy</p>
+    <p>"Hkehk" is an APP independently developed by Hong Kong International Art Limited.</p>
+    <p>Whereas:</p>
+    <p>(1) In order to ensure the normal operation of the product and realize core functions such as personalized recommendation, information release, interaction and other functions, we will collect part of your necessary information;</p>
+    <!-- 其他英文内容... -->
+  </view>
+</scroll-view> 

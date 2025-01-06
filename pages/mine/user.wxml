@@ -1,0 +1,297 @@
+<wxs module="i18n" src="../../utils/i18n.wxs"></wxs>
+
+<scroll-view class="page-scroll-view" scroll-y>
+  <view class="agreement" wx:if="{{locale == 'zh-Hant'}}">
+    <view class="title">1、前言</view>
+    <view>歡迎你使用「合交鏈香港」軟件及相關服務!</view>
+    <view>「合交鏈香港」軟件及相關服務，系指安香港國際藝術品有限公司有限公司通過合法擁有並運營的、標註名稱為「合交鏈香港」的客戶端應用程序以及「合交鏈香港APP」(www.HKiarts.com)的網站，向你提供的產品與服務，包括但不限於個性化推薦、發布廣告、任務、學習交流、平臺購物、兼職等核心功能以及其他功能，為創業與交流的平臺。《合交鏈香港用戶協議》(以下簡稱「本協議」)是你與公司之間就你註冊、登錄、使用(以下統稱「使用」)「合交鏈香港」軟件及相關服務所訂立的協議。</view>
+    <view>為了更好地為你提供服務，請你在開始使用「合交鏈香港」軟件及相關服務之前，認真閱讀並充分理解本協議，特別是涉及免除或者限製責任的條款、權利許可和信息使用的條款、同意開通和使用特殊單項服務的條款、法律適用和爭議解決條款等。其中，免除或者限製責任條款等重要內容將以加粗形式提示你註意，你應重點閱讀。如你未滿18周歲，請在法定監護人陪同下仔細閱讀並充分理解本協議，並征得法定監護人的同意後使用「合交鏈香港」軟件及相關服務。</view>
+    <view>如你不同意本協議，這將導致我們無法為你提供完整</view>
+    <view>的產品和服務，你也可以選擇停止使用。如你自主選擇同意或使用「合交鏈香港」軟件及相關服務，則視為你已充分理解本協議，並同意作為本協議的一方當事人接受本協議以及其他與「合交鏈香港」軟件及相關服務相關的協議和規則(包括但不限於《隱私政策》、聲明、公告形式發布的內容)的約束。</view>
+    <view class="title">2、「合交鏈香港」軟件及相關服務</view>
+    <view>2.1你使用「合交鏈香港」軟件及相關服務，可以通過預裝、公司已授權的第三方下載等方式獲取「合交鏈香港」客戶端應用程序或訪問網站(https://www.HKiarts.com)相關網站。若你並非從公司或經公司授權的第三方獲取本軟件的，公司無法保證非官方版本的「合交鏈香港」軟件能夠正常使用，你因此遭受的損失與公司無關。</view>
+    <view>2.2公司可能為不同的終端設備開發不同的應用程序軟件版本，你應當根據實際設備狀況獲取、下載、安裝合適的版本。如你不再使用「合交鏈香港」軟件及相關服務，你也可自行卸載相應的應用程序軟件。</view>
+    <view>2.3為更好的提升用戶體驗及服務，公司將不定期提供「合交鏈香港」軟件及相關服務的更新或改變(包括但不限於軟件修改、升級、功能強化、開發新服務、軟件替換等),你可根據需要自行選擇是否更新相應的版本。</view>
+    <view>為保證「合交鏈香港」軟件及相關服務安全、提升用戶服務，在「合交鏈香港」軟件及相關服務的部分或全部更新後，公司將在可行的情況下以妥當的方式(包括但不限於系統提示、公告、站內信等)提示你，你有權選擇接受更新後的版本；如你選擇不作更新，「合交鏈香港」軟件及相關服務的部分功能將受到限製或不能正常使用。</view>
+    <view>2.4除非得到公司事先書面授權，你不得以任何形式對「合交鏈香港」軟件及相關服務進行包括但不限於改編、復製、傳播、垂直搜索、鏡像或交易等未經授權的訪問或使用。</view>
+    <view>2.5你已理解，使用「合交鏈香港」軟件及相關服務需自行準備與軟件及相關服務有關的終端設備(如電腦、手機等),一旦你在終端設備中打開「合交鏈香港」軟件或訪問「合交鏈香港」的網站，即視為你使用「合交鏈香港」軟件及相關服務。為充分實現「合交鏈香港」的全部功能，你可能需要將終端設備聯網，你理解由你承擔所需要的全部費用(如流量費、上網費等)。</view>
+    <view>2.6公司許可你一項個人的、不可轉讓的、非獨占地和非商業的合法使用「合交鏈香港」軟件及相關服務的權利。本協議未明示授權的其他一切權利仍由公司保留，你在行使該些權利前須另行獲得公司的書面許可，同時公司如未行使前述任何權利，並不構成對該權利的放棄。</view>
+    <view>2.7你無需註冊也可開始使用「合交鏈香港」軟件及相關服務，但部分功能或服務可能會受到影響。同時，你也理解，為使你更好地使用「合交鏈香港」軟件及相關服務，保障你的帳號安全，某些功能和/或某些單項服務項目(如發布廣告、任務、兼職等)將要求你按照國家相關法律法規的規定，提供真實的身份信息實名註冊並登錄後方可使用。</view>
+    <view class="title">3、關於「帳號」</view>
+    <view>3.1「合交鏈香港」軟件及相關服務為你提供了註冊通道，你有權選擇合法的字符組合作為自己的帳號，並自行設置符合安全要求的密碼。用戶設置的帳號、密碼是用戶用以登錄並使用「合交鏈香港」軟件及相關服務的憑證。</view>
+    <view>3.2你理解並承諾，你所設置的帳號不得違反國家法律法規及公司的相關規則，不得實施任何侵害國家利益、損害其他公民合法權益，有害社會道德風尚的行為，你的帳號名稱、頭像和簡介等註冊信息及其他個人信息中不得出現違法和不良信息，未經他人許可不得用他人名義(包括但不限於冒用他人姓名、名稱、字號、頭像等足以讓人引起混淆的方式)開設帳號，不得惡意註冊「合交鏈香港」帳號(包括但不限於頻繁註冊、批量註冊帳號等行為)。公司有權對你提交的信息進行審核。</view>
+    <view>3.3你的帳號僅限於你本人使用，未經公司書面同意，禁止以任何形式贈與、借用、出租、轉讓、售賣或以其他方式許可他人使用該帳號。如果公司發現或者有合理理由認為使用者並非帳號初始註冊人，為保障帳號安全，公司有權立即暫停或終止向該註冊帳號提供服務，或註銷該帳號。</view>
+    <view>3.4你有責任維護個人帳號、密碼的安全性與保密性，並對你以註冊帳號名義所從事的活動承擔全部法律責任，包括但不限於你在「合交鏈香港」軟件及相關服務上進行的任何數據修改、言論發表、款項支付等操作行為可能引起的一切法律責任。你應高度重視對帳號與密碼的保密，在任何情況下不向他人透露帳號及密碼。若發現他人未經許可使用你的帳號或發生其他任何安全漏洞問題時，你應當立即通知公司。</view>
+    <view>3.5在丟失帳號或遺忘密碼時，你可遵照公司的申訴途徑及時申訴請求找回帳號或密碼。你理解並認可，公司的密碼找回機製僅需要識別申訴單上所填資料與系統記錄資料具有一致性，而無法識別申訴人是否系真正帳號有權使用者。公司特別提醒你應妥善保管你的帳號和密碼。當你使用完畢後，應安全退出。如因你保管不當等自身原因或其他不可抗因素導致遭受盜號或密碼丟失，你將自行承擔相應責任。</view>
+    <view>3.6在註冊、使用和管理帳號時，你應保證註冊帳號時填寫的身份信息的真實性，請你在註冊、管理帳號時使用真實、準確、合法、有效的相關身份證明材料及必要信息(包括你的姓名及電子郵件地址、聯系電話、聯系地址等)。依照國家相關法律法規的規定，為使用「合交鏈香港」軟件及相關服務的部分功能，你需要填寫真實的身份信息，請你按照相關法律規定完成實名認證，並註意及時更新上述相關信息。若你提交的材料或提供的信息不規範或不符合要求的，則公司有權拒絕為你提供相關功能，你可能無法使用「合交鏈香港」軟件及相關服務或在使用過程中部分功能受到限製。</view>
+    <view>3.7除自行註冊「合交鏈香港」帳號外，用戶也可授權使用其合法擁有的包括但不限於公司和/或其關聯公司其他軟件用戶帳號，以及實名註冊的第三方軟件用戶帳號登錄使用「合交鏈香港」軟件及相關服務，但第三方軟件或平臺對此有限製或禁止的除外。當用戶以前述已有帳號登錄使用的，應保證相應帳號已進行實名註冊登記，並同樣適用本協議中的相關條款。</view>
+    <view>3.8你理解並同意，除你登錄、使用「合交鏈香港」軟件及相關服務外，你還可以用「合交鏈香港」帳號登錄使用公司及其關聯公司提供的其他軟件、服務。你以「合交鏈香港」帳號登錄並使用前述服務時，將受到前述服務的實際提供方的《用戶協議》及其他協議條款約束。</view>
+    <view>3.9為提高你內容曝光量及發布效率，你同意你在本軟件/網站的帳號及相應帳號所發布的全部內容均授權本公司以你的帳號自動同步發布至公司及/或關聯公司運營的其他軟件及網站。你在本軟件/網站發布、修改、刪除內容的操作，均會同步到上述系列其他軟件及網站。你通過已註冊帳號或者第三方軟件用戶帳號註冊或登錄公司及/或關聯公司運營的其他軟件產品及網站時(如有),應遵守該軟件及網站自身的《用戶協議》及其他協議條款約束。</view>
+    <view>3.10當你完成「合交鏈香港」的帳號註冊、登錄並進行合理和必要的身份驗證後，你可隨時瀏覽、修改自己提交的個人身份信息。你理解並同意，出於安全性和身份識別(如帳號或密碼找回申訴服務等)的考慮，你可能無法修改註冊時提供的初始註冊信息及其他驗證信息。你也可以申請註銷帳號，公司會在完成個人身份、安全狀態、設備信息等合理和必要的驗證後協助你註銷帳號，並依照你的要求刪除有關你帳號的一切信息，法律法規另有規定的除外。</view>
+    <view>3.11你理解並同意，為了充分使用帳號資源，如你在註冊後未及時進行初次登錄使用或連續超過兩個月未登錄帳號使用等情形，公司有權收回你的帳號。</view>
+    <view class="title">4、用戶個人信息保護</view>
+    <view>公司與你一同致力於你個人信息(即能夠獨立或與其他信息結合後識別用戶身份的信息)的保護，保護用戶個人信息是公司的基本原則之一。在使用「合交鏈香港」軟件及相關服務的過程中，你可能需要提供你的個人信息(包括但不限於姓名、電話號碼、位置信息等)以便公司向你提供更好的服務和相應的技術支持。公司將運用加密技術、匿名化處理等其他與「合交鏈香港」軟件及相關服務相匹配的技術措施及其他安全措施保護你的個人信息，更多關於用戶個人信息保護的內容，請參見《隱私政策》。</view>
+    <view class="title">5、用戶行為規範</view>
+    <view>5.1用戶行為要求你應當對你使用本軟件及相關服務的行為負責，除非法律允許或者經公司事先書面許可，你使用「合交鏈香港」軟件及相關服務不得具有下列行為：</view>
+    <view>5.1.1使用未經公司授權或許可的任何插件、外掛、系統或第三方工具對「合交鏈香港」軟件及相關服務的正常運行進行幹擾、破壞、修改或施加其他影響。</view>
+    <view>5.1.2利用或針對「合交鏈香港」軟件及相關服務進行任何危害計算機網絡安全的行為，包括但不限於：</view>
+    <view>(1)非法侵入他人網絡、幹擾他人網絡正常功能、竊取網絡數據等危害網絡安全的活動；</view>
+    <view>(2)提供專門用於從事侵入網絡、幹擾網絡正常功能及防護措施、竊取網絡數據等危害網絡安全活動的程序、工具；</view>
+    <view>(3)明知他人從事危害網絡安全的活動的，為其提供技術支持、廣告推廣、支付結算等幫助；</view>
+    <view>(4)使用未經許可的數據或進入未經許可的服務器/帳號；</view>
+    <view>(5)未經允許進入公眾計算機網絡或者他人計算機系統並刪除、修改、增加存儲信息；</view>
+    <view>(6)未經許可，企圖探查、掃描、測試「合交鏈香港」系統或網絡的弱點或其它實施破壞網絡安全的行為</view>
+    <view>(7)企圖幹涉、破壞「合交鏈香港」系統或網站的正常運行，故意傳播惡意程序或病毒以及其他破壞幹擾正常網絡信息服務的行為；</view>
+    <view>(8)偽造TCP/IP數據包名稱或部分名稱；</view>
+    <view>(9)對「合交鏈香港」軟件及相關服務進行反向工程、反向匯編、編譯或者以其他方式嘗試發現本軟件的源代碼；</view>
+    <view>(10)惡意註冊「合交鏈香港」軟件及相關服務的帳號，包括但不限於頻繁、批量註冊帳號；</view>
+    <view>(11)違反法律法規、本協議、公司的相關規則及侵犯他人合法權益的其他行為。</view>
+    <view>5.1.3如果公司有理由認為你的行為違反或可能違反上述約定的，公司可獨立進行判斷並處理，且有權在不事先通知的情況下終止向你提供服務，並追究相關法律責任。</view>
+    <view>5.2信息內容規範</view>
+    <view>5.2.1你按規定完成實名認證後，可以以註冊帳號或「合交鏈香港」合作平臺帳號登錄「合交鏈香港」發布內容、平臺購物等</view>
+    <view>5.2.2公司致力使發布廣告、任務成為文明、理性、友善、高質量的信息交流。在推動發布廣告、任務、互動交流業務發展的同時，不斷加強相應的信息安全管理能力，完善發布信息、任務自律，切實履行社會責任，遵守國家法律法規，尊重公民合法權益，尊重社會公序良俗。</view>
+    <view>5.2.3你發布、傳播的內容應自覺遵守憲法法律、法規、遵守公共秩序，尊重社會公德、社會主義製度、國家利益、公民合法權益、道德風尚和信息真實性等要求。你同意並承諾不製作、復製、發布、傳播法律、法規禁止的下列信息內容：</view>
+    <view>(1)反對憲法確定的基本原則的；</view>
+    <view>(2)危害國家安全，泄露國家秘密的；</view>
+    <view>(3)顛覆國家政權，推翻社會主義製度、煽動分裂國家、破壞國家統一的；</view>
+    <view>(4)損害國家榮譽和利益的；</view>
+    <view>(5)宣揚恐怖主義、極端主義的；</view>
+    <view>(6)宣揚民族仇恨、民族歧視，破壞民族團結的</view>
+    <view>(7)煽動地域歧視、地域仇恨的；</view>
+    <view>(8)破壞國家宗教政策，宣揚邪教和迷信的；</view>
+    <view>(9)編造、散布謠言、虛假信息，擾亂經濟秩序和社會秩序、破壞社會穩定的；</view>
+    <view>(10)散布、傳播暴力、淫穢、色情、賭博、兇殺、恐怖或者教唆犯罪的；</view>
+    <view>(11)侵害未成年人合法權益或者損害未成年人身心健康的；</view>
+    <view>(12)未獲他人允許，偷拍、偷錄他人，侵害他人合法權利的；</view>
+    <view>(13)包含恐怖、暴力血腥、高危險性、危害表演者自身或他人身心健康內容的；</view>
+    <view>(14)危害網絡安全、利用網絡從事危害國家安全、榮譽和利益的；</view>
+    <view>(15)侮辱或者誹謗他人，侵害他人合法權益的；</view>
+    <view>(16)對他人進行暴力恐嚇、威脅，實施人肉搜索的；</view>
+    <view>(17)涉及他人隱私、個人信息或資料的；</view>
+    <view>(18)散布汙言穢語，損害社會公序良俗的；</view>
+    <view>(19)侵犯他人隱私權、名譽權、肖像權、知識產權等合法權益內容的；</view>
+    <view>(20)未經許可散布的商業廣告，或類似的商業招攬</view>
+    <view>信息、過度營銷信息及垃圾信息；</view>
+    <view>(21)使用本網站常用語言文字以外的其他語言文字發布的；</view>
+    <view>(22)與所發布的信息毫無關系的；</view>
+    <view>(23)所發表的信息毫無意義的，或刻意使用字符組合以逃避技術審核的；</view>
+    <view>(24)其他違反法律法規、政策及公序良俗、幹擾「合交鏈香港」正常運營或侵犯其他用戶或第三方合法權益內容的其他信息。</view>
+    <view>5.3公司設立公眾投訴、舉報平臺，你可按照公司公示的投訴舉報製度向公司投訴、舉報各類違法違規行為、違法傳播活動、違法有害信息等內容，公司將及時受理和處理你的投訴舉報，以共同營造風清氣正的網絡空間。</view>
+    <view class="title">6、「合交鏈香港」信息內容的使用規範</view>
+    <view>6.1未經公司書面許可，你不得自行或授權、允許、協</view>
+    <view>助任何第三人對本協議「合交鏈香港」軟件及相關服務中信息內容進行如下行為：</view>
+    <view>(1)復製、讀取、采用「合交鏈香港」軟件及相關服務的信息內容，用於包括但不限於宣傳、增加閱讀量、瀏覽量等商業用途；</view>
+    <view>(2)擅自編輯、整理、編排「合交鏈香港」軟件及相關服務的信息內容後在「合交鏈香港」軟件及相關服務的源頁面以外的渠道進行展示；</view>
+    <view>(3)采用包括但不限於特殊標識、特殊代碼等任何形式的識別方法，自行或協助第三人對「合交鏈香港」軟件及相關服務的信息內容產生流量、閱讀量引導、轉移、劫持等不利影響；</view>
+    <view>(4)其他非法獲取或使用「合交鏈香港」軟件及相關服務的信息內容的行為。</view>
+    <view>6.2經公司書面許可後，你對「合交鏈香港」軟件及相關服務的信息內容的分享、轉發等行為，還應符合以下規範：</view>
+    <view>(1)對抓取、統計、獲得的相關搜索熱詞、命中率、分類、搜索量、點擊率、閱讀量等相關數據，未經公司事先書面同意，不得將上述數據以任何方式公示、</view>
+    <view>提供、泄露給任何第三人；</view>
+    <view>(2)不得對「合交鏈香港」軟件及相關服務的源網頁進行任何形式的任何改動，包括但不限於「合交鏈香港」軟件及相關服務的首頁(profile頁面)鏈接，廣告系統鏈接等入口，也不得對「合交鏈香港」軟件及相關服務的源頁面的展示進行任何形式的遮擋、插入、彈窗等妨礙；</view>
+    <view>(3)應當采取安全、有效、嚴密的措施，防止「合交鏈香港」軟件及相關服務的信息內容被第三方通過包括但不限於「蜘蛛(spider)」程序等任何形式進行非法獲取；</view>
+    <view>(4)不得把相關數據內容用於公司書面許可範圍之外的目的，進行任何形式的銷售和商業使用，或向第三方泄露、提供或允許第三方為任何方式的使用；</view>
+    <view>(5)向任何第三人分享、轉發、復製「合交鏈香港」軟件及相關服務信息內容的行為，應當遵守公司為此製定的其他規範和標準。</view>
+    <view class="title">7、違約處理</view>
+    <view>7.1針對你違反本協議或其他服務條款的行為，公司有權獨立判斷並視情況采取預先警示、拒絕發布、立即停止傳輸信息、刪除、短期禁止發言、限製帳號部分或者全部功能直至永久關閉帳號等措施。公司有權公告處理結果，且有權根據實際情況決定是否恢復相關帳號的使用。對涉嫌違反法律法規、涉嫌違法犯罪的行為將保存有關記錄，並依法向有關主管部門報告、配合有關主管部門調查。</view>
+    <view>7.2因你違反本協議或其他服務條款規定，引起第三方投訴或訴訟索賠的，你應當自行處理並承擔全部可能由此引起的法律責任。因你的違法、侵權或違約等行為導致公司及其關聯公司向任何第三方賠償或遭受國家機關處罰的，你還應足額賠償公司及其關聯公司因此遭受的全部損失。</view>
+    <view>7.3公司尊重並保護用戶及他人的知識產權、名譽權、姓名權、隱私權等合法權益。你保證，在使用「合交鏈香港」軟件及相關服務時上傳的文字、圖片、視頻、音頻、鏈接等不侵犯任何第三方的知識產權、名譽權、姓名權、隱私權等權利及合法權益。否則，公司有權在收到權利方或者相關方通知的情況下移除該涉嫌侵權內容。針對第三方提出的全部權利主張，你應自行處理並承擔全部可能由此引起的法律責任；如因你的侵權行為導致公司及其關聯公司遭受損失的(包括經濟、商譽等損失),你還應足額賠償公司及其關聯公司遭受的全部損失。</view>
+    <view class="title">8、服務的變更、中斷和終止</view>
+    <view>8.1你理解並同意，公司提供的「合交鏈香港」軟件及相關服務是按照現有技術和條件所能達到的現狀提供的。公司會盡最大努力向你提供服務，確保服務的連貫性和安全性。你理解，公司不能隨時預見和防範技術以及其他風險，包括但不限於不可抗力、網絡原因、第三</view>
+    <view>方服務瑕疵、第三方網站等原因可能導致的服務中斷、不能正常使用本軟件及服務以及其他的損失和風險。</view>
+    <view>8.2你理解並同意，公司為了服務整體運營、平臺運營安全的需要，有權視具體情況有權決定服務/功能設置、範圍，修改、中斷、中止或終止「合交鏈香港」軟件及相關服務。</view>
+    <view class="title">9、廣告</view>
+    <view>9.1你理解並同意，在使用「合交鏈香港」軟件及相關服務過程中公司可能會向你推送具有相關性的信息、廣告發布或品牌推廣服務，且公司將在「合交鏈香港」軟件及相關服務中展示「合交鏈香港」軟件及相關服務相關和/或第三方供應商、合作夥伴的商業廣告、推廣或信息(包括商業或非商業信息)。</view>
+    <view>9.2在使用「合交鏈香港」時，公司會基於偏好、興趣等方面向你推送程序化廣告，你可以在「合交鏈香港」設置中關閉程序化廣告的推送，如果關閉，你看到的廣告數量將保持不變，但廣告的相關性會降低。你可以退訂我們發送給你的營銷短信。更多內容，可參見《隱私政策》。</view>
+    <view>9.3公司依照法律規定履行廣告及推廣相關義務，你應當自行判斷該廣告或推廣信息的真實性和可靠性並為自己的判斷行為負責。除法律法規明確規定外，你因該廣告或推廣信息進行的購買、交易或因前述內容遭受的損害或損失由你自行承擔，公司不予承擔責任。</view>
+    <view class="title">10、知識產權</view>
+    <view>10.1公司在「合交鏈香港」軟件及相關服務中提供的內容(包括但不限於軟件、技術、程序、網頁、文字、圖片、圖像、音頻、視頻、圖表、版面設計、電子文檔等)的知識產權屬於公司所有。公司提供本服務時所依托的軟件的著作權、專利權及其他知識產權均歸公司所有。未經公司許可，任何人不得擅自使用(包括但不限於通過任何機器人、蜘蛛等程序或設備監視、復製、傳播、展示、鏡像、上載、下載)「合交鏈香港」軟件及相關服務中的內容。</view>
+    <view>10.2你理解並同意，在使用「合交鏈香港」軟件及相關服務時發布上傳的文字、圖片、視頻、音頻等均由你原創或已獲合法授權。你通過「合交鏈香港」上傳、發布的任何內容的知識產權歸屬你或原始著作權人所有。</view>
+    <view>10.3你知悉、理解並同意，為持續改善並為您提供更好的服務，你通過「合交鏈香港」軟件及相關服務上傳發布、傳輸或傳播的內容(包括但不限於文字、圖片、圖像、音頻、視頻和/或音頻中的音樂、聲音、對話等),授權公司及其關聯公司、控製公司、繼承公司一項全球範圍內、免費、非獨家、可再許可(通過多層次)的權利(包括但不限於復製權、信息網絡傳播</view>
+    <view>權、改編權、匯編權、修改權、翻譯權、製作衍生品、表演和展示等權利),使用範圍包括但不限於在當前或其他網站、應用程序、產品或終端設備等。您在此確認並同意，上述權利的授予包括在內容、「合交鏈香港」/「網站」(.com)、公司和/或公司品牌有關的任何的宣傳、推廣、廣告和/或相關營銷中使用和以其他方式開發內容(全部或部分)的權利和許可。為避免疑惑，您同意，上述權利的授權包括許可使用、復製、展示、傳播您擁有或被許可使用並植入內容中的個人形象、肖像、姓名、商標、服務標誌、品牌、名稱、標識、公司標記及其他物料、素材等。</view>
+    <view>10.4你確認並同意授權公司以公司自己的名義或委托</view>
+    <view>專業第三方對侵犯你上傳發布的享有知識產權的內容進行代維權，維權形式包括但不限於：監測侵權行為、發送維權函、提起訴訟或仲裁、調解、和解等，公司有權對維權事宜做出決策並獨立實施。</view>
+    <view>10.5公司為「合交鏈香港」開發、運營提供技術支持，並對「合交鏈香港」軟件及相關服務的開發和運營等過程中產生的所有數據和信息等享有法律法規允許範圍內的全部權利。</view>
+    <view>10.6請你在任何情況下都不要私自使用公司的包括但不限於「合交鏈香港」和「.com」等在內的任何商標、服務標記、商號、域名、網站名稱或其他顯著品牌特征等(以下統稱為「標識」)。未經公司事先書面同意，你不得將本條款前述標識以單獨或結合任何方式展示、使用或申請註冊商標、進行域名註冊等，也不得實施向他人明示或暗示有權展示、使用、或其他有權處理該些標識的行為。由於你違反本協議使用公司上述商標、標識等給公司或他人造成損失的，由你承擔全部法律責任。</view>
+    <view class="title">11、免責聲明</view>
+    <view>11.1你理解並同意，「合交鏈香港」軟件及相關服務可能會受多種因素的影響或幹擾，公司不保證(包括但不限於):</view>
+    <view>11.1.1「合交鏈香港」軟件及相關服務完全適合用戶的所有使用要求；</view>
+    <view>11.1.2「合交鏈香港」軟件及相關服務不受幹擾，及時、安全、可靠或不出現任何錯誤；你經由公司取得的任何軟件、服務或其他材料符合用戶的期望；</view>
+    <view>11.1.3「合交鏈香港」軟件及相關服務中任何錯誤都將能得到更正。</view>
+    <view>11.2如有涉嫌借款或其他涉財產的網絡信息、帳戶密碼、廣告或推廣等信息，請你謹慎對待並自行進行判斷，你因此遭受的利潤、商業信譽、資料損失或其他有形或無形損失，公司不承擔任何直接、間接、附帶、特別、衍生性或懲罰性的賠償責任。</view>
+    <view>11.3你理解並同意，在使用「合交鏈香港」軟件及相關服務過程中，可能遇到不可抗力等因素(不可抗力是指不能預見、不能克服並不能避免的客觀事件),包括但不限於自然災害(如洪水、地震、臺風等)、政府行為、戰爭、罷工、騷動、暴亂等。出現不可抗力情況時，公司將努力在第一時間及時修復，但因不可抗力造成的損失，公司在法律法規範圍內免於承擔責任。</view>
+    <view>11.4公司依據本協議約定獲得處理違法違規內容的權利，該權利不構成公司的義務或承諾，公司不能保證及時發現違法行為或進行相應處理。</view>
+    <view>11.5你理解並同意，關於「合交鏈香港」軟件及相關服務，公司不提供任何種類的明示或暗示擔保或條件，包括但不限於商業適售性、特定用途適用性等。你對「合交鏈香港」軟件及相關服務的使用行為需自行承擔相應風險。</view>
+    <view>11.6你理解並同意，本協議是在保障遵守國家法律法規、維護公序良俗，保護他人合法權益，公司在能力範圍內盡最大的努力按照相關法律法規進行判斷，但並不保證公司判斷完全與司法機關、行政機關的判斷一致，如因此產生的後果你已經理解並同意自行承擔。</view>
+    <view>11.7在任何情況下，公司均不對任何間接性、後果性、懲罰性、偶然性、特殊性或刑罰性的損害，包括因你使用「合交鏈香港」軟件及相關服務而遭受的利潤損失，承擔責任。公司對你承擔的全部責任，無論因何原因或何種行為方式，始終不超過你在成員期內因使用「合交鏈香港」軟件及相關服務而支付給公司的費用(如有)。</view>
+    <view class="title">12、關於單項服務與第三方服務的特殊約定</view>
+    <view>12.1「合交鏈香港」軟件及相關服務中包含公司以各種合法方式獲取的信息或信息內容鏈接，同時也包括公司和/或其關聯方合法運營的其他單項服務你可以在「合交鏈香港」軟件中開啟和使用上述單項服務。某些單項服務可能需要你同時接受就此特別製訂的協議或者其他約束你與該單項服務提供者之間的規則，必要時在你計劃使用前述單向服務時以醒目的方式向你提供這些協議、規則，供你查閱與同意。一旦你開始使用上述服務，則視為你理解並接受有關單項服務的相關協議、規則的約束。如未標明使用期限、或未標明使用期限為「永久」、「無限期」或「無限製」的，則這些產品或服務的使用期限為自用戶開始使用該產品或服務至該產品或服務在「合交鏈香港」軟件中下線之日為止。</view>
+    <view>12.2如你在「合交鏈香港」軟件中使用第三方提供的軟件或相關服務時，除遵守本協議及合交鏈香港相關規則外，還可能需要同意並遵守第三方的協議、隱私政策及相關規則。如因第三方軟件及相關服務產生的爭議、損失或損害，由你與第三方自行解決，公司並不就此而對你或任何第三方承擔任何責任。</view>
+    <view class="title">13、未成年人使用條款</view>
+    <view>13.1若用戶是未滿18周歲的未成年人，應在監護人監護、指導並獲得監護人同意情況下認真閱讀本協議後，方可使用「合交鏈香港」軟件及相關服務。</view>
+    <view>13.2公司重視對未成年人個人信息的保護，未成年用戶在填寫個人信息時，請加強個人保護意識並謹慎對待，並在監護人指導時正確使用「合交鏈香港」軟件及相關服務。</view>
+    <view>13.3未成年用戶理解如因你違反法律法規、本協議內容，則你及你的監護人應依照法律規定承擔因此而可能引起的全部法律責任。</view>
+    <view>13.4未成年人用戶特別提示：</view>
+    <view>13.4.1青少年使用本軟件及相關服務應該在其監護人的監督指導下，在合理範圍內正確學習使用網絡，避免沈迷虛擬的網絡空間，養成良好上網習慣。</view>
+    <view>13.4.2青少年用戶必須遵守《全國青少年網絡文明公約》:</view>
+    <view>(1)要善於網上學習，不瀏覽不良信息；</view>
+    <view>(2)要誠實友好交流，不侮辱欺詐他人；</view>
+    <view>(3)要增強自護意識，不隨意約會網友；</view>
+    <view>(4)要維護網絡安全，不破壞網絡秩序；</view>
+    <view>(5)要有益身心健康，不沈溺虛擬時空。</view>
+    <view>13.5為更好的保護未成年人隱私權益，公司提醒用戶慎重發布包含未成年人素材的內容，一經發布，即視為用戶同意本軟件及相關服務展示未成年人的信息、肖像、聲音等，且允許公司依據本協議使用、處理該等與未成年人相關的內容。</view>
+    <view class="title">14、其他</view>
+    <view>14.1本協議的成立、生效、履行、解釋及爭議的解決均應適用中華人民共和國法律。若本協議之任何規定因與中華人民共和國的法律抵觸而無效或不可執行，則這些條款將盡可能按照接近本協議原條文意旨重新解析，且本協議其它規定仍應具有完整的效力及效果。</view>
+    <view>14.2本協議的簽訂地為中華人民共和國安徽省亳州市高新區。若你因本協議與公司發生任何爭議，雙方應盡量友好協商解決；如協商不成的，你同意應將相關爭議提交至本協議簽訂地的人民法院訴訟解決。</view>
+    <view>14.3為給你提供更好的服務或國家法律法規、政策調整，「合交鏈香港」及相關服務將不時更新與變化，我們會適時對本協議進行修訂，這些修訂構成本協議的一部分。本協議更新後，我們會在「合交鏈香港」發出更新版本，並在更新後的條款生效前通過官方網站(www..com)公告或其他適當的方式提醒你更新的內容，以便你及時了解本協議的最新版本，你也可以在網站首頁或軟件設置頁面查閱最新版本的協議條款。如你繼續使用「合交鏈香港」軟件及相關服務，表示同意接受修訂後的本協議的內容。</view>
+    <view>如您對修改後的協議條款存有異議的，請立即停止登錄或使用「合交鏈香港」軟件及相關服務。若您繼續登錄或使用「合交鏈香港」軟件及相關服務，即視為您認可並接受修改後的協議條款。</view>
+    <view>14.4本協議中的標題僅為方便及閱讀而設，並不影響本協議中任何規定的含義或解釋</view>
+    <view>14.5你和公司均是獨立的主體，在任何情況下本協議不構成公司對用戶的任何形式的明示或暗示擔保或條件，雙方之間亦不構成代理、合夥、合營或雇傭關系。</view>
+  </view>
+
+  <view class="agreement" wx:else>
+    <view class="title">1. Preface</view>
+    <view>Welcome to use HKEHK software and related services!</view>
+    <view>"Hkehk" software and related Services means the products and services provided to you by HKEHK International Art Co., Ltd. through the client application labeled "HKEHK" lawfully owned and operated by HKEHK and the website of "HKEHK APP" (www.HKiarts.com). Including but not limited to personalized recommendation, advertising, tasks, learning communication, platform shopping, part-time and other functions, as a platform for entrepreneurship and communication. The Stock Exchange Hong Kong User Agreement (the "Agreement") is an agreement between you and the Company with respect to your registration, login and use (collectively, the "use") of the Stock Exchange Hong Kong Software and related services.</view>
+    <view>In order to provide you with better services, please carefully read and fully understand this Agreement before you start to use the HKEHK software and related services, especially the provisions concerning the exclusion or limitation of liability, rights licensing and information use, the provisions agreeing to open and use special individual services, the applicable law and dispute resolution provisions. Among them, the exclusion or limitation of liability clauses and other important content will be in bold form to prompt your attention, you should focus on reading. If you are under the age of 18, please carefully read and fully understand this Agreement with your legal guardian, and obtain the consent of your legal guardian before using the HKEHK software and related services.</view>
+    <view>If you do not agree to this agreement, it will result in us being unable to provide you with the complete agreement</view>
+    <view>You can also choose to stop using the products and services. If you voluntarily choose to agree to or use the HKEHK software and related services, you are deemed to have fully understood this Agreement and agree to be bound by this Agreement and other agreements and rules related to the HKEHK software and related services (including but not limited to the content published in the form of Privacy Policy, statements and announcements) as a party to this Agreement.</view>
+    <view class="title">2. Hkehk software and related services</view>
+    <view>2.1 To use the HKEHK software and related services, you may obtain the HKEHK client Application through pre-installation, download by third parties authorized by the Company, or visit the relevant websites of the website (https://www.HKiarts.com). If you do not obtain the Software from the Company or a third party authorized by the Company, the Company cannot guarantee the normal use of the unofficial version of the "Stock Exchange Hong Kong" software, and the loss you suffer as a result is not related to the Company.</view>
+    <view>2.2 The company may develop different application software versions for different terminal devices, and you should obtain, download and install the appropriate version according to the actual device conditions. If you no longer use the HKEHK software and related services, you may uninstall the corresponding application software by yourself.</view>
+    <view>2.3 In order to better improve user experience and services, the Company will provide updates or changes to the HKEHK software and related services from time to time (including but not limited to software modification, upgrade, function enhancement, development of new services, software replacement, etc.). You can choose whether to update the corresponding version according to your needs.</view>
+    <view>In order to ensure the security of the HKEHK software and related services and improve user services, after the HKEHK software and related services are updated in part or in whole, the Company will remind you in appropriate ways (including but not limited to system prompts, announcements, website letters, etc.) where feasible, and you have the right to choose to accept the updated version; If you choose not to update, some functions of the HKEHK software and related services may be restricted or unavailable.</view>
+    <view>2.4 Unless previously authorized in writing by the Company, you may not make any unauthorized access to or use of the HKEHK Software and related Services in any form, including but not limited to adaptation, copying, dissemination, vertical search, mirroring or trading.</view>
+    <view>2.5 You understand that the use of the HKEHK software and related services requires you to prepare the terminal equipment (such as computer, mobile phone, etc.) related to the software and related services. Once you open the HKEHK software on the terminal device or visit the HKEHK website, you will be deemed to have used the HKEHK software and related services. In order to fully realize the full functions of the "Stock Exchange Hong Kong", you may need to connect the terminal equipment to the Internet, you understand that you will bear all the costs required (such as traffic charges, Internet access charges, etc.).</view>
+    <view>2.6 The Company grants you a personal, non-transferable, non-exclusive and non-commercial right to use the HKEHK software and related services. All other rights not expressly authorized by this Agreement shall be reserved by the Company, and you shall obtain the written permission of the Company before exercising such rights, and the failure of the Company to exercise any of the foregoing rights shall not constitute a waiver of such rights.</view>
+    <view>2.7 You do not need to register to start using the HKEHK software and related services, but some functions or services may be affected. At the same time, you also understand that in order to enable you to better use the HKEHK software and related services and protect the security of your account, certain functions and/or certain individual service items (such as publishing advertisements, tasks, part-time jobs, etc.) will require you to provide real identity information in accordance with the relevant laws and regulations of the country, real-name registration and login before use.</view>
+    <view class="title">3. About "Account"</view>
+    <view>3.1 The "Stock Exchange Hong Kong" software and related services provide you with a registration channel, you have the right to choose a legal character combination as your account, and set your own password that meets security requirements. The account and password set by the user are the credentials used by the user to log in and use the HKEHK software and related services.</view>
+    <view>3.2 You understand and promise that the account you set up shall not violate the laws and regulations of the State and the relevant rules of the company, shall not carry out any act that infringes on the interests of the state, damages the legitimate rights and interests of other citizens, or is harmful to social morality, and shall not contain any illegal or undesirable information in your account name, profile picture, profile and other registration information and other personal information. Without the permission of others, you are not allowed to open an account in the name of others (including but not limited to using others' names, names, shop names, avataras, etc.), and you are not allowed to register HKEHK accounts in bad faith (including but not limited to frequent registration, bulk registration, etc.). The company has the right to review the information you submit.</view>
+    <view>3.3 Your account is for your own use only. Without the written consent of the Company, it is forbidden to donate, borrow, rent, transfer, sell or otherwise license others to use the account in any form. If the Company finds or has reasonable grounds to believe that the user is not the original registrant of the account, the Company has the right to immediately suspend or terminate the service provided to the registered account or cancel the account in order to protect the security of the account.</view>
+    <view>3.4 You are responsible for maintaining the security and confidentiality of your personal account and password, and bear all legal responsibilities for the activities you engage in in the name of your registered account, including but not limited to all legal liabilities that may be caused by any data modification, speech delivery, payment and other operations you perform on the HKEHK software and related services. You should attach great importance to the confidentiality of your account and password, and do not disclose your account and password to others under any circumstances. You should immediately notify the Company of any unauthorized use of your account or any other security breach.</view>
+    <view>3.5 If you lose your account or forget your password, you can appeal to retrieve your account or password in time according to the company's appeal channel. You understand and acknowledge that the Company's password retrieval mechanism is only required to identify the consistency of the information entered on the complaint form with the information recorded in the system, and cannot identify whether the complainant is a genuine authorized user of the account. In particular, the company reminds you to keep your account number and password safe. When you are finished, you should exit safely. If you suffer theft or loss of password due to your own reasons such as improper storage or other irresistible factors, you will bear the corresponding responsibility.</view>
+    <view>3.6 When registering, using and managing an account, you should ensure the authenticity of the identity information you fill in when registering an account. Please use real, accurate, legal and valid identity proof materials and necessary information (including your name and email address, contact phone number, contact address, etc.) when registering and managing an account. In accordance with relevant national laws and regulations, in order to use some functions of HKEHK software and related services, you need to fill in real identity information. Please complete real-name authentication in accordance with relevant laws and regulations, and pay attention to updating the above relevant information in a timely manner. If the materials you submit or the information you provide are non-standard or do not meet the requirements, the Company has the right to refuse to provide you with relevant functions, and you may not be able to use the HKEHK software and related services or some functions may be restricted during the use of the software.</view>
+    <view>3.7 In addition to registering your own "Stock Exchange Hong Kong" account, you may also authorize you to use your legally owned user accounts including but not limited to other software user accounts of the Company and/or its affiliates, as well as real-name registered third-party software user accounts to log in and use the "Stock Exchange Hong Kong" software and related services, except where such third-party software or platform is restricted or prohibited. When the user logs in to use the aforementioned existing account, it shall ensure that the corresponding account has been registered in real name, and the relevant provisions of this Agreement are also applicable.</view>
+    <view>3.8 You understand and agree that in addition to your login and use of the HKEHK software and related services, you may also use the HKEHK account to log in and use other software and services provided by the Company and its affiliates. When you log in and use the aforementioned Services under your "Stock Exchange Hong Kong" account, you will be bound by the terms of the User Agreement and other agreements of the actual provider of the aforementioned Services.</view>
+    <view>3.9 In order to improve the exposure and publishing efficiency of your content, you agree that your account in the software/website and all content posted by the corresponding account are authorized by the Company to automatically and synchronously publish to other software and websites operated by the Company and/or its affiliates under your account. Your operation of Posting, modifying and deleting content in this software/website will be synchronized to other software and websites in the above series. When you register for or log in to other software products and websites operated by the Company and/or affiliated companies (if any) through a registered account or a third-party software user account, you shall be bound by the terms of the User Agreement and other agreements of the Software and websites themselves.</view>
+    <view>3.10 You may browse and modify the personally identifiable information submitted by you at any time after you have completed the account registration, login and reasonable and necessary authentication of the "Stock Exchange Hong Kong". You understand and agree that for security and identification reasons (such as account or password recovery appeal services, etc.), you may not be able to modify the initial registration information and other verification information provided at registration. You can also apply for the cancellation of the account, the company will complete the personal identity, security status, equipment information and other reasonable and necessary verification to assist you to cancel the account, and in accordance with your request to delete all information about your account, unless otherwise provided for by laws and regulations.</view>
+    <view>3.11 You understand and agree that in order to make full use of account resources, if you do not log in for the first time after registration or do not log in for more than two consecutive months, the Company has the right to withdraw your account.</view>
+    <view class="title">4. User personal information protection</view>
+    <view>The Company works with you to protect your personal information (that is, information that can be used independently or in combination with other information to identify the user), and the protection of the user's personal information is one of the Company's basic principles. In the process of using the HKEHK software and related services, you may be required to provide your personal information (including but not limited to name, telephone number, location information, etc.) so that the Company can provide you with better services and corresponding technical support. The Company will use encryption technology, anonymization processing and other technical measures and other security measures that are compatible with the HKEHK software and related services to protect your personal information. For more information about the protection of users' personal information, please refer to the Privacy Policy.</view>
+    <view class="title">5. User behavior standards</view>
+    <view>5.1 User Behavior Requirements You shall be responsible for your use of the Software and related services, unless permitted by law or prior written permission of the Company, you shall not use the HKEHK software and related services in the following ways:</view>
+    <view>5.1.1 Use any plug-in, plug-in, system or third-party tool not authorized or permitted by the Company to interfere with, destroy, modify or otherwise affect the normal operation of the HKEHK software and related services.</view>
+    <view>5.1.2 Using or targeting the HKEHK software and related services to engage in any conduct that endangers computer network security, including but not limited to:</view>
+    <view>(1) Illegal intrusion into others' networks, interference with the normal function of others' networks, theft of network data and other activities that endanger network security;</view>
+    <view>(2) Provide programs and tools specifically used to engage in activities endangering network security such as intruding into the network, interfering with the normal functions and protective measures of the network, stealing network data;</view>
+    <view>(3) Provide technical support, advertising promotion, payment and settlement assistance to others who knowingly engage in activities that endanger network security;</view>
+    <view>(4) Using unauthorized data or accessing unauthorized servers/accounts;</view>
+    <view>(5) Accessing the public computer network or other people's computer systems without permission and deleting, modifying or adding stored information;</view>
+    <view>(6) Unauthorized attempts to probe, scan, or test the weaknesses of the system or network of the Stock Exchange Hong Kong or other acts that undermine network security</view>
+    <view>(7) attempts to interfere with or disrupt the normal operation of the system or website of the Stock Exchange Hong Kong, intentionally spread malicious programs or viruses, and other acts that disrupt normal network information services;</view>
+    <view>(8) Forging the TCP/IP packet name or part of the name;</view>
+    <view>(9) reverse engineer, reverse assemble, compile or otherwise attempt to discover the source code of the HKEHK software and related services;</view>
+    <view>(10) Malicious registration of accounts for HKEHK software and related services, including but not limited to frequent and batch registration of accounts;</view>
+    <view>(11) Violations of laws and regulations, this Agreement, the relevant rules of the company and other acts infringing on the legitimate rights and interests of others.</view>
+    <view>5.1.3 If the Company has reason to believe that your behavior violates or may violate the above agreement, the Company can independently judge and deal with it, and has the right to terminate the service provided to you without prior notice, and pursue relevant legal responsibilities.</view>
+    <view>5.2 Information Content Specifications</view>
+    <view>5.2.1 After completing the real-name authentication as required, you can log in to "HKEHK" to publish content, shop on the platform, etc., using your registered account or the "HKEHK" cooperation platform account</view>
+    <view>5.2.2 The Company is committed to making advertising and tasks civilized, rational, friendly and high-quality information exchange. While promoting the development of advertising, task, and interactive communication business, it constantly strengthens the corresponding information security management capabilities, improves the self-discipline of information release and task, effectively performs social responsibilities, abidates national laws and regulations, respects the legitimate rights and interests of citizens, and respects social public order and good customs.</view>
+    <view>5.2.3 The content you publish and disseminate shall consciously abide by the Constitution, laws and regulations, abide by public order, and respect the requirements of social morality, socialist system, national interests, citizens' legitimate rights and interests, moral fashion and information authenticity. You agree and promise not to produce, copy, publish, disseminate the following information content prohibited by laws and regulations:</view>
+    <view>(1) opposed to the basic principles established by the Constitution;</view>
+    <view>(2) endangering national security or divulging state secrets;</view>
+    <view></view>
+    <view>(4) harming national honor and interests;</view>
+    <view>(5) Advocating terrorism and extremism;</view>
+    <view>(6) propagating ethnic hatred, ethnic discrimination and undermining national unity</view>
+    <view>(7) inciting regional discrimination or regional hatred;</view>
+    <view>(8) sabotages state religious policies and promotes cults and superstitions;</view>
+    <view>(9) fabricating or spreading rumors or false information to disrupt economic order and social order or undermine social stability;</view>
+    <view>(10) spreading or disseminating violence, obscenity, pornography, gambling, murder, terror or instigating crimes;</view>
+    <view>(11) infringing upon the legitimate rights and interests of minors or harming their physical and mental health;</view>
+    <view>(12) Without the permission of others, secretly filming or recording others, infringing on the lawful rights of others;</view>
+    <view>(13) contains horror, violence, bloodshed, high risk, harm to the performer's own or others physical and mental health content;</view>
+    <view>(14) endangering network security, using the network to harm national security, honor and interests;</view>
+    <view>(15) Insulting or defaming others, infringing upon the legitimate rights and interests of others;</view>
+    <view>(16) Violent intimidation or threat against others, or human flesh search;</view>
+    <view>(17) involving the privacy, personal information or data of others;</view>
+    <view>(18) spreading profanities to harm social order and good customs;</view>
+    <view>(19) infringing on others' rights of privacy, reputation, portrait, intellectual property and other legitimate rights and interests;</view>
+    <view>(20) Unauthorized distribution of commercial advertisements, or similar commercial solicitation</view>
+    <view>Information, over-marketing information and spam;</view>
+    <view>(21) Posting in languages other than those commonly used on this website;</view>
+    <view>(22) not related to the information published;</view>
+    <view>(23) The information published is meaningless, or the combination of characters is deliberately used to evade technical review;</view>
+    <view>(24) Other information that violates laws, regulations, policies and public order and good customs, interferes with the normal operation of the Stock Exchange Hong Kong, or infringes the legitimate rights and interests of other users or third parties.</view>
+    <view>5.3 The company has set up a public complaint and report platform. You can complain to the company according to the complaint and report system published by the company, report all kinds of illegal behaviors, illegal communication activities, illegal harmful information and other content. The company will accept and deal with your complaints and reports in a timely manner to jointly create a clean and positive network space.</view>
+    <view class="title">6, the use of "Stock Exchange Hong Kong" information content specifications</view>
+    <view>6.1 Without the written permission of the Company, you may not do or authorize, permit or cooperate</view>
+    <view>Assist any third party to perform the following acts in the information content of the HKEHK software and related services hereunder:</view>
+    <view>(1) Copy, read and use the information content of the HKEHK software and related services for commercial purposes, including but not limited to advertising, increasing reading and page views;</view>
+    <view>(2) edit, organize and arrange the information content of the HKEHK software and related services without authorization and display it in channels other than the source page of the HKEHK software and related services;</view>
+    <view>(3) Using any form of identification methods, including but not limited to special identification, special code, etc., to generate traffic, reading volume guidance, transfer, hijacking and other adverse effects on the information content of HKEHK software and related services by itself or by assisting a third party;</view>
+    <view>(4) Other acts of illegally obtaining or using the information content of HKEHK software and related services.</view>
+    <view>6.2 With the written permission of the Company, your sharing and forwarding of the information content of the HKEHK software and related services shall also comply with the following standards:</view>
+    <view>(1) Capture, statistics, access to relevant search hot words, hit rate, classification, search volume, click rate, reading volume and other relevant data, without the company's prior written consent, shall not be disclosed in any way.</view>
+    <view>Provide, disclose to any third party;</view>
+    <view>(2) shall not make any changes in any form to the source web pages of the HKEHK software and related services, including but not limited to the homepage (profile page) links, advertising system links and other portals of the HKEHK software and related services, Also shall not obstruct the display of the source page of the HKEHK software and related services in any form, such as blocking, inserting, popup, etc.;</view>
+    <view>(3) Safe, effective and strict measures shall be taken to prevent the information content of the HKEHK software and related services from being illegally obtained by third parties through any form, including but not limited to the spider program;</view>
+    <view>(4) The relevant data content shall not be used for purposes beyond the scope of the Company's written permission, for any form of sale and commercial use, or to disclose, provide or allow third parties to use in any way;</view>
+    <view>(5) The sharing, forwarding and copying of the software and related service information content of HKEHK to any third party shall comply with other norms and standards formulated by the Company for this purpose.</view>
+    <view class="title">7. Handling of breach of contract</view>
+    <view>7.1 In response to your violation of this Agreement or other terms of service, the Company has the right to independently judge and take measures such as warning in advance, refusing to publish, immediately stopping the transmission of information, deleting, barring you from speaking for a short period of time, restricting some or all functions of the account until permanently closing the account. The Company has the right to announce the result of handling and decide whether to restore the use of relevant accounts according to the actual situation. Relevant records will be kept for suspected violations of laws and regulations, suspected illegal and criminal acts, and report to the relevant competent authorities according to law, and cooperate with the relevant competent authorities in the investigation.</view>
+    <view>7.2 If you violate this Agreement or other terms of Service and cause any third-party complaint or lawsuit claim, you shall handle it by yourself and bear all possible legal responsibilities arising therefrom. If your violation, infringement or breach of contract causes the Company and its affiliates to compensate any third party or suffer punishment from state authorities, you shall also fully compensate the Company and its affiliates for all losses suffered thereby.</view>
+    <view>7.3 The Company respects and protects the intellectual property rights, reputation rights, name rights, privacy rights and other legitimate rights and interests of users and others. You warrant that the text, pictures, videos, audio, links etc. uploaded during the use of HKEHK software and related services will not infringe the intellectual property rights, reputation rights, name rights, privacy rights and legitimate rights and interests of any third party. Otherwise, the Company reserves the right to remove the allegedly infringing content upon notification from the right party or relevant parties. You shall handle all claims made by third parties on your own and bear all possible legal responsibilities arising therefrom. If your infringement causes the Company and its affiliates to suffer losses (including economic, goodwill and other losses), you shall also fully compensate the company and its affiliates for all losses.</view>
+    <view class="title">8. Change, interruption and termination of the service</view>
+    <view>8.1 You understand and agree that the "Stock Exchange Hong Kong" software and related services provided by the Company are provided in accordance with current technology and conditions. The company will do its best to provide you with services to ensure the continuity and security of services. You understand that the Company cannot always anticipate and prevent technical and other risks, including but not limited to force majeure, cyber causes, and third</view>
+    <view>Service interruption, failure to normally use the Software and services, and other losses and risks caused by defects in Party's service, third-party websites, etc.</view>
+    <view>8.2 You understand and agree that in order to serve the needs of the overall operation and the safety of the platform operation, the Company has the right to decide the service/function setting and scope, modify, interrupt, suspend or terminate the "Stock Exchange Hong Kong" software and related services according to the specific circumstances.</view>
+    <view class="title">9. Advertising</view>
+    <view>9.1 You understand and agree that in the process of using the HKEHK software and related services, the Company may push relevant information, advertising or brand promotion services to you, And the Company will display commercial advertisements, promotions or information (including commercial or non-commercial information) related to and/or third party suppliers and partners of the HKEHK software and related Services in the HKEHK Software and related Services.</view>
+    <view>9.2 When using the "Stock Exchange Hong Kong", the company will push programmatic advertisements to you based on preferences, interests, etc. You can turn off the push of programmatic advertisements in the "Stock Exchange Hong Kong" Settings, if you turn off the number of advertisements you see will remain the same, but the relevance of the advertisements will be reduced. You can unsubscribe from marketing messages we send you. For more information, see the Privacy Policy.</view>
+    <view>9.3 The Company shall perform obligations related to advertising and promotion in accordance with laws and regulations, and you shall judge the authenticity and reliability of the advertising or promotion information and be responsible for your own judgment. Except as expressly provided by laws and regulations, the Company shall not be liable for any damage or loss suffered by you due to the purchase or transaction of the advertising or promotional information or the aforementioned content.</view>
+    <view class="title">10. Intellectual Property</view>
+    <view>10.1 The intellectual property rights of the content (including but not limited to software, technology, programs, web pages, text, pictures, images, audio, video, charts, layout design, electronic documents, etc.) provided by the Company in the HKEHK software and related services belong to the Company. The copyright, patent rights and other intellectual property rights of the software on which the Company provides the Service are all owned by the Company. Without the permission of the Company, no one shall use (including but not limited to any robot, spider or other program or device to monitor, copy, transmit, display, mirror, upload, download) the content of the "Stock Exchange Hong Kong" software and related services.</view>
+    <view>10.2 You understand and agree that the text, pictures, videos, audio, etc. posted and uploaded by you when using the HKEHK software and related services are original or legally authorized by you. The intellectual property rights of any content uploaded or posted by you through HKEHK belong to you or the original copyright owner.</view>
+    <view>10.3 You acknowledge, understand and agree that for continuous improvement and to provide you with better services, The content (including but not limited to text, pictures, images, audio, video and/or audio music, sound, dialogue, etc.) that you upload, post, transmit or transmit through the HKEHK software and related services, licenses the Company and its affiliates, controlling companies and inheriting companies a worldwide, free, non-exclusive, sublicense (through multiple levels) right (package) Including but not limited to reproduction rights, information network dissemination</view>
+    <view>Right, right of adaptation, right of assembly, right of modification, right of translation, right to make derivatives, performance and display, etc.), including but not limited to the scope of use on the current or other websites, applications, products or terminal devices. You hereby acknowledge and agree that the grant of the above rights includes the right and license to use and otherwise develop the Content (in whole or in part) in any publicity, promotion, advertising and/or related marketing in connection with the Content, the Stock Exchange Hong Kong/the Website (.com), the Company and/or the Company's brand. For the avoidance of doubt, you agree that the rights granted include permission to use, reproduce, display, transmit, use or use personal images, likenesses, names, trademarks, service marks, brands, names, logos, company marks and other materials and materials in the Content that you own or are licensed to use and incorporate.</view>
+    <view>10.4 You acknowledge and agree to authorize the Company in its own name or on behalf of the Company</view>
+    <view>The professional third party shall defend the rights on behalf of the content that infringes the intellectual property rights you upload and publish, including but not limited to: monitoring the infringement, sending rights protection letters, filing lawsuits or arbitration, mediation, reconciliation, etc. The Company has the right to make decisions on rights protection matters and implement them independently.</view>
+    <view>10.5 The Company provides technical support for the development and operation of HKEHK, and enjoys all rights within the scope permitted by laws and regulations to all data and information generated during the development and operation of HKEHK software and related services.</view>
+    <view>10.6 You shall not, under any circumstances, use any trademark, service mark, trade name, domain name, website name or other distinctive brand features of the Company, including but not limited to "Stock Exchange Hong Kong" and ".com "(collectively referred to as the" logo "). Without the prior written consent of the Company, you shall not display, use or apply for trademark registration, domain name registration, etc. in any way whatsoever, or express or imply to others that you have the right to display, use, or otherwise dispose of such marks. If you violate this Agreement by using the Company's above trademarks, logos, etc., and cause losses to the company or others, you shall bear all legal responsibilities.</view>
+    <view class="title">11. Disclaimer</view>
+    <view>11.1 You understand and agree that the HKEHK software and related Services may be affected or interfered with by a variety of factors, and the Company does not guarantee (including but not limited to) that:</view>
+    <view>11.1.1 The HKEHK software and related services are fully suitable for all user requirements;</view>
+    <view>11.1.2 HKEHK software and related services are free from interference, timely, safe, reliable or error-free; Any software, services or other materials obtained by you through the Company meet the expectations of users;</view>
+    <view>11.1.3 Any errors in the HKEHK software and related services will be corrected.</view>
+    <view>11.2 If there is any Internet information, account password, advertising or promotion information suspected of borrowing money or other property related information, please treat it with caution and make your own judgment. The Company shall not assume any direct, indirect, incidental, special, derivative or punitive liability for the loss of profits, business reputation, information or other tangible or intangible losses suffered by you as a result.</view>
+    <view>11.3 You understand and agree that in the process of using the HKEHK software and related services, force majeure and other factors may be encountered (force majeure refers to unforeseeable, insurmountable and unavoidable objective events), including but not limited to natural disasters (such as floods, earthquakes, typhoons, etc.), government actions, wars, strikes, disturbances, riots, etc. In the event of force majeure, the Company will strive to repair it in a timely manner at the first time, but the Company shall be exempt from liability for losses caused by force majeure within the scope of laws and regulations.</view>
+    <view>11.4 The Company obtains the right to deal with illegal content in accordance with this Agreement, which does not constitute the Company's obligation or commitment, and the Company cannot guarantee that the illegal behavior is discovered in time or dealt with accordingly.</view>
+    <view>11.5 You understand and agree that the Company provides no warranties or conditions of any kind, whether express or implied, including, but not limited to, commercial merchantability, fitness for a particular purpose, etc. with respect to the HKEHK Software and related Services. Your use of the HKEHK software and related services is at your own risk.</view>
+    <view>11.6 You understand and agree that this Agreement is to ensure compliance with national laws and regulations, maintain public order and good customs, and protect the legitimate rights and interests of others. The Company will make its best efforts to make judgments in accordance with relevant laws and regulations, but it does not guarantee that the judgment of the Company is completely consistent with the judgment of the judicial and administrative organs, and you have understood and agreed to bear the consequences arising therefrom.</view>
+    <view>11.7 Under no circumstances shall the Company be liable for any indirect, consequential, punitive, incidental, special or penal damages, including loss of profits suffered by you as a result of your use of the HKEHK Software and related Services. The total liability of the Company to you, for whatever reason or manner of conduct, shall not exceed the fees (if any) paid to the Company by you for the use of the HKEHK software and related services during the term of membership.</view>
+    <view class="title">12. Special agreements on individual services and third-party services</view>
+    <view>12.1 The HKEHK Software and related Services contain information or links to information content obtained by the Company in various lawful ways, as well as other individual services lawfully operated by the Company and/or its affiliates. You may enable and use the above individual services in the HKEHK software. Some individual services may require you to simultaneously accept a specially formulated agreement or other rules binding you and the individual service provider, and if necessary, provide you with these agreements and rules in a prominent manner for your review and consent when you plan to use the one-way services. Once you start using the above services, it is deemed that you understand and accept the relevant agreements and rules of the individual services. If the term of use is not indicated, or if the term of use is not indicated as "permanent", "indefinite" or "unlimited", the term of use of these products or services shall be from the date when the User begins to use the product or service to the date when the product or service is offline in the HKEHK software.</view>
+    <view>12.2 If you use the software or related services provided by third parties in the HKEHK Software, in addition to complying with this Agreement and the relevant rules of HKEHK, you may also be required to agree to and comply with the agreements, privacy policies and related rules of third parties. Any dispute, loss or damage arising from the third-party software and related services shall be resolved by you and the third party, and the Company shall not be liable to you or any third party.</view>
+    <view class="title">13. Terms of Use for Minors</view>
+    <view>13.1 If the user is a minor under the age of 18, he/she can only use the HKEHK software and related services after carefully reading this Agreement under the supervision and guidance of the guardian and obtaining the consent of the guardian.</view>
+    <view>13.2 The Company attaches great importance to the protection of minors' personal information. When minors fill in their personal information, please strengthen their awareness of personal protection and be cautious, and properly use the HKEHK software and related services under the guidance of the guardian.</view>
+    <view>13.3 Minor Users understand that if you violate laws and regulations and the contents of this Agreement, you and your guardian shall bear all legal responsibilities that may be caused by this in accordance with the law.</view>
+    <view>13.4 Special Tips for Minor Users:</view>
+    <view>13.4.1 When using the software and related services, teenagers should learn to use the Internet correctly within a reasonable range under the supervision and guidance of their guardians, avoid getting lost in the virtual network space, and develop good Internet habits.</view>
+    <view>13.4.2 Youth users must comply with the National Youth Internet Civilization Convention:</view>
+    <view>(1) To be good at online learning, do not browse bad information;</view>
+    <view>(2) To communicate honestly and friendly, do not insult and cheat others;</view>
+    <view>(3) To enhance the sense of self-protection, not casually dating friends;</view>
+    <view>(4) To maintain network security and not disrupt network order;</view>
+    <view>(5) To be beneficial to physical and mental health, not drowning in virtual time and space.</view>
+    <view>13.5 In order to better protect the privacy rights and interests of minors, the Company reminds users to carefully publish content containing minors' material. Once published, the user shall be deemed to have consented to the Software and related services displaying minors' information, portraits, voices, etc., and allow the Company to use and process such content related to minors in accordance with this Agreement.</view>
+    <view class="title">14. Others</view>
+    <view>14.1 The establishment, effectiveness, performance, interpretation and dispute resolution of this Agreement shall be governed by the laws of the People's Republic of China. If any provision of this Agreement is invalid or unenforceable due to conflict with the laws of the People's Republic of China, such provision will be reinterpreted as closely as possible to the original intent of this Agreement, and the other provisions of this Agreement shall remain in full force and effect.</view>
+    <view>14.2 The place of execution hereof is Bozhou High-tech Zone, Anhui Province, People's Republic of China. If any dispute arises between you and the Company in connection with this Agreement, both parties shall try their best to settle it through friendly negotiation. If no agreement can be reached through negotiation, you agree to submit relevant disputes to the people's court at the place where this Agreement is signed for settlement.</view>
+    <view>14.3 In order to provide you with better services or adjustment of national laws, regulations and policies, "Stock Exchange Hong Kong" and related services will be updated and changed from time to time, and we will revise this Agreement in a timely manner, which forms part of this Agreement. After this Agreement is updated, we will issue an updated version on the "Stock Exchange Hong Kong" and before the updated terms become effective through the official website (www.. Notice or other appropriate means to remind you of the updated content, so that you stay up-to-date with the latest version of this Agreement, you can also view the latest version of the terms of Agreement on the website home page or software Settings page. If you continue to use the HKEHK software and related services, you agree to accept the contents of this Agreement as amended.</view>
+    <view>If you have any objection to the revised terms of the Agreement, please stop logging in or using the HKEHK software and related services immediately. If you continue to log in or use the HKEHK software and related services, you will be deemed to have accepted and accepted the revised terms of the Agreement.</view>
+    <view>14.4 The headings in this Agreement are for convenience and reading only and do not affect the meaning or interpretation of any provision in this Agreement</view>
+    <view>14.5 You and the Company are independent entities, and in no event does this Agreement constitute any kind of express or implied warranty or condition of the Company to the User, nor does it constitute an agency, partnership, joint venture or employment relationship between the parties</view>
+  </view>
+</scroll-view>

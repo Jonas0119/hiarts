@@ -1,0 +1,19 @@
+.agreement {
+  background-color: #fff;
+  padding: 40rpx;
+}
+
+p {
+  font-size: 24rpx;
+  line-height: 50rpx;
+}
+
+.title {
+  font-size: 28rpx;
+  font-weight: 600;
+  margin: 60rpx 0 20rpx;
+}
+
+.page-scroll-view {
+  height: 100vh;
+} 

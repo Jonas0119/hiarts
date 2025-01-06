@@ -3,35 +3,96 @@ import { t } from '../../utils/i18n'
 
 Page({
   data: {
-    version: '1.0.0',
-    contact: {
-      phone: '400-888-8888',
-      email: 'support@example.com',
-      address: '香港特别行政区'
-    },
-    locale: 'zh-Hant',
-    t: t
-  },
-
-  onLoad() {
-    const locale = wx.getStorageSync('locale') || 'zh-Hant'
-    this.setData({ locale })
-  },
-
-  makeCall: function() {
-    wx.makePhoneCall({
-      phoneNumber: this.data.contact.phone
-    })
-  },
-
-  copyEmail: function() {
-    wx.setClipboardData({
-      data: this.data.contact.email,
-      success: () => {
-        wx.showToast({
-          title: t('common.copied')
-        })
+    pages: [
+      {
+        name: t('mine.tradeRule'),
+        enable: false
+      },
+      {
+        name: t('mine.chargeRule'),
+        enable: false
+      },
+      {
+        name: t('mine.memberRule'),
+        enable: false,
+        url: 'pages/mine/addressList'
+      },
+      {
+        name: t('mine.privaceRule'),
+        enable: true,
+        url: 'pages/mine/privacy'
+      },
+      {
+        name: t('mine.userAgreement'),
+        enable: true,
+        url: 'pages/mine/user'
       }
-    })
+    ],
+    locale: wx.getStorageSync('locale') || 'zh-Hant'
+  },
+
+  onShow: function() {
+    // 在页面显示时检查语言是否变化并更新页面数据
+    const currentLocale = wx.getStorageSync('locale') || 'zh-Hant'
+    if (currentLocale !== this.data.locale) {
+      this.setData({
+        locale: currentLocale,
+        pages: [
+          {
+            name: t('mine.tradeRule'),
+            enable: false
+          },
+          {
+            name: t('mine.chargeRule'),
+            enable: false
+          },
+          {
+            name: t('mine.memberRule'),
+            enable: false,
+            url: 'pages/mine/addressList'
+          },
+          {
+            name: t('mine.privaceRule'),
+            enable: true,
+            url: 'pages/mine/privacy'
+          },
+          {
+            name: t('mine.userAgreement'),
+            enable: true,
+            url: 'pages/mine/user'
+          }
+        ]
+      })
+    }
+  },
+
+  goDetailPage: function(e) {
+    const { url, enable } = e.currentTarget.dataset
+    console.log('点击页面, url:', url, 'enable:', enable)
+    
+    if (!enable) {
+      wx.showToast({
+        title: t('common.soon'),
+        icon: 'none'
+      })
+      return
+    }
+    
+    if (url) {
+      console.log('准备跳转到:', url)
+      wx.navigateTo({
+        url: '/' + url,
+        success: function() {
+          console.log('跳转成功')
+        },
+        fail: function(err) {
+          console.error('跳转失败:', err)
+          wx.showToast({
+            title: '页面跳转失败',
+            icon: 'none'
+          })
+        }
+      })
+    }
   }
 }) 
