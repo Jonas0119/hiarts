@@ -9,7 +9,7 @@
       </view>
       <view class="invite-bottom">
         <view class="invite-qrcode">
-          <canvas id="qrcode" canvas-id="qrcode" style="width: 360rpx; height: 360rpx;"></canvas>
+          <canvas id="qrcode" canvas-id="qrcode" style="width: 206rpx; height: 206rpx;"></canvas>
         </view>
         <image class="invite-logo" src="/static/images/logo-title.png" mode="aspectFit"></image>
       </view>

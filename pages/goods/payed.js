@@ -21,13 +21,6 @@ Page({
     }
   },
 
-  onShow: function() {
-    // 检查登录状态
-    if (!app.checkLogin()) {
-      return
-    }
-  },
-
   goBack: function() {
     wx.switchTab({
       url: '/pages/index/index'

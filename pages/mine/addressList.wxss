@@ -48,7 +48,7 @@
   width: 600rpx;
   height: 80rpx;
   line-height: 80rpx;
-  margin: 200rpx auto;
+  margin: 60rpx auto;
   border-radius: 40rpx;
 }
 

@@ -23,7 +23,6 @@ Page({
 
   onLoad: function(options) {
     const locale = wx.getStorageSync('locale') || 'zh-Hant'
-    console.log("locale is:"+locale)
     this.setData({ locale })
     const sendCodeText = t('common.getCode', locale)
     this.setData({ sendCodeText })
@@ -181,8 +180,6 @@ Page({
       'https://gw.antan-tech.com/paasapi/usercenter/userApp/center/inviterRegister' :
       app.globalData.baseUrl + '/usercenter/userApp/center/login'
 
-    console.log("请求url为:"+url)
-
     wx.request({
       url: url,
       method: 'POST',
@@ -194,22 +191,22 @@ Page({
         if (res.data.code === '00000000') {
           const content = res.data.content
           wx.setStorageSync('accountId', content.account)
-          wx.setStorageSync('token', content.userToken)
           wx.setStorageSync('phone', phone)
           wx.setStorageSync('headImg', content.headImg)
           wx.setStorageSync('name', content.name)
+          wx.setStorageSync('token', content.userToken)
+          setTimeout(() => {
+            console.log("this redirect url in login:" + this.data.redirect)
+            console.log("login new token:" + wx.getStorageSync('token'))
 
-          console.log("重定向地址为："+this.data.redirect)
-          if (this.data.redirect) {
-            wx.redirectTo({
-              url: '/' + this.data.redirect
+            const pages = getCurrentPages()
+            pages.forEach((page, index) => {
+              console.log(`Login Page ${index + 1}: ${page.route}`);
+            });
+            wx.navigateBack({
+              delta: 1
             })
-          } else {
-            wx.reLaunch({
-              url: '/pages/index/index'
-            })
-          }
-          console.log("重定向为："+this.data.redirect)
+          }, 1000)
         } else {
           wx.showToast({
             title: res.data.message,
@@ -230,7 +227,16 @@ Page({
     })
   },
 
-  goToPrivacy: function() {
+  isInTabBarList: function (url) {
+    const tabBarList = [
+      "pages/index/index",
+      "pages/goods/list",
+      "pages/mine/index"
+    ];
+    return tabBarList.includes(url);
+  },
+
+  goToPrivacy: function () {
     wx.navigateTo({
       url: '/pages/agreement/privacy'
     })

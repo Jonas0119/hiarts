@@ -25,10 +25,10 @@ Page({
     goodsList: [],
     chartOption: {
       grid: {
-        left: '50px',
-        right: '10px',
-        bottom: '40px',
-        top: '20px',
+        left: '50rpx',
+        right: '10rpx',
+        bottom: '40rpx',
+        top: '20rpx',
       },
 
       xAxis: {

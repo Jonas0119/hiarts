@@ -26,13 +26,6 @@ Page({
     }
   },
 
-  onShow: function() {
-    // 检查登录状态
-    if (!app.checkLogin()) {
-      return
-    }
-  },
-
   onWebViewLoad: function() {
     console.log('WebView loaded')
   },

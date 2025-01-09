@@ -18,6 +18,8 @@ Page({
   },
 
   onLoad: function (options) {
+    if (!app.checkLogin()) return
+
     this.setData({
       id: options.id,
       date: this.getDate(),
@@ -82,6 +84,8 @@ Page({
   },
 
   take() {
+    if (!app.checkLogin()) return
+
     if (!this.data.addressList[this.data.chose]) {
       wx.showToast({
         title: '請選擇地址',
@@ -106,13 +110,28 @@ Page({
       },
       success: (res) => {
         if (res.data.code == 200) {
-          console.log('take res.data.data is:'+res.data.data)
           wx.showToast({
             title: '操作成功',
             icon: 'none'
           })
-          wx.navigateTo({
+          //wx.navigateTo({
+          wx.redirectTo({
             url: '/pages/mine/orderList'
+          })
+        } else if (res.data.code == '999999') {
+          const pages = getCurrentPages()
+          const currentPage = pages[pages.length - 1]
+          const currentPageUrl = currentPage.route
+
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none'
+          })
+
+          console.log("the currentPageUrl is:" + currentPageUrl)
+          wx.redirectTo({
+            url: '/pages/login/index?redirect='
+              + encodeURIComponent(currentPageUrl)
           })
         } else {
           console.log('take res.data.msg is:'+res.data.msg)
@@ -143,6 +162,21 @@ Page({
           this.setData({
             addressList: res.data.rows
           })
+        } else if (res.data.code == '999999') {
+          const pages = getCurrentPages()
+          const currentPage = pages[pages.length - 1]
+          const currentPageUrl = currentPage.route
+
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none'
+          })
+
+          console.log("the currentPageUrl is:" + currentPageUrl)
+          wx.redirectTo({
+            url: '/pages/login/index?redirect='
+              + encodeURIComponent(currentPageUrl)
+          })
         } else {
           onsole.log('getAdd res.data.msg is:'+res.data.rows)
           wx.showToast({
@@ -170,6 +204,21 @@ Page({
           console.log('init res.data.data is:'+res.data.data)
           this.setData({
             obj: res.data.data
+          })
+        } else if (res.data.code == '999999') {
+          const pages = getCurrentPages()
+          const currentPage = pages[pages.length - 1]
+          const currentPageUrl = currentPage.route
+
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none'
+          })
+
+          console.log("the currentPageUrl is:" + currentPageUrl)
+          wx.redirectTo({
+            url: '/pages/login/index?redirect='
+              + encodeURIComponent(currentPageUrl)
           })
         } else {
           console.log('init res.data.msg is:'+res.data.msg)

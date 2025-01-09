@@ -61,19 +61,21 @@ Page({
           this.setData({
             list: res.data.rows
           })
-        } else if (res.data.code === '999999') {
+        } else if (res.data.code == '999999') {
+          const pages = getCurrentPages()
+          const currentPage = pages[pages.length - 1]
+          const currentPageUrl = currentPage.route
+
           wx.showToast({
             title: res.data.msg,
             icon: 'none'
           })
-          setTimeout(() => {
-            wx.removeStorage({ key: 'accountId' })
-            wx.removeStorage({ key: 'token' })
-            wx.removeStorage({ key: 'phone' })
-            wx.removeStorage({ key: 'headImg' })
-            wx.removeStorage({ key: 'name' })
-            wx.reLaunch({ url: '/pages/login/index' })
-          }, 2000)
+
+          console.log("the currentPageUrl is:" + currentPageUrl)
+          wx.redirectTo({
+            url: '/pages/login/index?redirect='
+              + encodeURIComponent(currentPageUrl)
+          })
         } else {
           wx.showToast({
             title: res.data.msg,

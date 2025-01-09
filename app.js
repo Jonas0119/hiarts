@@ -62,33 +62,51 @@ App({
     })
   },
 
-  checkLogin: function() {
+  checkLogin: function () {
     const token = wx.getStorageSync('token')
+    console.log("checkLogin token is:" + token)
     if (!token) {
-      console.log("check no token")
-      // 获取当前页面路径
-      const pages = getCurrentPages()
-      const currentPage = pages[pages.length - 1]
-      const url = currentPage.route
-      
-      // 清除本地缓存
-      //wx.clearStorage()
-      wx.removeStorage({ key: 'accountId' })
-      wx.removeStorage({ key: 'token' })
-      wx.removeStorage({ key: 'phone' })
-      wx.removeStorage({ key: 'headImg' })
-      wx.removeStorage({ key: 'name' })
-
       wx.showToast({
-        title: t('common.login', this.globalData.locale),
+        title: t('common.tipLogin', this.globalData.locale),
         icon: 'none'
       })
-      
-      setTimeout(() => {
-        wx.redirectTo({
-          url: '/pages/login/index?redirect=' + encodeURIComponent(url)
-        })
-      }, 1500)
+
+      const pages = getCurrentPages()
+      pages.forEach((page, index) => {
+        console.log(`Login Page ${index + 1}: ${page.route}`);
+      });
+      wx.redirectTo({
+        url: '/pages/login/index'
+      })
+      return false
+    }
+    return true
+  },
+
+  checkLogin2: function () {
+    const token = wx.getStorageSync('token')
+
+    const pages = getCurrentPages()
+    let currentPageUrl = ''
+    pages.forEach((page, index) => {
+      console.log(`checkLogin Page ${index + 1}: ${page.route}`);
+    });
+    if (pages.length > 0) {
+      var currentPage = pages[pages.length - 1]
+      currentPageUrl = currentPage.route
+    } 
+
+    if (!token) {
+      wx.showToast({
+        title: t('common.tipLogin', this.globalData.locale),
+        icon: 'none'
+      })
+
+      console.log("the currentPageUrl is:" + currentPageUrl)
+      wx.redirectTo({
+        url: '/pages/login/index?redirect='
+          + encodeURIComponent(currentPageUrl)
+      })
       return false
     }
     return true

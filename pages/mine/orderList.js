@@ -7,23 +7,23 @@ Page({
   data: {
     list: [],
     token: '',
-    locale: 'zh-Hant'
+    locale: 'zh-Hant',
+    dataLoaded: false
+  },
+
+  onShow: function() {
+    //确保每次进入页面的时候都是最新的token，因为token可能是因为被踢掉
+    //但是咱们用的是naigate back返回，所以需要重新设置token
+    this.setData({
+      token: wx.getStorageSync('token') || ''
+    })
+
+    this.init()
   },
 
   onLoad: function() {
     this.setData({
       locale: wx.getStorageSync('locale') || 'zh-Hant'
-    })
-
-    let _this = this
-    wx.getStorage({
-      key: 'token',
-      success: function(res) {
-        _this.setData({
-          token: res.data
-        })
-        _this.init()
-      }
     })
 
     // 监听语言变化
@@ -45,6 +45,7 @@ Page({
 
   pickup: function(e) {
     const id = e.currentTarget.dataset.id
+    console.log("In orderlist Page this.data.token:" + this.data.token)
     wx.request({
       url: app.globalData.baseUrl + '/tjfae-space/order/pickup/receive',
       method: 'POST',
@@ -62,6 +63,20 @@ Page({
             icon: 'none'
           })
           this.init()
+        } else if (res.data.code == '999999') {
+          const pages = getCurrentPages()
+          const currentPage = pages[pages.length - 1]
+          const currentPageUrl = currentPage.route
+
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none'
+          })
+          console.log("the currentPageUrl is:" + currentPageUrl)
+          wx.redirectTo({
+            url: '/pages/login/index?redirect='
+              + encodeURIComponent(currentPageUrl)
+          })
         } else {
           wx.showToast({
             title: res.data.msg,
@@ -87,6 +102,12 @@ Page({
   },
 
   init: function() {
+    this.setData({ dataLoaded: false })
+    console.log("In orderlist Page this.data.token:" + this.data.token)
+    wx.showLoading({
+      title: t('common.loading', this.data.locale),
+      mask: true
+    })
     wx.request({
       url: app.globalData.baseUrl + '/tjfae-space/GoodsApi/myOrder',
       method: 'POST',
@@ -99,37 +120,42 @@ Page({
         'Authorization': 'Bearer ' + this.data.token
       },
       success: (res) => {
-        if (res.data.code === 200) {
+        console.log("res.data.code is:" + res.data.code)
+        if (res.data.code == 200) {
           const orderList = res.data.data.list.map(item => ({
             ...item,
             targetImage: this.getImage(item.targetImage),
             targetImageEnglish: this.getImage(item.targetImageEnglish),
           }))
           this.setData({
-            list:orderList
+            list: orderList,
+            dataLoaded: true
           })
-          //console.log('res.data.data.list is:', orderList)
-        } else if (res.data.code === '999999') {
+        } else if (res.data.code == '999999') {
+          const pages = getCurrentPages()
+          const currentPage = pages[pages.length - 1]
+          const currentPageUrl = currentPage.route
+
           wx.showToast({
             title: res.data.msg,
             icon: 'none'
           })
-          setTimeout(() => {
-            wx.removeStorage({ key: 'accountId' })
-            wx.removeStorage({ key: 'token' })
-            wx.removeStorage({ key: 'phone' })
-            wx.removeStorage({ key: 'headImg' })
-            wx.removeStorage({ key: 'name' })
-            wx.reLaunch({ url: '/pages/login/index' })
-          }, 2000)
+
+          console.log("the currentPageUrl is:" + currentPageUrl)
+          wx.redirectTo({
+            url: '/pages/login/index?redirect='
+              + encodeURIComponent(currentPageUrl)
+          })
         } else {
           wx.showToast({
             title: res.data.msg,
             icon: 'none'
           })
+          this.setData({ dataLoaded: true })
         }
       },
       complete: () => {
+        wx.hideLoading()
         wx.stopPullDownRefresh()
       }
     })
@@ -152,7 +178,7 @@ Page({
 
   requestDelivery: function(e) {
     const id = e.currentTarget.dataset.id
-    wx.navigateTo({
+    wx.redirectTo({
       url: '/pages/mine/orderDetail?id=' + id
     })
   }

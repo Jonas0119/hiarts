@@ -20,6 +20,8 @@ Page({
       type: option.type
     })
 
+    if (!app.checkLogin()) return
+
     let token = wx.getStorageSync('token')
     if (token) {
       this.setData({ token: token })
@@ -58,6 +60,21 @@ Page({
             formData: res.data.data,
             switched: res.data.data.defaultAddressFlag == 'Y'
           })
+        } else if (res.data.code == '999999') {
+          const pages = getCurrentPages()
+          const currentPage = pages[pages.length - 1]
+          const currentPageUrl = currentPage.route
+
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none'
+          })
+
+          console.log("the currentPageUrl is:" + currentPageUrl)
+          wx.redirectTo({
+            url: '/pages/login/index?redirect='
+              + encodeURIComponent(currentPageUrl)
+          })
         } else {
           wx.showToast({
             title: res.data.msg,
@@ -83,6 +100,8 @@ Page({
   },
 
   saveAddress: function() {
+    if (!app.checkLogin()) return
+
     this.setData({
       'formData.defaultAddressFlag': this.data.switched ? 'Y' : 'N'
     })
@@ -133,6 +152,21 @@ Page({
           setTimeout(() => {
             wx.navigateBack({ delta: 1 })
           }, 2000)
+        } else if (res.data.code == '999999') {
+          const pages = getCurrentPages()
+          const currentPage = pages[pages.length - 1]
+          const currentPageUrl = currentPage.route
+
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none'
+          })
+          
+          console.log("the currentPageUrl is:" + currentPageUrl)
+          wx.redirectTo({
+            url: '/pages/login/index?redirect='
+              + encodeURIComponent(currentPageUrl)
+          })
         } else {
           wx.showToast({
             title: res.data.msg,
@@ -144,6 +178,8 @@ Page({
   },
 
   onDel: function() {
+    if (!app.checkLogin()) return
+
     wx.request({
       url: app.globalData.baseUrl + '/tjfae-space/goodsAddress/' + this.data.id,
       method: 'DELETE',
@@ -162,6 +198,21 @@ Page({
             icon: 'none'
           })
           wx.navigateBack({ delta: 1 })
+        } else if (res.data.code == '999999') {
+          const pages = getCurrentPages()
+          const currentPage = pages[pages.length - 1]
+          const currentPageUrl = currentPage.route
+
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none'
+          })
+
+          console.log("the currentPageUrl is:" + currentPageUrl)
+          wx.redirectTo({
+            url: '/pages/login/index?redirect='
+              + encodeURIComponent(currentPageUrl)
+          })
         } else {
           wx.showToast({
             title: res.data.msg,

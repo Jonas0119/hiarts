@@ -59,10 +59,13 @@
         </view>
         <text class="num">1HKD={{hkd}}CNY</text>
       </view>
-    </view>
-      <view class="chart-container">
-        <ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
+      <view class="chart-content">
+        <view class="chart-container">
+          <ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
+        </view>
+        <view class="update-time">{{i18n.t('index.10s', locale)}}</view>
       </view>
+    </view>
 
     <!-- 商品列表 -->
     <view class="title">

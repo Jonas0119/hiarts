@@ -57,6 +57,14 @@
   width: 360rpx;
   height: 360rpx;
   margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.invite-qrcode canvas {
+  width: 360rpx !important;
+  height: 360rpx !important;
 }
 
 .invite-logo {

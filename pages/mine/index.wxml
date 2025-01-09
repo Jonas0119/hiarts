@@ -10,7 +10,7 @@
       </view>
     </view>
     <view class="invite-qrcode" bindtap="goToInvite">
-      <canvas id="qrcode" canvas-id="qrcode" style="width: 100rpx; height: 100rpx;"></canvas>
+      <canvas id="qrcode" canvas-id="qrcode" style="width: 120rpx; height: 120rpx;"></canvas>
       <text>{{i18n.t('mine.invitationIntro', locale)}}</text>
     </view>
   </view>

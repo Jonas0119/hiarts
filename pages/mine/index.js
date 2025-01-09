@@ -40,7 +40,7 @@ Page({
     this.setData({ locale })
 
     // 检查登录状态
-    if (!this.checkLogin()) {
+    if (!app.checkLogin()) {
       return
     }
 
@@ -79,11 +79,6 @@ Page({
   },
 
   onShow: function() {
-    // 检查登录状态
-    if (!this.checkLogin()) {
-      return
-    }
-
     // 检查语言变化
     const locale = wx.getStorageSync('locale') || 'zh-Hant'
     if (locale !== this.data.locale) {
@@ -122,23 +117,6 @@ Page({
     if (this.localeChangeCallback) {
       app.unwatchLocale(this.localeChangeCallback)
     }
-  },
-
-  checkLogin: function() {
-    const token = wx.getStorageSync('token')
-    if (!token) {
-      wx.showToast({
-        title: t('common.tipLogin', this.data.locale),
-        icon: 'none'
-      })
-      setTimeout(() => {
-        wx.navigateTo({
-          url: '/pages/login/index?redirect=' + encodeURIComponent('pages/mine/index')
-        })
-      }, 1500)
-      return false
-    }
-    return true
   },
 
   setUserInfo: function() {

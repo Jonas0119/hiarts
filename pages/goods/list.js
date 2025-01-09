@@ -115,16 +115,25 @@ Page({
       withCredentials: false,
       firstIpv4: false,
       success: (res) => {
-        console.log("the state is:" + this.data.state)
         if (res.data.code === 200) {
-          const goodsList = res.data.data.list.map(item => ({
+          const newGoodsList = res.data.data.list.map(item => ({
             ...item,
             targetImage: this.getImage(item)
           }))
-          this.setData({
-            goodsList,
-            hasMore: goodsList.length === this.data.pageSize
-          })
+          
+          // 如果是第一页，直接设置数据
+          if (this.data.pageNum === 1) {
+            this.setData({
+              goodsList: newGoodsList,
+              hasMore: newGoodsList.length === this.data.pageSize
+            })
+          } else {
+            // 如果不是第一页，追加数据
+            this.setData({
+              goodsList: [...this.data.goodsList, ...newGoodsList],
+              hasMore: newGoodsList.length === this.data.pageSize
+            })
+          }
         } else {
           wx.showToast({
             title: res.data.msg,
@@ -155,7 +164,6 @@ Page({
   // 处理商品图片
   getImage(item) {
     let targetImage = ''
-    console.log("the locale is:" + this.data.locale)
     if(this.data.locale === 'zh-Hant') {
       targetImage = item.targetImage
     } else {

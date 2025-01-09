@@ -17,7 +17,7 @@ Page({
     multiLineTextEnglish: 'You are welcome to participate in the purchase of this product, in order to let you fully understand the product content, we hereby provide this "Purchase Instructions". If you choose to participate in the purchase of this product, it is deemed that you have carefully read the Purchase Instructions and voluntarily assume the risk caused by the purchase of this data asset. When you purchase the products of the Center, you need to be aware in advance that the data asset products sold by the platform are tagged with related products, rights and interests by blockchain technology to confirm your rights and interests in the product. The product pricing system of this platform is composed of the evaluation of the underlying asset value of the project, and the customers decision to purchase indicates that he agrees with the product pricing standard; Products of the Platform are only sold and settled online in the "Stock Exchange Management Node Exchange". The Platform only conducts formal review of products and publicizes relevant project information, and customers are required to consult product information with the product operating institutions and cooperative institutions and decide to purchase products independently. In view of your intention to purchase this product, you should consider whether it is suitable for you to purchase such products, objectively and rationally recognize the risks of such products, and determine that you can bear the risks.'
   },
 
-  onLoad: function(options) {
+  onLoad: function (options) {
     const locale = wx.getStorageSync('locale') || 'zh-Hant'
     this.setData({ locale })
 
@@ -68,7 +68,6 @@ Page({
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded',
-        'Authorization': `Bearer ${wx.getStorageSync('token')}`
       },
       timeout: 6000,
       sslVerify: false,
@@ -100,7 +99,7 @@ Page({
               }
             }
           } catch(e) {
-            console.log('解析店铺图片错误:', e)
+            //console.log('解析店铺图片错误:', e)
             shopImage = detail.shopImage
           }
 
@@ -127,7 +126,6 @@ Page({
             buyNum: 1
           })
 
-          console.log('设置后的数据:', this.data)
         } else {
           wx.showToast({
             title: res.data.msg || '加载失败',

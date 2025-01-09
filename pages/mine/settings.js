@@ -13,8 +13,13 @@ Page({
     this.setData({ locale })
   },
 
-  logout: function() {
-    wx.clearStorage({
+  logout: function () {
+    wx.removeStorage({ key: 'accountId' })
+    wx.removeStorage({ key: 'token' })
+    wx.removeStorage({ key: 'phone' })
+    wx.removeStorage({ key: 'headImg' })
+    wx.removeStorage({
+      key: 'name',
       success: () => {
         wx.reLaunch({
           url: '/pages/login/index'

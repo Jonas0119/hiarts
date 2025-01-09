@@ -19,6 +19,8 @@ Page({
     // 检查登录状态
     if (!app.checkLogin()) {
       return
+    } else {
+      console.log("has token is:" + wx.getStorageSync('token'))
     }
 
     const locale = wx.getStorageSync('locale') || 'zh-Hant'
@@ -35,15 +37,10 @@ Page({
   },
 
   onShow: function() {
-    // 检查登录状态
-    if (!app.checkLogin()) {
-      return
-    }
+    this.loadAddressList()
   },
 
   formatAmount: function(targetAmount, buyedNum) {
-    console.log("targetAmount:" + targetAmount)
-    console.log("buyedNum:" + buyedNum)
     return (Number(targetAmount) * Number(buyedNum)).toFixed(2);
   },
 
@@ -60,7 +57,6 @@ Page({
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded',
-        'Authorization': `Bearer ${wx.getStorageSync('token')}`
       },
       success: (res) => {
         if (res.data.code === 200) {
@@ -114,19 +110,21 @@ Page({
           this.setData({
             addressList: res.data.rows || []
           })
-        } else if (res.data.code === '999999') {
+        } else if (res.data.code == '999999') {          
+          const pages = getCurrentPages()
+          const currentPage = pages[pages.length - 1]
+          const currentPageUrl = currentPage.route
+
           wx.showToast({
             title: res.data.msg,
             icon: 'none'
           })
-          setTimeout(() => {
-            wx.removeStorage({ key: 'accountId' })
-            wx.removeStorage({ key: 'token' })
-            wx.removeStorage({ key: 'phone' })
-            wx.removeStorage({ key: 'headImg' })
-            wx.removeStorage({ key: 'name' })
-            wx.reLaunch({ url: '/pages/login/index' })
-          }, 2000)
+
+          console.log("the currentPageUrl is:" + currentPageUrl)
+          wx.redirectTo({
+            url: '/pages/login/index?redirect='
+              + encodeURIComponent(currentPageUrl)
+          })
         } else {
           wx.showToast({
             title: res.data.msg,
@@ -162,6 +160,10 @@ Page({
 
   // 添加新地址
   addAddress: function() {
+    if (!app.checkLogin()) {
+      return
+    }
+
     wx.navigateTo({
       url: '/pages/mine/addressForm?type=add'
     })
@@ -169,6 +171,10 @@ Page({
 
   // 提交订单
   submitOrder: function() {
+    if (!app.checkLogin()) {
+      return
+    }
+
     if (!this.data.addressList[this.data.addressIndex]) {
       wx.showToast({
         title: t('common.choseAdd'),
@@ -183,7 +189,9 @@ Page({
       data: {
         id: this.data.goodsDetail.id,
         buyNum: this.data.buyNum,
-        addressId: this.data.addressList[this.data.addressIndex].id
+        addressId: this.data.addressList[this.data.addressIndex].id,
+        payFinishUrl: '/pages/mine/index',
+        payErrorUrl: '/pages/index/index'
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded',
@@ -191,9 +199,25 @@ Page({
       },
       success: (res) => {
         if (res.data.code === 200 && res.data.data.length > 0) {
-          console.log("the res data is" + res.data.data)
           wx.navigateTo({
-            url: `/pages/goods/payIndex?payUrl=${res.data.data}`
+            url: '/pages/goods/payIndex?payUrl='+ encodeURIComponent(res.data.data)
+          })
+        } else if (res.data.code == '999999') {         
+          const pages = getCurrentPages()
+          const currentPage = pages[pages.length - 1]
+          const currentPageUrl = currentPage.route
+
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none'
+          })
+
+          //首先关闭当前页面，也就是进入当前页面判断没有登录，然后重定向到登录页面
+          //为什么没有定时，主要是因为不需要删除storage中的内容，因为重定向后，会重新登录
+          console.log("the current Page Url is:" + currentPageUrl)
+          wx.navigateTo({
+            url: '/pages/login/index?redirect='
+              + encodeURIComponent(currentPageUrl)
           })
         } else {
           wx.showToast({
