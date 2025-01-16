@@ -1,5 +1,6 @@
 const app = getApp()
 import { t } from '../../utils/i18n'
+import { GOODS_API, ADDRESS_API, ROUTES } from '../../api/config'
 const pageBehavior = require('../../utils/pageBehavior')
 
 Page({
@@ -8,19 +9,17 @@ Page({
     goodsDetail: {},
     goodsImages: '',
     buyNum: 1,
-    totalAmount:0,
+    totalAmount: 0,
     locale: 'zh-Hant',
     addressList: [],
     addressIndex: 0,
-    showAddressPopup: false
+    showAddressPopup: false,
+    payMethod: 'WECHAT'  // 默认微信支付
   },
 
   onLoad: function(options) {
-    // 检查登录状态
     if (!app.checkLogin()) {
       return
-    } else {
-      console.log("has token is:" + wx.getStorageSync('token'))
     }
 
     const locale = wx.getStorageSync('locale') || 'zh-Hant'
@@ -41,7 +40,7 @@ Page({
   },
 
   formatAmount: function(targetAmount, buyedNum) {
-    return (Number(targetAmount) * Number(buyedNum)).toFixed(2);
+    return (Number(targetAmount) * Number(buyedNum)).toFixed(2)
   },
 
   loadGoodsDetail: function(id) {
@@ -50,11 +49,9 @@ Page({
     })
 
     wx.request({
-      url: app.globalData.baseUrl + '/tjfae-space/GoodsApi/goodsDetail',
+      url: GOODS_API.DETAIL,
       method: 'POST',
-      data: {
-        id: id
-      },
+      data: { id },
       header: {
         'content-type': 'application/x-www-form-urlencoded',
       },
@@ -81,7 +78,7 @@ Page({
           })
         }
       },
-      fail: (err) => {
+      fail: () => {
         wx.showToast({
           title: '网络请求失败',
           icon: 'none'
@@ -95,7 +92,7 @@ Page({
 
   loadAddressList: function() {
     wx.request({
-      url: app.globalData.baseUrl + '/tjfae-space/goodsAddress/list',
+      url: ADDRESS_API.LIST,
       method: 'GET',
       data: {
         pageNum: 1,
@@ -110,7 +107,7 @@ Page({
           this.setData({
             addressList: res.data.rows || []
           })
-        } else if (res.data.code == '999999') {          
+        } else if (res.data.code === '999999') {          
           const pages = getCurrentPages()
           const currentPage = pages[pages.length - 1]
           const currentPageUrl = currentPage.route
@@ -120,10 +117,8 @@ Page({
             icon: 'none'
           })
 
-          console.log("the currentPageUrl is:" + currentPageUrl)
-          wx.redirectTo({
-            url: '/pages/login/index?redirect='
-              + encodeURIComponent(currentPageUrl)
+          wx.navigateTo({
+            url: `${ROUTES.LOGIN}?redirect=${encodeURIComponent(currentPageUrl)}`
           })
         } else {
           wx.showToast({
@@ -135,45 +130,36 @@ Page({
     })
   },
 
-  // 显示地址选择弹窗
   showAddress: function() {
-    this.setData({
-      showAddressPopup: true
-    })
+    this.setData({ showAddressPopup: true })
   },
 
-  // 隐藏地址选择弹窗
   hideAddress: function() {
-    this.setData({
-      showAddressPopup: false
-    })
+    this.setData({ showAddressPopup: false })
   },
 
-  // 选择地址
   selectAddress: function(e) {
-    const index = e.currentTarget.dataset.index
     this.setData({
-      addressIndex: index,
+      addressIndex: e.currentTarget.dataset.index,
       showAddressPopup: false
     })
   },
 
-  // 添加新地址
   addAddress: function() {
-    if (!app.checkLogin()) {
-      return
-    }
-
+    if (!app.checkLogin()) return
     wx.navigateTo({
-      url: '/pages/mine/addressForm?type=add'
+      url: `${ROUTES.ADDRESS_FORM}?type=add`
     })
   },
 
-  // 提交订单
+  selectPayMethod: function(e) {
+    this.setData({
+      payMethod: e.currentTarget.dataset.method
+    })
+  },
+
   submitOrder: function() {
-    if (!app.checkLogin()) {
-      return
-    }
+    if (!app.checkLogin()) return
 
     if (!this.data.addressList[this.data.addressIndex]) {
       wx.showToast({
@@ -184,14 +170,15 @@ Page({
     }
 
     wx.request({
-      url: app.globalData.baseUrl + '/tjfae-space/GoodsApi/buy',
+      url: GOODS_API.BUY,
       method: 'POST',
       data: {
         id: this.data.goodsDetail.id,
         buyNum: this.data.buyNum,
         addressId: this.data.addressList[this.data.addressIndex].id,
-        payFinishUrl: '/pages/mine/index',
-        payErrorUrl: '/pages/index/index'
+        payFinishUrl: ROUTES.MINE,
+        payErrorUrl: ROUTES.INDEX,
+        payMethod: this.data.payMethod
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded',
@@ -200,9 +187,9 @@ Page({
       success: (res) => {
         if (res.data.code === 200 && res.data.data.length > 0) {
           wx.navigateTo({
-            url: '/pages/goods/payIndex?payUrl='+ encodeURIComponent(res.data.data)
+            url: '/pages/goods/payIndex?payUrl=' + encodeURIComponent(res.data.data)
           })
-        } else if (res.data.code == '999999') {         
+        } else if (res.data.code === '999999') {         
           const pages = getCurrentPages()
           const currentPage = pages[pages.length - 1]
           const currentPageUrl = currentPage.route
@@ -212,12 +199,8 @@ Page({
             icon: 'none'
           })
 
-          //首先关闭当前页面，也就是进入当前页面判断没有登录，然后重定向到登录页面
-          //为什么没有定时，主要是因为不需要删除storage中的内容，因为重定向后，会重新登录
-          console.log("the current Page Url is:" + currentPageUrl)
           wx.navigateTo({
-            url: '/pages/login/index?redirect='
-              + encodeURIComponent(currentPageUrl)
+            url: `${ROUTES.LOGIN}?redirect=${encodeURIComponent(currentPageUrl)}`
           })
         } else {
           wx.showToast({

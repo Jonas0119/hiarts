@@ -24,25 +24,42 @@
     </view>
   </view>
 
-  <!-- 收货地址 -->
+  <!-- 支付方式 -->
   <view class="takeForm fff">
-    <view class="takeTitle">{{i18n.t('order.getAddress', locale)}}</view>
-    <view class="ffr" bindtap="showAddress">
-      <view class="t6">{{i18n.t('order.choseAdd', locale)}}</view>
-      <view class="t7">
-        <view class="addressList" wx:if="{{addressList[addressIndex]}}">
-          <view>
-            <text class="t1">{{addressList[addressIndex].address}}</text>
-          </view>
-          <view class="t3">{{addressList[addressIndex].receiveName}} {{addressList[addressIndex].receiveMobile}}</view>
-        </view>
-        <image src="/static/images/arrow-right.png" class="uni-icon-size" mode="widthFix"></image>
+    <view class="takeTitle">{{i18n.t('order.payMethod', locale)}}</view>
+    <view class="payMethodList">
+      <view class="payMethodItem {{payMethod === 'BANK' ? 'active' : ''}}" bindtap="selectPayMethod" data-method="BANK">
+        <image src="/static/images/bank-pay.png" mode="widthFix" class="payIcon"></image>
+        <text class="payText">{{i18n.t('order.bankPay', locale)}}</text>
+      </view>
+      <view class="payMethodItem {{payMethod === 'WECHAT' ? 'active' : ''}}" bindtap="selectPayMethod" data-method="WECHAT">
+        <image src="/static/images/wechat-pay.png" mode="widthFix" class="payIcon"></image>
+        <text class="payText">{{i18n.t('order.wechatPay', locale)}}</text>
       </view>
     </view>
   </view>
 
+  <!-- 收货地址 -->
+  <view class="takeForm fff">
+    <view class="takeTitle">{{i18n.t('order.getAddress', locale)}}</view>
+    <view class="address-content" bindtap="showAddress">
+      <block wx:if="{{addressList[addressIndex]}}">
+        <view class="address-info">
+          <view class="address-text">{{addressList[addressIndex].address}}</view>
+          <view class="address-contact">{{addressList[addressIndex].receiveName}} {{addressList[addressIndex].receiveMobile}}</view>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="no-address">{{i18n.t('order.choseAdd', locale)}}</view>
+      </block>
+      <image src="/static/images/arrow-right.png" class="arrow-icon" mode="widthFix"></image>
+    </view>
+  </view>
+
   <!-- 提交按钮 -->
-  <button bindtap="submitOrder" class="takebtn">{{i18n.t('order.submit', locale)}}</button>
+  <view class="submit-container">
+    <button bindtap="submitOrder" class="submit-btn">{{i18n.t('order.submit', locale)}}</button>
+  </view>
 
   <!-- 地址选择弹窗 -->
   <view class="address-popup" wx:if="{{showAddressPopup}}">

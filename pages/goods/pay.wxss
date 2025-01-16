@@ -1,6 +1,7 @@
 .order {
   background: #f5f5f5;
   min-height: 100vh;
+  padding-bottom: 140rpx;
 }
 
 .fdr {
@@ -75,12 +76,14 @@
 
 .takeForm {
   margin-top: 20rpx;
+  padding: 30rpx;
+  background: #fff;
 }
 
 .takeTitle {
   color: #333;
   font-size: 30rpx;
-  line-height: 80rpx;
+  margin-bottom: 20rpx;
 }
 
 .takeForm .ffr {
@@ -175,4 +178,107 @@
   color: #fff;
   width: 400rpx;
   margin: 60rpx auto 20rpx;
+}
+
+.payMethod {
+  margin-top: 20rpx;
+  padding: 20rpx;
+}
+
+.payMethodList {
+  display: flex;
+  justify-content: space-around;
+  padding: 20rpx 0;
+}
+
+.payMethodItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20rpx;
+  border: 2rpx solid #eee;
+  border-radius: 10rpx;
+  width: 240rpx;
+  height: 200rpx;
+}
+
+.payMethodItem.active {
+  border-color: #AD2828;
+  background-color: #fff5f5;
+}
+
+.payIcon {
+  width: 100rpx;
+  height: 100rpx;
+  margin-bottom: 16rpx;
+  flex-shrink: 0;
+}
+
+.payText {
+  font-size: 28rpx;
+  color: #333;
+  text-align: center;
+  width: 100%;
+  line-height: 1.4;
+  display: block;
+  white-space: nowrap;
+}
+
+/* 地址样式 */
+.address-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx;
+  background: #fff;
+  border-radius: 8rpx;
+  border: 2rpx solid #eee;
+}
+
+.address-info {
+  flex: 1;
+  padding-right: 20rpx;
+}
+
+.address-text {
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.address-contact {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.no-address {
+  font-size: 28rpx;
+  color: #999;
+}
+
+.arrow-icon {
+  width: 32rpx;
+  height: 32rpx;
+}
+
+/* 提交按钮样式 */
+.submit-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20rpx 40rpx;
+  background: #fff;
+  box-shadow: 0 -2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.submit-btn {
+  background-color: #AD2828;
+  font-size: 32rpx;
+  color: #fff;
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  border-radius: 44rpx;
 } 

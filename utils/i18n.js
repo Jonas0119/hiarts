@@ -112,7 +112,10 @@ const translations = {
       "sended": "Shipped",
       "done": "Done",
       "Logistics": "Logistics information",
-      "detail": "Order details"
+      "detail": "Order details",
+      "bankPay": "Bank transfer",
+      "wechatPay": "WeChat payment",
+      "payMethod": "Payment method"
     },
     "common": {
       "nodata": "No data yet",
@@ -279,7 +282,10 @@ const translations = {
       "sended": "已發貨",
       "done": "已完成",
       "Logistics": "物流信息",
-      "detail": "訂單詳情"
+      "detail": "訂單詳情",
+      "bankPay": "網銀轉賬",
+      "wechatPay": "微信付款",
+      "payMethod": "付款方式"
     },
     "common": {
       "nodata": "暫無數據",
