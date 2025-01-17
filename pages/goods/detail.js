@@ -155,10 +155,6 @@ Page({
   },
 
   onBuyTap: function() {
-    if (!app.checkLogin()) {
-      return
-    }
-
     if(this.data.num == 0) {
       wx.showToast({
         title: t('common.tipNum'),

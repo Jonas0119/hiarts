@@ -1,6 +1,5 @@
 const app = getApp()
 import { t } from '../../utils/i18n'
-import { GOODS_API, ADDRESS_API, ROUTES } from '../../api/config'
 const pageBehavior = require('../../utils/pageBehavior')
 
 Page({
@@ -49,7 +48,7 @@ Page({
     })
 
     wx.request({
-      url: GOODS_API.DETAIL,
+      url: app.globalData.baseUrl + '/tjfae-space/GoodsApi/goodsDetail',
       method: 'POST',
       data: { id },
       header: {
@@ -92,7 +91,7 @@ Page({
 
   loadAddressList: function() {
     wx.request({
-      url: ADDRESS_API.LIST,
+      url: app.globalData.baseUrl + '/tjfae-space/goodsAddress/list',
       method: 'GET',
       data: {
         pageNum: 1,
@@ -107,10 +106,13 @@ Page({
           this.setData({
             addressList: res.data.rows || []
           })
-        } else if (res.data.code === '999999') {          
+        } else if (res.data.code == '999999') {          
           const pages = getCurrentPages()
           const currentPage = pages[pages.length - 1]
           const currentPageUrl = currentPage.route
+          pages.forEach((page, index) => {
+            console.log(`pay Page ${index + 1}: ${page.route}`);
+          });
 
           wx.showToast({
             title: res.data.msg,
@@ -118,7 +120,7 @@ Page({
           })
 
           wx.navigateTo({
-            url: `${ROUTES.LOGIN}?redirect=${encodeURIComponent(currentPageUrl)}`
+            url: `/pages/login/index?redirect=${encodeURIComponent(currentPageUrl)}`
           })
         } else {
           wx.showToast({
@@ -148,7 +150,7 @@ Page({
   addAddress: function() {
     if (!app.checkLogin()) return
     wx.navigateTo({
-      url: `${ROUTES.ADDRESS_FORM}?type=add`
+      url: `/pages/mine/addressForm?type=add`
     })
   },
 
@@ -170,14 +172,14 @@ Page({
     }
 
     wx.request({
-      url: GOODS_API.BUY,
+      url: app.globalData.baseUrl + '/tjfae-space/GoodsApi/buy',
       method: 'POST',
       data: {
         id: this.data.goodsDetail.id,
         buyNum: this.data.buyNum,
         addressId: this.data.addressList[this.data.addressIndex].id,
-        payFinishUrl: ROUTES.MINE,
-        payErrorUrl: ROUTES.INDEX,
+        payFinishUrl: '/pages/mine/index',
+        payErrorUrl: '/pages/index/index',
         payMethod: this.data.payMethod
       },
       header: {
@@ -185,27 +187,31 @@ Page({
         'Authorization': `Bearer ${wx.getStorageSync('token')}`
       },
       success: (res) => {
-        if (res.data.code === 200 && res.data.data.length > 0) {
+        if (res.data.code === 200 && res.data.data != null && res.data.data != undefined) {
           wx.navigateTo({
             url: '/pages/goods/payIndex?payUrl=' + encodeURIComponent(res.data.data)
           })
-        } else if (res.data.code === '999999') {         
+        } else if (res.data.code == '999999') {         
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none'
+          })
+
           const pages = getCurrentPages()
           const currentPage = pages[pages.length - 1]
           const currentPageUrl = currentPage.route
+          console.log("submitOrder currentPageUrl in pay:" + currentPageUrl)
 
-          wx.showToast({
-            title: res.data.msg,
-            icon: 'none'
-          })
-
-          wx.navigateTo({
-            url: `${ROUTES.LOGIN}?redirect=${encodeURIComponent(currentPageUrl)}`
+          wx.redirectTo({
+            url: `/pages/login/index?redirect=${encodeURIComponent(currentPageUrl)}`
           })
         } else {
           wx.showToast({
-            title: res.data.msg,
+            title: res.data.msg || '请联系客户经理',
             icon: 'none'
+          })
+          wx.navigateBack({
+            delta: 1
           })
         }
       }

@@ -2,7 +2,7 @@ const { updateNavigationBarTitle, t } = require('./utils/i18n');
 
 App({
   globalData: {
-    baseUrl: 'http://gw.antan-tech.com/api',
+    baseUrl: 'https://gw.antan-tech.com/api',
     userInfo: null,
     token: null,
     locale: 'zh-Hant',
@@ -75,37 +75,8 @@ App({
       pages.forEach((page, index) => {
         console.log(`Login Page ${index + 1}: ${page.route}`);
       });
-      wx.redirectTo({
+      wx.navigateTo({
         url: '/pages/login/index'
-      })
-      return false
-    }
-    return true
-  },
-
-  checkLogin2: function () {
-    const token = wx.getStorageSync('token')
-
-    const pages = getCurrentPages()
-    let currentPageUrl = ''
-    pages.forEach((page, index) => {
-      console.log(`checkLogin Page ${index + 1}: ${page.route}`);
-    });
-    if (pages.length > 0) {
-      var currentPage = pages[pages.length - 1]
-      currentPageUrl = currentPage.route
-    } 
-
-    if (!token) {
-      wx.showToast({
-        title: t('common.tipLogin', this.globalData.locale),
-        icon: 'none'
-      })
-
-      console.log("the currentPageUrl is:" + currentPageUrl)
-      wx.redirectTo({
-        url: '/pages/login/index?redirect='
-          + encodeURIComponent(currentPageUrl)
       })
       return false
     }

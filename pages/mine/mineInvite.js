@@ -30,7 +30,6 @@ Page({
   },
 
   onShow: function() {
-    if (!app.checkLogin()) return
     // 在页面显示时检查语言是否变化
     const currentLocale = wx.getStorageSync('locale') || 'zh-Hant'
     if (currentLocale !== this.data.locale) {

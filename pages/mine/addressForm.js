@@ -100,8 +100,6 @@ Page({
   },
 
   saveAddress: function() {
-    if (!app.checkLogin()) return
-
     this.setData({
       'formData.defaultAddressFlag': this.data.switched ? 'Y' : 'N'
     })
@@ -178,8 +176,6 @@ Page({
   },
 
   onDel: function() {
-    if (!app.checkLogin()) return
-
     wx.request({
       url: app.globalData.baseUrl + '/tjfae-space/goodsAddress/' + this.data.id,
       method: 'DELETE',

@@ -84,8 +84,6 @@ Page({
   },
 
   take() {
-    if (!app.checkLogin()) return
-
     if (!this.data.addressList[this.data.chose]) {
       wx.showToast({
         title: '請選擇地址',
