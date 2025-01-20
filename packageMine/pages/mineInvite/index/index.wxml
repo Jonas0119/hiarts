@@ -1,0 +1,38 @@
+<wxs module="i18n" src="../../../../utils/i18n.wxs"></wxs>
+
+<view class="wrapper">
+  <view class="swiper-item-content">
+    <view class="invite">
+      <view class="invite-top">
+        <view class="top-title">{{i18n.t('mine.invite', locale)}}</view>
+        <view class="top-desc">{{i18n.t('mine.invitationIntro', locale)}}</view>
+      </view>
+      <view class="invite-bottom">
+        <view class="invite-qrcode">
+          <canvas id="qrcode" canvas-id="qrcode" style="width: 206rpx; height: 206rpx;"></canvas>
+        </view>
+        <image class="invite-logo" src="/static/images/logo-title.png" mode="aspectFit"></image>
+      </view>
+    </view>
+  </view>
+
+  <view class="invite-list-section">
+    <view class="list-header">
+      <text class="title">{{i18n.t('mine.invitedPeople', locale)}}</text>
+      <text class="count">{{total}} {{i18n.t('mine.people', locale)}}</text>
+    </view>
+    
+    <view class="list-content">
+      <view class="list-item" wx:for="{{invitedList}}" wx:key="id">
+        <view class="item-info">
+          <text class="name">{{item.name}}</text>
+          <text class="invite-time">{{item.inviteTime}}</text>
+        </view>
+      </view>
+    </view>
+    
+    <view class="no-more" wx:if="{{noMore}}">
+      {{i18n.t('mine.noMore', locale)}}
+    </view>
+  </view>
+</view> 

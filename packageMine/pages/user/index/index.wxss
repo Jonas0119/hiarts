@@ -1,0 +1,47 @@
+page {
+  height: 100vh;
+  background-color: #fff;
+}
+
+.page-scroll-view {
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.agreement {
+  padding: 40rpx;
+}
+
+.agreement view {
+  font-size: 28rpx;
+  line-height: 48rpx;
+  margin-bottom: 20rpx;
+  color: #333;
+  text-align: justify;
+}
+
+.title {
+  font-size: 32rpx;
+  font-weight: 600;
+  margin: 60rpx 0 20rpx;
+  color: #000;
+}
+
+p {
+  font-size: 28rpx;
+  line-height: 1.8;
+  margin: 20rpx 0;
+  color: #666;
+  text-align: justify;
+  word-break: break-all;
+}
+
+/* 针对不同语言版本的特殊样式 */
+.agreement:lang(zh-Hant) p {
+  text-indent: 2em;
+}
+
+.agreement:lang(en) p {
+  text-indent: 0;
+  margin: 24rpx 0;
+} 

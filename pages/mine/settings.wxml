@@ -1,5 +1,0 @@
-<wxs module="i18n" src="../../utils/i18n.wxs"></wxs>
-
-<view class="settings">
-  <button class="logout-btn" bindtap="logout">{{i18n.t('common.out', locale)}}</button>
-</view> 

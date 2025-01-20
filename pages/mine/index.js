@@ -14,22 +14,22 @@ Page({
     menuList: [
       {
         name: t('mine.myOrder'),
-        url: '/pages/mine/orderList',
+        url: '/packageMine/pages/orderList/index/index',
         icon: '/static/images/order.png'
       },
       {
         name: t('mine.myInvite'),
-        url: '/pages/mine/mineInvite',
+        url: '/packageMine/pages/mineInvite/index/index',
         icon: '/static/images/myInvite.png'
       },
       {
         name: t('mine.addressMGMT'),
-        url: '/pages/mine/addressList',
+        url: '/packageMine/pages/addressList/index/index',
         icon: '/static/images/address.png'
       },
       {
         name: t('mine.about'),
-        url: '/pages/mine/about',
+        url: '/packageMine/pages/about/index/index',
         icon: '/static/images/about.png'
       }
     ]
@@ -54,22 +54,22 @@ Page({
         menuList: [
           {
             name: t('mine.myOrder', newLocale),
-            url: '/pages/mine/orderList',
+            url: '/packageMine/pages/orderList/index/index',
             icon: '/static/images/order.png'
           },
           {
             name: t('mine.myInvite', newLocale),
-            url: '/pages/mine/mineInvite',
+            url: '/packageMine/pages/mineInvite/index/index',
             icon: '/static/images/myInvite.png'
           },
           {
             name: t('mine.addressMGMT', newLocale),
-            url: '/pages/mine/addressList',
+            url: '/packageMine/pages/addressList/index/index',
             icon: '/static/images/address.png'
           },
           {
             name: t('mine.about', newLocale),
-            url: '/pages/mine/about',
+            url: '/packageMine/pages/about/index/index',
             icon: '/static/images/about.png'
           }
         ]
@@ -87,22 +87,22 @@ Page({
         menuList: [
           {
             name: t('mine.myOrder', locale),
-            url: '/pages/mine/orderList',
+            url: '/packageMine/pages/orderList/index/index',
             icon: '/static/images/order.png'
           },
           {
             name: t('mine.myInvite', locale),
-            url: '/pages/mine/mineInvite',
+            url: '/packageMine/pages/mineInvite/index/index',
             icon: '/static/images/myInvite.png'
           },
           {
             name: t('mine.addressMGMT', locale),
-            url: '/pages/mine/addressList',
+            url: '/packageMine/pages/addressList/index/index',
             icon: '/static/images/address.png'
           },
           {
             name: t('mine.about', locale),
-            url: '/pages/mine/about',
+            url: '/packageMine/pages/about/index/index',
             icon: '/static/images/about.png'
           }
         ]
@@ -145,11 +145,11 @@ Page({
   },
 
   goSetting: function() {
-    wx.navigateTo({ url: '/pages/mine/settings' })
+    wx.navigateTo({ url: '/packageMine/pages/settings/index/index' })
   },
 
   goToInvite: function() {
-    wx.navigateTo({ url: '/pages/mine/mineInvite' })
+    wx.navigateTo({ url: '/packageMine/pages/mineInvite/index/index' })
   },
 
   goDetailPage: function(e) {

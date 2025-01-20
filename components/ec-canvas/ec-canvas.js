@@ -78,9 +78,7 @@ Component({
 
   methods: {
     init: function (callback) {
-      const version = wx.getAppBaseInfo().SDKVersion
-      const systemInfo = wx.getSystemInfoSync()
-      const pixelRatio = systemInfo.pixelRatio
+      const version = wx.getSystemInfoSync().SDKVersion
 
       const canUseNewCanvas = compareVersion(version, '2.9.0') >= 0;
       const forceUseOldCanvas = this.data.forceUseOldCanvas;
@@ -92,7 +90,9 @@ Component({
       }
 
       if (isUseNewCanvas) {
-        this.initByNewWay(callback, pixelRatio);
+        // console.log('微信基础库版本大于2.9.0，开始使用<canvas type="2d"/>');
+        // 2.9.0 可以使用 <canvas type="2d"></canvas>
+        this.initByNewWay(callback);
       } else {
         const isValid = compareVersion(version, '1.9.91') >= 0
         if (!isValid) {
@@ -140,7 +140,7 @@ Component({
       }).exec();
     },
 
-    initByNewWay(callback, pixelRatio) {
+    initByNewWay(callback) {
       // version >= 2.9.0：使用新的方式初始化
       const query = wx.createSelectorQuery().in(this)
       query
@@ -150,7 +150,7 @@ Component({
           const canvasNode = res[0].node
           this.canvasNode = canvasNode
 
-          const canvasDpr = pixelRatio
+          const canvasDpr = wx.getSystemInfoSync().pixelRatio
           const canvasWidth = res[0].width
           const canvasHeight = res[0].height
 

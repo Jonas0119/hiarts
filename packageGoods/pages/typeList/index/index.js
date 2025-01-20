@@ -1,26 +1,27 @@
-import { t } from '../../utils/i18n'
-const pageBehavior = require('../../utils/pageBehavior')
-
 const app = getApp()
+import { t } from '../../../../utils/i18n'
+const pageBehavior = require('../../../../utils/pageBehavior')
 
 Page({
   behaviors: [pageBehavior],
   data: {
-    locale: 'zh-Hant',
-    t: t,
-    sift_items: [],
-    currentTab: 0,
     goodsList: [],
     pageNum: 1,
     pageSize: 10,
+    hasMore: true,
+    t: t,
+    locale: 'zh-Hant',
+    sift_items: [],
+    currentTab: 0,
     state: '',
-    hasMore: true
+    targetType: ''
   },
 
-  onLoad: function() {
+  onLoad: function(options) {
     const locale = wx.getStorageSync('locale') || 'zh-Hant'
     this.setData({ 
       locale,
+      targetType: options.targetType || '',
       sift_items: [
         t('index.all', locale),
         t('goodsList.unbuy', locale),
@@ -98,7 +99,7 @@ Page({
 
   loadGoodsList: function() {
     wx.showLoading({
-      title: '加载中...'
+      title: t('common.loading', this.data.locale)
     })
 
     wx.request({
@@ -107,33 +108,24 @@ Page({
       data: {
         pageNum: this.data.pageNum,
         pageSize: this.data.pageSize,
-        state: this.data.state
+        state: this.data.state,
+        typeId: this.data.targetType
       },
-      header: { 'content-type': "application/x-www-form-urlencoded" },
+      header: {'content-type': "application/x-www-form-urlencoded"},
       timeout: 6000,
       sslVerify: false,
       withCredentials: false,
       firstIpv4: false,
       success: (res) => {
         if (res.data.code === 200) {
-          const newGoodsList = res.data.data.list.map(item => ({
+          const list = res.data.data.list.map(item => ({
             ...item,
             targetImage: this.getImage(item)
           }))
-          
-          // 如果是第一页，直接设置数据
-          if (this.data.pageNum === 1) {
-            this.setData({
-              goodsList: newGoodsList,
-              hasMore: newGoodsList.length === this.data.pageSize
-            })
-          } else {
-            // 如果不是第一页，追加数据
-            this.setData({
-              goodsList: [...this.data.goodsList, ...newGoodsList],
-              hasMore: newGoodsList.length === this.data.pageSize
-            })
-          }
+          this.setData({
+            goodsList: [...this.data.goodsList, ...list],
+            hasMore: list.length === this.data.pageSize
+          })
         } else {
           wx.showToast({
             title: res.data.msg,
@@ -155,13 +147,6 @@ Page({
     this.loadGoodsList()
   },
 
-  goToDetail: function(e) {
-    const id = e.currentTarget.dataset.id
-    wx.navigateTo({
-      url: `/packageGoods/pages/detail/index/index?id=${id}`
-    })
-  },
-  // 处理商品图片
   getImage(item) {
     let targetImage = ''
     if(this.data.locale === 'zh-Hant') {
@@ -175,7 +160,13 @@ Page({
     if(array.length > 0) {
       targetImage = array[0]
     }
-    //console.log("targetImage  is:" + targetImage)
     return targetImage
+  },
+
+  goToDetail: function(e) {
+    const id = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: `/packageGoods/pages/detail/index/index?id=${id}`
+    })
   }
 }) 

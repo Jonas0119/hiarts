@@ -2,21 +2,33 @@
   "pages": [
     "pages/index/index",
     "pages/goods/list",
-    "pages/goods/detail",
-    "pages/goods/typeList",
-    "pages/goods/pay",
-    "pages/goods/payIndex",
     "pages/mine/index",
-    "pages/mine/orderList",
-    "pages/mine/orderDetail",
-    "pages/mine/addressList",
-    "pages/mine/addressForm",
-    "pages/mine/mineInvite",
-    "pages/mine/settings",
-    "pages/mine/about",
-    "pages/mine/privacy",
-    "pages/mine/user",
     "pages/login/index"
+  ],
+  "subpackages": [
+    {
+      "root": "packageGoods",
+      "pages": [
+        "pages/detail/index/index",
+        "pages/typeList/index/index",
+        "pages/pay/index/index",
+        "pages/payIndex/index/index"
+      ]
+    },
+    {
+      "root": "packageMine",
+      "pages": [
+        "pages/orderList/index/index",
+        "pages/orderDetail/index/index",
+        "pages/addressList/index/index",
+        "pages/addressForm/index/index",
+        "pages/mineInvite/index/index",
+        "pages/settings/index/index",
+        "pages/about/index/index",
+        "pages/privacy/index/index",
+        "pages/user/index/index"
+      ]
+    }
   ],
   "window": {
     "backgroundTextStyle": "light",

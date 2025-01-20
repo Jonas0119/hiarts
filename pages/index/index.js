@@ -23,6 +23,9 @@ Page({
     hkd: 0,
     locale: 'zh-Hant',
     goodsList: [],
+    ec: {
+      lazyLoad: true
+    },
     chartOption: {
       grid: {
         left: '50rpx',
@@ -86,6 +89,7 @@ Page({
     this.getExchangeRate()
     this.getGoodsList()
     this.getStats()
+    this.initChart()
   },
 
   // 切换语言
@@ -197,7 +201,7 @@ Page({
   goToDetail(e) {
     const id = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: `/pages/goods/detail?id=${id}`
+      url: `/packageGoods/pages/detail/index/index?id=${id}`
     })
   },
 
@@ -212,9 +216,10 @@ Page({
   goToTypeList(e) {
     const type = e.currentTarget.dataset.type
     wx.navigateTo({
-      url: `/pages/goods/typeList?targetType=${type}`
+      url: `/packageGoods/pages/typeList/index/index?targetType=${type}`
     })
   },
+
   // 初始化图表
   initChart() {
     if (!this.ecComponent) {
@@ -223,12 +228,11 @@ Page({
 
     if (this.ecComponent) {
       this.ecComponent.init((canvas, width, height, dpr) => {
-        const chart = echarts.init(canvas, null, {
+        const chart = echarts.init(canvas, 'custom', {
           width: width,
           height: height,
           devicePixelRatio: dpr
         })
-        //chart.setOption(this.data.chartOption)
         chart.setOption(this.data.chartOption)
         return chart
       })

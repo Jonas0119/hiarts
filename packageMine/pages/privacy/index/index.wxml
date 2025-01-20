@@ -1,0 +1,266 @@
+<wxs module="i18n" src="../../../../utils/i18n.wxs"></wxs>
+
+<scroll-view class="page-scroll-view" scroll-y="true">
+  <view class="agreement" wx:if="{{locale == 'zh-Hant'}}">
+    <view>「合交鏈香港」是由香港國際藝術品有限公司獨立開發的APP。</view>
+    <view>鑒於：</view>
+    <view>（1）為了保障產品的正常運行，實現個性化推薦、發布信息、互動交流等核心功能以及其他功能，我們會收集你的部分必要信息；</view>
+    <view>（2）在你進行註冊認證、發布信息、互動交流或使用基於地理位置的服務時，基於法律要求或實現功能所必需，我們可能會收集姓名、聯絡方式、通訊錄、圖文、音視頻文件、地理位置等個人信息。你有權拒絕向我們提供這些信息，或者撤回你對這些信息的授權同意。請你了解，拒絕或撤回授權同意，將導致你無法使用相關的特定功能，但不影響你使用「合交鏈香港」的其他功能；</view>
+    <view>（3）我們會將在境內運營過程中收集和產生的你的個人信息存儲於中華人民共和國境內，不會將上述信息傳輸至境外。我們僅會在為提供「合交鏈香港」及服務之目的所必需的期間內保留你的個人信息；</view>
+    <view>（4）我們不會向第三方共享、提供、轉讓或者從第三方獲取你的個人信息，除非經過你的同意；</view>
+    <view>（5）我們將努力采取合理的安全措施來保護你的個人信息。特別的，我們將采用行業內通行的方式及盡最大的商業努力來保護你個人敏感信息的安全。目前，「合交鏈香港」已經通過了國家信息安全等級保護（三級）的測評和備案，並通過了國際權威的ISO27001信息安全認證；</view>
+    <view>（6）「合交鏈香港」會基於算法等人工智能決策機製，推送你可能感興趣的信息，你可以通過點擊推送信息中的取消按鍵，選擇屏蔽相關信息；</view>
+    <view>（7）你在使用「合交鏈香港」時，我們會基於偏好、興趣等方面向你推送程序化廣告，你可以在「合交鏈香港」設置中關閉程序化廣告的推送，但廣告的相關性會降低；</view>
+    <view>（8）你訪問、更正、刪除個人信息與撤回同意授權的方式，以及註銷賬號、投訴舉報的方式。</view>
+    <view>如你未明示同意本隱私政策並開始使用，我們將僅收集瀏覽推薦所必需的信息，這將導致我們無法為你提供完整的產品和服務，但我們同樣會采用去標識化、加密等措施來保護這些信息。如果你不同意本隱私政策，我們無法為你提供完整的產品和服務，你也可以選擇停止使用。當你選擇繼續或再次使用時，基於提供產品和服務所必需，將視為你接受和認可我們按照本政策對你的相關信息進行處理。</view>
+    <view>合交鏈香港（以下簡稱「我們」）深知個人信息對你的重要性，我們將按照法律法規的規定，采用安全的保護措施，保護你的個人信息及隱私安全。因此，我們製定本「隱私政策」並特別提示：希望你在使用「合交鏈香港」及相關服務前仔細閱讀並理解本隱私政策，你可以按照指引作出你的適當選擇。</view>
+    <view>我們希望通過本隱私政策向你說明在你在使用「合交鏈香港」軟件及相關服務時，我們將按照本隱私政策收集、使用、存儲、共享、轉讓（如適用）及保護你的個人信息，向你介紹我們對你個人信息的處理，以及我們為你提供的查詢、訪問、刪除、更正、撤回授權同意和保護這些信息的方式。其中，有關你個人信息權益的條款等重要內容我們已用加粗形式提示，請特別關註。</view>
+    <view>本隱私政策將幫助你了解以下內容：</view>
+    <view>我們如何收集和使用個人信息；</view>
+    <view>一、我們對 Cookie 和同類技術的使用；</view>
+    <view>二、我們如何存儲個人信息；</view>
+    <view>三、三、我們如何存儲個人信息；</view>
+    <view>四、我們如何共享、轉讓、公開披露個人信息五、我們如何保護個人信息的安全；</view>
+    <view>六、你的權利；</view>
+    <view>七、未成年人使用條款；</view>
+    <view>八、隱私政策的修訂和通知；</view>
+    <view>九、適用範圍；</view>
+    <view>十、其他、</view>
+    <view></view>
+    <view></view>
+    <view></view>
+    <view></view>
+    <view class="title">一、我們如何收集和使用個人信息</view>
+    <view>在你使用「合交鏈香港」及服務的過程中，我們將根據合法、正當、必要的原則，收集信息。我們收集或你提供的信息將用於：</view>
+    <view>1.保障產品的正常基礎運行；</view>
+    <view>2.實現各項功能和服務；</view>
+    <view>3.優化、改善產品和服務；</view>
+    <view>4.保障產品、服務以及用戶使用安全；</view>
+    <view>5.遵循法律法規與國家標準的規定。</view>
+    <view>（一）我們直接收集與使用的個人信息</view>
+    <view>我們會按照如下方式收集你在使用服務時主動提供的，以及通過自動化手段收集你在使用功能或接受服務過程中產生的信息</view>
+    <view>1.保障「合交鏈香港」和相關服務的正常運行</view>
+    <view>當你使用「合交鏈香港」及相關服務時，為了保障軟件與服務的正常運行，我們會收集你的硬件型號、操作系統版本號、國際移動設備識別碼（IMEI）、網絡設備硬件地址（MAC）、IP地址、軟件版本號、網絡接入方式及類型、操作日誌等信息。請你了解，這些信息是我們提供服務和保障產品正常運行所必須收集的基本信息。</view>
+    <view>2.註冊、認證、登錄「合交鏈香港」和相關服務</view>
+    <view>（1）當你註冊、登錄「合交鏈香港」及相關服務時，你可以通過手機號創建賬號，我們將通過發送短信驗證碼來驗證你的身份是否有效，並且你可以完善相關的網絡身份識別信息（如頭像、昵稱和密碼），收集這些信息是為了幫助你完成註冊。你還可以根據自身需求選擇填寫性別、生日、地區及介紹等信息完善你的個人信息。</view>
+    <view>（2）你也可以使用第三方賬號（如微信、QQ等）登錄進入合交鏈香港，你此時將授權我們獲取你在第三方平臺註冊的公開信息（頭像、昵稱等），並在你同意本隱私政策後將你的第三方賬號與你的合交鏈香港賬號綁定，使你可以通過第三方賬號直接登錄並使用本產品和相關服務。</view>
+    <view>（3）在你使用「淘客聯盟」「TBS」等需進行身份認證的功能或服務時，根據中華人民共和國相關法律法規，你可能需要提供你的真實身份信息（真實姓名、身份證號碼、電話號碼等）以完成實名驗證。這些信息屬於個人敏感信息，我們將采用行業內通行的方式，盡最大的商業努力來保護你個人敏感信息的安全。如果你不提供這些信息，你將可能無法獲得相關服務，但不影響「今日頭條」其他功能與服務的正常使用。</view>
+    <view>3.為你推薦個性化的信息或服務</view>
+    <view>個性化推薦是「合交鏈香港」最基礎、最核心的功能之一。為實現這一功能，我們可能會收集並使用下列信息：（1）關註、收藏、搜索、瀏覽偏好（你感興趣的文章、音視頻等信息）等你的操作、使用行為信息；（2）反饋、發布等你主動提供的信息；</view>
+    <view>（3）獲得你的明示同意後的地理位置信息。</view>
+    <view>拒絕提供地理位置信息，我們將不會基於地理位置向你推送信息，但不會影響「合交鏈香港」其他功能與服務的正常使用在本地頻道中，我們會基於IP地址對應的城市（如：北京）向你展示、推薦你所在地區的本地相關信息。我們可能會將上述信息與來自我們其他服務（例如：你在「合交鏈香港」中使用「TBS」等服務）的信息結合，進行綜合統計並通過算法做特征與偏好分析，用以向你進行個性化推薦、展示或推送你可能感興趣的特定信息，或者推送更適合你的特定功能或服務：</view>
+    <view>（1）向你展示、推薦或推送與你有更高相關程度的信息；</view>
+    <view>（2）推送你可能更感興趣的賬號；</view>
+    <view>（3）推薦相關的城市、地區資訊；</view>
+    <view>（4）推薦與你相關程度更高的程序化廣告。你可以在界面中選擇關閉程序化廣告推薦。關閉後你仍會收到相同數量的廣告，但廣告相關性會降低。</view>
+    <view>請你了解，我們收集、使用的上述信息進行了去標識化處理，數據分析僅對應特定的、無法直接關聯用戶身份的編碼，無法也絕不會與你的真實身份相關聯。</view>
+    <view>4.為你提供信息發布功能或服務（TBS廣告、任務發布)</view>
+    <view>你發布內容時，我們將收集你發布的信息，並展示你的昵稱、頭像、發布內容等。</view>
+    <view>（1）你使用上傳圖片、發布音視頻功能時，我們會請求你授權相機、照片、麥克風等敏感權限。你如果拒絕授權提供，將無法使用此功能，但不影響你正常使用「合交鏈香港」的其他功能。</view>
+    <view>（2）你發布信息並選擇顯示位置時，我們會請求你授權地理位置權限，並收集與本服務相關的位置信息。這些技術包括IP地址、GPS以及能夠提供相關信息的</view>
+    <view>WI—FI接入點、藍牙和基站等傳感器技術。你如果拒絕授權提供，將無法使用此功能，但不影響你正常使用「合交鏈香港」的其他功能。</view>
+    <view>5.為你提供互動功能或服務</view>
+    <view>（1）你主動關註你感興趣的賬號、話題並與之進行互動，進行評論或分享內容時，我們會收集你關註的賬通訊錄信息屬於個人敏感信息，拒絕提供該信息僅會使你無法使用上述功能，但不影響你正常使用「合交鏈香港」及相關服務的其他功能。</view>
+    <view>6.開展營銷活動</view>
+    <view>當你選擇參加我們舉辦的有關營銷活動時，根據活動需要你可提供姓名、通信地址、聯系方式、銀行賬號等信息。這些信息可能包括個人敏感信息（如個人電話號碼、銀行賬號等），是你收到轉賬或者禮品所必要的，如果你拒絕提供這些信息，我們將可能無法向你轉賬或發放禮品。</view>
+    <view>7.收益、提現服務信息</view>
+    <view>註冊加盟成為合交鏈香港學員後，在你接受平臺或者平臺發布者發布的任務後，並完成任務的過程中，根據需要平臺可能會記錄你的個人相關信息及任務接受記錄、完成記錄、任務統計數量、任務完成情況、轉賬提現情況等數據。均屬於正常的記錄工作流程，你均表示予以認同、接受。如果你不能接受，可能你講無法從事相關活動或者無法向你轉賬、提現。</view>
+    <view>8.保障產品、服務及用戶使用安全</view>
+    <view>為幫助我們更好地了解「合交鏈香港」及相關服務的運行情況，以便確保運行與提供服務的安全，我們可能記錄網絡日誌信息，以及使用軟件及相關服務的頻率、崩潰數據、總體安裝、使用情況、性能數據等信息。</view>
+    <view>9.DCloud uni-app</view>
+    <view>我們的產品基於DCloud uni-app(5+ App/Wap2App)開 發，應用運行期間需要收集您的設備唯一識別碼(IMEI/android ID/DEVICE_ID/IDFA、SIM卡IMSI信 息）以提供統計分析服務，並通過應用啟動數據及異常錯誤日誌分析改進性能和用戶體驗，為用戶提供更好的服務。詳情內容請訪問《DCloud用戶服務條款》。</view>
+    <view>（DCloud用戶服務條款超鏈至：https://ask.dcloud.net.cn/protocol.html). （二）我們可能從第三方獲得的你的個人信息</view>
+    <view>1.當你主動使用第三方賬號登錄「合交鏈香港」時，我們會收集第三方賬號的昵稱、頭像等信息。</view>
+    <view>2.用戶因使用我們的產品或者服務而被我們收集的信息，例如其他用戶發布的信息中可能含有你的部分信息（如：發布廣告、任務中涉及到與你相關的信息)。</view>
+    <view>（三）收集、使用個人信息目的變更的處理</view>
+    <view>請你了解，隨著我們業務的發展，可能會對「合交鏈香港」的功能和提供的服務有所調整變化。原則上，當新功能</view>
+    <view>或服務與個性化推薦、發布信息、註冊認證等場景相</view>
+    <view>關時，收集與使用的個人信息將與原處理目的具有直接或合理關聯。在與原處理目的無直接或合理關聯的場景下，我們收集、使用你的個人信息，會再次進行告知，並征得你的同意</view>
+    <view>（四）依法豁免征得同意收集和使用的個人信息</view>
+    <view>請你理解，在下列情形中，根據法律法規及相關國家標準，我們收集和使用你的個人信息無需征得你的授權同意：</view>
+    <view>（1）與國家安全、國防安全直接相關的；</view>
+    <view>（2）與公共安全、公共衛生、重大公共利益直接相關的；</view>
+    <view>（3）與犯罪偵查、起訴、審判和判決執行等直接相關的；</view>
+    <view>（4）出於維護個人信息主體或其他個人的生命、財產等重大合法權益但又很難得到本人同意的；</view>
+    <view>（5）所收集的你的個人信息是你自行向社會公眾公開的；</view>
+    <view>（6）從合法公開披露的信息中收集的你的個人信息的，如合法的新聞報道、政府信息公開等渠道；</view>
+    <view>（7）根據你的要求簽訂或履行合同所必需的；</view>
+    <view>（8）用於維護「合交鏈香港」軟件及相關服務的安全穩定運行所必需的，例如發現、處置「合交鏈香港」軟件及相關服務的故障；</view>
+    <view>（9）為合法的新聞報道所必需的；</view>
+    <view>（10）學術研究機構基於公共利益開展統計或學術研究所必要，且對外提供學術研究或描述的結果時，對結果中所包含的個人信息進行去標識化處理的；</view>
+    <view>（11）法律法規規定的其他情形。</view>
+    <view>特別提示你註意，如信息無法單獨或結合其他信息識別到你的個人身份，其不屬於法律意義上你的個人信息；當你的信息可以單獨或結合其他信息識別到你的個人身份時或我們將無法與任何特定個人信息建立聯系的數據與其他你的個人信息結合使用時，這些信息在結合使用期間，將作為你的個人信息按照本隱私政策處理與保護。</view>
+    <view class="title">二、對Cookie 和同類技術的使用</view>
+    <view>Cookie 和同類技術是互聯網中的通用常用技術。當你使用「合交鏈香港」及相關服務時，我們可能會使用相關技術向你的設備發送一個或多個Cookie 或匿名標識符，以收集和存儲你訪問、使用本產品時的信息。我們使用Cookie 和同類技術主要為了實現以下功能或服務：（一）保障產品與服務的安全、高效運轉</view>
+    <view>我們可能會設置認證與保障安全性的cookie 或匿名標識符，使我們確認你是否安全登錄服務，或者是否遇到盜用、欺詐等不法行為。這些技術還會幫助我們改進服務效率，提升登錄和響應速度。</view>
+    <view>（二）幫助你獲得更輕松的訪問體驗</view>
+    <view>使用此類技術可以幫助你省去重復你填寫個人信息、輸入搜索內容的步驟和流程（例如：記錄登錄歷史)。</view>
+    <view>（三）為你推薦、展示、推送你可能感興趣的內容或賬號</view>
+    <view>我們可能會利用Cookie 和同類技術（例如Beacon、Proxy 等技術）了解你的偏好和使用習慣，進行咨詢或數據分析，以改善產品服務及用戶體驗，並優化你對廣告的選擇。</view>
+    <view>我們承諾，我們不會將 Cookie 用於本隱私政策所述目的之外的任何其他用途。</view>
+    <view>（四）我們的應用集成的第三方SDK有：</view>
+    <view>消息推送服務供應商：由每日互動股份有限公司提供推送技術服務，我們可能會將您的設備平臺、設備廠商、設備品牌、設備識別碼等設備信息，應用列表信息、網絡信息以及位置相關信息提供給每日互動股份有限公司，用於為您提供消息推送技術服務。我們在向您推送消息時，我們可能會授權每日互動股份有限公司進行鏈路調節，相互促活被關閉的SDK推送進程，保障您可以及時接收到我們向您推送的消息。詳細內容請訪問《個推用戶隱私政策》（需將《個推用戶隱私政策》超鏈至：</view>
+    <view>http:/docs.getui.com/privacy)我們承諾，我們不會將Cookie 用於本隱私政策所述目的之外的任何其他用途。</view>
+    <view class="title">三、我們如何存儲個人信息（一）信息存儲的地點</view>
+    <view>我們依照法律法規的規定，將在境內運營過程中收集和產生的你的個人信息存儲於中華人民共和國境內。目前，我們不會將上述信息傳輸至境外，如果我們向境外傳輸，我們將會遵循相關國家規定或者征求你的同意。</view>
+    <view>(二)存儲期限</view>
+    <view>我們僅在為提供「合交鏈香港」及服務之目的所必需的期間內保留你的個人信息，例如，你發布的信息、任務等信息，在你未撤回、刪除或未註銷賬號期間，我們會保留相關信息。超出必要期限後，我們將對你的個人信息進行刪除或匿名化處理，但法律法規另有規定的除外。</view>
+    <view>我們如何共享、轉讓、公開披露個人信息</view>
+    <view class="title">四、我們如何共享、轉讓、公開披露個人信息</view>
+    <view>（一）個人信息的共享、轉讓</view>
+    <view>我們不會向第三方共享、轉讓你的個人信息，除非經過你本人事先授權同意，或者共享、轉讓的個人信息是去標識化處理後的信息，且共享第三方無法重新識別此類信息的自然人主體。</view>
+    <view>1.我們可能會共享的個人信息</view>
+    <view>（1）為實現相關功能或服務與關聯方共享</view>
+    <view>當你在使用「淘寶網」、「拼多多」等淘客聯盟功能時，為保障你在我們及關聯方提供的產品間所接受服務的一致性，並方便統一管理你的信息，我們會將你去標識化後的個人信息與這些關聯方共享。</view>
+    <view>（2）幫助你使用「合交鏈香港」賬號登錄第三方產品當你使用「合交鏈香港」登錄第三方產品時，經過你的同意，我們會將你的昵稱、頭像等信息與你登錄的第三方產品共享。</view>
+    <view>（3）為實現程序化廣告推送，我們可能會與廣告合作夥伴共享去標識化或匿名化處理後的信息我們可能與委托我們進行推廣和廣告投放的合作夥伴共享信息，但我們不會分享用於識別你個人身份的信息，例如你的姓名、身份證號等，僅會向這些合作夥伴提供難以識別你個人身份的用戶畫像標簽及去標識化或匿名化後的信息，以幫助其在不識別你個人身份的前提下提升廣告有效觸達率。你可以拒絕我們向你推送程序化廣告，但不影響你使用其他服務。</view>
+    <view>（4）為實現特定功能而與業務合作夥伴共享</view>
+    <view>當軟件服務提供商、智能設備提供商或系統服務提供商與我們聯合為你提供服務時，例如你需要使用地理位置功能時，為實現這一功能，我們可能會收集你的位置信息及相關設備信息（例如硬件型號、操作系統版本號、國際移動設備身份識別碼（IMEI）、網絡設備硬件地址（MAC））經過去標識化後並提供給前述提供商。</view>
+    <view>（5）幫助你參加營銷推廣活動</view>
+    <view>當你選擇參加我們舉辦的有關營銷活動時，根據活動需要你提供姓名、通信地址、聯系方式、銀行賬號等信息。經過你的明示同意，我們會將上述信息與第三方共享以便我們能委托第三方及時向你提供獎品。</view>
+    <view>2.對共享個人信息第三方主體的謹慎評估及責任約束（1）經你同意，我們只會與第三方共享實現目的所必要的信息。如果第三方因業務需要，確需超出前述授權範圍使用個人信息的，該第三方將需再次征求你的同意。（2）對我們與之共享你個人信息的第三方，該些第三方會與我們簽訂保密協議。同時，我們會對其數據安全能力與環境進行評估，並要求第三方以不低於本隱私政策所要求的保密和安全措施來處理該些信息。3.收購、兼並、重組時個人信息的轉讓隨著我們業務的持續發展，我們將有可能進行合並、收購、資產轉讓，你的個人信息有可能因此而被轉移。在發生前述變更時，我們將按照法律法規及不低於本隱私政策所要求的安全標準繼續保護或要求個人信息的繼受方繼續保護你的個人信息，否則我們將要求繼受方重新征得你的授權同意。</view>
+    <view>（二）個人信息的公開披露</view>
+    <view>我們不會公開披露你的信息，除非遵循國家法律法規規定或者獲得你的同意。我們公開披露你的個人信息會采用符合行業內標準的安全保護措施，具體如下：1.對違規賬號、欺詐行為進行處罰公告時，我們會披露相關賬號的必要信息。</view>
+    <view>（三）依法豁免征得同意共享、轉讓、公開披露的個人信息</view>
+    <view>請你理解，在下列情形中，根據法律法規及國家標準，我們共享、轉讓、公開披露你的個人信息無需征得你的授權同意：</view>
+    <view>（1）與國家安全、國防安全直接相關的；</view>
+    <view>（2）與公共安全、公共衛生、重大公共利益直接相關的；</view>
+    <view>（3）與犯罪偵查、起訴、審判和判決執行等直接相關的；</view>
+    <view>（4）出於維護你或其他個人的生命、財產等重大合法權益但又很難得到本人同意的；</view>
+    <view>（5）你自行向社會公眾公開的個人信息；</view>
+    <view>（6）從合法公開披露的信息中收集個人信息的，如合法的新聞報道、政府信息公開等渠道。</view>
+    <view class="title">五、我們如何保護個人信息安全</view>
+    <view>（一）我們非常重視你個人信息的安全，將努力采取合理的安全措施（包括技術方面和管理方面）來保護你的個人信息，防止你提供的個人信息被不當使用或未經授權的情況下被訪問、公開披露、使用、修改、損壞、丟失或泄漏。目前，「合交鏈香港」已經通過了國家信息安全等級保護（三級）的測評和備案，並通過了國際權威的ISO27001信息安全認證。</view>
+    <view>（二）我們會使用不低於行業同行的加密技術、匿名化處理等合理可行的手段保護你的個人信息，並使用安全保護機製防止你的個人信息遭到惡意攻擊。</view>
+    <view>（三）我們會建立專門的安全部門、安全管理製度、數據安全流程保障你的個人信息安全。我們采取嚴格的數據使用和訪問製度，確保只有授權人員才可訪問你的個人信息，並適時對數據和技術進行安全審計。</view>
+    <view>（四）盡管已經采取了上述合理有效措施，並已經遵守了相關法律規定要求的標準，但請你理解，由於技術的限製以及可能存在的各種惡意手段，在互聯網行業，即便竭盡所能加強安全措施，也不可能始終保證信息百分之百的安全，我們將盡力確保你提供給我們的個人信息的安全性。你知悉並理解，你接入我們的服務所用的系統和通訊網絡，有可能因我們可控範圍外的因素而出現問題。因此，我們強烈建議你采取積極措施保護個人信息的安全，包括但不限於使用復雜密碼、定期修改密碼、不將自己的賬號密碼等個人信息透露給他人。</view>
+    <view>（五）我們會製定應急處理預案，並在發生用戶信息安全事件時立即啟動應急預案，努力阻止該等安全事件的影響和後果擴大。一旦發生用戶信息安全事件（泄露、丟失等）後，我們將按照法律法規的要求，及時向你告知：安全事件的基本情況和可能的影響、我們已經采取或將要采取的處置措施、你可自主防範和降低風險的建議、對你的補救措施等。我們將及時將事件相關情況以推送通知、郵件、信函、短信等形式告知你，難以逐一告知時，我們會采取合理、有效的方式發布公告。同時，我們還將按照相關監管部門要求，上報用戶信息安全事件的處置情況。</view>
+    <view>（六）我們謹此特別提醒你，本隱私政策提供的個人信息保護措施僅適用於「合交鏈香港」及相關服務。一旦你離開「合交鏈香港」及相關服務，瀏覽或使用其他網站、服務及內容資源，我們即沒有能力及義務保護你在「合交鏈香港」及相關服務之外的軟件、網站提交的任何個人信息，無論你登錄、瀏覽或使用上述軟件、網站是否基於「合交鏈香港」的鏈接或引導。</view>
+  </view>
+  <view class="agreement" wx:else>
+    <view>Hkex Hong Kong Privacy Policy</view>
+    <view>"Hkehk" is an APP independently developed by Hong Kong International Art Limited.</view>
+    <view>Whereas:</view>
+    <view>(1) In order to ensure the normal operation of the product and realize core functions such as personalized recommendation, information release, interaction and other functions, we will collect part of your necessary information;</view>
+    <view>(2) When you register for authentication, post information, interact or use location-based services, we may collect personal information such as name, contact information, address book, text, audio and video files, geographic location, etc. as required by law or necessary for the implementation of functions. You have the right to refuse to provide us with such information, or to withdraw your consent to such information. Please understand that refusal or withdrawal of consent will cause you to be unable to use the relevant specific functions, but will not affect your use of other functions of the Stock Exchange Hong Kong;</view>
+    <view>(3) We will store your personal information collected and generated in the process of domestic operations in the People's Republic of China, and will not transfer the above information abroad. We will only retain your personal information for as long as is necessary for the purpose of providing HKEHK and the Services;</view>
+    <view>(4) We will not share, provide, transfer or obtain your personal information from third parties, unless we have your consent;</view>
+    <view>(5) We will endeavor to take reasonable security measures to protect your personal information. In particular, we will use industry practices and use our best commercial efforts to protect the security of your sensitive personal information. At present, the "Stock Exchange Hong Kong" has passed the national information security level protection (level 3) assessment and filing, and passed the international authoritative ISO27001 information security certification;</view>
+    <view>(6) HKEHK will push information that you may be interested in based on artificial intelligence decision-making mechanisms such as algorithms. You can choose to block relevant information by clicking the cancel button in the push information;</view>
+    <view>(7) When you use the "Stock Exchange Hong Kong", we will push programmatic ads to you based on preferences, interests, etc. You can turn off the push of programmatic ads in the "Stock Exchange Hong Kong" setting, but the relevance of the ads will be reduced;</view>
+    <view>(8) The way you access, correct, delete personal information and withdraw consent authorization, as well as the way to cancel the account, complaints and reports.</view>
+    <view>If you do not explicitly agree to this privacy policy and start using it, we will only collect the information necessary for browsing recommendations, which will cause us to be unable to provide you with complete products and services, but we will also use de-identification, encryption and other measures to protect this information. If you do not agree with this privacy policy, we cannot provide you with complete products and services, you can also choose to stop using. When you choose to continue or re-use, based on the provision of products and services necessary, you will be deemed to accept and acknowledge that we process your information in accordance with this policy.</view>
+    <view>Hkex Hong Kong (hereinafter referred to as "We") is fully aware of the importance of personal information to you, and we will adopt security measures to protect your personal information and privacy in accordance with laws and regulations. Therefore, we have formulated this "Privacy Policy" with a special note: we hope you read and understand this Privacy Policy carefully before using "Stock Exchange Hong Kong" and related services, you can make your appropriate choices according to the guidelines.</view>
+    <view>We wish to explain to you through this Privacy Policy that when you use the HKEHK software and related services, we will collect, use, store, share, transfer (if applicable) and protect your personal information in accordance with this Privacy Policy, and explain to you how we process your personal information. And the ways we provide you with access, deletion, correction, withdrawal of consent, and protection of such information. Among them, we have highlighted in bold the terms of your personal information rights and other important content, please pay special attention to it.</view>
+    <view>This Privacy policy will help you understand the following:</view>
+    <view>1. How we collect and use personal information;</view>
+    <view>Our use of cookies and similar technologies;</view>
+    <view>3. How we store personal information;</view>
+    <view>Iv. How we share, transfer and publicly disclose Personal information V. How we protect the security of personal information;</view>
+    <view>6. Your rights;</view>
+    <view>7. Terms of Use for minors;</view>
+    <view>Viii. Revision and notification of privacy policy;</view>
+    <view>9. Scope of application;</view>
+    <view>10. Others</view>
+    <view>How do we collect and use Personal Information</view>
+    <view>In the process of your use of HKEHK and the services, we will collect information in accordance with the principles of legality, propriety and necessity. The information we collect or you provide will be used to:</view>
+    <view>1. Ensure the normal basic operation of the product;</view>
+    <view>2. Realize various functions and services;</view>
+    <view>3. Optimize and improve products and services;</view>
+    <view>4. Ensure the safety of products, services and users;</view>
+    <view>5. Comply with laws, regulations and national standards.</view>
+    <view>(a) We directly collect and use personal information</view>
+    <view>We will collect the information that you voluntarily provide when using the Service, as well as collect the information generated by you in the process of using the function or accepting the Service through automated means as follows</view>
+    <view>1. To ensure the normal operation of the Stock Exchange Hong Kong and related services</view>
+    <view>When you use the Stock Exchange Hong Kong and related services, in order to ensure the normal operation of the software and services, we will collect your hardware model, operating system version number, International Mobile Equipment Identification number (IMEI), network equipment hardware address (MAC), IP address, software version number, network access method and type, operation logs and other information. Please understand that this information is the basic information we must collect to provide services and ensure the normal operation of products.</view>
+    <view>2. Register, authenticate, log in to "Stock Exchange Hong Kong" and related services</view>
+    <view>(1) When you register and log in to "Stock Exchange Hong Kong" and related services, you can create an account through your mobile phone number, we will send SMS verification code to verify whether your identity is valid, and you can complete the relevant network identification information (such as avatar, nickname and password), collected to help you complete the registration. You can also choose to fill in gender, birthday, region and introduction information according to your own needs to improve your personal information.</view>
+    <view>(2) You can also use a third-party account (such as wechat, QQ, etc.) to log in to the Stock Exchange Hong Kong. At this time, you will authorize us to obtain your public information (profile picture, nickname, etc.) registered on the third-party platform, and bind your third-party account to your Stock Exchange Hong Kong account after you agree to this privacy policy. Enables you to log in and use the Product and related services directly through a third-party account.</view>
+    <view>(3) When you use functions or services that require identity authentication such as "TaokU" and "TBS", according to the relevant laws and regulations of the People's Republic of China, you may be required to provide your real identity information (real name, ID number, telephone number, etc.) to complete real-name verification. This information is personally sensitive information, and we will use our best commercial efforts to protect the security of your personal sensitive information in the way that is common in the industry. If you do not provide this information, you may not be able to obtain the relevant services, but it does not affect the normal use of other functions and services of "Today's Headlines".</view>
+    <view>3. Recommend personalized information or services to you</view>
+    <view>Personalized recommendation is one of the most basic and core functions of the Stock Exchange Hong Kong. In order to achieve this function, we may collect and use the following information: (1) following, favorites, searches, browsing preferences (articles you are interested in, audio and video information, etc.) and other information about your operation and use behavior; (2) Feedback, release of information provided by you;</view>
+    <view>(3) Geographical location information after obtaining your express consent.</view>
+    <view>Refuse to provide geographical location information, we will not push information to you based on geographical location, but will not affect the normal use of other functions and services of "Stock Exchange Hong Kong" in the local channel, we will show you based on the IP address of the corresponding city (such as Beijing), to recommend local information in your region. We may combine the above information with information from our other services (for example, your use of "TBS" and other services in the "Stock Exchange Hong Kong") to conduct comprehensive statistics and perform characteristics and preference analysis through algorithms, so as to recommend, display or push specific information that you may be interested in, or push specific functions or services that are more suitable for you:</view>
+    <view>(1) To show, recommend or push information that is more relevant to you;</view>
+    <view>(2) Push accounts that you may be more interested in;</view>
+    <view>(3) Recommend relevant city and regional information;</view>
+    <view>(4) Recommend programmatic ads that are more relevant to you. You can choose to turn off programmatic AD recommendations in the interface. You'll still get the same number of ads, but the ads will be less relevant.</view>
+    <view>Please understand that the above information collected and used by us is de-identified, and the data analysis only corresponds to a specific code that cannot be directly associated with the user's identity, and cannot and will never be associated with your real identity.</view>
+    <view>4. To provide you with information publishing functions or services (TBS advertising, task publishing)</view>
+    <view>When you post content, we collect information about your post and show you your nickname, avatar, post content, and more.</view>
+    <view>(1) When you use the function of uploading pictures and publishing audio and video, we will ask you to authorize sensitive permissions such as camera, photo and microphone. If you refuse to authorize the provision, you will not be able to use this function, but it will not affect your normal use of other functions of "Stock Exchange Hong Kong".</view>
+    <view>(2) When you post information and select a location to display it, we will ask you to authorize geographical location rights and collect location information related to the Service. These technologies include IP addresses, GPS, and the ability to provide relevant information</view>
+    <view>Sensor technologies such as Wi-Fi access points, Bluetooth, and base stations. If you refuse to authorize the provision, you will not be able to use this function, but it will not affect your normal use of other functions of "Stock Exchange Hong Kong".</view>
+    <view>5. Provide you with interactive features or services</view>
+    <view>(1) When you take the initiative to follow and interact with the accounts and topics you are interested in, make comments or share content, we will collect the account address book information you follow, which is personal sensitive information. Refusing to provide this information will only prevent you from using the above functions, but will not affect your normal use of other functions of the "Stock Exchange Hong Kong" and related services.</view>
+    <view>6. Launch marketing campaigns</view>
+    <view>When you choose to participate in the relevant marketing activities held by us, you can provide your name, mailing address, contact information, bank account and other information according to the needs of the activity. This information may include personal sensitive information (such as personal phone number, bank account number, etc.) that is necessary for you to receive a transfer or gift, and if you refuse to provide this information, we may not be able to transfer or issue a gift to you.</view>
+    <view>7. Income and withdrawal service information</view>
+    <view>After registering to become a student of the Stock Exchange Hong Kong, after you accept the tasks issued by the platform or the platform publisher, and in the process of completing the tasks, the platform may record your personal information and task acceptance records, completion records, task statistics, task completion, transfer and withdrawal information as required. All of them belong to the normal recording workflow, and you have expressed your approval and acceptance. If you can't accept it, you may not be able to engage in relevant activities or transfer money to you or withdraw cash.</view>
+    <view>8. Ensure the safety of products, services and users</view>
+    <view>In order to help us better understand the operation of the Stock Exchange Hong Kong and related services, in order to ensure the safety of the operation and provision of services, we may record network log information, as well as the frequency of use of the software and related services, crash data, overall installation, usage, performance data and other information.</view>
+    <view>9.DCloud uni-app</view>
+    <view>Our products are developed based on DCloud uni-app(5+ App/Wap2App). During the operation of the application, we need to collect your device unique identification code (IMEI/android ID/DEVICE_ID/IDFA, SIM card IMSI information) to provide statistical analysis services. And through application startup data and exception error log analysis to improve performance and user experience, to provide better services for users. For details, please visit the DCloud User Terms of Service.</view>
+    <view>(DCloud user hyperlinked to terms of service: https://ask.dcloud.net.cn/protocol.html). (2) we may get your personal information from a third party</view>
+    <view>1. When you actively use a third-party account to log in to "Stock Exchange Hong Kong", we will collect the nickname, profile picture and other information of the third-party account.</view>
+    <view>2. Information collected by us as a result of users' use of our products or services, such as information posted by other users that may contain part of your information (such as advertising, tasks involving letters related to you)</view>
+    <view>Breath).</view>
+    <view>(3) Handling changes in the purpose of collecting and using personal information</view>
+    <view>Please understand that with the development of our business, the functions and services provided by "Stock Exchange Hong Kong" may be adjusted and changed. In principle, when new features</view>
+    <view>Or service and personalized recommendation, release information, registration and authentication scenarios</view>
+    <view>The personal information collected and used will be directly or reasonably related to the original purpose of processing. In cases that are not directly or reasonably related to the original purpose of processing, we will inform you again about the collection and use of your personal information and obtain your consent</view>
+    <view>(4) Exemption of personal information collected and used with consent according to law</view>
+    <view>Please understand that in the following circumstances, according to laws and regulations and relevant national standards, we do not need to obtain your authorization to collect and use your personal information:</view>
+    <view>(1) Directly related to national security and national defense security;</view>
+    <view>(2) directly related to public safety, public health, and major public interests;</view>
+    <view>(3) directly related to criminal investigation, prosecution, trial and execution of judgments;</view>
+    <view>(4) In order to protect the life, property and other major legitimate rights and interests of the personal information subject or other individuals, but it is difficult to get the consent of the person;</view>
+    <view>(5) Your personal information collected is disclosed to the public by you;</view>
+    <view>(6) Your personal information collected from legally publicly disclosed information, such as legitimate news reports, government information disclosure and other channels;</view>
+    <view>(7) necessary for the conclusion or performance of a contract at your request;</view>
+    <view>(8) necessary to maintain the safe and stable operation of the HKEHK software and related services, such as detecting and handling faults of the HKEHK software and related services;</view>
+    <view>(9) necessary for legitimate news reporting;</view>
+    <view>(10) When an academic research institution conducts statistics or academic research in the public interest, and provides the results of academic research or description to the outside world, the personal information contained in the results is de-identified;</view>
+    <view>(11) Other circumstances provided by laws and regulations.</view>
+    <view>In particular, you are reminded that if the information cannot identify you individually or in combination with other information, it is not your personal information in the legal sense; When your information can be individually or in combination with other information to identify you personally, or when we will not be able to establish a connection with any specific personal information to use data with other personal information, such information during the combined use, as your personal information will be treated and protected in accordance with this Privacy Policy.</view>
+    <view>Use of cookies and similar technologies</view>
+    <view>Cookies and similar technologies are commonly used in the Internet. When you use HKEHK and related services, we may use relevant technologies to send one or more cookies or anonymous identifiers to your device in order to collect and store information about your access to and use of the Product. We use cookies and similar technologies mainly to achieve the following functions or services: (1) to ensure the safe and efficient operation of products and services</view>
+    <view>We may set authentication and security cookies or anonymous identifiers that allow us to verify that you are securely logged into the service</view>
+    <view>Message push service provider: The push technology service is provided by DailyInteractive Co., LTD. We may provide your device platform, device manufacturer, device brand, device identification number and other device information, application list information, network information and location information to DailyInteractive Co., LTD., for providing you with message push technology services. When we push messages to you, we may authorize Daily Interactive Co., Ltd. to adjust the link and promote the closed SDK push process to ensure that you can receive the messages we push to you in a timely manner. For details, please visit the "Getui User Privacy Policy" (Need to hyperlink the "Getui User Privacy Policy" to:</view>
+    <view>Http:/docs.getui.com/privacy) we promise that we will not cookies are used for the purpose of this privacy policy stated beyond any other purposes.</view>
+    <view>How do we store Personal Information (I) Where is the information stored</view>
+    <view>We store your personal information collected and generated in the course of our domestic operations in the territory of the People's Republic of China in accordance with laws and regulations. At this time, we do not transfer the above information abroad, and if we do, we will follow the relevant national regulations or ask for your consent.</view>
+    <view>(2) Storage period</view>
+    <view>We will only retain your personal information for as long as necessary for the purpose of providing "HKEHK" and the Services, such as information you post, tasks, etc., during the period when you do not withdraw, delete or cancel your account, we will retain relevant information. After the necessary period, we will delete or anonymize your personal information, except as otherwise provided by laws and regulations.</view>
+    <view>How do we share, transfer and publicly disclose personal information</view>
+    <view>(1) Sharing and transfer of personal information</view>
+    <view>We will not share or transfer your personal information to third parties, unless you have authorized your consent in advance, or the personal information shared or transferred is the information after de-identification processing, and the sharing third party can not re-identify the natural person subject of such information.</view>
+    <view>1. Personal Information we may share</view>
+    <view>(1) Sharing with related parties for the realization of relevant functions or services</view>
+    <view>When you use Taobao.com, Pin-Duo and other Taobao.com alliance functions, in order to ensure the consistency of the services you receive between the products provided by us and our affiliates, and to facilitate unified management of your information, we will share your de-identified personal information with these affiliates.</view>
+    <view>(2) Help you log in to third-party products using "Stock Exchange Hong Kong" account When you log in to third-party products using "Stock Exchange Hong Kong", with your consent, we will share your nickname, profile picture and other information with the third-party products you log in.</view>
+    <view>(3) In order to implement programmatic advertising push, we may share de-identified or anonymized information with advertising partners We may share information with partners who entrust us with promotion and advertising, but we will not share information used to identify you personally, such as your name, ID number, etc. These partners will only be provided with user profile tags that are difficult to identify you personally and de-identified or anonymized information to help them improve the effective reach of ads without identifying you personally. You may refuse to allow us to serve you programmatic ads without affecting your use of other services.</view>
+    <view>(4) Sharing with business partners for the purpose of implementing specific functions</view>
+    <view>When a software service provider, smart device provider or system service provider jointly provides services to you with us, for example, when you need to use the geolocation feature, to enable this feature, We may collect your location information and related device information (such as hardware model, operating system version number, International Mobile Equipment Identification Number (IMEI), network equipment hardware address (MAC)), de-identify it and provide it to such provider.</view>
+    <view>(5) Help you participate in marketing promotion activities</view>
+    <view>When you choose to participate in the relevant marketing activities held by us, you will provide your name, mailing address, contact information, bank account number and other information as required by the activity. With your express consent, we will share the above information with third parties so that we can entrust third parties to provide you with prizes in a timely manner.</view>
+    <view>(1) With your consent, we will only share information with third parties that is necessary to achieve our purpose. If a third party needs to use personal information beyond the scope of the aforementioned authorization due to business needs, the third party will need to seek your consent again. (2) Third parties with whom we share your personal information will sign confidentiality agreements with us. At the same time, we will evaluate their data security capabilities and environment, and require third parties to handle such information with no less confidentiality and security measures than required by this Privacy Policy. 3. Transfer of Personal Information in the event of acquisition, merger and reorganization With the continuous development of our business, we may carry out mergers, acquisitions and asset transfers, and your personal information may be transferred accordingly. In the event of such changes, we will continue to protect or require the successor of Personal Information to continue to protect your personal information in accordance with laws and regulations and security standards no lower than those required by this Privacy Policy, otherwise we will require the successor to obtain your authorization and consent again.</view>
+    <view>(2) Public disclosure of personal information</view>
+    <view>We will not publicly disclose your information unless we comply with national laws and regulations or obtain your consent. Our public disclosure of your personal information will adopt security measures that meet industry standards, as follows: 1. We will disclose the necessary information of relevant accounts when we announce the punishment of illegal accounts and fraud.</view>
+    <view>(3) Exemption from sharing, transferring or publicly disclosing personal information with consent according to law</view>
+    <view>Please understand that in the following circumstances, according to laws and regulations and national standards, we do not need to obtain your authorization to share, transfer, and publicly disclose your personal information:</view>
+    <view>(1) Directly related to national security and national defense security;</view>
+    <view>(2) directly related to public safety, public health, and major public interests;</view>
+    <view>(3) directly related to criminal investigation, prosecution, trial and execution of judgments;</view>
+    <view>(4) In order to protect the life, property and other major legitimate rights and interests of you or other individuals, but it is difficult to get the consent of the person;</view>
+    <view>(5) Personal information you disclose to the public on your own;</view>
+    <view>(6) Collecting personal information from legally publicly disclosed information, such as legitimate news reports, government information disclosure and other channels.</view>
+    <view>V. How do we protect the security of personal information</view>
+    <view>(a) We attach great importance to the security of your personal information and will strive to take reasonable security measures (including technical and management aspects) to protect your personal information and prevent the personal information you provide from being improperly used or unauthorized access, public disclosure, use, modification, damage, loss or disclosure. At present, the "Stock Exchange Hong Kong" has passed the national information security level protection (level 3) assessment and filing, and passed the international authoritative ISO27001 information security certification.</view>
+    <view>(b) We will use no less than industry peers encryption technology, anonymization processing and other reasonable and feasible means to protect your personal information, and use security protection mechanisms to prevent your personal information from malicious attacks.</view>
+    <view>(C) We will establish a special security department, security management system, data security process to ensure the security of your personal information. We adopt a strict data use and access system to ensure that only authorized personnel can access your personal information, and conduct security audits of data and technology in a timely manner.</view>
+    <view>(d) Although the above reasonable and effective measures have been taken and the standards required by relevant laws and regulations have been complied with, please understand that due to technical limitations and possible malicious means, in the Internet industry, even if we do our best to strengthen security measures, it is impossible to always ensure 100% security of information. We will do our best to ensure the security of the personal information you provide to us. You know and understand that the systems and communication networks you use to access our Services may be subject to problems due to factors beyond our control. Therefore, we strongly recommend that you take proactive measures to protect the security of your personal information, including but not limited to using complex passwords, changing passwords regularly, and not disclosing personal information such as your account password to others.</view>
+    <view>(e) We will formulate emergency response plans, and immediately initiate emergency response plans when user information security incidents occur, and strive to prevent the impact and consequences of such security incidents from expanding. In the event of a user information security incident (leakage, loss, etc.), we will inform you in a timely manner in accordance with the requirements of laws and regulations: the basic situation and possible impact of the security incident, the disposal measures we have taken or will take, the suggestions you can independently prevent and reduce risks, and the remedial measures for you. We will timely inform you of the relevant events in the form of push notifications, emails, letters, SMS, etc. If it is difficult to inform you one by one, we will take a reasonable and effective way to release announcements. At the same time, we will also report the disposal of user information security incidents in accordance with the requirements of relevant regulatory authorities.</view>
+    <view>(6) We would like to remind you that the personal information protection measures provided in this Privacy Policy only apply to "Stock Exchange Hong Kong" and related services. Once you leave the "Stock Exchange Hong Kong" and related services, browse or use other websites, services and content resources, we do not have the ability and obligation to protect any personal information you submit in the "Stock Exchange Hong Kong" and related services outside the software, website, whether you log in, browse or use the above software, website based on the "Stock Exchange Hong Kong" link or guide.</view>
+  </view>
+</scroll-view>

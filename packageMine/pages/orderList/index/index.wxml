@@ -1,0 +1,38 @@
+<wxs module="i18n" src="../../../../utils/i18n.wxs"></wxs>
+<wxs module="state" src="../../../../utils/state.wxs"></wxs>
+
+<view class="order">
+  <block wx:if="{{dataLoaded}}">
+    <block wx:if="{{list && list.length > 0}}">
+      <view class="uni-navigate-item" wx:for="{{list}}" wx:key="id" bindtap="goDetailPage" data-id="{{item.id}}">
+        <view class="image-container">
+          <image src="{{locale == 'zh-Hant' ? item.targetImage : item.targetImageEnglish}}" mode="aspectFit" class="image"></image>
+        </view>
+        <view class="words">
+          <view class="t1">{{locale == 'zh-Hant' ? item.targetName : item.targetNameEnglish}}</view>
+          <view class="state">{{state.formateState(item.state, locale)}}</view>
+          <view class="orderfdr">
+            <text class="t4">{{i18n.t('goodsDetail.buyNum', locale)}}：</text>
+            <text class="t3">{{item.buyedNum}} {{i18n.t('goodsList.unit', locale)}}</text>
+          </view>
+          <view class="orderfdr" style="margin-top: -10px;">
+            <text class="t4">{{i18n.t('order.pay', locale)}}：</text>
+            <text class="t5">HK$ {{item.totalAmount}}</text>
+          </view>
+          
+          <view class="orderfdr" style="text-align: right;">
+            <view class="orderbtn" wx:if="{{item.state == 'finishPay'}}" catchtap="requestDelivery" data-id="{{item.id}}">
+              {{i18n.t('order.askget', locale)}}
+            </view>
+            <view class="orderbtn" wx:if="{{item.state == 'Shipped'}}" catchtap="pickup" data-id="{{item.id}}">
+              {{i18n.t('order.confirm', locale)}}
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="nodata">{{i18n.t('common.nodata', locale)}}</view>
+    </block>
+  </block>
+</view> 

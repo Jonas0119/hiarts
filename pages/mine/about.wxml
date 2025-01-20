@@ -1,8 +1,0 @@
-<wxs module="i18n" src="../../utils/i18n.wxs"></wxs>
-
-<view>
-  <view class="uni-navigate-item" wx:for="{{pages}}" wx:key="name" bindtap="goDetailPage" data-url="{{item.url}}" data-enable="{{item.enable}}">
-    <text>{{item.name}}</text>
-    <image src="/static/images/arrow-right.png" class="uni-icon-size" mode="widthFix"></image>
-  </view>
-</view> 

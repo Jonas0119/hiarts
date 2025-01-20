@@ -1,0 +1,72 @@
+<wxs module="i18n" src="../../../../utils/i18n.wxs"></wxs>
+
+<view class="page">
+  <scroll-view class="page-scroll-view" scroll-y="true">
+    <view class="goods">
+      <!-- 商品轮播图 -->
+      <swiper class="swiper-box" indicator-dots="{{goodsImages.length>1}}" autoplay="{{false}}" circular="true">
+        <swiper-item wx:for="{{goodsImages}}" wx:key="index">
+          <image class="bannerimage" mode="aspectFit" src="{{item}}" lazy-load></image>
+        </swiper-item>
+      </swiper>
+
+      <!-- 商品基本信息 -->
+      <view class="container">
+        <text class="t1">{{locale === 'zh-Hant' ? goodsDetail.targetName : goodsDetail.targetNameEnglish}}</text>
+        <view class="fdr">
+          <text class="t4">{{i18n.t('goodsDetail.saleTime', locale)}}：</text>
+          <text class="t2">{{goodsDetail.endTime || '--'}}</text>
+        </view>
+        <view class="fdr">
+          <text class="t4">{{i18n.t('goodsDetail.saleProgress', locale)}}：</text>
+          <text class="t2">{{goodsDetail.buyedNum || 0}}/{{goodsDetail.stockNum || 0}}</text>
+        </view>
+        <view class="fdr">
+          <view class="fdr" style="margin-bottom: 0;">
+            <text class="t4">{{i18n.t('goodsDetail.goodPrice', locale)}}：</text>
+            <text class="t6">HK$ {{goodsDetail.targetAmount || 0}}</text>
+          </view>
+          <view class="fdr" style="margin-bottom: 0;">
+            <text class="t4">{{i18n.t('goodsDetail.num', locale)}}：</text>
+            <text class="t2">{{goodsDetail.stockNum || 0}} {{i18n.t('goodsList.unit', locale)}}</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 店铺信息 -->
+      <view class="shopInfor" wx:if="{{goodsDetail.shopImage}}">
+        <image class="shopImage" src="{{goodsDetail.shopImage}}" mode="aspectFill" lazy-load></image>
+        <view class="shopName">
+          <text>{{goodsDetail.merchantName || ''}}</text>
+          <text class="shopDescrip">{{i18n.t('goodsDetail.shopinfor', locale)}}</text>
+        </view>
+      </view>
+
+      <!-- 商品简介 -->
+      <view class="container bt">
+        <text class="title">{{i18n.t('goodsDetail.shotContent', locale)}}</text>
+        <rich-text nodes="{{locale === 'zh-Hant' ? goodsDetail.targetDescBrief : goodsDetail.targetDescBriefEnglish}}"></rich-text>
+
+        <view class="tips">
+          <view class="t8">----- {{i18n.t('goodsDetail.tips', locale)}} -----</view>
+          <text class="t5">{{locale === 'zh-Hant' ? multiLineText : multiLineTextEnglish}}</text>
+        </view>
+      </view>
+
+      <!-- 商品详情 -->
+      <view class="container bt description">
+        <text class="title">{{i18n.t('goodsDetail.description', locale)}}</text>
+        <rich-text nodes="{{locale === 'zh-Hant' ? goodsDetail.targetDesc : goodsDetail.targetDescEnglish}}"></rich-text>
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- 底部购买栏 -->
+  <view class="fixed">
+    <view class="fdr" wx:if="{{remainNum > 0}}">
+      <text class="title">{{i18n.t('goodsDetail.buyNum', locale)}}</text>
+      <input class="ssinput" type="number" value="{{num}}" bindinput="onNumChange" placeholder="{{i18n.t('common.pleaseInput', locale)}}" />
+    </view>
+    <button bindtap="onBuyTap" class="buybtn" wx:if="{{goodsDetail.state == 'ready' || goodsDetail.state == 'buying'}}">{{i18n.t('goodsDetail.buy', locale)}}</button>
+  </view>
+</view> 

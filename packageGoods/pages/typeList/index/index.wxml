@@ -1,0 +1,26 @@
+<wxs module="i18n" src="../../../../utils/i18n.wxs"></wxs>
+<view class="page">
+  <view class="sort">
+    <view wx:for="{{sift_items}}" wx:key="index" class="sift-item {{index === currentTab ? 'chosed' : ''}}" bindtap="switchTab" data-index="{{index}}">
+      {{item}}
+      <image class="downIcon" src="/static/images/down.png"></image>
+    </view>
+  </view>
+
+  <view class="goods-list">
+    <view class="content-item" wx:for="{{goodsList}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
+      <image class="image" mode="aspectFill" src="{{item.targetImage}}"></image>
+      <view class="words">
+        <text class="t1">{{locale === 'zh-Hant' ? item.targetName : item.targetNameEnglish}}</text>
+        <view class="fdr">
+          <text class="t4">{{i18n.t('goodsList.wait', locale)}}：</text>
+          <text class="t2">{{item.stockNum - item.buyedNum}} {{i18n.t('goodsList.unit', locale)}}</text>
+        </view>
+        <view class="fdr">
+          <text class="t4">{{i18n.t('goodsList.privce', locale)}}：</text>
+          <text class="t3">HK${{item.targetAmount}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view> 
