@@ -18,38 +18,29 @@ Page({
   },
 
   onLoad: function(options) {
-    const locale = wx.getStorageSync('locale') || 'zh-Hant'
     this.setData({ 
-      locale,
       targetType: options.targetType || '',
       sift_items: [
-        t('index.all', locale),
-        t('goodsList.unbuy', locale),
-        t('goodsList.buying', locale),
-        t('goodsList.stopbuy', locale)
+        t('index.all', this.data.locale),
+        t('goods.list.unbuy', this.data.locale),
+        t('goods.list.buying', this.data.locale),
+        t('goods.list.stopbuy', this.data.locale)
       ]
     })
     this.loadGoodsList()
-
-    // 监听语言变化
-    this.localeChangeCallback = (newLocale) => {
-      this.setData({
-        locale: newLocale,
-        sift_items: [
-          t('index.all', newLocale),
-          t('goodsList.unbuy', newLocale),
-          t('goodsList.buying', newLocale),
-          t('goodsList.stopbuy', newLocale)
-        ]
-      })
-    }
-    app.watchLocale(this.localeChangeCallback)
   },
 
-  onUnload: function() {
-    if (this.localeChangeCallback) {
-      app.unwatchLocale(this.localeChangeCallback)
-    }
+  // 语言变化时更新数据
+  onLocaleChange: function(newLocale) {
+    this.setData({
+      sift_items: [
+        t('index.all', newLocale),
+        t('goods.list.unbuy', newLocale),
+        t('goods.list.buying', newLocale),
+        t('goods.list.stopbuy', newLocale)
+      ]
+    })
+    this.loadGoodsList()
   },
 
   onPullDownRefresh: function() {

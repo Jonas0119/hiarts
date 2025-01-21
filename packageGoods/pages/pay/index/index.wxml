@@ -11,7 +11,7 @@
       </view>
       <view class="fdr">
         <text class="t1"></text>
-        <text class="t3">{{i18n.t('goodsDetail.buyNum', locale)}}：{{buyNum}} {{i18n.t('goodsList.unit', locale)}}</text>
+        <text class="t3">{{i18n.t('goods.detail.buyNum', locale)}}：{{buyNum}} {{i18n.t('goods.list.unit', locale)}}</text>
       </view>
     </view>
   </view>

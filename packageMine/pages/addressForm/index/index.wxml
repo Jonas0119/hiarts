@@ -3,17 +3,17 @@
 <view class="page">
   <view class="form-box">
     <view class="uni-form-item">
-      <view class="title">{{i18n.t('mine.reciveName', locale)}}：</view>
+      <view class="title">{{i18n.t('mine.receiveName', locale)}}：</view>
       <input class="uni-input" name="receiveName" bindinput="onInput" data-field="receiveName" value="{{formData.receiveName}}" placeholder="{{i18n.t('mine.inputName', locale)}}" placeholder-class="placeholder" />
     </view>
 
     <view class="uni-form-item">
-      <view class="title">{{i18n.t('mine.recivePhone', locale)}}：</view>
+      <view class="title">{{i18n.t('mine.receivePhone', locale)}}：</view>
       <input class="uni-input" name="receiveMobile" bindinput="onInput" data-field="receiveMobile" value="{{formData.receiveMobile}}" placeholder="{{i18n.t('mine.inputPhone', locale)}}" placeholder-class="placeholder" type="number" />
     </view>
 
     <view class="uni-form-item">
-      <view class="title">{{i18n.t('mine.reciveAddress', locale)}}：</view>
+      <view class="title">{{i18n.t('mine.receiveAddress', locale)}}：</view>
       <input class="uni-input" name="address" bindinput="onInput" data-field="address" value="{{formData.address}}" placeholder="{{i18n.t('mine.inputAddress', locale)}}" placeholder-class="placeholder" />
     </view>
 

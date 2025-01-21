@@ -1,39 +1,49 @@
 var translations = {
   'en': {
-    "goodsDetail": {
-      "goodsDetail": "Product details",
-      "orderPay": "Order payment",
-      "saleTime": "Sale stop time",
-      "saleProgress": "Product application progress",
-      "goodPrice": "Unit price",
-      "num": "Quantity issued",
-      "shopinfor": "Quality store recommendation",
-      "shotContent": "Product Description",
-      "tips": "Purchase Instructions",
-      "description": "Product description",
-      "buyNum": "Subscription quantity",
-      "tipsWord": "You are welcome to participate in the purchase of this product, in order to let you fully understand the product content, this 'Purchase Instructions' is provided. If you choose to participate in the purchase of this product, it is deemed that you have carefully read the Purchase Instructions and voluntarily assume the risk caused by the purchase of this data asset. When you purchase the products of the Center, you need to be aware in advance that the data asset products sold by the platform are tagged with related products, rights and interests by blockchain technology to confirm your rights and interests in the product.",
-      "buy": "Purchase",
-      "ali": "Alipay",
-      "wechat": "WeChat Pay",
-      "confirmPay": "Confirm payment",
-      "backhome": "Return to home page",
-      "success": "Payment success"
+    "goods": {
+      "list": {
+        "price": "Unit price",
+        "unit": "unit",
+        "wait": "for sale",
+        "unbuy": "Pending Sale",
+        "buying": "On Sale",
+        "stopbuy": "Sold Out"
+      },
+      "detail": {
+        "goodsDetail": "Product details",
+        "orderPay": "Order payment",
+        "saleTime": "Sale stop time",
+        "saleProgress": "Product application progress",
+        "goodPrice": "Unit price of goods",
+        "num": "Quantity issued",
+        "shopinfor": "Quality store recommendation",
+        "shortContent": "Product Description",
+        "tips": "Purchase Instructions",
+        "description": "Product description",
+        "buyNum": "Subscription quantity",
+        "tipsWord": "You are welcome to participate in the purchase of this product, in order to let you fully understand the product content, this 'Purchase Instructions' is provided. If you choose to participate in the purchase of this product, it is deemed that you have carefully read the Purchase Instructions and voluntarily assume the risk caused by the purchase of this data asset. When you purchase the products of the Center, you need to be aware in advance that the data asset products sold by the platform are tagged with related products, rights and interests by blockchain technology to confirm your rights and interests in the product.",
+        "buy": "Purchase",
+        "ali": "Alipay",
+        "wechat": "WeChat Pay",
+        "confirmPay": "Confirm payment",
+        "backhome": "Return to home page",
+        "success": "Payment success"
+      }
     },
     "index": {
       "all": "All",
       "goods": "Goods",
       "liveHL": "Real-time exchange rate",
-      "gard1": "Data Trade",
-      "gard2": "Suyi Tong",
-      "gard3": "Multiple version Pass",
-      "gard4": "Digital travel",
-      "gard5": "Digital Accommodation",
-      "gard6": "Digital Power Pass",
+      "category1": "Data Trade",
+      "category2": "Art Pass",
+      "category3": "Version Pass",
+      "category4": "Travel Pass",
+      "category5": "Finance Pass",
+      "category6": "Rights Pass",
       "home": "Home",
       "mine": "Mine",
       "exchange": "Exchange Rate",
-      "10s": "(updated after 10s)",
+      "updateTime": "(updated after 10s)",
       "hkd": "HKD/CNY",
       "views": "views",
       "users": "users",
@@ -48,16 +58,8 @@ var translations = {
       "login": "Login",
       "agree": "Have read and agree",
       "user": "User Agreement",
-      "privace": "Privacy Agreement",
+      "privacy": "Privacy Agreement",
       "and": "and"
-    },
-    "goodsList": {
-      "privce": "Unit price",
-      "unit": "unit",
-      "wait": "for sale",
-      "unbuy": "Pending Sale",
-      "buying": "On Sale",
-      "stopbuy": "Sold Out"
     },
     "settings": {
       "language": "Language",
@@ -79,9 +81,9 @@ var translations = {
       "default": "Default",
       "addAddress": "Add address",
       "addressMGMT": "Address Management",
-      "reciveName": "Consignee name",
-      "recivePhone": "Consignee mobile phone",
-      "reciveAddress": "Consignee address",
+      "receiveName": "Consignee name",
+      "receivePhone": "Consignee mobile phone",
+      "receiveAddress": "Consignee address",
       "defaultAddress": "Default address",
       "inputAddress": "Please enter detailed address",
       "inputPhone": "Please enter phone",
@@ -91,15 +93,15 @@ var translations = {
       "tradeRule": "Trading rules",
       "chargeRule": "Charging rules",
       "memberRule": "Member Rule",
-      "privaceRule": "Privacy Policy",
+      "privacyRule": "Privacy Policy",
       "userAgreement": "User Agreement",
       "invitedPeople": "My invite",
       "inviteDetail": "detail>",
       "people": "People",
-      "CumulativeInvitations": "Cumulative invitations",
+      "cumulativeInvitations": "Cumulative invitations",
       "noMore": "No more data",
       "invitee": "Invitee",
-      "RegistrationDate": "Registration Date"
+      "registrationDate": "Registration Date"
     },
     "order": {
       "pay": "Actual payment",
@@ -152,44 +154,96 @@ var translations = {
       "pleaseInput": "Please input",
       "fail": "Operation failed",
       "networkError": "Network error"
+    },
+    components: {
+      navigationBar: {
+        back: "Back",
+        home: "Home",
+        loading: "Loading"
+      },
+      empty: {
+        noData: "No data available",
+        tryAgain: "Try again"
+      },
+      loading: {
+        loading: "Loading...",
+        wait: "Please wait"
+      }
+    },
+    chart: {
+      currency: {
+        title: "Exchange Rate Trend",
+        yAxisName: "Exchange Rate",
+        xAxisName: "Time"
+      },
+      statistics: {
+        views: "Page Views",
+        users: "Total Users",
+        orders: "Total Orders"
+      }
+    },
+    validation: {
+      required: "This field is required",
+      phone: "Please enter a valid phone number",
+      email: "Please enter a valid email address",
+      number: "Please enter a valid number",
+      maxLength: "Maximum length exceeded",
+      minLength: "Minimum length not met"
+    },
+    error: {
+      network: "Network error, please try again",
+      server: "Server error, please try again later",
+      auth: "Authentication failed",
+      permission: "No permission",
+      validation: "Validation failed",
+      unknown: "Unknown error occurred"
     }
   },
   'zh-Hant': {
-    "goodsDetail": {
-      "goodsDetail": "商品詳情",
-      "orderPay": "訂單支付",
-      "saleTime": "發售停止時間",
-      "saleProgress": "商品申購進度",
-      "goodPrice": "商品單價",
-      "num": "發行數量",
-      "unit": "份",
-      "shopinfor": "優質店鋪推薦",
-      "shotContent": "商品簡介",
-      "tips": "申購須知",
-      "description": "商品描述",
-      "buyNum": "申購數量",
-      "tipsWord": "歡迎您參與購買本產品，為了讓您充分了解產品內容，特提供本《購買須知》。若您選擇參與本產品購買，則視為您已仔細閱讀本《購買須知》並自願承擔購買本數據資產所帶來的風險。在您購買本中心產品時需提前知悉，本平臺所發售的數據資產產品是以區塊鏈技術將相關產品、權益等資產上鏈標記，以確認您對該產品的權益。本平臺產品定價體系由項目底層資產價值評估構成，客戶決定購買即表示認同產品定價標準；本平臺產品僅在「合交所管理節點交易所「線上發售並結算。本平臺僅對產品進行形式審核，公示相關項目資料，客戶需自行與本產品運營機構及合作機構咨詢產品信息，並自主決定購買。鑒於您對本產品的購買意向，您需考慮自身情況是否適合進行此類產品的購買，客觀理性地認識到此類產品的風險",
-      "buy": "申購",
-      "ali": "支付寶",
-      "wechat": "微信支付",
-      "confirmPay": "確認支付",
-      "backhome": "返回首頁",
-      "success": "支付成功"
+    "goods": {
+      "list": {
+        "price": "單價",
+        "unit": "份",
+        "wait": "待售",
+        "unbuy": "待審購",
+        "buying": "審購中",
+        "stopbuy": "停止審購"
+      },
+      "detail": {
+        "goodsDetail": "商品詳情",
+        "orderPay": "訂單支付",
+        "saleTime": "發售停止時間",
+        "saleProgress": "商品申購進度",
+        "goodPrice": "商品單價",
+        "num": "發行數量",
+        "shopinfor": "優質店鋪推薦",
+        "shortContent": "商品簡介",
+        "tips": "申購須知",
+        "description": "商品描述",
+        "buyNum": "申購數量",
+        "tipsWord": "歡迎您參與購買本產品，為了讓您充分了解產品內容，特提供本《購買須知》。若您選擇參與本產品購買，則視為您已仔細閱讀本《購買須知》並自願承擔購買本數據資產所帶來的風險。在您購買本中心產品時需提前知悉，本平臺所發售的數據資產產品是以區塊鏈技術將相關產品、權益等資產上鏈標記，以確認您對該產品的權益。本平臺產品定價體系由項目底層資產價值評估構成，客戶決定購買即表示認同產品定價標準；本平臺產品僅在「合交所管理節點交易所「線上發售並結算。本平臺僅對產品進行形式審核，公示相關項目資料，客戶需自行與本產品運營機構及合作機構咨詢產品信息，並自主決定購買。鑒於您對本產品的購買意向，您需考慮自身情況是否適合進行此類產品的購買，客觀理性地認識到此類產品的風險",
+        "buy": "申購",
+        "ali": "支付寶",
+        "wechat": "微信支付",
+        "confirmPay": "確認支付",
+        "backhome": "返回首頁",
+        "success": "支付成功"
+      }
     },
     "index": {
       "all": "全部",
       "goods": "推薦商品",
       "liveHL": "實時匯率",
-      "gard1": "數貿通",
-      "gard2": "數藝通",
-      "gard3": "數版通",
-      "gard4": "數旅通",
-      "gard5": "數融通",
-      "gard6": "數權通",
+      "category1": "數貿通",
+      "category2": "數藝通",
+      "category3": "數版通",
+      "category4": "數旅通",
+      "category5": "數融通",
+      "category6": "數權通",
       "home": "首頁",
       "mine": "我的",
       "exchange": "實時匯率",
-      "10s": "（10s后自動更新）",
+      "updateTime": "（10s后自動更新）",
       "hkd": "港幣/人民幣",
       "views": "瀏覽量(次)",
       "users": "會員數(人)",
@@ -204,16 +258,17 @@ var translations = {
       "login": "登錄",
       "agree": "已閱讀并同意",
       "user": "用戶協議",
-      "privace": "隱私協議"
+      "privacy": "隱私協議",
       "and": "和"
     },
-    "goodsList": {
-      "privce": "單價",
-      "unit": "份",
-      "wait": "待售",
-      "unbuy": "待審購",
-      "buying": "審購中",
-      "stopbuy": "停止審購"
+    "settings": {
+      "language": "Language",
+      "notification": "Setting for notification",
+      "clearCache": "Clear Cache",
+      "checkUpdate": "Check Update",
+      "privacy": "Privacy",
+      "terms": "Terms"
+      "logout": "Log Out"
     },
     "mine": {
       "mine": "我的",
@@ -226,9 +281,9 @@ var translations = {
       "default": "默認",
       "addAddress": "新增地址",
       "addressMGMT": "地址管理",
-      "reciveName": "收貨人姓名",
-      "recivePhone": "收貨人手機",
-      "reciveAddress": "收貨人地址",
+      "receiveName": "收貨人姓名",
+      "receivePhone": "收貨人手機",
+      "receiveAddress": "收貨人地址",
       "defaultAddress": "默認地址",
       "inputAddress": "請輸入詳細地址",
       "inputPhone": "請輸入手機",
@@ -238,15 +293,15 @@ var translations = {
       "tradeRule": "交易規則",
       "chargeRule": "收費規則",
       "memberRule": "會員規則",
-      "privaceRule": "隱私條款",
+      "privacyRule": "隱私條款",
       "userAgreement": "用戶協議",
       "invitedPeople": "我已累計邀請用戶",
       "inviteDetail": "詳情>",
       "people": "人",
-      "CumulativeInvitations": "纍計邀請",
+      "cumulativeInvitations": "纍計邀請",
       "noMore": "暫無更多數據",
       "invitee": "被邀請人",
-      "RegistrationDate": "註冊日期"
+      "registrationDate": "註冊日期"
     },
     "order": {
       "pay": "實付款",
@@ -299,23 +354,65 @@ var translations = {
       "pleaseInput": "請輸入",
       "fail": "操作失敗",
       "networkError": "網絡異常"
+    },
+    components: {
+      navigationBar: {
+        back: "返回",
+        home: "首頁",
+        loading: "加載中"
+      },
+      empty: {
+        noData: "暫無數據",
+        tryAgain: "重試"
+      },
+      loading: {
+        loading: "加載中...",
+        wait: "請稍候"
+      }
+    },
+    chart: {
+      currency: {
+        title: "匯率走勢",
+        yAxisName: "匯率",
+        xAxisName: "時間"
+      },
+      statistics: {
+        views: "頁面瀏覽",
+        users: "總用戶數",
+        orders: "總訂單數"
+      }
+    },
+    validation: {
+      required: "此欄位為必填",
+      phone: "請輸入有效的手機號碼",
+      email: "請輸入有效的電子郵件",
+      number: "請輸入有效的數字",
+      maxLength: "超出最大長度",
+      minLength: "未達到最小長度"
+    },
+    error: {
+      network: "網絡錯誤，請重試",
+      server: "服務器錯誤，請稍後重試",
+      auth: "認證失敗",
+      permission: "無權限",
+      validation: "驗證失敗",
+      unknown: "發生未知錯誤"
     }
   }
 }
 
-function t(key, locale) {
-  var currentLocale = locale || 'zh-Hant'
-  var keys = key.split('.')
-  var value = translations[currentLocale]
+var t = function(key, locale) {
+  var parts = key.split('.');
+  var current = translations[locale];
   
-  for (var i = 0; i < keys.length; i++) {
-    if (!value) break
-    value = value[keys[i]]
+  for (var i = 0; i < parts.length; i++) {
+    if (current === undefined) return key;
+    current = current[parts[i]];
   }
   
-  return value || key
-}
+  return current || key;
+};
 
 module.exports = {
   t: t
-} 
+}; 

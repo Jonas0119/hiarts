@@ -13,7 +13,6 @@ Page({
     date: '',
     chose: 0,
     pickupRemark: '',
-    locale: 'zh-Hant',
     showAddressPopup: false
   },
 
@@ -22,8 +21,7 @@ Page({
 
     this.setData({
       id: options.id,
-      date: this.getDate(),
-      locale: wx.getStorageSync('locale') || 'zh-Hant'
+      date: this.getDate()
     })
 
     wx.getStorage({
@@ -33,6 +31,11 @@ Page({
         this.init()
       }
     })
+  },
+
+  // 语言变化时重新加载数据
+  onLocaleChange: function() {
+    this.init()
   },
 
   getDate(type) {
@@ -86,7 +89,7 @@ Page({
   take() {
     if (!this.data.addressList[this.data.chose]) {
       wx.showToast({
-        title: '請選擇地址',
+        title: t('order.chooseAddress', this.data.locale),
         icon: 'none'
       })
       return
@@ -109,10 +112,9 @@ Page({
       success: (res) => {
         if (res.data.code == 200) {
           wx.showToast({
-            title: '操作成功',
+            title: t('common.success', this.data.locale),
             icon: 'none'
           })
-          //wx.navigateTo({
           wx.redirectTo({
             url: '/packageMine/pages/orderList/index/index'
           })
@@ -175,7 +177,7 @@ Page({
               + encodeURIComponent(currentPageUrl)
           })
         } else {
-          onsole.log('getAdd res.data.msg is:'+res.data.rows)
+          console.log('getAdd res.data.msg is:'+res.data.rows)
           wx.showToast({
             title: res.data.msg,
             icon: 'none'

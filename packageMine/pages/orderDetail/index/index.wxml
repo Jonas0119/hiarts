@@ -11,8 +11,8 @@
       <view class="state">{{state.formateState(obj.state, locale)}}</view>
       <view class="t2">HK$ {{obj.targetAmount}}</view>
       <view class="fdr" style="text-align: right;">
-        <text class="t4">{{i18n.t('goodsDetail.buyNum', locale)}}：</text>
-        <text class="t3">{{obj.buyedNum}}{{i18n.t('goodsList.unit', locale)}}</text>
+        <text class="t4">{{i18n.t('goods.detail.buyNum', locale)}}：</text>
+        <text class="t3">{{obj.buyedNum}}{{i18n.t('goods.list.unit', locale)}}</text>
       </view>
     </view>
   </view>
@@ -41,7 +41,7 @@
         <text class="t3">{{obj.address}}</text>
       </view>
       <view class="fdr" wx:if="{{obj.state == 'finishSend' || obj.state == 'finishOrder'}}">
-        <text class="t4">{{i18n.t('order.Logistics', locale)}}：</text>
+        <text class="t4">{{i18n.t('order.logistics', locale)}}：</text>
         <text class="t3">{{obj.logisticsCompany}} {{obj.waybillNumber}}</text>
       </view>
     </view>

@@ -9,7 +9,6 @@ Page({
     goodsImages: '',
     buyNum: 1,
     totalAmount: 0,
-    locale: 'zh-Hant',
     addressList: [],
     addressIndex: 0,
     showAddressPopup: false,
@@ -20,9 +19,6 @@ Page({
     if (!app.checkLogin()) {
       return
     }
-
-    const locale = wx.getStorageSync('locale') || 'zh-Hant'
-    this.setData({ locale })
 
     if (options.id && options.number) {
       this.loadGoodsDetail(options.id)
@@ -36,6 +32,13 @@ Page({
 
   onShow: function() {
     this.loadAddressList()
+  },
+
+  // 语言变化时重新加载数据
+  onLocaleChange: function() {
+    if (this.data.goodsDetail.id) {
+      this.loadGoodsDetail(this.data.goodsDetail.id)
+    }
   },
 
   formatAmount: function(targetAmount, buyedNum) {

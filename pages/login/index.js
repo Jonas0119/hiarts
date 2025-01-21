@@ -1,6 +1,5 @@
 import { t } from '../../utils/i18n'
 const pageBehavior = require('../../utils/pageBehavior')
-
 const app = getApp()
 
 Page({
@@ -22,13 +21,10 @@ Page({
   },
 
   onLoad: function(options) {
-    const locale = wx.getStorageSync('locale') || 'zh-Hant'
-    this.setData({ locale })
-    const sendCodeText = t('common.getCode', locale)
-    this.setData({ sendCodeText })
+    this.setData({ 
+      sendCodeText: t('common.getCode', this.data.locale)
+    })
     
-    //console.log("options is:"+options)
-    console.log("t.login is:"+t('login.login', locale))
     if (options.invatePhone) {
       this.setData({
         inviterPhone: options.invatePhone
@@ -245,6 +241,15 @@ Page({
   goToPrivacy: function () {
     wx.navigateTo({
       url: '/pages/agreement/privacy'
+    })
+  },
+
+  // 语言变化时更新文本
+  onLocaleChange: function() {
+    this.setData({
+      sendCodeText: this.data.counting ? 
+        t('common.reGet', this.data.locale) + `(${this.data.countdown}s)` :
+        t('common.getCode', this.data.locale)
     })
   }
 }) 

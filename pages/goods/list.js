@@ -1,6 +1,5 @@
 import { t } from '../../utils/i18n'
 const pageBehavior = require('../../utils/pageBehavior')
-
 const app = getApp()
 
 Page({
@@ -18,37 +17,29 @@ Page({
   },
 
   onLoad: function() {
-    const locale = wx.getStorageSync('locale') || 'zh-Hant'
     this.setData({ 
-      locale,
       sift_items: [
-        t('index.all', locale),
-        t('goodsList.unbuy', locale),
-        t('goodsList.buying', locale),
-        t('goodsList.stopbuy', locale)
+        t('index.all', this.data.locale),
+        t('goods.list.unbuy', this.data.locale),
+        t('goods.list.buying', this.data.locale),
+        t('goods.list.stopbuy', this.data.locale)
       ]
     })
     this.loadGoodsList()
-
-    // 监听语言变化
-    this.localeChangeCallback = (newLocale) => {
-      this.setData({
-        locale: newLocale,
-        sift_items: [
-          t('index.all', newLocale),
-          t('goodsList.unbuy', newLocale),
-          t('goodsList.buying', newLocale),
-          t('goodsList.stopbuy', newLocale)
-        ]
-      })
-    }
-    app.watchLocale(this.localeChangeCallback)
   },
 
-  onUnload: function() {
-    if (this.localeChangeCallback) {
-      app.unwatchLocale(this.localeChangeCallback)
-    }
+  // 语言变化时更新数据
+  onLocaleChange: function(newLocale) {
+    this.setData({
+      locale: newLocale,
+      sift_items: [
+        t('index.all', newLocale),
+        t('goods.list.unbuy', newLocale),
+        t('goods.list.buying', newLocale),
+        t('goods.list.stopbuy', newLocale)
+      ]
+    })
+    this.loadGoodsList()
   },
 
   onPullDownRefresh: function() {
@@ -98,7 +89,7 @@ Page({
 
   loadGoodsList: function() {
     wx.showLoading({
-      title: '加载中...'
+      title: t('common.loading', this.data.locale)
     })
 
     wx.request({
@@ -121,19 +112,10 @@ Page({
             targetImage: this.getImage(item)
           }))
           
-          // 如果是第一页，直接设置数据
-          if (this.data.pageNum === 1) {
-            this.setData({
-              goodsList: newGoodsList,
-              hasMore: newGoodsList.length === this.data.pageSize
-            })
-          } else {
-            // 如果不是第一页，追加数据
-            this.setData({
-              goodsList: [...this.data.goodsList, ...newGoodsList],
-              hasMore: newGoodsList.length === this.data.pageSize
-            })
-          }
+          this.setData({
+            goodsList: this.data.pageNum === 1 ? newGoodsList : [...this.data.goodsList, ...newGoodsList],
+            hasMore: newGoodsList.length === this.data.pageSize
+          })
         } else {
           wx.showToast({
             title: res.data.msg,
@@ -161,7 +143,7 @@ Page({
       url: `/packageGoods/pages/detail/index/index?id=${id}`
     })
   },
-  // 处理商品图片
+
   getImage(item) {
     let targetImage = ''
     if(this.data.locale === 'zh-Hant') {
@@ -175,7 +157,6 @@ Page({
     if(array.length > 0) {
       targetImage = array[0]
     }
-    //console.log("targetImage  is:" + targetImage)
     return targetImage
   }
 }) 

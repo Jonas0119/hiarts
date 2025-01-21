@@ -19,7 +19,7 @@ Page({
         enable: false
       },
       {
-        name: t('mine.privaceRule'),
+        name: t('mine.privacyRule'),
         enable: true,
         url: 'packageMine/pages/privacy/index/index'
       },
@@ -57,7 +57,7 @@ Page({
             enable: false
           },
           {
-            name: t('mine.privaceRule'),
+            name: t('mine.privacyRule'),
             enable: true,
             url: 'packageMine/pages/privacy/index/index'
           },

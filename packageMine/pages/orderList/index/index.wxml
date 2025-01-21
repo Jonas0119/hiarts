@@ -12,8 +12,8 @@
           <view class="t1">{{locale == 'zh-Hant' ? item.targetName : item.targetNameEnglish}}</view>
           <view class="state">{{state.formateState(item.state, locale)}}</view>
           <view class="orderfdr">
-            <text class="t4">{{i18n.t('goodsDetail.buyNum', locale)}}：</text>
-            <text class="t3">{{item.buyedNum}} {{i18n.t('goodsList.unit', locale)}}</text>
+            <text class="t4">{{i18n.t('goods.detail.buyNum', locale)}}：</text>
+            <text class="t3">{{item.buyedNum}} {{i18n.t('goods.list.unit', locale)}}</text>
           </view>
           <view class="orderfdr" style="margin-top: -10px;">
             <text class="t4">{{i18n.t('order.pay', locale)}}：</text>

@@ -21,7 +21,6 @@ Page({
     users: 0,
     views: 0,
     hkd: 0,
-    locale: 'zh-Hant',
     goodsList: [],
     ec: {
       lazyLoad: true
@@ -82,21 +81,15 @@ Page({
   },
 
   onLoad() {
-    // 设置默认语言
-    const locale = wx.getStorageSync('locale') || 'zh-Hant'
-    this.setData({ locale })
-
     this.getExchangeRate()
     this.getGoodsList()
     this.getStats()
     this.initChart()
   },
 
-  // 切换语言
-  changeLocale: function() {
-    const newLocale = this.data.locale === 'zh-Hant' ? 'en' : 'zh-Hant'
-    app.setLocale(newLocale)
-    this.setData({ locale: newLocale })
+  // 语言变化时重新加载数据
+  onLocaleChange: function() {
+    this.getGoodsList()
   },
 
   // 获取汇率

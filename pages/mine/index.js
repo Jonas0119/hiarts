@@ -11,28 +11,7 @@ Page({
     nickname: '',
     locale: 'zh-Hant',
     shareUrl: 'http://218.244.138.12:8086/webHJL/#/pages/login/index?phone=',
-    menuList: [
-      {
-        name: t('mine.myOrder'),
-        url: '/packageMine/pages/orderList/index/index',
-        icon: '/static/images/order.png'
-      },
-      {
-        name: t('mine.myInvite'),
-        url: '/packageMine/pages/mineInvite/index/index',
-        icon: '/static/images/myInvite.png'
-      },
-      {
-        name: t('mine.addressMGMT'),
-        url: '/packageMine/pages/addressList/index/index',
-        icon: '/static/images/address.png'
-      },
-      {
-        name: t('mine.about'),
-        url: '/packageMine/pages/about/index/index',
-        icon: '/static/images/about.png'
-      }
-    ]
+    menuList: []
   },
 
   onLoad: function() {
@@ -46,6 +25,9 @@ Page({
 
     // 获取用户信息
     this.setUserInfo()
+    
+    // 初始化菜单列表
+    this.initMenuList()
 
     // 监听语言变化
     this.localeChangeCallback = (newLocale) => {
@@ -111,6 +93,9 @@ Page({
 
     // 更新用户信息
     this.setUserInfo()
+
+    // 初始化菜单列表
+    this.initMenuList()
   },
 
   onUnload: function() {
@@ -162,5 +147,38 @@ Page({
       return
     }
     wx.navigateTo({ url })
+  },
+
+  // 初始化菜单列表
+  initMenuList() {
+    this.setData({
+      menuList: [
+        {
+          name: t('mine.myOrder', this.data.locale),
+          url: '/packageMine/pages/orderList/index/index',
+          icon: '/static/images/order.png'
+        },
+        {
+          name: t('mine.myInvite', this.data.locale),
+          url: '/packageMine/pages/mineInvite/index/index',
+          icon: '/static/images/myInvite.png'
+        },
+        {
+          name: t('mine.addressMGMT', this.data.locale),
+          url: '/packageMine/pages/addressList/index/index',
+          icon: '/static/images/address.png'
+        },
+        {
+          name: t('mine.about', this.data.locale),
+          url: '/packageMine/pages/about/index/index',
+          icon: '/static/images/about.png'
+        }
+      ]
+    })
+  },
+
+  // 语言变化处理
+  onLocaleChange(newLocale) {
+    this.initMenuList()
   }
 }) 

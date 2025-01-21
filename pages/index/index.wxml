@@ -43,6 +43,7 @@
           mode="aspectFit" 
           class="grid-img"
         ></image>
+        <text class="grid-text">{{i18n.t('index.category' + (index + 1), locale)}}</text>
       </view>
     </view>
 
@@ -63,7 +64,7 @@
         <view class="chart-container">
           <ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
         </view>
-        <view class="update-time">{{i18n.t('index.10s', locale)}}</view>
+        <view class="update-time">{{i18n.t('index.updateTime', locale)}}</view>
       </view>
     </view>
 
@@ -79,11 +80,11 @@
         <view class="words">
           <text class="t1">{{locale === 'zh-Hant' ? item.targetName : item.targetNameEnglish}}</text>
           <view class="fdr">
-            <text class="t4">{{i18n.t('goodsList.wait', locale)}}：</text>
-            <text class="t2">{{item.stockNum - item.buyedNum}}{{i18n.t('goodsList.unit', locale)}}</text>
+            <text class="t4">{{i18n.t('goods.list.wait', locale)}}：</text>
+            <text class="t2">{{item.stockNum - item.buyedNum}}{{i18n.t('goods.list.unit', locale)}}</text>
           </view>
           <view class="fdr">
-            <text class="t4">{{i18n.t('goodsList.privce', locale)}}：</text>
+            <text class="t4">{{i18n.t('goods.list.price', locale)}}：</text>
             <text class="t3">HK$ {{item.targetAmount}}</text>
           </view>
         </view>

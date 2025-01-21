@@ -7,7 +7,6 @@ Page({
   data: {
     list: [],
     token: '',
-    locale: 'zh-Hant',
     dataLoaded: false
   },
 
@@ -21,25 +20,12 @@ Page({
     this.init()
   },
 
-  onLoad: function() {
-    this.setData({
-      locale: wx.getStorageSync('locale') || 'zh-Hant'
-    })
-
-    // 监听语言变化
-    this.localeChangeCallback = (newLocale) => {
-      this.setData({ locale: newLocale })
-    }
-    app.watchLocale(this.localeChangeCallback)
-  },
-
-  onUnload: function() {
-    if (this.localeChangeCallback) {
-      app.unwatchLocale(this.localeChangeCallback)
-    }
-  },
-
   onPullDownRefresh: function() {
+    this.init()
+  },
+
+  // 语言变化时重新加载数据
+  onLocaleChange: function() {
     this.init()
   },
 
@@ -89,20 +75,22 @@ Page({
 
   formateState: function(state) {
     if (state === 'paying') {
-      return t('order.unPay')
+      return t('order.unPay', this.data.locale)
     } else if (state === 'finishPay') {
-      return t('order.unget')
+      return t('order.unget', this.data.locale)
     } else if (state === 'waitSend') {
-      return t('order.unsend')
+      return t('order.unsend', this.data.locale)
     } else if (state === 'finishSend') {
-      return t('order.sended')
+      return t('order.sended', this.data.locale)
     } else if (state === 'finishOrder') {
-      return t('order.done')
+      return t('order.done', this.data.locale)
     }
   },
 
   init: function() {
     this.setData({ dataLoaded: false })
+    console.log("In orderlist Page this.data.locale:" + this.data.locale)
+    console.log("In orderlist Page this.data.token:" + this.data.token)
     wx.showLoading({
       title: t('common.loading', this.data.locale),
       mask: true
@@ -118,7 +106,12 @@ Page({
         'content-type': 'application/x-www-form-urlencoded',
         'Authorization': 'Bearer ' + this.data.token
       },
+      timeout: 6000,
+      sslVerify: false,
+      withCredentials: false,
+      firstIpv4: false,
       success: (res) => {
+        console.log("In orderlist Page res.data.code:" + res.data.code)
         if (res.data.code == 200) {
           const orderList = res.data.data.list.map(item => ({
             ...item,

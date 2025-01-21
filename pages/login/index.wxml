@@ -34,7 +34,7 @@
         <text class="agree-text">{{i18n.t('login.agree', locale)}}</text>
         <text class="link" bindtap="goToUserAgreement">《{{i18n.t('login.user', locale)}}》</text>
         <text class="agree-text">{{i18n.t('login.and', locale)}}</text>
-        <text class="link" bindtap="goToPrivacy">《{{i18n.t('login.privace', locale)}}》</text>
+        <text class="link" bindtap="goToPrivacy">《{{i18n.t('login.privacy', locale)}}》</text>
       </checkbox>
     </checkbox-group>
   </view>
