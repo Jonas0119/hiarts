@@ -43,21 +43,37 @@
   display: flex;
 }
 
-.words .t1 {
+.title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: 10rpx;
+}
+
+.title-row .t1 {
+  flex: 1;
   font-weight: 600;
   font-size: 28rpx;
   line-height: 40rpx;
   color: #333;
   padding-top: 10rpx;
+  padding-right: 20rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
 }
 
-.words .state {
-  position: absolute;
+.title-row .state {
+  flex-shrink: 0;
   color: #AD2828;
   font-size: 24rpx;
-  right: 0;
-  top: 0;
   line-height: 50rpx;
+  white-space: nowrap;
+  margin-left: 10rpx;
 }
 
 .words .t3 {

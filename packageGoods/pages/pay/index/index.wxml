@@ -6,7 +6,7 @@
     <image src="{{goodsImages}}" mode="heightFix" class="image"></image>
     <view class="words">
       <view class="fdr">
-        <text class="t1">{{locale === 'zh-Hant' ? goodsDetail.targetName : goodsDetail.targetNameEnglish}}</text>
+        <text class="t1">{{locale === 'zh-Hant'  || locale === 'zh-Hans' ? goodsDetail.targetName : goodsDetail.targetNameEnglish}}</text>
         <text class="t2">HK$ {{goodsDetail.targetAmount}}</text>
       </view>
       <view class="fdr">

@@ -84,7 +84,7 @@
 }
 
 .uni-navigate-item {
-  line-height: 80rpx;
+  line-height: 100rpx;
   background: #fff;
   padding-left: 30rpx;
   font-size: 28rpx;

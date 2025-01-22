@@ -1,7 +1,7 @@
 <wxs module="i18n" src="../../../../utils/i18n.wxs"></wxs>
 
 <scroll-view class="page-scroll-view">
-  <view class="uni-navigate-item" wx:for="{{list}}" wx:key="id">
+  <view class="uni-navigate-item" wx:for="{{list}}" wx:key="id" bindtap="goDetailPage" data-id="{{item.id}}">
     <view class="list">
       <view class="t3">
         {{item.receiveName}} {{item.receiveMobile}}
@@ -11,7 +11,7 @@
         <text class="t1">{{item.address}}</text>
       </view>
     </view>
-    <image src="/static/images/edit.png" class="listImg" mode="widthFix" bindtap="goDetailPage" data-id="{{item.id}}"></image>
+    <image src="/static/images/edit.png" class="listImg" mode="widthFix"></image>
   </view>
 
   <button bindtap="goNew" class="add">{{i18n.t('mine.addAddress', locale)}}</button>

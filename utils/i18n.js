@@ -220,30 +220,15 @@ const translations = {
       "permission": "No permission",
       "validation": "Validation failed",
       "unknown": "Unknown error occurred"
+    },
+    "language": {
+      "current": "Current Language",
+      "traditional": "Traditional Chinese",
+      "simplified": "Simplified Chinese",
+      "english": "English"
     }
   },
   'zh-Hant': {
-    "goodsDetail": {
-      "goodsDetail": "商品詳情",
-      "orderPay": "訂單支付",
-      "saleTime": "發售停止時間",
-      "saleProgress": "商品申購進度",
-      "goodPrice": "商品單價",
-      "num": "發行數量",
-      "unit": "份",
-      "shopinfor": "優質店鋪推薦",
-      "shotContent": "商品簡介",
-      "tips": "申購須知",
-      "description": "商品描述",
-      "buyNum": "申購數量",
-      "tipsWord": "歡迎您參與購買本產品，為了讓您充分了解產品內容，特提供本《購買須知》。若您選擇參與本產品購買，則視為您已仔細閱讀本《購買須知》並自願承擔購買本數據資產所帶來的風險。在您購買本中心產品時需提前知悉，本平臺所發售的數據資產產品是以區塊鏈技術將相關產品、權益等資產上鏈標記，以確認您對該產品的權益。本平臺產品定價體系由項目底層資產價值評估構成，客戶決定購買即表示認同產品定價標準；本平臺產品僅在「合交所管理節點交易所「線上發售並結算。本平臺僅對產品進行形式審核，公示相關項目資料，客戶需自行與本產品運營機構及合作機構咨詢產品信息，並自主決定購買。鑒於您對本產品的購買意向，您需考慮自身情況是否適合進行此類產品的購買，客觀理性地認識到此類產品的風險",
-      "buy": "申購",
-      "ali": "支付寶",
-      "wechat": "微信支付",
-      "confirmPay": "確認支付",
-      "backhome": "返回首頁",
-      "success": "支付成功"
-    },
     "index": {
       "all": "全部",
       "goods": "推薦商品",
@@ -458,21 +443,310 @@ const translations = {
       "permission": "無權限",
       "validation": "驗證失敗",
       "unknown": "發生未知錯誤"
+    },
+    "language": {
+      "current": "當前語言",
+      "traditional": "繁體中文",
+      "simplified": "简体中文",
+      "english": "English"
+    }
+  },
+  'zh-Hans': {
+    "language": {
+      english: '英文',
+      simplified: '简体中文',
+      traditional: '繁体中文',
+      current: '当前语言'
+    },
+    "goods": {
+      "list": {
+        "price": "单价",
+        "unit": "份",
+        "wait": "待售",
+        "unbuy": "待审购",
+        "buying": "审购中",
+        "stopbuy": "停止审购"
+      },
+      "detail": {
+        "goodsDetail": "商品详情",
+        "orderPay": "订单支付",
+        "saleTime": "发售停止时间",
+        "saleProgress": "商品申购进度",
+        "goodPrice": "商品单价",
+        "num": "发行数量",
+        "shopinfor": "优质店铺推荐",
+        "shortContent": "商品简介",
+        "tips": "申购须知",
+        "description": "商品描述",
+        "buyNum": "申购数量",
+        "tipsWord": "欢迎您参与购买本产品，为了让您充分了解产品内容，特提供本《购买须知》。若您选择参与本产品购买，则视为您已仔细阅读本《购买须知》并自愿承担购买本数据资产所带来的风险。在您购买本中心产品时需提前知悉，本平台所发售的数据资产产品是以区块链技术将相关产品、权益等资产上链标记，以确认您对该产品的权益。",
+        "buy": "申购",
+        "ali": "支付宝",
+        "wechat": "微信支付",
+        "confirmPay": "确认支付",
+        "backhome": "返回首页",
+        "success": "支付成功"
+      }
+    },
+    "login": {
+      "phone": "请输入手机号",
+      "code": "请输入验证码",
+      "login": "登录",
+      "agree": "已阅读并同意",
+      "user": "用户协议",
+      "privacy": "隐私协议",
+      "and": "和"
+    },
+    "index": {
+      "all": "全部",
+      "goods": "推荐商品",
+      "liveHL": "实时汇率",
+      "category1": "数贸通",
+      "category2": "数艺通",
+      "category3": "数版通",
+      "category4": "数旅通",
+      "category5": "数融通",
+      "category6": "数权通",
+      "home": "首页",
+      "mine": "我的",
+      "exchange": "实时汇率",
+      "updateTime": "（10s后自动更新）",
+      "hkd": "港币/人民币",
+      "views": "浏览量(次)",
+      "users": "会员数(人)",
+      "news": "动态",
+      "newsDetail": "动态详情",
+      "times": "发布日期",
+      "navBtn": "语言切换"
+    },
+    "login": {
+      "phone": "请输入手机号",
+      "code": "请输入验证码",
+      "login": "登录",
+      "agree": "已阅读并同意",
+      "user": "用户协议",
+      "privacy": "隐私协议",
+      "and": "和"
+    },
+    "settings": {
+      "language": "语言",
+      "notification": "通知设置",
+      "clearCache": "清除缓存",
+      "checkUpdate": "检查更新",
+      "privacy": "隐私",
+      "terms": "条款",
+      "logout": "退出登录"
+    },
+    "mine": {
+      "mine": "我的",
+      "myOrder": "我的申购产品",
+      "invite": "邀请好友",
+      "myInvite": "我邀请的用户",
+      "invitationIntro": "我的二维码",
+      "address": "地址管理",
+      "about": "关于我们",
+      "default": "默认",
+      "addAddress": "新增地址",
+      "addressMGMT": "地址管理",
+      "receiveName": "收货人姓名",
+      "receivePhone": "收货人手机",
+      "receiveAddress": "收货人地址",
+      "defaultAddress": "默认地址",
+      "inputAddress": "请输入详细地址",
+      "inputPhone": "请输入手机",
+      "inputName": "请输入姓名",
+      "del": "删除",
+      "save": "保存",
+      "tradeRule": "交易规则",
+      "chargeRule": "收费规则",
+      "memberRule": "会员规则",
+      "privacyRule": "隐私条款",
+      "userAgreement": "用户协议",
+      "invitedPeople": "我已累计邀请用户",
+      "inviteDetail": "详情>",
+      "people": "人",
+      "cumulativeInvitations": "累计邀请",
+      "noMore": "暂无更多数据",
+      "invitee": "被邀请人",
+      "registrationDate": "注册日期"
+    },
+    "order": {
+      "pay": "实付款",
+      "confirm": "确认收货",
+      "askget": "申请提货",
+      "orderNo": "订单编号",
+      "orderTime": "下单时间",
+      "getInfo": "收货信息",
+      "getAddress": "收货地址",
+      "getTime": "申请提货时间",
+      "tiInfo": "提货信息",
+      "tiTime": "提货时间",
+      "choseAdd": "选择地址",
+      "tiTips": "提货说明（50字以内）",
+      "input": "填写特殊说明事项和要求",
+      "submit": "提交",
+      "unget": "待提货",
+      "unPay": "待支付",
+      "unsend": "待发货",
+      "sended": "已发货",
+      "done": "已完成",
+      "Logistics": "物流信息",
+      "detail": "订单详情",
+      "bankPay": "网银转账",
+      "wechatPay": "微信付款",
+      "payMethod": "付款方式"
+    },
+    "common": {
+      "nodata": "暂无数据",
+      "out": "安全退出",
+      "choseAdd": "请选择地址",
+      "success": "操作成功",
+      "delsuccess": "删除成功",
+      "tipName": "请输入姓名",
+      "tipPhone": "请输入手机号",
+      "tipAdd": "请输入详细地址",
+      "soon": "稍后提供",
+      "getCode": "获取验证码",
+      "inputCode": "请输入验证码",
+      "gou": "请勾选同意",
+      "reGet": "重新获取",
+      "tipNum": "请输入数量",
+      "tipTopNum": "超出可购买数量",
+      "tipLogin": "请去登录",
+      "loading": "加载中...",
+      "copied": "已复制",
+      "saving": "保存中...",
+      "saved": "已保存",
+      "saveFailed": "保存失败",
+      "pleaseInput": "请输入",
+      "fail": "操作失败",
+      "networkError": "网络异常"
+    },
+    "components": {
+      "navigationBar": {
+        "back": "返回",
+        "home": "首页",
+        "loading": "加载中"
+      },
+      "empty": {
+        "noData": "暂无数据",
+        "tryAgain": "重试"
+      },
+      "loading": {
+        "loading": "加载中...",
+        "wait": "请稍候"
+      }
+    },
+    "chart": {
+      "currency": {
+        "title": "汇率走势",
+        "yAxisName": "汇率",
+        "xAxisName": "时间"
+      },
+      "statistics": {
+        "views": "页面浏览",
+        "users": "总用户数",
+        "orders": "总订单数"
+      }
+    },
+    "validation": {
+      "required": "此栏位为必填",
+      "phone": "请输入有效的手机号码",
+      "email": "请输入有效的电子邮件",
+      "number": "请输入有效的数字",
+      "maxLength": "超出最大长度",
+      "minLength": "未达到最小长度"
+    },
+    "error": {
+      "network": "网络错误，请重试",
+      "server": "服务器错误，请稍后重试",
+      "auth": "认证失败",
+      "permission": "无权限",
+      "validation": "验证失败",
+      "unknown": "发生未知错误"
+    },
+    "navigationBarTitles": {
+      "pages.index.index": "港艺",
+      "pages.login.index": "登录",
+      "pages.goods.list": "商品列表",
+      "pages.goods.detail": "商品详情",
+      "pages.goods.typeList": "商品列表",
+      "pages.goods.pay": "商品下单",
+      "pages.goods.payIndex": "支付中心",
+      "pages.mine.index": "个人中心",
+      "pages.mine.settings": "设置",
+      "pages.mine.privacy": "隐私政策",
+      "pages.mine.orderList": "我的订单",
+      "pages.mine.orderDetail": "订单详情",
+      "pages.mine.mineInvite": "我的邀请",
+      "pages.mine.addressList": "地址管理",
+      "pages.mine.addressForm": "编辑地址",
+      "pages.mine.about": "关于我们",
+      "pages.mine.user": "用户协议"
+    },
+    "tabBar": {
+      "home": "首页",
+      "goods": "商品",
+      "mine": "我的"
     }
   }
 }
 
-function t(key, locale) {
-  const currentLocale = locale || wx.getStorageSync('locale') || 'zh-Hant'
+// 默认语言
+const DEFAULT_LANGUAGE = 'zh-Hant'
+
+// 支持的语言列表
+const SUPPORTED_LANGUAGES = {
+  'zh-Hant': '繁體中文',
+  'zh-Hans': '简体中文',
+  'en': 'English'
+}
+
+// 获取当前语言
+const getCurrentLanguage = () => {
+  return wx.getStorageSync('locale') || DEFAULT_LANGUAGE
+}
+
+// 设置语言
+const setLanguage = (lang) => {
+  if (SUPPORTED_LANGUAGES[lang]) {
+    wx.setStorageSync('locale', lang)
+    // 触发语言变化事件
+    wx.eventCenter = wx.eventCenter || {}
+    wx.eventCenter.languageChanged = true
+    // 通知所有页面语言已更改
+    const pages = getCurrentPages()
+    pages.forEach(page => {
+      if (page && typeof page.onLocaleChange === 'function') {
+        page.onLocaleChange()
+      }
+    })
+  }
+}
+
+// 获取翻译文本
+const t = (key, locale = null) => {
+  const currentLocale = locale || getCurrentLanguage()
+  console.log('[i18n] Getting translation for key:', key, 'locale:', currentLocale)
   const keys = key.split('.')
   let value = translations[currentLocale]
 
   for (const k of keys) {
-    if (!value) break
-    value = value[k]
+    if (value && value[k]) {
+      value = value[k]
+    } else {
+      console.warn(`Translation key not found: ${key} for locale: ${currentLocale}`)
+      return key
+    }
   }
+  
+  console.log('[i18n] Translation result:', value)
+  return value
+}
 
-  return value || key
+// 获取支持的语言列表
+const getSupportedLanguages = () => {
+  return SUPPORTED_LANGUAGES
 }
 
 // 获取当前页面路径对应的标题key
@@ -491,11 +765,6 @@ const getPageTitleKey = (pagePath) => {
   // 处理主包路径
   return pagePath.replace(/^\//, '.').replace(/\//g, '.')
 }
-
-// 获取当前语言
-const getCurrentLanguage = () => {
-  return wx.getStorageSync('locale') || 'zh-Hant';
-};
 
 // 更新导航栏标题
 const updateNavigationBarTitle = () => {
@@ -520,8 +789,11 @@ const updateNavigationBarTitle = () => {
 };
 
 module.exports = {
-  t: t,
+  t,
   updateNavigationBarTitle,
   getPageTitleKey,
-  getCurrentLanguage
+  getCurrentLanguage,
+  setLanguage,
+  getSupportedLanguages,
+  SUPPORTED_LANGUAGES
 }

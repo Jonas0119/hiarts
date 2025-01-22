@@ -12,9 +12,9 @@
       <input class="uni-input" name="receiveMobile" bindinput="onInput" data-field="receiveMobile" value="{{formData.receiveMobile}}" placeholder="{{i18n.t('mine.inputPhone', locale)}}" placeholder-class="placeholder" type="number" />
     </view>
 
-    <view class="uni-form-item">
+    <view class="uni-form-item textarea-item">
       <view class="title">{{i18n.t('mine.receiveAddress', locale)}}：</view>
-      <input class="uni-input" name="address" bindinput="onInput" data-field="address" value="{{formData.address}}" placeholder="{{i18n.t('mine.inputAddress', locale)}}" placeholder-class="placeholder" />
+      <textarea class="uni-textarea" name="address" bindinput="onInput" data-field="address" value="{{formData.address}}" placeholder="{{i18n.t('mine.inputAddress', locale)}}" placeholder-class="placeholder" auto-height maxlength="200" />
     </view>
 
     <view class="uni-form-item switch-item">

@@ -11,7 +11,7 @@
     <view class="content-item" wx:for="{{goodsList}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
       <image class="image" mode="aspectFill" src="{{item.targetImage}}"></image>
       <view class="words">
-        <text class="t1">{{locale === 'zh-Hant' ? item.targetName : item.targetNameEnglish}}</text>
+        <text class="t1">{{locale === 'zh-Hant'  || locale === 'zh-Hans' ? item.targetName : item.targetNameEnglish}}</text>
         <view class="fdr">
           <text class="t4">{{i18n.t('goods.list.wait', locale)}}：</text>
           <text class="t2">{{item.stockNum - item.buyedNum}} {{i18n.t('goods.list.unit', locale)}}</text>

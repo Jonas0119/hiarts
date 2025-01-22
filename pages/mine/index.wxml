@@ -2,8 +2,8 @@
 
 <view class="greyBox">
   <view class="pic minefdr">
-    <view class="infor" bindtap="goSetting">
-      <image class="image" mode="widthFix" src="{{headImg}}"></image>
+    <view class="infor">
+      <image class="image" mode="widthFix" bindtap="goSetting" src="{{headImg}}"></image>
       <view class="jcc">
         <view class="t1">{{nickname}}</view>
         <view class="t2">{{phone}}</view>

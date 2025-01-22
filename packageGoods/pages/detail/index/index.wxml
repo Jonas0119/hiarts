@@ -12,7 +12,7 @@
 
       <!-- 商品基本信息 -->
       <view class="container">
-        <text class="t1">{{locale === 'zh-Hant' ? goodsDetail.targetName : goodsDetail.targetNameEnglish}}</text>
+        <text class="t1">{{locale === 'zh-Hant' || locale === 'zh-Hans' ? goodsDetail.targetName : goodsDetail.targetNameEnglish}}</text>
         <view class="fdr">
           <text class="t4">{{i18n.t('goods.detail.saleTime', locale)}}：</text>
           <text class="t2">{{goodsDetail.endTime || '--'}}</text>
@@ -45,18 +45,18 @@
       <!-- 商品简介 -->
       <view class="container bt">
         <text class="title">{{i18n.t('goods.detail.shortContent', locale)}}</text>
-        <rich-text nodes="{{locale === 'zh-Hant' ? goodsDetail.targetDescBrief : goodsDetail.targetDescBriefEnglish}}"></rich-text>
+        <rich-text nodes="{{locale === 'zh-Hant' || locale === 'zh-Hans' ? goodsDetail.targetDescBrief : goodsDetail.targetDescBriefEnglish}}"></rich-text>
 
         <view class="tips">
           <view class="t8">----- {{i18n.t('goods.detail.tips', locale)}} -----</view>
-          <text class="t5">{{locale === 'zh-Hant' ? multiLineText : multiLineTextEnglish}}</text>
+          <text class="t5">{{i18n.t('goods.detail.tipsWord', locale)}}</text>
         </view>
       </view>
 
       <!-- 商品详情 -->
       <view class="container bt description">
         <text class="title">{{i18n.t('goods.detail.description', locale)}}</text>
-        <rich-text nodes="{{locale === 'zh-Hant' ? goodsDetail.targetDesc : goodsDetail.targetDescEnglish}}"></rich-text>
+        <rich-text nodes="{{locale === 'zh-Hant'  || locale === 'zh-Hans' ? goodsDetail.targetDesc : goodsDetail.targetDescEnglish}}"></rich-text>
       </view>
     </view>
   </scroll-view>

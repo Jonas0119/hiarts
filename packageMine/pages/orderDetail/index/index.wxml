@@ -51,15 +51,11 @@
     <view class="takeTitle">{{i18n.t('order.tiInfo', locale)}}</view>
     <view class="ffr" bindtap="showAddress">
       <view class="t6">{{i18n.t('order.choseAdd', locale)}}</view>
-      <view class="t7">
-        <view class="addressList">
-          <view>
-            <text class="t1">{{addressList[chose].address}}</text>
-          </view>
-          <view class="t3">{{addressList[chose].receiveName}} {{addressList[chose].receiveMobile}}</view>
-        </view>
-        <image src="/static/images/arrow-right.png" class="uni-icon-size" mode="widthFix"></image>
+      <view class="address-content">
+        <view class="address-text">{{addressList[chose].address}}</view>
+        <view class="contact-info">{{addressList[chose].receiveName}} {{addressList[chose].receiveMobile}}</view>
       </view>
+      <image src="/static/images/arrow-right.png" class="uni-icon-size" mode="widthFix"></image>
     </view>
 
     <view class="ffr">

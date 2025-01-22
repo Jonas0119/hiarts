@@ -57,7 +57,7 @@ Page({
         if (res.data.code === 200) {
           const detail = res.data.data
           let targetImage = ''
-          if(this.data.locale === 'zh-Hant') {
+          if(this.data.locale === 'zh-Hant' || this.data.locale === 'zh-Hans') {
             targetImage = detail.targetImage || ''
           } else {
             targetImage = detail.targetImageEnglish || detail.targetImage || ''

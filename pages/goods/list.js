@@ -146,7 +146,7 @@ Page({
 
   getImage(item) {
     let targetImage = ''
-    if(this.data.locale === 'zh-Hant') {
+    if(this.data.locale === 'zh-Hant' || this.data.locale === 'zh-Hans') {
       targetImage = item.targetImage
     } else {
       targetImage = item.targetImageEnglish

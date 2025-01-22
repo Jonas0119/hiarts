@@ -5,7 +5,7 @@
   <view class="indexTitle">
     <view class="nav">
       <image src="/static/images/logo-title.png" class="logo"></image>
-      <text class="locale" bindtap="openLocale">{{i18n.t('index.navBtn', locale)}}</text>
+      <text class="locale" bindtap="openLocale">{{i18n.t('language.' + (locale === 'en' ? 'english' : (locale === 'zh-Hans' ? 'simplified' : 'traditional')), locale)}}</text>
     </view>
   </view>
 
@@ -43,7 +43,7 @@
           mode="aspectFit" 
           class="grid-img"
         ></image>
-        <text class="grid-text">{{i18n.t('index.category' + (index + 1), locale)}}</text>
+        <!-- <text class="grid-text">{{i18n.t('index.category' + (index + 1), locale)}}</text> -->
       </view>
     </view>
 
@@ -78,10 +78,10 @@
       <view class="item" wx:for="{{goodsList}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
         <image class="image" mode="aspectFill" src="{{item.displayImage}}"></image>
         <view class="words">
-          <text class="t1">{{locale === 'zh-Hant' ? item.targetName : item.targetNameEnglish}}</text>
+          <text class="t1">{{locale === 'zh-Hant'  || locale === 'zh-Hans' ? item.targetName : item.targetNameEnglish}}</text>
           <view class="fdr">
             <text class="t4">{{i18n.t('goods.list.wait', locale)}}：</text>
-            <text class="t2">{{item.stockNum - item.buyedNum}}{{i18n.t('goods.list.unit', locale)}}</text>
+            <text class="t2">{{item.stockNum - item.buyedNum}} {{i18n.t('goods.list.unit', locale)}}</text>
           </view>
           <view class="fdr">
             <text class="t4">{{i18n.t('goods.list.price', locale)}}：</text>

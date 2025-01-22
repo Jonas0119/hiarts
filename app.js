@@ -34,11 +34,13 @@ App({
 
   // 设置语言
   setLocale: function(locale) {
+    console.log('[Language] Setting new locale:', locale)
     this.globalData.locale = locale
     wx.setStorageSync('locale', locale)
     // 更新导航栏标题
     updateNavigationBarTitle()
     // 更新tabBar文本
+    console.log('[Language] Calling updateTabBarText with locale:', locale)
     this.updateTabBarText(locale)
     // 通知所有监听者
     this.globalData.watchLocale.forEach(callback => {
@@ -48,18 +50,22 @@ App({
 
   // 更新tabBar文本
   updateTabBarText: function(locale) {
+    console.log('[TabBar] Updating text with locale:', locale)
     wx.setTabBarItem({
       index: 0,
       text: t('tabBar.home', locale)
     })
+    console.log('[TabBar] Home text:', t('tabBar.home', locale))
     wx.setTabBarItem({
       index: 1,
       text: t('tabBar.goods', locale)
     })
+    console.log('[TabBar] Goods text:', t('tabBar.goods', locale))
     wx.setTabBarItem({
       index: 2,
       text: t('tabBar.mine', locale)
     })
+    console.log('[TabBar] Mine text:', t('tabBar.mine', locale))
   },
 
   checkLogin: function () {

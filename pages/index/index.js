@@ -1,4 +1,4 @@
-import { t } from '../../utils/i18n'
+import { t, getCurrentLanguage, setLanguage, getSupportedLanguages } from '../../utils/i18n'
 const echarts = require('../../components/ec-canvas/echarts')
 const pageBehavior = require('../../utils/pageBehavior')
 
@@ -25,6 +25,7 @@ Page({
     ec: {
       lazyLoad: true
     },
+    locale: getCurrentLanguage(),
     chartOption: {
       grid: {
         left: '50rpx',
@@ -81,6 +82,9 @@ Page({
   },
 
   onLoad() {
+    this.setData({
+      locale: getCurrentLanguage()
+    })
     this.getExchangeRate()
     this.getGoodsList()
     this.getStats()
@@ -89,6 +93,9 @@ Page({
 
   // 语言变化时重新加载数据
   onLocaleChange: function() {
+    this.setData({
+      locale: getCurrentLanguage()
+    })
     this.getGoodsList()
   },
 
@@ -178,7 +185,7 @@ Page({
   // 处理商品图片
   getImage(item) {
     let targetImage = ''
-    if(this.data.locale === 'zh-Hant') {
+    if(this.data.locale === 'zh-Hant' || this.data.locale === 'zh-Hans') {
       targetImage = item.targetImage
     } else {
       targetImage = item.targetImageEnglish
@@ -233,22 +240,14 @@ Page({
   },
 
   openLocale: function() {
-    let _this = this
+    const languages = getSupportedLanguages()
+    const itemList = Object.values(languages)
+    
     wx.showActionSheet({
-      itemList: ['繁体', 'English'],
-      success: function(res) {
-        if (res.tapIndex == 1) {
-          app.setLocale('en')
-        } else {
-          app.setLocale('zh-Hant')
-        }
-        
-        _this.setData({
-          locale: wx.getStorageSync('locale')
-        })
-      },
-      fail: function(res) {
-        console.log(res.errMsg)
+      itemList: itemList,
+      success: (res) => {
+        const selectedLang = Object.keys(languages)[res.tapIndex]
+        app.setLocale(selectedLang)
       }
     })
   }

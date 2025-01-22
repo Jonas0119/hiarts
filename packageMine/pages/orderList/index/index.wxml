@@ -9,8 +9,10 @@
           <image src="{{locale == 'zh-Hant' ? item.targetImage : item.targetImageEnglish}}" mode="aspectFit" class="image"></image>
         </view>
         <view class="words">
-          <view class="t1">{{locale == 'zh-Hant' ? item.targetName : item.targetNameEnglish}}</view>
-          <view class="state">{{state.formateState(item.state, locale)}}</view>
+          <view class="title-row">
+            <text class="t1">{{locale == 'zh-Hant' ? item.targetName : item.targetNameEnglish}}</text>
+            <text class="state">{{state.formateState(item.state, locale)}}</text>
+          </view>
           <view class="orderfdr">
             <text class="t4">{{i18n.t('goods.detail.buyNum', locale)}}：</text>
             <text class="t3">{{item.buyedNum}} {{i18n.t('goods.list.unit', locale)}}</text>

@@ -249,25 +249,102 @@
    - 格式化工具
    - 监听器机制
 
-#### 4.2 代码改造顺序
-1. 公共组件改造
-   - navigation-bar
-   - loading
-   - empty
+#### 4.2 语言切换功能实现
 
-2. 主包页面改造
-   - index
-   - mine
-   - login
+1. 语言配置
+```javascript
+const LANGUAGES = {
+  'zh-Hant': '繁體中文',
+  'zh-Hans': '简体中文',
+  'en': 'English'
+}
 
-3. 分包页面改造
-   - packageGoods
-   - packageMine
+const DEFAULT_LANGUAGE = 'zh-Hant'
+```
 
-4. 工具类改造
-   - 日期格式化
-   - 金额格式化
-   - 状态映射
+2. 语言包结构
+```javascript
+{
+  'zh-Hant': {
+    'language': {
+      'current': '當前語言',
+      'traditional': '繁體中文',
+      'simplified': '简体中文',
+      'english': 'English'
+    }
+    // ... 其他翻译
+  },
+  'zh-Hans': {
+    'language': {
+      'current': '当前语言',
+      'traditional': '繁体中文',
+      'simplified': '简体中文',
+      'english': 'English'
+    }
+    // ... 其他翻译
+  },
+  'en': {
+    'language': {
+      'current': 'Current Language',
+      'traditional': 'Traditional Chinese',
+      'simplified': 'Simplified Chinese',
+      'english': 'English'
+    }
+    // ... 其他翻译
+  }
+}
+```
+
+3. 功能实现流程
+   - 首页添加语言切换按钮，显示当前语言
+   - 点击按钮弹出底部选择框（wx.showActionSheet）
+   - 选择新语言后保存设置并刷新页面
+   - 所有页面监听语言变化事件
+
+4. 数据持久化
+   - 使用 wx.setStorageSync 存储语言选择
+   - 应用启动时读取存储的语言设置
+   - 默认使用繁体中文（zh-Hant）
+
+5. 页面刷新机制
+   - 语言切换时触发页面刷新
+   - 使用 getCurrentPages 获取当前页面栈
+   - 重新加载当前页面数据
+
+6. 注意事项
+   - 确保所有文本都有对应的三语言翻译
+   - 处理好异步加载的文本内容
+   - 考虑后端API的语言参数调整
+   - 保持用户其他状态（如登录状态）
+   - 优化语言切换的用户体验
+
+#### 4.3 具体实现步骤
+
+1. 更新 i18n.js
+   - 添加简体中文翻译
+   - 完善语言切换方法
+   - 添加语言变化事件监听
+
+2. 修改首页
+   - 添加语言切换按钮
+   - 实现底部弹窗选择
+   - 处理语言切换逻辑
+
+3. 更新页面组件
+   - 使用 t 函数替换静态文本
+   - 添加语言变化监听
+   - 处理动态内容的翻译
+
+4. 系统适配
+   - 调整 API 请求头部
+   - 更新错误提示信息
+   - 处理日期和货币格式
+
+5. 测试验证
+   - 检查所有页面的翻译完整性
+   - 验证语言切换功能
+   - 测试页面刷新机制
+   - 确认用户状态保持
 
 ### 5. 测试验证
 
