@@ -154,7 +154,7 @@ Page({
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded',
-        'Authorization': 'Bearer ' + this.data.token
+        'Authorization': 'Bearer ' +  this.data.token
       },
       success: (res) => {
         if (res.data.code == 200) {

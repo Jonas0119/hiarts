@@ -503,16 +503,13 @@ const updateNavigationBarTitle = () => {
   if (pages.length > 0) {
     const currentPage = pages[pages.length - 1];
     const route = currentPage.route;
-    console.log("[Navigation] Current route:", route);
-    
     const titleKey = getPageTitleKey(route);
-    console.log("[Navigation] Generated titleKey:", titleKey);
-    
     const currentLang = getCurrentLanguage();
-    console.log("[Navigation] Current language:", currentLang);
-    
     const title = translations[currentLang]?.navigationBarTitles?.[titleKey];
-    console.log("[Navigation] Found title:", title);
+    
+    console.log("[Navigation] Current route:" + route 
+      + " Current language:" + currentLang 
+      + " Found title:" + title);
     
     if (title) {
       wx.setNavigationBarTitle({
