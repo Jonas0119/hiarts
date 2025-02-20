@@ -28,11 +28,11 @@
   <view class="takeForm fff">
     <view class="takeTitle">{{i18n.t('order.payMethod', locale)}}</view>
     <view class="payMethodList">
-      <view class="payMethodItem {{payMethod === 'BANK' ? 'active' : ''}}" bindtap="selectPayMethod" data-method="BANK">
+      <view class="payMethodItem {{payMethod === '0' ? 'active' : ''}}" bindtap="selectPayMethod" data-method="0">
         <image src="/static/images/bank-pay.png" mode="widthFix" class="payIcon"></image>
         <text class="payText">{{i18n.t('order.bankPay', locale)}}</text>
       </view>
-      <view class="payMethodItem {{payMethod === 'WECHAT' ? 'active' : ''}}" bindtap="selectPayMethod" data-method="WECHAT">
+      <view class="payMethodItem {{payMethod === '1' ? 'active' : ''}}" bindtap="selectPayMethod" data-method="1">
         <image src="/static/images/wechat-pay.png" mode="widthFix" class="payIcon"></image>
         <text class="payText">{{i18n.t('order.wechatPay', locale)}}</text>
       </view>

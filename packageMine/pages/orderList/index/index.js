@@ -193,7 +193,16 @@ Page({
 
   requestDelivery: function(e) {
     const id = e.currentTarget.dataset.id
+    console.log('the order id is:', id);
     wx.redirectTo({
+      url: '/packageMine/pages/orderDetail/index/index?id=' + id
+    })
+  },
+
+  payOrder: function(e) {
+    const id = e.currentTarget.dataset.id
+    console.log('the order id is:', id);
+    wx.navigateTo({
       url: '/packageMine/pages/orderDetail/index/index?id=' + id
     })
   }

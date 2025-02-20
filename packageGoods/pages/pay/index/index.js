@@ -12,7 +12,8 @@ Page({
     addressList: [],
     addressIndex: 0,
     showAddressPopup: false,
-    payMethod: 'WECHAT'  // 默认微信支付
+    wxOpenId:'',
+    payMethod: '1'  // 默认微信支付
   },
 
   onLoad: function(options) {
@@ -28,6 +29,7 @@ Page({
     }
 
     this.loadAddressList()
+    this.getOpenid()
   },
 
   onShow: function() {
@@ -44,6 +46,48 @@ Page({
   formatAmount: function(targetAmount, buyedNum) {
     return (Number(targetAmount) * Number(buyedNum)).toFixed(2)
   },
+
+  getOpenid: function () {
+    // 1. 调用 wx.login 获取 code
+    wx.login({
+      success: (res) => {
+        if (res.code) {
+          console.log('the code is:', res.code);
+          // 2. 将 code 发送到后端
+          wx.request({
+            url: app.globalData.baseUrl + '/tjfae-space/GoodsApi/pay/getOpenId',
+            method: 'POST',
+            data: {
+              jsCode: res.code
+            },
+            header: {
+              'content-type': 'application/x-www-form-urlencoded',
+              'Authorization': `Bearer ${wx.getStorageSync('token')}`
+            },
+            success: (response) => {
+              console.log('reponse:', response.data);
+              // 3. 获取后端返回的 openid
+              if (response.data.code === 200) {
+                this.setData({
+                  openId: response.data.data
+                });
+                console.log('current user openid:', this.data.openId);
+              }
+            },
+            fail: (error) => {
+              console.error('请求失败:', error);
+            },
+          });
+        } else {
+          console.error('获取 code 失败:', res.errMsg);
+        }
+      },
+      fail: (error) => {
+        console.error('wx.login 调用失败:', error);
+      },
+    })
+  },
+
 
   loadGoodsDetail: function(id) {
     wx.showLoading({
@@ -163,6 +207,55 @@ Page({
     })
   },
 
+  wxPay: function (jsonString) {
+    const payData = JSON.parse(jsonString);
+    const timeStamp = payData.timeStamp;
+    const nonceStr = payData.nonceStr;
+    const pack = payData.package;
+    const signType = payData.signType;
+    const paySign = payData.paySign;
+    const appId = payData.appId;
+    const orderId = payData.orderId;
+    wx.requestPayment({
+      "timeStamp": timeStamp,
+      "nonceStr": nonceStr,
+      "package": pack,
+      "signType": signType,
+      "paySign": paySign,
+      "success": (res) => {
+        wx.showToast({
+          title: t('common.success'),
+          icon: 'success',
+          duration: 2000,
+          success: () => {
+            setTimeout(() => {
+              wx.redirectTo({
+                url: '/packageMine/pages/orderList/index/index'
+              })
+            }, 2000)
+          }
+        })
+      },
+      "fail": (res) => {
+        console.log('the order id is:', orderId);
+        console.log('the res is:', res);
+        var detailMessage = res.errMsg;
+        wx.showToast({
+          title: t('common.payFailed'),
+          icon: 'none',
+          duration: 2000,
+          success: () => {
+            setTimeout(() => {
+              wx.redirectTo({
+                url: '/packageMine/pages/orderDetail/index/index?id=' + orderId
+              })
+            }, 2000)
+          }
+        })
+      }
+    })
+  },
+
   submitOrder: function() {
     if (!app.checkLogin()) return
 
@@ -183,7 +276,8 @@ Page({
         addressId: this.data.addressList[this.data.addressIndex].id,
         payFinishUrl: '/pages/mine/index',
         payErrorUrl: '/pages/index/index',
-        payMethod: this.data.payMethod
+        wxPay: this.data.payMethod,
+        openId:this.data.openId
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded',
@@ -191,9 +285,15 @@ Page({
       },
       success: (res) => {
         if (res.data.code === 200 && res.data.data != null && res.data.data != undefined) {
-          wx.navigateTo({
-            url: '/packageGoods/pages/payIndex/index/index?payUrl=' + encodeURIComponent(res.data.data)
-          })
+          if(this.data.payMethod=='0'){
+            console.log("the ningbo bank url is:" + res.data.data)
+            wx.navigateTo({
+              url: '/packageGoods/pages/payIndex/index/index?payUrl=' + encodeURIComponent(res.data.data)
+            })
+          } else if(this.data.payMethod=='1'){
+            console.log('buy res:', res.data.data);
+            this.wxPay(res.data.data)
+          }
         } else if (res.data.code == '999999') {         
           wx.showToast({
             title: res.data.msg,

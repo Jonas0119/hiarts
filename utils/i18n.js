@@ -117,6 +117,7 @@ const translations = {
     },
     "order": {
       "pay": "Actual payment",
+      "payOrder": "Pay",
       "confirm": "Confirm receipt",
       "askget": "Request for delivery",
       "orderNo": "Order number",
@@ -167,7 +168,8 @@ const translations = {
       "loadFailed": "Load failed",
       "networkError": "Network request failed",
       "requestFailed": "Request failed",
-      "contactManager": "Please contact customer manager"
+      "contactManager": "Please contact customer manager",
+      "payFailed": "Pay failed or User Cancelled"
     },
     "navigationBarTitles": {
       "pages.index.index": "HiArts",
@@ -325,6 +327,7 @@ const translations = {
     },
     "order": {
       "pay": "實付款",
+      "payOrder": "立即支付",
       "confirm": "確認收貨",
       "askget": "申請提貨",
       "orderNo": "訂單編號",
@@ -375,7 +378,8 @@ const translations = {
       "loadFailed": "加載失敗",
       "networkError": "網絡請求失敗",
       "requestFailed": "請求失敗",
-      "contactManager": "請聯繫客戶經理"
+      "contactManager": "請聯繫客戶經理",
+      "payFailed": "支付失敗或用戶取消"
     },
     "navigationBarTitles": {
       "pages.index.index": "港藝",
@@ -572,6 +576,7 @@ const translations = {
     },
     "order": {
       "pay": "实付款",
+      "payOrder": "立即支付",
       "confirm": "确认收货",
       "askget": "申请提货",
       "orderNo": "订单编号",
@@ -620,7 +625,8 @@ const translations = {
       "saveFailed": "保存失败",
       "pleaseInput": "请输入",
       "fail": "操作失败",
-      "networkError": "网络异常"
+      "networkError": "网络异常",
+      "payFailed": "支付失败或用户取消付款"
     },
     "components": {
       "navigationBar": {

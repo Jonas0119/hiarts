@@ -26,6 +26,9 @@
             <view class="orderbtn" wx:if="{{item.state == 'finishPay'}}" catchtap="requestDelivery" data-id="{{item.id}}">
               {{i18n.t('order.askget', locale)}}
             </view>
+            <view class="orderbtn" wx:if="{{item.state == 'paying' && item.payResp }}" catchtap="payOrder" data-id="{{item.id}}">
+              {{i18n.t('order.payOrder', locale)}}
+            </view>
             <view class="orderbtn" wx:if="{{item.state == 'Shipped'}}" catchtap="pickup" data-id="{{item.id}}">
               {{i18n.t('order.confirm', locale)}}
             </view>

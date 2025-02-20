@@ -105,6 +105,7 @@ var translations = {
     },
     "order": {
       "pay": "Actual payment",
+      "payOrder": "Pay",
       "confirm": "Confirm receipt",
       "askget": "Request for delivery",
       "orderNo": "Order number",
@@ -153,7 +154,8 @@ var translations = {
       "saveFailed": "Save failed",
       "pleaseInput": "Please input",
       "fail": "Operation failed",
-      "networkError": "Network error"
+      "networkError": "Network error",
+      "payFailed": "Pay failed or User Cancelled"
     },
     components: {
       navigationBar: {
@@ -311,6 +313,7 @@ var translations = {
     },
     "order": {
       "pay": "實付款",
+      "payOrder": "立即支付",
       "confirm": "確認收貨",
       "askget": "申請提貨",
       "orderNo": "訂單編號",
@@ -359,7 +362,8 @@ var translations = {
       "saveFailed": "保存失敗",
       "pleaseInput": "請輸入",
       "fail": "操作失敗",
-      "networkError": "網絡異常"
+      "networkError": "網絡異常",
+      "payFailed": "支付失敗或用戶取消"
     },
     components: {
       navigationBar: {
@@ -462,6 +466,7 @@ var translations = {
     },
     "order": {
       "pay": "实付款",
+      "payOrder": "立即支付",
       "confirm": "确认收货",
       "askget": "申请提货",
       "orderNo": "订单编号",
@@ -510,7 +515,8 @@ var translations = {
       "saveFailed": "保存失败",
       "pleaseInput": "请输入",
       "fail": "操作失败",
-      "networkError": "网络异常"
+      "networkError": "网络异常",
+      "payFailed": "支付失败或用户取消付款"
     },
     "goods": {
       "list": {

@@ -4,7 +4,7 @@
 <view class="order">
   <view class="uni-navigate-item">
     <view class="image-container">
-      <image src="{{locale == 'zh-Hant' ? obj.targetImage : obj.targetImageEnglish}}" mode="aspectFit" class="image"></image>
+      <image src="{{ targetImage }}" mode="aspectFit" class="image"></image>
     </view>
     <view class="words">
       <view class="t1">{{locale == 'zh-Hant' ? obj.targetName : obj.targetNameEnglish}}</view>
@@ -106,4 +106,8 @@
 
 <view class="fixed-bottom" wx:if="{{obj.state == 'finishPay'}}">
   <button bindtap="take" class="takebtn">{{i18n.t('order.submit', locale)}}</button>
+</view>
+
+<view class="fixed-bottom" wx:if="{{showPayButton}}">
+  <button bindtap="handlePay" class="paybtn">{{i18n.t('order.payOrder', locale)}}</button>
 </view> 

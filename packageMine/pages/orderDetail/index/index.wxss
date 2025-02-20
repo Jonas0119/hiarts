@@ -283,7 +283,21 @@
   font-size: 36rpx;
   color: #fff;
   width: 600rpx;
-  margin: 200rpx auto;
+  height: 88rpx;
+  line-height: 88rpx;
+  border-radius: 44rpx;
+  margin: 0 auto;
+}
+
+.paybtn {
+  background-color: #AD2828;
+  font-size: 36rpx;
+  color: #fff;
+  width: 600rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  border-radius: 44rpx;
+  margin: 0 auto;
 }
 
 .takeTitle {
@@ -406,17 +420,6 @@
 .bottom-placeholder {
   height: 180rpx;
   width: 100%;
-}
-
-.takebtn {
-  background-color: #AD2828;
-  font-size: 36rpx;
-  color: #fff;
-  width: 600rpx;
-  height: 88rpx;
-  line-height: 88rpx;
-  border-radius: 44rpx;
-  margin: 0 auto;
 }
 
 .address-select {
