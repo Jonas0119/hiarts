@@ -131,13 +131,11 @@ Page({
             icon: 'none'
           })
 
-          console.log("the currentPageUrl is:" + currentPageUrl)
           wx.redirectTo({
             url: '/pages/login/index?redirect='
               + encodeURIComponent(currentPageUrl)
           })
         } else {
-          console.log('take res.data.msg is:'+res.data.msg)
           wx.showToast({
             title: res.data.msg,
             icon: 'none'
@@ -174,13 +172,11 @@ Page({
             icon: 'none'
           })
 
-          console.log("the currentPageUrl is:" + currentPageUrl)
           wx.redirectTo({
             url: '/pages/login/index?redirect='
               + encodeURIComponent(currentPageUrl)
           })
         } else {
-          console.log('getAdd res.data.msg is:'+res.data.rows)
           wx.showToast({
             title: res.data.msg,
             icon: 'none'
@@ -217,11 +213,9 @@ Page({
         'Authorization': 'Bearer ' + this.data.token
       },
       success: (res) => {
-        console.log('订单详情响应:', JSON.stringify(res.data));
         if (res.data.code == 200) {
           const targetImage = this.getImage(res.data.data)
           if (!res.data.data) {
-            console.error('返回数据为空');
             wx.showToast({
               title: t('common.dataError', this.data.locale),
               icon: 'none'
@@ -245,7 +239,6 @@ Page({
             icon: 'none'
           })
 
-          console.log("the currentPageUrl is:" + currentPageUrl)
           wx.redirectTo({
             url: '/pages/login/index?redirect='
               + encodeURIComponent(currentPageUrl)
@@ -271,11 +264,10 @@ Page({
   },
 
   handlePay(){
-    console.log('pay info is:'+this.data.payInfo)
     if(this.data.payType == 'weixin'){
       this.weixinPay();
-    //}else if(payType == 'ningbo'){
-    }else{
+    }else if(payType == 'ningbo'){
+    //}else{
       this.ningboPay();
     }
   },
@@ -287,7 +279,6 @@ Page({
   },
 
   weixinPay() {
-    console.log('wx pay info is:'+this.data.payInfo)
     const payData = JSON.parse(this.data.payInfo);
     const timeStamp = payData.timeStamp;
     const nonceStr = payData.nonceStr;
@@ -308,7 +299,6 @@ Page({
           icon: 'success',
           duration: 2000,
           success: () => {
-            console
             setTimeout(() => {
               wx.redirectTo({
                 url: '/packageMine/pages/orderList/index/index'
@@ -323,7 +313,6 @@ Page({
           icon: 'none',
           duration: 2000,
           success: () => {
-            console
             setTimeout(() => {
               wx.redirectTo({
                 url: '/packageMine/pages/orderList/index/index'

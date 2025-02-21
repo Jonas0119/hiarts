@@ -782,7 +782,6 @@ const updateNavigationBarTitle = () => {
     const currentLang = getCurrentLanguage();
     const title = translations[currentLang]?.navigationBarTitles?.[titleKey];
     
-    console.log("[Navigation] Current route:" + route 
       + " Current language:" + currentLang 
       + " Found title:" + title);
     

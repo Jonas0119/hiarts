@@ -70,7 +70,6 @@ Page({
             icon: 'none'
           })
 
-          console.log("the currentPageUrl is:" + currentPageUrl)
           wx.redirectTo({
             url: '/pages/login/index?redirect='
               + encodeURIComponent(currentPageUrl)
@@ -160,7 +159,6 @@ Page({
             icon: 'none'
           })
           
-          console.log("the currentPageUrl is:" + currentPageUrl)
           wx.redirectTo({
             url: '/pages/login/index?redirect='
               + encodeURIComponent(currentPageUrl)
@@ -204,7 +202,6 @@ Page({
             icon: 'none'
           })
 
-          console.log("the currentPageUrl is:" + currentPageUrl)
           wx.redirectTo({
             url: '/pages/login/index?redirect='
               + encodeURIComponent(currentPageUrl)

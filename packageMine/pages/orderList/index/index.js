@@ -44,7 +44,6 @@ Page({
   },
 
   onPullDownRefresh: function() {
-    console.log("orderList Language changed, token:", wx.getStorageSync('token'))
     this.init()
   },
 
@@ -55,7 +54,6 @@ Page({
 
   pickup: function(e) {
     const id = e.currentTarget.dataset.id
-    console.log("In orderlist Page this.data.token:" + this.data.token)
     wx.request({
       url: app.globalData.baseUrl + '/tjfae-space/order/pickup/receive',
       method: 'POST',
@@ -82,7 +80,6 @@ Page({
             title: res.data.msg,
             icon: 'none'
           })
-          console.log("the currentPageUrl is:" + currentPageUrl)
           wx.redirectTo({
             url: '/pages/login/index?redirect='
               + encodeURIComponent(currentPageUrl)
@@ -113,8 +110,6 @@ Page({
 
   init: function() {
     this.setData({ dataLoaded: false })
-    console.log("In orderlist Page this.data.locale:" + this.data.locale)
-    console.log("In orderlist Page this.data.token:" + this.data.token)
     wx.showLoading({
       title: t('common.loading', this.data.locale),
       mask: true
@@ -135,7 +130,6 @@ Page({
       withCredentials: false,
       firstIpv4: false,
       success: (res) => {
-        console.log("In orderlist Page res.data.code:" + res.data.code)
         if (res.data.code == 200) {
           const orderList = res.data.data.list.map(item => ({
             ...item,
@@ -156,7 +150,6 @@ Page({
             icon: 'none'
           })
 
-          console.log("the currentPageUrl is:" + currentPageUrl)
           wx.redirectTo({
             url: '/pages/login/index?redirect='
               + encodeURIComponent(currentPageUrl)
@@ -193,7 +186,6 @@ Page({
 
   requestDelivery: function(e) {
     const id = e.currentTarget.dataset.id
-    console.log('the order id is:', id);
     wx.redirectTo({
       url: '/packageMine/pages/orderDetail/index/index?id=' + id
     })
@@ -201,7 +193,6 @@ Page({
 
   payOrder: function(e) {
     const id = e.currentTarget.dataset.id
-    console.log('the order id is:', id);
     wx.navigateTo({
       url: '/packageMine/pages/orderDetail/index/index?id=' + id
     })

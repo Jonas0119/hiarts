@@ -53,7 +53,6 @@ Page({
       withCredentials: false,
       firstIpv4: false,
       success: (res) => {
-        console.log('商品详情返回:', res.data)
         if (res.data.code === 200) {
           const detail = res.data.data
           let targetImage = ''
@@ -78,7 +77,6 @@ Page({
               }
             }
           } catch(e) {
-            //console.log('解析店铺图片错误:', e)
             shopImage = detail.shopImage
           }
 

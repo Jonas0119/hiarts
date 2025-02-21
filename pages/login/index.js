@@ -192,13 +192,7 @@ Page({
           wx.setStorageSync('name', content.name)
           wx.setStorageSync('token', content.userToken)
           setTimeout(() => {
-            console.log("this redirect url in login:" + this.data.redirect)
-            console.log("login new token:" + wx.getStorageSync('token'))
-
             const pages = getCurrentPages()
-            pages.forEach((page, index) => {
-              console.log(`Login Page ${index + 1}: ${page.route}`);
-            });
             if (pages.length > 1) {
               wx.navigateBack({
                 delta: 1

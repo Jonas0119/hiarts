@@ -52,7 +52,7 @@ Page({
     wx.login({
       success: (res) => {
         if (res.code) {
-          console.log('the code is:', res.code);
+          //console.log('weixin code is:', res.code);
           // 2. 将 code 发送到后端
           wx.request({
             url: app.globalData.baseUrl + '/tjfae-space/GoodsApi/pay/getOpenId',
@@ -65,7 +65,6 @@ Page({
               'Authorization': `Bearer ${wx.getStorageSync('token')}`
             },
             success: (response) => {
-              console.log('reponse:', response.data);
               // 3. 获取后端返回的 openid
               if (response.data.code === 200) {
                 this.setData({
@@ -157,9 +156,6 @@ Page({
           const pages = getCurrentPages()
           const currentPage = pages[pages.length - 1]
           const currentPageUrl = currentPage.route
-          pages.forEach((page, index) => {
-            console.log(`pay Page ${index + 1}: ${page.route}`);
-          });
 
           wx.showToast({
             title: res.data.msg,
@@ -237,8 +233,6 @@ Page({
         })
       },
       "fail": (res) => {
-        console.log('the order id is:', orderId);
-        console.log('the res is:', res);
         var detailMessage = res.errMsg;
         wx.showToast({
           title: t('common.payFailed'),
@@ -286,12 +280,10 @@ Page({
       success: (res) => {
         if (res.data.code === 200 && res.data.data != null && res.data.data != undefined) {
           if(this.data.payMethod=='0'){
-            console.log("the ningbo bank url is:" + res.data.data)
             wx.navigateTo({
               url: '/packageGoods/pages/payIndex/index/index?payUrl=' + encodeURIComponent(res.data.data)
             })
           } else if(this.data.payMethod=='1'){
-            console.log('buy res:', res.data.data);
             this.wxPay(res.data.data)
           }
         } else if (res.data.code == '999999') {         
@@ -303,7 +295,6 @@ Page({
           const pages = getCurrentPages()
           const currentPage = pages[pages.length - 1]
           const currentPageUrl = currentPage.route
-          console.log("submitOrder currentPageUrl in pay:" + currentPageUrl)
 
           wx.redirectTo({
             url: `/pages/login/index?redirect=${encodeURIComponent(currentPageUrl)}`

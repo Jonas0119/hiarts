@@ -50,22 +50,18 @@ App({
 
   // 更新tabBar文本
   updateTabBarText: function(locale) {
-    console.log('[TabBar] Updating text with locale:', locale)
     wx.setTabBarItem({
       index: 0,
       text: t('tabBar.home', locale)
     })
-    console.log('[TabBar] Home text:', t('tabBar.home', locale))
     wx.setTabBarItem({
       index: 1,
       text: t('tabBar.goods', locale)
     })
-    console.log('[TabBar] Goods text:', t('tabBar.goods', locale))
     wx.setTabBarItem({
       index: 2,
       text: t('tabBar.mine', locale)
     })
-    console.log('[TabBar] Mine text:', t('tabBar.mine', locale))
   },
 
   checkLogin: function () {
@@ -78,9 +74,6 @@ App({
       })
 
       const pages = getCurrentPages()
-      pages.forEach((page, index) => {
-        console.log(`Login Page ${index + 1}: ${page.route}`);
-      });
       wx.navigateTo({
         url: '/pages/login/index'
       })

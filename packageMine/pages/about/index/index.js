@@ -82,7 +82,6 @@ Page({
     }
 
     if (url) {
-      console.log('url', url)
       wx.navigateTo({
         url: '/' + url
       })
