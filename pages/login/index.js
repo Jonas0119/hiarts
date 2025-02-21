@@ -77,10 +77,10 @@ Page({
       url: app.globalData.baseUrl + '/usercenter/user/sms/mobileCodeRequest',
       method: 'POST',
       data: {
-        serviceProvidersCode: 'tzhl',
+        serviceProvidersCode: 'aliyun',
         smsPhone: phone,
         smsType: 'login',
-        subjectCode: this.data.subjectCode
+        subjectCode: '64ab0a94b1e248d88ee25e1f63f75217'
       },
       header: {
         'content-type': 'application/json'
@@ -162,9 +162,9 @@ Page({
       code: code,
       phone: phone,
       source: 'app',
-      serviceProvidersCode: 'tzhl',
+      serviceProvidersCode: 'aliyun',
       subject: 'hjs',
-      subjectCode: this.data.subjectCode,
+      subjectCode: '64ab0a94b1e248d88ee25e1f63f75217',
       nscType: 2
     }
 

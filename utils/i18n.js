@@ -733,7 +733,6 @@ const setLanguage = (lang) => {
 // 获取翻译文本
 const t = (key, locale = null) => {
   const currentLocale = locale || getCurrentLanguage()
-  console.log('[i18n] Getting translation for key:', key, 'locale:', currentLocale)
   const keys = key.split('.')
   let value = translations[currentLocale]
 
@@ -741,12 +740,10 @@ const t = (key, locale = null) => {
     if (value && value[k]) {
       value = value[k]
     } else {
-      console.warn(`Translation key not found: ${key} for locale: ${currentLocale}`)
       return key
     }
   }
   
-  console.log('[i18n] Translation result:', value)
   return value
 }
 
@@ -781,10 +778,7 @@ const updateNavigationBarTitle = () => {
     const titleKey = getPageTitleKey(route);
     const currentLang = getCurrentLanguage();
     const title = translations[currentLang]?.navigationBarTitles?.[titleKey];
-    
-      + " Current language:" + currentLang 
-      + " Found title:" + title);
-    
+
     if (title) {
       wx.setNavigationBarTitle({
         title: title

@@ -266,7 +266,7 @@ Page({
   handlePay(){
     if(this.data.payType == 'weixin'){
       this.weixinPay();
-    }else if(payType == 'ningbo'){
+    }else if(this.data.payType == 'ningbo'){
     //}else{
       this.ningboPay();
     }
